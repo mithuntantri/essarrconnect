@@ -1,0 +1,57 @@
+{
+  "_from": "git+https://github.com/VitaliiBlagodir/cordova-plugin-datepicker.git",
+  "_id": "cordova-plugin-datepicker@0.9.2",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/cordova-plugin-datepicker",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "git+https://github.com/VitaliiBlagodir/cordova-plugin-datepicker.git",
+    "rawSpec": "git+https://github.com/VitaliiBlagodir/cordova-plugin-datepicker.git",
+    "saveSpec": "git+https://github.com/VitaliiBlagodir/cordova-plugin-datepicker.git",
+    "fetchSpec": "https://github.com/VitaliiBlagodir/cordova-plugin-datepicker.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/VitaliiBlagodir/cordova-plugin-datepicker.git#bd87605936b450dc32de0cddfb2ddb4936803fe0",
+  "_spec": "git+https://github.com/VitaliiBlagodir/cordova-plugin-datepicker.git",
+  "_where": "/home/mithuntantri/mithuntantri/essarrconnect/essarrconnect",
+  "author": {
+    "name": "Vitalii Blagodir",
+    "email": "vitalii.blagodir@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/VitaliiBlagodir/cordova-plugin-datepicker/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-datepicker",
+    "platforms": [
+      "ios",
+      "android",
+      "windows"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova DatePicker Plugin",
+  "homepage": "https://github.com/VitaliiBlagodir/cordova-plugin-datepicker#readme",
+  "keywords": [
+    "cordova",
+    "datepicker",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android",
+    "cordova-windows"
+  ],
+  "license": "Apache 2.0",
+  "name": "cordova-plugin-datepicker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VitaliiBlagodir/cordova-plugin-datepicker.git"
+  },
+  "version": "0.9.2"
+}

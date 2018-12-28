@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	    <meta name="viewport" content="width=device-width"/>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	    <title>Essarr Automotives Payslip</title>
+	    <link href="styles.css" media="all" rel="stylesheet" type="text/css"/>
+	</head>
+
+	<style type="text/css">
+		@font-face {
+		    font-family: 'GlacialIndifference-Regular';
+		    src: url(backend/fonts/GlacialIndifference-Regular.ttf);
+		}
+		@font-face {
+		    font-family: 'GlacialIndifference-Italic';
+		    src: url(backend/fonts/GlacialIndifference-Italic.otf);
+		}
+		@font-face {
+		    font-family: 'GlacialIndifference-Bold';
+		    src: url(backend/fonts/GlacialIndifference-Bold.otf);
+		}
+		body{
+			font-family: 'GlacialIndifference-Regular';
+			height: 100vh;
+			position: relative;
+			margin: 0;
+		}
+		.bold{
+			font-family: 'GlacialIndifference-Bold';
+		}
+		.italics{
+			font-family: 'GlacialIndifference-Italic';
+		}
+		td{
+			padding: 3px;
+		}
+	</style>
+
+	<body>
+		<div style="width:100%;padding: 10%;">
+			<div style="width: 80%;">
+				<img src="backend/img/essarr_logo.png" style="width: 30%;float: left;margin-top: -15px;"/>
+				<div style="width: 60%;float: right;margin-left: 10%;vertical-align: center;">
+					<div class="bold">ESSARR AUTOMOTIVES</div>
+					<div style="font-size: 11px;">(A Unit of Vijaya Group - Authorized Distributors for Maruti Suzuki Genuine Parts)</div>
+					<div style="font-size: 9px;margin-top: 10px;">No 19/1-2, H Siddiah Road, Lalbagh Gardens, Bengaluru - 560002, Opposite to Urvashi Theater, Bengaluru 560002</div>
+				</div>
+			</div>
+		</div>
+		<div style="margin-top: 50px;width: 100%;font-size: 15px;">
+			<div style="text-align: center;margin: 0 auto;">
+				Payslip for the month of October 2018
+			</div>
+		</div>
+		<div style="margin-top: 10px; width: 100%;">
+			<table frame="box" bordercolor="#ccc" style="width: 100%;margin-top: 10px;margin: 0 auto;font-size: 11px;">
+				<tr>
+					<td>Name :</td>
+					<td>{{name}}</td>
+					<td>Employee No. :</td>
+					<td>{{employee_number}}</td>
+				</tr>
+				<tr>
+					<td>Designation :</td>
+					<td>{{designation}}</td>
+					<td>Bank Name :</td>
+					<td>{{bank_name}}</td>
+				</tr>
+				<tr>
+					<td>Department :</td>
+					<td>{{department}}</td>
+					<td>Bank Account No:</td>
+					<td>{{bank_account_number}}</td>
+				</tr>
+				<tr>
+					<td>Location :</td>
+					<td>{{location}}</td>
+					<td>PAN Number :</td>
+					<td>{{pan_number}}</td>
+				</tr>
+				<tr>
+					<td>Effective Working Days :</td>
+					<td>{{effective_working_days}}</td>
+					<td>UAN Number:</td>
+					<td>{{uan_number}}</td>
+				</tr>
+				<tr>
+					<td>Loss of Pay :</td>
+					<td>{{loss_of_pay_days}}</td>
+					<td>EPF Number :</td>
+					<td>{{epf_number}}</td>
+				</tr>
+			</table>
+		</div>
+		<div style="margin-top: 10px; width: 100%;">
+			<table frame="box" rules="groups" bordercolor="#fff" style="width: 50%;float:left;margin-top: 10px;margin: 0 auto;font-size: 11px;">
+				<thead>
+					<tr>
+						<td style="text-align: left;">Earnings</td>
+						<td style="text-align: right;">Amount</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Basic + DA</td>
+						<td style="text-align: right;">{{basic_pay}}</td>
+					</tr>
+					<tr>
+						<td>HRA</td>
+						<td style="text-align: right;">{{hra}}</td>
+					</tr>
+					<tr>
+						<td>Other Allowance</td>
+						<td style="text-align: right;">{{other_allowance}}</td>
+					</tr>
+					<tr>
+						<td>Gross Income</td>
+						<td style="text-align: right;">{{gross_income}}</td>
+					</tr>
+					<tr>
+						<td>Incentive</td>
+						<td style="text-align: right;">{{incentives}}</td>
+					</tr>
+				</tbody>
+				<tbody>
+					<tr class="bold" style="background-color: #f5f5f5;font-weight: bold;">
+						<td>Total Earnings</td>
+						<td style="text-align: right;">{{total_earnings}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<table frame="box" rules="groups" bordercolor="#fff" style="width: 50%;float:right;margin-top: 10px;margin: 0 auto;font-size: 11px;border-left: 0px !important;">
+				<thead style="border-bottom: 1px solid #fff;">
+					<tr>
+						<td>Deductions</td>
+						<td style="text-align: right;">Amount</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>TDS</td>
+						<td style="text-align: right;">{{tds}}</td>
+					</tr>
+					<tr>
+						<td>Prof. Tax</td>
+						<td style="text-align: right;">{{professional_tax}}</td>
+					</tr>
+					<tr>
+						<td>EPF</td>
+						<td style="text-align: right;">{{epf}}</td>
+					</tr>
+					<tr>
+						<td>ESIC</td>
+						<td style="text-align: right;">{{esic}}</td>
+					</tr>
+					<tr>
+						<td>Loss of Pay</td>
+						<td style="text-align: right;">{{loss_of_pay_amount}}</td>
+					</tr>
+				</tbody>
+				<tbody>
+					<tr class="bold" style="background-color: #f5f5f5;font-weight: bold;">
+						<td>Total Deductions</td>
+						<td style="text-align: right;">{{total_deductions}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div style="width: 100%;">
+			<table frame="box" rules="groups" bordercolor="#fff" style="width: 100%;float:left;margin-top: 10px;margin: 0 auto;font-size: 11px;">
+				<th>Net Pay for the month : <span class="bold">{{net_pay_for_the_month}}</span></th>
+				<th>({{net_pay_for_the_month_figures}})</th>
+			</table>
+		</div>
+		<div style="background-color: #ccc;width: 100%;margin-top: 10px;text-align: center;">
+			<div style="font-size: 13px;margin: 10px auto;" class="bold">TDS Details</div>
+		</div>
+		<div style="width: 100%;margin-bottom: 15px;">
+			<table frame="box" rules="groups" bordercolor="#ccc" style="width: 50%;float:left;margin-top: 10px;margin: 0 auto;font-size: 11px;">
+				<thead>
+					<tr class="bold">
+						<td style="text-align: left;">Description</td>
+						<td style="text-align: right;">Gross</td>
+						<td style="text-align: right;">Exempt</td>
+						<td style="text-align: right;">Taxable</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: left;">Basic + DA</td>
+						<td style="text-align: right;">{{basic_gross}}</td>
+						<td style="text-align: right;">{{basic_exempt}}</td>
+						<td style="text-align: right;">{{basic_taxable}}</td>
+					</tr>
+					<tr>
+						<td style="text-align: left;">HRA</td>
+						<td style="text-align: right;">{{hra_gross}}</td>
+						<td style="text-align: right;">{{hra_exempt}}</td>
+						<td style="text-align: right;">{{hra_taxable}}</td>
+					</tr>
+					<tr>
+						<td style="text-align: left;">Other Allowance</td>
+						<td style="text-align: right;">{{other_gross}}</td>
+						<td style="text-align: right;">{{other_exempt}}</td>
+						<td style="text-align: right;">{{other_taxable}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<table frame="box" rules="groups" bordercolor="#ccc" style="width: 45%;float:right;margin-top: 10px;margin: 0 auto;font-size: 11px;margin-left: 5%;">
+				<thead>
+					<tr>
+						<td colspan="2"><span class="bold">Income Tax Deduction</span></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: left;">Gross Salary</td>
+						<td style="text-align: right;">{{annual_gross}}</td>
+					</tr>
+					<tr>
+						<td style="text-align: left;">Profession Tax</td>
+						<td style="text-align: right;">{{annual_prof_tax}}</td>
+					</tr>
+					<tr>
+						<td style="text-align: left;">Total Deduction under 80C</td>
+						<td style="text-align: right;">{{total_80c_deduction}}</td>
+					</tr>
+					<tr>
+						<td style="text-align: left;">Total Income</td>
+						<td style="text-align: right;">{{total_income}}</td>
+					</tr>
+					<tr>
+						<td style="text-align: left;">Education Cess</td>
+						<td style="text-align: right;">0</td>
+					</tr>
+					<tr>
+						<td style="text-align: left;">Tax Deducted (Prev Empoyer)</td>
+						<td style="text-align: right;">0</td>
+					</tr>
+					<tr>
+						<td style="text-align: left;">Tax deducted (Till Date)</td>
+						<td style="text-align: right;">0</td>
+					</tr>
+					<tr>
+						<td style="text-align: left;">Tax to be deducted</td>
+						<td style="text-align: right;">{{tax_to_be_deducted}}</td>
+					</tr>
+					<tr>
+						<td style="text-align: left;">Monthly projected tax</td>
+						<td style="text-align: right;">{{monthly_projected_tax}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div style="width: 100%;margin-top: 220px;">
+			<div style="border-bottom: 1px solid #ccc;color: #ccc;font-size: 11px;" class="bold">Remarks</div>
+			<div class="italics" style="font-size: 9px;color:#ccc;">**This is a computer generated payslip and does not require a signature</div>
+		</div>
+	</body>
+</html>

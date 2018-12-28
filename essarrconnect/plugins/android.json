@@ -1,0 +1,40 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "io.cordova.boilerplatecordova"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "io.cordova.boilerplatecordova"
+    },
+    "cordova-plugin-x-toast": {
+      "PACKAGE_NAME": "io.cordova.boilerplatecordova"
+    },
+    "cordova-plugin-otp-auto-verification": {
+      "PACKAGE_NAME": "io.cordova.boilerplatecordova"
+    },
+    "cordova-plugin-CDVNavBar": {
+      "PACKAGE_NAME": "io.cordova.boilerplatecordova"
+    },
+    "cordova-plugin-datepicker": {
+      "PACKAGE_NAME": "io.cordova.boilerplatecordova"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "com.essarrautomotives.adminconnect"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.essarrautomotives.adminconnect"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.essarrautomotives.adminconnect"
+    }
+  }
+}

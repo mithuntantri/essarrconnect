@@ -1,0 +1,42 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-CDVNavBar": {
+      "PACKAGE_NAME": "com.essarrautomotives.employeeconnect"
+    },
+    "cordova-plugin-datepicker": {
+      "PACKAGE_NAME": "com.essarrautomotives.employeeconnect"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.essarrautomotives.employeeconnect"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.essarrautomotives.employeeconnect"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.essarrautomotives.employeeconnect"
+    },
+    "cordova-plugin-otp-auto-verification": {
+      "PACKAGE_NAME": "com.essarrautomotives.employeeconnect"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.essarrautomotives.employeeconnect"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.essarrautomotives.employeeconnect"
+    },
+    "cordova-plugin-x-toast": {
+      "PACKAGE_NAME": "com.essarrautomotives.employeeconnect"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "com.essarrautomotives.employeeconnect"
+    }
+  },
+  "dependent_plugins": {}
+}

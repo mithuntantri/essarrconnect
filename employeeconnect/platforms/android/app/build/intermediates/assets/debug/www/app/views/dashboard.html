@@ -1,0 +1,289 @@
+<div id="cont">
+  <div ng-click="drawer.show()" class="fixed" id="topbar">
+    <div class="title">
+      {{ title }}
+    </div>
+  </div>
+  <div class="add-btn" ng-click="openAnnouncements();drawer.hide()">
+    <i class="fa fa-bell" style="font-size: 21px;"></i>
+  </div>
+</div>
+<div class="triangle-topleft">
+  <img src="assets/img/transfer.svg"/>
+</div>
+<div class="target-container">
+  <div class="target">
+    <div class="value">
+      <span class="green">28.24</span> / 58.00
+    </div>
+    <div class="title">
+      Progress vs Target
+    </div>
+  </div>
+  <div class="target">
+    <div class="value red">
+      2.80
+    </div>
+     <div class="title">
+      Balance/Day
+    </div>
+  </div>
+</div>
+<div class="welcome-message">Good Morning! <b>{{profile.first_name}}</b></div>
+<div class="features-container">
+  <div class="feature" ng-click="openAddModal('profile')">
+    <div class="icon"><img src="assets/img/programmer.png"/></div>
+    <div class="title">My Profile</div>
+  </div>
+  <div class="feature" ng-click="punchAttendance()">
+    <div class="icon"><img src="assets/img/fingerprint.png"/></div>
+    <div class="title">Attendance</div>
+  </div>
+  <div class="feature" ng-click="openAddModal('holiday')">
+    <div class="icon"><img src="assets/img/holiday_pin.png"/></div>
+    <div class="title">My Leaves</div>
+  </div>
+  <div class="feature" ng-click="openAddModal('payslips')">
+    <div class="icon"><img src="assets/img/salary.png"/></div>
+    <div class="title">My Payslips</div>
+  </div>
+  <div class="feature" ng-click="goTo('/calendar')">
+    <div class="icon"><img src="assets/img/christmas-day.png"/></div>
+    <div class="title">Holiday Chart</div>
+  </div>
+  <div class="feature">
+    <div class="icon"><img src="assets/img/target.png"/></div>
+    <div class="title">My Monthly Targets</div>
+  </div>
+  <div class="feature" ng-click="goTo('/chat')">
+    <div class="icon"><img src="assets/img/employee.png"/></div>
+    <div class="title">Ask Questions</div>
+  </div>
+  <div class="feature" ng-click="openRewards()">
+    <div class="icon"><img src="assets/img/badge.png"/></div>
+    <div class="title">Rewards & Recognition</div>
+  </div>
+  <div class="feature" ng-click="openVehicleMaintenance()">
+    <div class="icon"><img src="assets/img/maintenance.png"/></div>
+    <div class="title">Vehicle Maintenance</div>
+  </div>
+  <div class="feature" ng-click="logout()">
+    <div class="icon"><img src="assets/img/exit.png"/></div>
+    <div class="title">Log Out from App</div>
+  </div>
+</div>
+<div class="modal fade" id="lab-slide-bottom-popup-holiday" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal">
+      <div class="lab-modal-head">
+        <div class="modal-title-container">
+          <span class="modal-title">ESSARR AUTOMOTIVES</span>
+        </div>
+        <div class="modal-desc-container">
+          <div class="modal-desc">Request for leaves and track your leaves and approvals through My Calendar</div>
+          <img class="logo-ticket-half" src="assets/img/transfer.svg"/>
+        </div>
+      </div>
+      <div class="lab-modal-body register">
+        <div class="signup-email-input-container material-input-wrapper">
+          <label class="signup-email-text">
+          Leave Reason
+          </label>
+          <div class="mobile-number-container">
+            <input class="login-signup-email-input login-email-exist-input"
+            maxlength="64" 
+            ng-model="leave.reason"
+            id="test-username-input" type="text">
+          </div>
+        </div>
+        <div class="signup-email-input-container material-input-wrapper" style="display: flex;flex-direction: row;margin-left:0;margin-right: 0px;">
+          <div class="signup-email-input-container material-input-wrapper">
+            <label class="signup-email-text">
+            Start Date
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              maxlength="11" ng-click="showDatePicker('start')"
+              ng-model="leave.from_date"
+              id="test-username-input" type="text">
+            </div>
+          </div>
+          <div class="signup-email-input-container material-input-wrapper">
+            <label class="signup-email-text">
+            End Date
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              maxlength="11" ng-click="showDatePicker('end')"
+              ng-model="leave.to_date"
+              id="test-username-input" type="text">
+            </div>
+          </div>
+        </div>
+        <div class="signup-email-input-container material-input-wrapper">
+            <label class="signup-email-text">
+            Number of Working Days
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              ng-model="leave.number_of_days" min="1"
+              id="test-username-input" type="number">
+            </div>
+          </div>
+      <div class="part3 btn-container" style="margin-top: 30px;margin-bottom: 30px;">
+        <div class="continue-btn" ng-click="addLeave()">
+          <div class="loader inside-btn" ng-if="showBtnLoader"></div>
+          <span ng-if="!showBtnLoader">ADD LEAVE</span>
+        </div>
+      </div>
+      <!-- <div class="signup-email-input-container material-input-wrapper create-account"> -->
+        <!-- <span class="sign-up-txt">Not an Admin?&nbsp;</span> -->
+        <!-- <span class="sign-up-btn" ng-click="openPlaystore()">User Connect</span> -->
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL CONTENT SAMPLE STARTS HERE -->
+  <div class="modal fade" id="lab-slide-bottom-popup-profile" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal">
+      <div class="lab-modal-head">
+        <div class="modal-title-container">
+          <span class="modal-title">ESSARR AUTOMOTIVES</span>
+        </div>
+        <div class="modal-desc-container">
+          <div class="modal-desc">Update your basic profile Information to get started</div>
+          <img class="logo-ticket-half" src="assets/img/transfer.svg"/>
+        </div>
+      </div>
+      <div class="lab-modal-body register">
+        <div style="display: flex;flex-direction: row;justify-content: space-between;min-height: 90px;">
+          <div class="signup-email-input-container material-input-wrapper">
+            <label class="signup-email-text">
+            First Name
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input" 
+              ng-model="profile.first_name"
+              id="test-username-input" type="text">
+            </div>
+          </div>
+          <div class="signup-email-input-container material-input-wrapper">
+            <label class="signup-email-text">
+            Last Name
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input" 
+              ng-model="profile.last_name"
+              id="test-username-input" type="text">
+            </div>
+          </div>
+        </div>
+        <div class="signup-email-input-container material-input-wrapper">
+          <label class="signup-email-text">
+          Email Address
+          </label>
+          <div class="mobile-number-container">
+            <input class="login-signup-email-input login-email-exist-input" 
+            ng-model="profile.email"
+            id="test-username-input" type="email">
+          </div>
+        </div>
+        <div class="signup-email-input-container material-input-wrapper">
+          <label class="signup-email-text">
+          PAN Number
+          </label>
+          <div class="mobile-number-container">
+            <input class="login-signup-email-input login-email-exist-input" 
+            ng-model="profile.pan_number"
+            id="test-username-input" type="text">
+          </div>
+        </div>
+        <div class="signup-email-input-container material-input-wrapper">
+          <label class="signup-email-text">
+          Emergency Mobile Number
+          </label>
+          <div class="mobile-number-container">
+            <span class="country-code">IN&nbsp;&nbsp;+91</span>
+            <input class="login-signup-email-input login-email-exist-input" 
+              ng-model="profile.secondary_mobile" type="number"
+              id="test-username-input" style="text-transform: uppercase;padding: 8px 70px;"/>
+          </div>
+        </div>
+        <div class="part3 btn-container" style="margin-top: 30px;justify-content: flex-start;">
+          <div class="continue-btn" ng-click="updateProfile()">
+            <div class="loader inside-btn" ng-if="showBtnLoader"></div>
+            <span ng-if="!showBtnLoader">UPDATE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="modal fade" id="lab-slide-bottom-popup-payslips" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal">
+      <div class="lab-modal-head">
+        <div class="modal-title-container">
+          <span class="modal-title">ESSARR AUTOMOTIVES</span>
+        </div>
+        <div class="modal-desc-container">
+          <div class="modal-desc">Download your last 6 month paylsips and keep track of your taxes</div>
+          <img class="logo-ticket-half" src="assets/img/transfer.svg"/>
+        </div>
+      </div>
+      <div class="lab-modal-body register" style="padding: 5%;">
+        <ul class="list-data" style="flex-direction: row;flex-wrap: wrap;">
+          <li ng-repeat="paylsip in all_paylsips" style="flex-direction: column;width: 45%;margin:2%;">
+            <div class="deleting" ng-if="paylsip.deleting"></div>
+            <div class="trash" ng-click="downloadPayslip($index)">
+              <i class="fa fa-download" style="font-size: 22px;"></i>
+            </div>
+            <div class="img" style="margin: 0 auto;">
+              <img src="assets/img/payslip.png" style="margin: 0 auto;" />
+            </div>
+            <div class="details" style="font-family: 'GlacialIndifference-Regular';
+    text-align: center;">
+              <div class="title" style="font-size: 17px;text-align: center;">{{paylsip.month}}</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </div>
+  </div>
+
+<div class="modal fade" id="lab-slide-bottom-popup-announcements" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal">
+      <div class="lab-modal-head">
+        <div class="modal-title-container">
+          <span class="modal-title">ESSARR AUTOMOTIVES</span>
+        </div>
+        <div class="modal-desc-container">
+          <div class="modal-desc">Recent announcements to keep you updated on the happenings</div>
+          <img class="logo-ticket-half" src="assets/img/transfer.svg"/>
+        </div>
+      </div>
+      <div class="lab-modal-bidy register" style="display: flex;flex-direction: column;justify-content: center;flex-grow: 2;" ng-if="showLoader">
+        <div class="loader" style="margin: 0 auto;"></div>
+      </div>
+      <div class="lab-modal-body register" style="padding: 5%;" ng-if="!showLoader">
+        <ul class="list-data" ng-if="all_announcements.length > 0">
+          <li ng-repeat="announcement in all_announcements">
+            <div class="img">
+              <img src="assets/img/announcements_pin.png"/>
+            </div>
+            <div class="details" style="flex-grow: 2;">
+              <div class="title">{{announcement.title}}</div>
+              <div class="address">{{announcement.message}}</div>
+              <div class="latlon" ng-cloak style="font-size: 13px;font-weight: normal;text-align: right;">
+                <span data-livestamp="{{announcement.timestamp}}"></span>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="nothing-message" ng-if="all_announcements.length == 0">
+          <img src="assets/img/no_announcements.png" style="width: 120px;margin: 0 auto;" />
+          <div>No Announcements added. Please use the <i class="fa fa-filter"></i> icon at the top to create announcements</div>          
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>

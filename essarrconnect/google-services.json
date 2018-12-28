@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "644409444165",
+    "firebase_url": "https://essarr-fd810.firebaseio.com",
+    "project_id": "essarr-fd810",
+    "storage_bucket": "essarr-fd810.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:644409444165:android:b7200ce8107ea300",
+        "android_client_info": {
+          "package_name": "com.essarrautomotives.adminconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "644409444165-k45kjn5mc3polcpr0j7nfme2pfpofrsn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB75pPfddrH6wyTkJGD6bqGDpr1O4w1OwI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:644409444165:android:0ac6cce75f2cbc89",
+        "android_client_info": {
+          "package_name": "com.essarrautomotives.employeeconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "644409444165-k45kjn5mc3polcpr0j7nfme2pfpofrsn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB75pPfddrH6wyTkJGD6bqGDpr1O4w1OwI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

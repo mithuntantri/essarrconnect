@@ -1,0 +1,755 @@
+<div id="cont">
+<div class="add-panel" style="display: none;">
+  <div id="add-panel-switch" class="switch">
+    <div ng-click="drawer.togglePlus()" class="action-button option one">
+      2
+  </div>
+    <div ng-click="drawer.togglePlus()" class="action-button option two">
+      1
+  </div>
+    <div ng-click="drawer.togglePlus()" class="action-button plus">
+      <span>
+      +
+    </span>
+    </div>
+  </div>
+</div>
+<div ng-click="drawer.show()" class="fixed" id="topbar">
+  <div class="title">
+    {{ title }}
+  </div>
+</div>
+<div class="add-btn" ng-click="addFeature();drawer.hide()" ng-if="selectedFeature != 5">
+  <i class="fa fa-plus" style="font-size: 23px;"></i>
+</div>
+<!-- toggle icon for toggling menu -->
+<a href="#" class="menu-icon" id="nav-toggle">
+  <span></span>
+</a>
+<!-- stripe on the left of the screen to detect slide from side of the screen -->
+<div id="swipe-stripe"></div>
+<!-- body of the menu drawer -->
+<div id="drawer">
+  <div class="drawer large" id="topbar">
+    <!-- <img src="http://placehold.it/120/120" class="gravatar" /> -->
+    <div class="username">
+      <strong>{{User.AdminDetails.name}}</strong>
+      <br />
+      {{User.AdminDetails.username}}
+  </div>
+  </div>
+  <ul class="nav" ng-click="">
+    <li style="border-bottom: 0px;font-weight: bold;">
+      <a>Employee Connect</a>
+    </li>
+    <li ng-repeat="f in features track by $index" 
+    ng-click="showDashboard($index);drawer.hide()"><a>{{f.name}}</a></li>
+    <div class="bottom">
+      <li ng-click="logout();drawer.hide()"><a>Log Out</a></li>
+    </div>
+  </ul>
+</div>
+<!-- takes care of the overlay dimming -->
+<div ng-click="drawer.hide(); drawer.togglePlus(true);" id="drawer-dimm"></div>
+<!-- your part of the code, views etc.. -->
+</div>
+<ion-scroll direction="y" zooming="false" id="view-content" style="position: fixed;width: 100%;">
+    <!-- <div class="sort-filter-container">
+      <div class="sort-btn">
+        <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+        <span>Sort</span>
+      </div>
+      <div class="filter-btn">
+        <i class="fa fa-filter" aria-hidden="true"></i>
+        <span>Filter</span>
+      </div>
+    </div>
+    <div class="radio-container">
+      <div class="checkbox">
+        <label class="container">Only show results which are not yet availed
+          <input type="checkbox" checked="checked">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div> -->
+    <div class="dashboard-container" ng-if="showLoader">
+      <div class="loader"></div>
+    </div>
+    <div class="dashboard-container" ng-if="!showLoader">
+      <div class="dashboard-sub-container" ng-if="features[0].selected">
+        <ul class="list-data" ng-if="all_branches.length > 0">
+          <li ng-repeat="branch in all_branches">
+            <div class="deleting" ng-if="branch.deleting"></div>
+            <div class="trash" ng-click="deleteBranch($index)">
+              <i class="fa fa-trash" style="font-size: 22px;"></i>
+            </div>
+            <div class="img">
+              <img src="assets/img/location_pin.png"/>
+            </div>
+            <div class="details">
+              <div class="title">{{branch.name}}</div>
+              <div class="address">{{branch.address}}</div>
+              <div class="latlon">{{branch.latitude}},{{branch.longitude}}</div>
+            </div>
+          </li>
+        </ul>
+        <div class="nothing-message" ng-if="all_branches.length == 0">
+          <img src="assets/img/no_location.png" style="width: 120px;margin: 0 auto;" />
+          <div>No Branches added. Please add a branch using the <i class="fa fa-plus"></i> icon at the top</div>          
+        </div>
+      </div>
+      <div class="dashboard-sub-container" ng-if="features[1].selected">
+        <ul class="list-data" ng-if="all_employees.length > 0">
+          <li ng-repeat="employee in all_employees">
+            <div class="deleting" ng-if="employee.deleting"></div>
+            <div class="trash" ng-click="deleteEmployee($index)">
+              <i class="fa fa-trash" style="font-size: 22px;"></i>
+            </div>
+            <div class="img">
+              <img src="assets/img/employee_pin.png"/>
+            </div>
+            <div class="details">
+              <div class="title">{{employee.employee_id}}</div>
+              <div class="address">{{employee.designation}} ({{employee.department}})</div>
+              <div class="latlon">{{all_branches[employee.location_id].name}}</div>
+            </div>
+          </li>
+        </ul>
+        <div class="nothing-message" ng-if="all_employees.length == 0">
+          <img src="assets/img/no_employee.png" style="width: 120px;margin: 0 auto;" />
+          <div>No Employees added. Please add an employee using the <i class="fa fa-plus"></i> icon at the top</div>          
+        </div>
+      </div>
+      <div class="dashboard-sub-container" ng-if="features[2].selected">
+        <ul class="list-data" ng-if="all_salaries.length > 0">
+          <li ng-repeat="salary in all_salaries" ng-click="openUpdateSalary($index)">
+            <!-- <div class="deleting" ng-if="salary.deleting"></div>
+            <div class="trash" ng-click="deleteEmployee($index)">
+              <i class="fa fa-trash" style="font-size: 22px;"></i>
+            </div> -->
+            <div class="img">
+              <img src="assets/img/salary_pin.png"/>
+            </div>
+            <div class="details">
+              <div class="title">{{salary.employee_id}}</div>
+              <div class="address">{{salary.designation}} ({{salary.department}})</div>
+              <div class="latlon">₹{{salary.gross_income | number}}</div>
+            </div>
+          </li>
+        </ul>
+        <div class="nothing-message" ng-if="all_salaries.length == 0">
+          <img src="assets/img/no_employee.png" style="width: 120px;margin: 0 auto;" />
+          <div>No Employees added. Please add an employee using the <i class="fa fa-plus"></i> icon at the top & then update salary</div>          
+        </div>
+      </div>
+      <div class="dashboard-sub-container" ng-if="features[3].selected">
+        <ul class="list-data" ng-if="all_incentives.length > 0">
+          <li ng-repeat="incentive in all_incentives">
+            <div class="deleting" ng-if="incentive.deleting"></div>
+            <div class="trash" ng-click="deleteIncentive($index)">
+              <i class="fa fa-trash" style="font-size: 22px;"></i>
+            </div>
+            <div class="img">johnclinton1992@gmail.com
+              <img src="assets/img/incentive_pin.png"/>
+            </div>
+            <div class="details">
+              <div class="title">{{incentive.employee_id}}</div>
+              <div class="address">{{incentive.reason}}</div>
+              <div class="latlon">₹{{incentive.amount}}</div>
+            </div>
+          </li>
+        </ul>
+        <div class="nothing-message" ng-if="all_incentives.length == 0">
+          <img src="assets/img/no_incentive.png" style="width: 120px;margin: 0 auto;" />
+          <div>No Incentives added for this month. Please add an incentive using the <i class="fa fa-plus"></i> icon at the top</div>          
+        </div>
+      </div>
+      <div class="dashboard-sub-container" ng-if="features[4].selected">
+        <ul class="list-data" ng-if="all_targets.length > 0">
+          <li>
+            <div class="img">
+              <img src="assets/img/no_targets.png"/>
+            </div>
+            <div class="details" style="flex-grow: 2;">
+              <div class="title">MSGP Target (All Locations)</div>
+              <div class="grid-container">
+                <div class="grid">
+                  <div class="value">{{msgp_completed}}</div>
+                  <div class="title">Completed</div>
+                </div>
+                 <div class="grid">
+                  <div class="value">{{msgp_target}}</div>
+                  <div class="title">Target</div>
+                </div>
+                <div class="grid">
+                  <div class="value">{{msgp_balance_per_day}}</div>
+                  <div class="title">Balance/Day</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="img">
+              <img src="assets/img/no_targets.png"/>
+            </div>
+            <div class="details" style="flex-grow: 2;">
+              <div class="title">MSGA Target (All Locations)</div>
+              <div class="grid-container">
+                <div class="grid">
+                  <div class="value">{{msga_completed}}</div>
+                  <div class="title">Completed</div>
+                </div>
+                 <div class="grid">
+                  <div class="value">{{msga_target}}</div>
+                  <div class="title">Target</div>
+                </div>
+                <div class="grid">
+                  <div class="value">{{msga_balance_per_day}}</div>
+                  <div class="title">Balance/Day</div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="nothing-message" ng-if="all_targets.length == 0">
+          <img src="assets/img/no_targets.png" style="width: 120px;margin: 0 auto;" />
+          <div>No Targets added for this month. Please upload the targets using the <i class="fa fa-plus"></i> icon at the top</div>          
+        </div>
+      </div>
+      <div class="dashboard-sub-container" ng-if="features[5].selected">
+        <ul class="list-data" ng-if="all_leaves.length > 0">
+          <li ng-repeat="leave in all_leaves">
+            <div class="deleting" ng-if="leave.deleting"></div>
+            <div class="trash" ng-click="updateLeave($index, 1)" ng-if="leave.approved == 0">
+              <i class="fa fa-thumbs-down" style="font-size: 22px;color: #ff4d5a;"></i>
+            </div>
+            <div class="trash" ng-click="updateLeave($index, 2)" style="right: 50px;color: #2ecc71;" ng-if="leave.approved == 0">
+              <i class="fa fa-thumbs-up" style="font-size: 22px;"></i>
+            </div>
+            <div class="trash" ng-if="leave.approved != 0">
+              <span class="chip" ng-class="{'red': leave.approved ==1, 'green': leave.approved == 2}">{{leave.approved == 1?'Declined':'Approved'}}</span>
+            </div>
+            <div class="img">
+              <img src="assets/img/leave_pin.png"/>
+            </div>
+            <div class="details">
+              <div class="title">{{leave.employee_id}}</div>
+              <div class="address">{{leave.from_date}} to {{leave.to_date}}</div>
+              <div class="latlon">{{leave.reason}}</div>
+            </div>
+          </li>
+        </ul>
+        <div class="nothing-message" ng-if="all_leaves.length == 0">
+          <img src="assets/img/no_leaves.png" style="width: 120px;margin: 0 auto;" />
+          <div>No Leave Requests added. Please use the <i class="fa fa-filter"></i> icon at the top to filter pending & approved requests</div>          
+        </div>
+      </div>
+      <div class="dashboard-sub-container" ng-if="features[6].selected">
+        <ul class="list-data" ng-if="all_holidays.length > 0">
+          <li ng-repeat="holiday in all_holidays">
+            <div class="deleting" ng-if="holiday.deleting"></div>
+            <div class="trash" ng-click="deleteHoliday($index)">
+              <i class="fa fa-trash" style="font-size: 22px;"></i>
+            </div>
+            <div class="img">
+              <img src="assets/img/holiday_pin.png" />
+            </div>
+            <div class="details">
+              <div class="title">{{holiday.occassion}}</div>
+              <div class="address">{{holiday.from_date}} to {{holiday.to_date}}</div>
+              <div class="latlon">{{holiday.year}}</div>
+            </div>
+          </li>
+        </ul>
+        <div class="nothing-message" ng-if="all_holidays.length == 0">
+          <img src="assets/img/no_holiday.png" style="width: 120px;margin: 0 auto;" />
+          <div>No Holidays added. Please add a holiday using the <i class="fa fa-plus"></i> icon at the top</div>          
+        </div>
+      </div>
+      <div class="dashboard-container" ng-if="features[7].selected">Employee Questions</div>
+      <div class="dashboard-sub-container" ng-if="features[8].selected">
+        <ul class="list-data" ng-if="all_announcements.length > 0">
+          <li ng-repeat="announcement in all_announcements">
+            <div class="img">
+              <img src="assets/img/announcements_pin.png"/>
+            </div>
+            <div class="details">
+              <div class="title">{{announcement.title}}</div>
+              <div class="address">{{announcement.date}}</div>
+              <div class="latlon">{{announcement.message}}</div>
+            </div>
+          </li>
+        </ul>
+        <div class="nothing-message" ng-if="all_announcements.length == 0">
+          <img src="assets/img/no_announcements.png" style="width: 120px;margin: 0 auto;" />
+          <div>No Announcements added. Please use the <i class="fa fa-filter"></i> icon at the top to create announcements</div>          
+        </div>
+      </div>
+    </div>
+      <!-- <div ng-view=""></div> -->
+</ion-scroll>
+<div class="modal fade" id="lab-slide-bottom-popup-location" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal">
+      <div class="lab-modal-head">
+        <div class="modal-title-container">
+          <span class="modal-title">ESSARR AUTOMOTIVES</span>
+        </div>
+        <div class="modal-desc-container">
+          <div class="modal-desc">Add the address & mark the location of your branches</div>
+          <img class="logo-ticket-half" src="assets/img/transfer.svg"/>
+        </div>
+      </div>
+      <div class="lab-modal-body register">
+        <div class="signup-email-input-container material-input-wrapper">
+        <label class="signup-email-text">
+        Name of the branch
+        </label>
+        <div class="mobile-number-container">
+          <input class="login-signup-email-input login-email-exist-input"
+          maxlength="64" 
+          ng-model="branch.name" style="text-transform: capitalize;" 
+          id="test-username-input" type="text">
+        </div>
+      </div>
+        <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
+        <label class="signup-email-text">
+        Address of the branch
+        </label>
+        <div class="mobile-number-container">
+          <textarea style="height: 90px;outline: none;" class="login-signup-email-input login-email-exist-input" maxlength="100" 
+          ng-model="branch.address"
+          id="test-username-input" type="text"></textarea>
+        </div>
+      </div>
+      <div style="display: flex;flex-direction: row;">
+        <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
+          <label class="signup-email-text">
+          Pin Code
+          </label>
+          <div class="mobile-number-container">
+            <input class="login-signup-email-input login-email-exist-input" 
+            ng-model="branch.pin_code"
+            type="number" maxlength="6" 
+            id="test-username-input"/>
+          </div>
+        </div>
+        <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
+          <label class="signup-email-text">
+          Latitude
+          </label>
+          <div class="mobile-number-container">
+            <input class="login-signup-email-input login-email-exist-input" 
+            ng-model="branch.latitude"
+            type="number" step="0.0001" min="-90" max="90"
+            id="test-username-input"/>
+          </div>
+        </div>
+        <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
+          <label class="signup-email-text">
+          Longitude
+          </label>
+          <div class="mobile-number-container">
+            <input class="login-signup-email-input login-email-exist-input" 
+            ng-model="branch.longitude"
+            type="number" step="0.0001" min="-180" max="180"
+            id="test-username-input"/>
+          </div>
+        </div>
+      </div>
+        <div class="part3 btn-container" style="margin-top: 30px;margin-bottom: 30px;">
+        <div class="continue-btn" ng-click="addBranch()">
+          <div class="loader inside-btn" ng-if="showBtnLoader"></div>
+          <span ng-if="!showBtnLoader">ADD BRANCH</span>
+        </div>
+      </div>
+      <!-- <div class="signup-email-input-container material-input-wrapper create-account"> -->
+        <!-- <span class="sign-up-txt">Not an Admin?&nbsp;</span> -->
+        <!-- <span class="sign-up-btn" ng-click="openPlaystore()">User Connect</span> -->
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>
+<div class="modal fade" id="lab-slide-bottom-popup-employee" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal">
+      <div class="lab-modal-head">
+        <div class="modal-title-container">
+          <span class="modal-title">ESSARR AUTOMOTIVES</span>
+        </div>
+        <div class="modal-desc-container">
+          <div class="modal-desc">Add an employee & map the location of your branches</div>
+          <img class="logo-ticket-half" src="assets/img/ticket4.png"/>
+        </div>
+      </div>
+      <div class="lab-modal-body register">
+        <div class="signup-email-input-container material-input-wrapper">
+        <label class="signup-email-text">
+        Employee Number
+        </label>
+        <div class="iws-number-container">
+          <span class="iws-code" style="width: 30px;">EA</span>
+          <input class="login-signup-email-input login-email-exist-input" 
+            ng-model="employee.number" type="number" ng-disabled="showOTP"
+            id="test-username-input" style="text-transform: uppercase;padding: 8px 35px;"/>
+        </div>
+      </div>
+      <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
+        <label class="signup-email-text">
+        Designation
+        </label>
+        <div class="mobile-number-container">
+          <input class="login-signup-email-input login-email-exist-input" maxlength="100" 
+          ng-model="employee.designation"
+          id="test-username-input" type="text"/>
+        </div>
+      </div>
+      <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
+        <label class="signup-email-text">
+        Department
+        </label>
+        <div class="mobile-number-container">
+          <input class="login-signup-email-input login-email-exist-input" maxlength="100" 
+          ng-model="employee.department"
+          id="test-username-input" type="text"/>
+        </div>
+      </div>
+      <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
+        <label class="signup-email-text">
+        Reporting Location
+        </label>
+        <div class="mobile-number-container">
+          <select ng-model="employee.location">
+            <option ng-value="null" selected="">Select Reporting Location</option>
+            <option ng-repeat="l in all_branches" ng-value="{{l.id}}">{{l.name}}</option>
+          </select>
+        </div>
+      </div>
+        <div class="part3 btn-container" style="margin-top: 30px;margin-bottom: 30px;">
+        <div class="continue-btn" ng-click="addEmployee()">
+          <div class="loader inside-btn" ng-if="showBtnLoader"></div>
+          <span ng-if="!showBtnLoader">ADD EMPLOYEE</span>
+        </div>
+      </div>
+      <!-- <div class="signup-email-input-container material-input-wrapper create-account"> -->
+        <!-- <span class="sign-up-txt">Not an Admin?&nbsp;</span> -->
+        <!-- <span class="sign-up-btn" ng-click="openPlaystore()">User Connect</span> -->
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>
+<div class="modal fade" id="lab-slide-bottom-popup-salary" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal">
+      <div class="lab-modal-head">
+        <div class="modal-title-container">
+          <span class="modal-title">ESSARR AUTOMOTIVES</span>
+        </div>
+        <div class="modal-desc-container">
+          <div class="modal-desc">Update the salary details, epf number & other neccessary bank details</div>
+          <img class="logo-ticket-half" src="assets/img/ticket4.png"/>
+        </div>
+      </div>
+      <div class="lab-modal-body register">
+        <div class="signup-email-input-container large material-input-wrapper" style="display: flex;flex-direction: row;margin-left:0;margin-right: 0px;">
+          <div class="signup-email-input-container large material-input-wrapper">
+            <label class="signup-email-text">
+            Gross Income
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              maxlength="64" 
+              ng-model="salary.gross_income"
+              id="test-username-input" type="number">
+            </div>
+          </div>
+          <div class="signup-email-input-container large material-input-wrapper">
+            <label class="signup-email-text">
+            Basic + DA
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              maxlength="64" 
+              ng-model="salary.basic"
+              id="test-username-input" type="number">
+            </div>
+          </div>
+        </div>
+        <div class="signup-email-input-container large material-input-wrapper" style="display: flex;flex-direction: row;margin-left:0;margin-right: 0px;">
+           <div class="signup-email-input-container large material-input-wrapper">
+            <label class="signup-email-text">
+            Bank Name
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              maxlength="64" 
+              ng-model="salary.bank_name"
+              id="test-username-input" type="text">
+            </div>
+          </div>
+          <div class="signup-email-input-container large material-input-wrapper">
+            <label class="signup-email-text">
+            Bank Account Number
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              maxlength="64" 
+              ng-model="salary.account_number"
+              id="test-username-input" type="text">
+            </div>
+          </div>
+        </div>
+        <div class="signup-email-input-container large material-input-wrapper" style="display: flex;flex-direction: row;margin-left:0;margin-right: 0px;">
+          <div class="signup-email-input-container large material-input-wrapper">
+            <label class="signup-email-text">
+            UAN Number
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              maxlength="64" 
+              ng-model="salary.uan_number"
+              id="test-username-input" type="text">
+            </div>
+          </div>
+
+          <div class="signup-email-input-container large material-input-wrapper">
+            <label class="signup-email-text">
+            ESIC Number
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              maxlength="64" 
+              ng-model="salary.esic_number"
+              id="test-username-input" type="text">
+            </div>
+          </div>
+        </div>
+        <div class="signup-email-input-container large material-input-wrapper" style="display: flex;flex-direction: row;margin-left:0;margin-right: 0px;">
+          <div class="signup-email-input-container large material-input-wrapper">
+            <label class="signup-email-text">
+            EPF Number
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              maxlength="64" 
+              ng-model="salary.epf_number"
+              id="test-username-input" type="text">
+            </div>
+          </div>
+        </div>
+        <div class="part3 btn-container" style="margin-top: 30px;margin-bottom: 30px;">
+        <div class="continue-btn" ng-click="updateSalary()">
+          <div class="loader inside-btn" ng-if="showBtnLoader"></div>
+          <span ng-if="!showBtnLoader">UPDATE SALARY</span>
+        </div>
+      </div>
+      <!-- <div class="signup-email-input-container material-input-wrapper create-account"> -->
+        <!-- <span class="sign-up-txt">Not an Admin?&nbsp;</span> -->
+        <!-- <span class="sign-up-btn" ng-click="openPlaystore()">User Connect</span> -->
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>
+<div class="modal fade" id="lab-slide-bottom-popup-holiday" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal">
+      <div class="lab-modal-head">
+        <div class="modal-title-container">
+          <span class="modal-title">ESSARR AUTOMOTIVES</span>
+        </div>
+        <div class="modal-desc-container">
+          <div class="modal-desc">Add the list of holiday details for the current year</div>
+          <img class="logo-ticket-half" src="assets/img/ticket4.png"/>
+        </div>
+      </div>
+      <div class="lab-modal-body register">
+        <div class="signup-email-input-container material-input-wrapper">
+          <label class="signup-email-text">
+          Holiday Occassion
+          </label>
+          <div class="mobile-number-container">
+            <input class="login-signup-email-input login-email-exist-input"
+            maxlength="64" 
+            ng-model="holiday.occassion"
+            id="test-username-input" type="text">
+          </div>
+        </div>
+        <div class="signup-email-input-container material-input-wrapper" style="display: flex;flex-direction: row;margin-left:0;margin-right: 0px;">
+          <div class="signup-email-input-container material-input-wrapper">
+            <label class="signup-email-text">
+            Start Date
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              maxlength="11" ng-click="showDatePicker('start')"
+              ng-model="holiday.from_date"
+              id="test-username-input" type="text">
+            </div>
+          </div>
+          <div class="signup-email-input-container material-input-wrapper">
+            <label class="signup-email-text">
+            End Date
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              maxlength="11" ng-click="showDatePicker('end')"
+              ng-model="holiday.to_date"
+              id="test-username-input" type="text">
+            </div>
+          </div>
+        </div>
+      <div class="part3 btn-container" style="margin-top: 30px;margin-bottom: 30px;">
+        <div class="continue-btn" ng-click="addHoliday()">
+          <div class="loader inside-btn" ng-if="showBtnLoader"></div>
+          <span ng-if="!showBtnLoader">ADD HOLIDAY</span>
+        </div>
+      </div>
+      <!-- <div class="signup-email-input-container material-input-wrapper create-account"> -->
+        <!-- <span class="sign-up-txt">Not an Admin?&nbsp;</span> -->
+        <!-- <span class="sign-up-btn" ng-click="openPlaystore()">User Connect</span> -->
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>
+<div class="modal fade" id="lab-slide-bottom-popup-incentive" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal">
+      <div class="lab-modal-head">
+        <div class="modal-title-container">
+          <span class="modal-title">ESSARR AUTOMOTIVES</span>
+        </div>
+        <div class="modal-desc-container">
+          <div class="modal-desc">Add the list of employee incentive details for the current month</div>
+          <img class="logo-ticket-half" src="assets/img/ticket4.png"/>
+        </div>
+      </div>
+      <div class="lab-modal-body register">
+        <div class="signup-email-input-container material-input-wrapper" style="display: flex;flex-direction: row;margin-left:0;margin-right: 0px;">
+          <div class="signup-email-input-container material-input-wrapper">
+            <label class="signup-email-text">
+            Employee ID
+            </label>
+            <select ng-model="incentive.employee_id">
+              <option ng-value="null" selected="true">Select Employee ID</option>
+              <option ng-repeat="e in all_employees" ng-value="e.employee_id">{{e.employee_id}}</option>
+            </select>
+          </div>
+          <div class="signup-email-input-container material-input-wrapper">
+            <label class="signup-email-text">
+            Incentive Amount
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              ng-model="incentive.amount"
+              id="test-username-input" type="number">
+            </div>
+          </div>
+        </div>
+        <div class="signup-email-input-container material-input-wrapper">
+          <label class="signup-email-text">
+          Incentive Reason
+          </label>
+          <div class="mobile-number-container">
+            <input class="login-signup-email-input login-email-exist-input"
+            maxlength="64" 
+            ng-model="incentive.reason"
+            id="test-username-input" type="text">
+          </div>
+        </div>
+      <div class="part3 btn-container" style="margin-top: 30px;margin-bottom: 30px;">
+        <div class="continue-btn" ng-click="addIncentive()">
+          <div class="loader inside-btn" ng-if="showBtnLoader"></div>
+          <span ng-if="!showBtnLoader">ADD INCENTIVE</span>
+        </div>
+      </div>
+      <!-- <div class="signup-email-input-container material-input-wrapper create-account"> -->
+        <!-- <span class="sign-up-txt">Not an Admin?&nbsp;</span> -->
+        <!-- <span class="sign-up-btn" ng-click="openPlaystore()">User Connect</span> -->
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>
+<div class="modal fade" id="lab-slide-bottom-popup-upload" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal">
+      <div class="lab-modal-head">
+        <div class="modal-title-container">
+          <span class="modal-title">ESSARR AUTOMOTIVES</span>
+        </div>
+        <div class="modal-desc-container">
+          <div class="modal-desc">Upload the MSGA, MSGP or Customerwise daily target data</div>
+          <img class="logo-ticket-half" src="assets/img/ticket4.png"/>
+        </div>
+      </div>
+      <div class="lab-modal-body register">
+        <div class="signup-email-input-container material-input-wrapper">
+          <label class="signup-email-text">
+          Upload Target Type
+          </label>
+          <div class="mobile-number-container">
+            <select ng-model="selected_upload_type">
+              <option ng-repeat="l in upload_types track by $index" ng-value="l.name">{{l.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="upload-container">
+          <div class="title">Drag and drop your files</div>
+          <div class="area"><i class="fa fa-upload"></i></div>
+          <input type="file" name="file_upload" onchange="angular.element(this).scope().uploadFileMF(this)"
+                        style="margin: 25px auto;min-width: 160px;width:50%;border: 1px solid rgba(0,0,0,0.3);padding: 2px 2px 2px 2px;width: 100%;"/>
+          <div class="subtitle">or click on the area</div>
+        </div>
+        <div class="error-message" ng-if="Dashboard.FileMessage">{{Dashboard.FileMessage}}</div>
+      <div class="part3 btn-container" style="margin-top: 30px;margin-bottom: 30px;">
+        <div class="continue-btn" ng-click="uploadTarget()">
+          <div class="loader inside-btn" ng-if="showBtnLoader"></div>
+          <span ng-if="!showBtnLoader">UPLOAD TARGET</span>
+        </div>
+      </div>
+      <!-- <div class="signup-email-input-container material-input-wrapper create-account"> -->
+        <!-- <span class="sign-up-txt">Not an Admin?&nbsp;</span> -->
+        <!-- <span class="sign-up-btn" ng-click="openPlaystore()">User Connect</span> -->
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>
+<div class="modal fade" id="lab-slide-bottom-popup-announcements" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal">
+      <div class="lab-modal-head">
+        <div class="modal-title-container">
+          <span class="modal-title">ESSARR AUTOMOTIVES</span>
+        </div>
+        <div class="modal-desc-container">
+          <div class="modal-desc">Create announcements which are broadcasted to all your employees</div>
+          <img class="logo-ticket-half" src="assets/img/transfer.svg"/>
+        </div>
+      </div>
+      <div class="lab-modal-body register">
+         <div class="signup-email-input-container material-input-wrapper">
+        <label class="signup-email-text">
+        Title of announcement
+        </label>
+        <div class="mobile-number-container">
+          <input class="login-signup-email-input login-email-exist-input"
+          maxlength="64" 
+          ng-model="announcement.title" style="text-transform: capitalize;" 
+          id="test-username-input" type="text">
+        </div>
+      </div>
+        <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
+        <label class="signup-email-text">
+        Message(Body) of announcement
+        </label>
+        <div class="mobile-number-container">
+          <textarea style="height: 90px;outline: none;" class="login-signup-email-input login-email-exist-input" maxlength="128" 
+          ng-model="announcement.message"
+          id="test-username-input" type="text"></textarea>
+        </div>
+      </div>
+      <div class="part3 btn-container" style="margin-top: 30px;margin-bottom: 30px;">
+        <div class="continue-btn" ng-click="addAnnouncement()">
+          <div class="loader inside-btn" ng-if="showBtnLoader"></div>
+          <span ng-if="!showBtnLoader">CREATE ANNOUNCEMENT</span>
+        </div>
+      </div>
+      <!-- <div class="signup-email-input-container material-input-wrapper create-account"> -->
+        <!-- <span class="sign-up-txt">Not an Admin?&nbsp;</span> -->
+        <!-- <span class="sign-up-btn" ng-click="openPlaystore()">User Connect</span> -->
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>

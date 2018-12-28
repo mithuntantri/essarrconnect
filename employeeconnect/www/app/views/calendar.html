@@ -1,0 +1,190 @@
+<div id="calendar" calendar-show></div>
+<div class="holiday-footer" ng-if="all_holidays.length > 0">
+  <div class="icon"><img src="assets/img/no_holiday.png"/></div>
+  <div class="title">Upcoming Holiday ({{all_holidays[0].occassion}})</div>
+  <div class="date">{{all_holidays[0].from_date}}</div>
+</div>
+<div class="holiday-footer" ng-if="all_holidays.length == 0">
+  <div class="icon"><img src="assets/img/no_holiday.png"/></div>
+  <div class="title">No Upcoming Holiday</div>
+  <div class="date"></div>
+</div>
+
+<div id="eventDetails" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="top: auto;
+    bottom: auto;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="flex-direction: row-reverse;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" style="color: black;font-family: 'GlacialIndifference-Bold'">{{getTitle}}</h4>
+      </div>
+      <div class="modal-body form-group" style="display: flex;flex-direction:row;justify-content: space-between;color: black;font-family: 'GlacialIndifference-Regular'">
+        
+        <!-- <div class="pull-right btn btn-info btn-fab" ng-click="edit = !edit"><i class="fa fa-pencil" aria-hidden="true"></i></div> -->
+        <div class="status-container">
+          <div class="title">Start Date</div>
+          <div class="value">{{getStartDate}}</div>
+        </div>
+        <div class="status-container">
+          <div class="title">End Date</div>
+          <div class="value">{{getEndDate}}</div>
+        </div>
+        <div class="status-container">
+          <div class="title">Status</div>
+          <div class="value" ng-class="{'red':getStatus == 0, 'green':getStatus == 1}">{{getStatus==0?'Pending':'Approved'}}</div>
+        </div>
+        <!-- <div>Start Time :
+          <input type="text" class="form-control" ng-disabled="edit" ng-model="getStartTime">
+        </div>
+        <div>End Time :
+          <input type="text" class="form-control" ng-disabled="edit" ng-model="getEndTime"> </div> -->
+      </div>
+      <div class="modal-footer" style="font-family: 'GlacialIndifference-Regular'">
+        <!-- <button ng-if="edit" type="button" class="btn btn-default btn-raised" data-dismiss="modal">Close</button> -->
+        <button ng-if="edit" type="button" class="btn btn-danger btn-raised" ng-click="deleteLeave(getLeaveID)">Delete Request</button>
+        <button ng-if="!edit" type="button" class="btn btn-primary btn-raised" ng-click="edit = !edit">Save</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<div id="eventCreate" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">New Event</h4>
+      </div>
+      <div class="modal-body form-group">
+        <div>Event Title :
+          <input type="text" name="event_title" class="form-control" ng-model="event_title">
+        </div>
+        <div>Date :
+          <input type="text" name="event_date" class="form-control"  value="{{setSelectedDate}}" disabled ng-model="setSelectedDate">
+        </div>
+        <div>Start Time :
+          <input type="time" name="start_time" class="form-control" ng-model="start_time">
+
+        </div>
+        <div>End Time :
+          <input type="time" name="end_time" class="form-control" ng-model="end_time">
+
+        </div>
+
+        <div>Event Color :
+          <input type="color" name="favcolor" class="form-control" value="#ccc" ng-model="event_color">
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-raised" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary btn-raised" ng-click="addNewEvent()">Save</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<style>
+  /* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* Styles go here */
+
+a {
+  cursor: pointer;
+}
+
+.marginLeft20 {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.marginTop20 {
+  margin-top: 20px;
+  display: inline-block;
+}
+
+input[disabled="disabled"] {
+  background-color: transparent;
+  border: 2px solid #fff;
+}
+
+input:focus {
+  outline: none;
+}
+
+.center {
+  text-align: center;
+}
+
+.vertical-center {
+  min-height: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+</style>
