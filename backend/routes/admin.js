@@ -138,6 +138,53 @@ router.get("/holidays", passport.authenticate('jwt', {session: true}), function(
   })
 })
 
+router.get('/threads', passport.authenticate('jwt', {session: true}), (req, res, next) => {
+  let username = req.session.passport.user.username
+  new Promise((resolve, reject)=>{
+    user.getAllThreads(username).then((data)=>{
+      resolve(data)
+    }).catch((err)=>{
+      reject(err)
+    })
+  }).then((data)=>{
+    res.json({'status': true, 'data': data})
+  }).catch((err)=>{
+    res.json({'status': false, 'message': err})
+  })
+})
+
+router.post("/threads", passport.authenticate('jwt', {session: true}), function(req, res, next) {
+  var username =  req.session.passport.user.username;
+  var thread = req.body
+  new Promise((resolve, reject)=>{
+    user.addThread(username, thread).then((data)=>{
+      resolve(data)
+    }).catch((err)=>{
+      reject(err)
+    })
+  }).then((data)=>{
+    res.json({'status': true, 'data': data})
+  }).catch((err)=>{
+    res.json({'status': false, 'message': err})
+  })
+})
+
+router.put("/threads", passport.authenticate('jwt', {session: true}), function(req, res, next) {
+  var username =  req.session.passport.user.username;
+  var thread = req.body
+  new Promise((resolve, reject)=>{
+    user.updateThread(username, thread).then((data)=>{
+      resolve(data)
+    }).catch((err)=>{
+      reject(err)
+    })
+  }).then((data)=>{
+    res.json({'status': true, 'data': data})
+  }).catch((err)=>{
+    res.json({'status': false, 'message': err})
+  })
+})
+
 router.get("/announcements", passport.authenticate('jwt', {session: true}), function(req, res, next) {
   var username =  req.session.passport.user.username;
   new Promise((resolve, reject)=>{

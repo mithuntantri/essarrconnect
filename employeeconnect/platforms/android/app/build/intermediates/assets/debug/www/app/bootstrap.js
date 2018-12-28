@@ -1,7 +1,7 @@
 // (function() {
     'use strict';
 
-    var origin = 'https://modern-lizard-63.localtunnel.me'
+    var origin = 'https://quiet-catfish-21.localtunnel.me'
     var baseUrl = origin + '/api'
     
     var addedObservers = false;
@@ -14,6 +14,11 @@
             templateUrl  : 'app/views/home.html',
             controller   : 'HomeController',
             controllerAs : 'Home'
+        })
+        .when("/targets", {
+            templateUrl  : 'app/views/targets.html',
+            controller   : 'TargetsController',
+            controllerAs : 'Targets'
         })
         .when("/chat", {
             templateUrl  : 'app/views/chat.html',

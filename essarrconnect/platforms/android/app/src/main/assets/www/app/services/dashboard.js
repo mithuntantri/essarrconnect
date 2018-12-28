@@ -86,6 +86,26 @@ class Dashboard{
             method: 'GET'
         })
     }
+    getThreads(){
+        return this.$http({
+            url: `${baseUrl}/admin/threads`,
+            method: 'GET'
+        })
+    }
+    addThread(thread){
+        return this.$http({
+            url: `${baseUrl}/admin/threads`,
+            method:'POST',
+            data: thread
+        })
+    }
+    updateThread(thread){
+        return this.$http({
+            url: `${baseUrl}/admin/threads`,
+            method:'PUT',
+            data: thread
+        })
+    }
     getAnnouncements(){
         return this.$http({
             url: `${baseUrl}/admin/announcements`,

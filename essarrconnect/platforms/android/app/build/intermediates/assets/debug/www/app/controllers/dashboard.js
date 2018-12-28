@@ -224,6 +224,8 @@
                         showBottom(result.data.message)
                     }
                 })
+            }else if(index == 7){
+                $location.url('/chat')
             }else if(index == 8){
                 Dashboard.getAnnouncements().then((result)=>{
                     $scope.showLoader = false

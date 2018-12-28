@@ -1,7 +1,7 @@
 // (function() {
     'use strict';
 
-    var origin = 'https://serious-emu-10.localtunnel.me'
+    var origin = 'https://dull-grasshopper-78.localtunnel.me'
     var baseUrl = origin + '/api'
     var addedObservers = false
     
@@ -13,6 +13,11 @@
             templateUrl  : 'app/views/home.html',
             controller   : 'HomeController',
             controllerAs : 'Home'
+        })
+        .when("/chat", {
+            templateUrl  : 'app/views/chat.html',
+            controller   : 'ChatController',
+            controllerAs : 'Chat'
         })
         .when("/dashboard", {
             templateUrl  : 'app/views/dashboard.html',
@@ -197,6 +202,19 @@ function logoutEmail() {
     });
 }
         }, false);
-    });
+    })
+  .filter('getPlaceholder', ()=>{
+        return((obj)=>{
+            if(!obj.user_message_1){
+                return 'Start a thread'
+            }else if(!obj.admin_message_1){
+                return 'Waiting for admin reply'
+            }else if(!obj.user_message_2){
+                return 'Write a reply'
+            }else{
+                return 'Thread is closed for reply'
+            }
+        })
+    })
 
 // })();

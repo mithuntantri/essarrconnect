@@ -31,6 +31,12 @@ class Dashboard{
     		method: 'GET'
     	})
     }
+    getAllTargets(){
+        return this.$http({
+            url: `${baseUrl}/user/targets`,
+            method:'GET'
+        })
+    }
     getThreads(){
         return this.$http({
             url: `${baseUrl}/user/threads`,

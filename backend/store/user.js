@@ -145,7 +145,18 @@ var getSalaries = (username)=>{
 
 var getThreads = (username)=>{
 	return new Promise((resolve, reject)=>{
-		let query = `SELECT * from threads WHERE username='${username}'`;
+		let query = `SELECT * from threads WHERE username='${username}' ORDER BY timestamp DESC`;
+		sqlQuery.executeQuery([query]).then((result)=>{
+			resolve(result[0])
+		}).catch((err)=>{
+			reject(err)
+		})
+	})
+}
+
+var getAllThreads = (username)=>{
+	return new Promise((resolve, reject)=>{
+		let query = `SELECT * from threads ORDER BY timestamp DESC`;
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve(result[0])
 		}).catch((err)=>{
@@ -385,20 +396,71 @@ var updateProfile = (employee_id, profile)=>{
 	})
 }
 
+var redoFetchTargets = (date, location_id, count)=>{
+	return new Promise((resolve, reject)=>{
+		if(count < 10){
+			console.log(location_id, date)
+			query1 = `SELECT * FROM msgp WHERE date='${date}' AND location_id='${location_id}'`
+			query2 = `SELECT * FROM msga WHERE date='${date}' AND location_id='${location_id}'`
+			query3 = `SELECT * FROM customerwise WHERE date='${date}' AND location_id='${location_id}'`
+
+			sqlQuery.executeQuery([query1, query2, query3]).then((result)=>{
+				if(result[0].length > 0){
+					console.log({targets: result, as_on: date, location: location_id})
+					resolve({targets: result, as_on: date, location: location_id})
+				}else{
+					count++
+					date = moment(date, "DD MMM YYYY").subtract(1, 'days').format("DD MMM YYYY")
+					redoFetchTargets(date, location_id, count).then((res)=>{
+						resolve(res)
+					}).catch((err)=>{
+						reject(err)
+					})
+				}
+			}).catch((err)=>{
+				console.log(err)
+				reject(err)
+			})
+		}else{
+			resolve({targets: [[],[],[]], as_on: date, location: location_id})
+		}
+	})
+}
+
 var getAllTargets = (username, access_level)=>{
 	return new Promise((resolve, reject)=>{
-		let query1, query2, query3
+		console.log(username, access_level)
 		let date = moment().format("DD MMM YYYY")
-		query1 = `SELECT * FROM msgp WHERE date='${date}'`
-		query2 = `SELECT * FROM msga WHERE date='${date}'`
-		query3 = `SELECT * FROM customerwise WHERE date='${date}'`
-		sqlQuery.executeQuery([query1, query2, query3]).then((result)=>{
-			console.log(result)
-			resolve(result)
-		}).catch((err)=>{
-			console.log(err)
-			reject()
-		})
+		let query1, query2, query3
+		if(access_level == 'admin'){
+			query1 = `SELECT * FROM msgp WHERE date='${date}'`
+			query2 = `SELECT * FROM msga WHERE date='${date}'`
+			query3 = `SELECT * FROM customerwise WHERE date='${date}'`
+
+			sqlQuery.executeQuery([query1, query2, query3]).then((result)=>{
+				console.log(result)
+				result.location = 'ALL'
+				resolve(result)
+			}).catch((err)=>{
+				console.log(err)
+				reject(err)
+			})
+		}else{
+			let query = `SELECT b.name FROM branches b INNER JOIN employees e WHERE e.location_id = b.id AND e.employee_id='${username}'`
+			console.log(query)
+			sqlQuery.executeQuery([query]).then((res)=>{
+				console.log(res)
+				let location_id = res[0][0].name
+				redoFetchTargets(date, location_id, 0).then((result)=>{
+					resolve(result)
+				}).catch((err)=>{
+					reject(err)
+				})
+			}).catch((err)=>{
+				console.log(err)
+				reject(err)
+			})
+		}
 	})
 }
 
@@ -454,5 +516,6 @@ module.exports = {
 	getAllAnnouncements: getAllAnnouncements,
 	addThread: addThread,
 	getThreads: getThreads,
+	getAllThreads: getAllThreads,
 	updateThread: updateThread
 }

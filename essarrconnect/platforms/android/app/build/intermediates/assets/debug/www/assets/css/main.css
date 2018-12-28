@@ -211,6 +211,7 @@ ul.list-data{
 }
 
 ul.list-data > li{
+    font-family: 'GlacialIndifference-Regular';
     display: flex;
     flex-direction: row;
     border-radius: 5px;
@@ -274,6 +275,10 @@ ul.list-data > li > .details > .latlon{
 #pw-event .scroll,
 #pw-event .slider {
     height: 100%; 
+}
+
+.modal{
+    background: #fff !important;
 }
 
 .grid-container{

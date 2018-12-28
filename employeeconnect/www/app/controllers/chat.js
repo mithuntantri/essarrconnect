@@ -5,7 +5,7 @@
         .module('app')
         .controller('ChatController', ChatController);
 
-    DashboardController.$injector = ['$scope', '$rootScope', '$location', '$nativeDrawer', '$timeout', 'Login', 'User', 'Dashboard'];
+    ChatController.$injector = ['$scope', '$rootScope', '$location', '$nativeDrawer', '$timeout', 'Login', 'User', 'Dashboard'];
 
     function ChatController($scope, $rootScope, $location, $nativeDrawer, $timeout, Login, User, Dashboard){
         StatusBar.backgroundColorByHexString('#219787');
@@ -64,7 +64,7 @@
         		$scope.showLoader = false
         		if(result.data.status){
         			$scope.all_threads = result.data.data
-        			if(!$scope.all_threads[0].admin_message_2){
+        			if($scope.all_threads[0] && !$scope.all_threads[0].admin_message_2){
         				$scope.thread = $scope.all_threads[0]
         			}
         		}else{
@@ -96,6 +96,18 @@
 		  //   }, 1000)
 		    
 		  // })
+		  function showBottom(message) {
+		      window.plugins.toast.showWithOptions(
+		        {
+		          message: message,
+		          duration: "short", // which is 2000 ms. "long" is 4000. Or specify the nr of ms yourself.
+		          position: "bottom",
+		          addPixelsY: -40  // added a negative value to move it up a bit (default 0)
+		        },
+		        function(){}, // optional
+		        function(){}    // optional
+		      );
+		    }
 		  
 		  function generate_message(msg, type, index) {
 		    $scope.all_threads.unshift($scope.thread)

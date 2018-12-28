@@ -87,20 +87,20 @@ router.get("/announcements", passport.authenticate('jwt', {session: true}), func
   })
 })
 
-router.get("/targets", passport.authenticate('jwt', {session: true}), function(req, res, next) {
-  var username =  req.session.passport.user.username;
-  new Promise((resolve, reject)=>{
-    user.getLocWiseTargets(username, "user").then((data)=>{
-      resolve(data)
-    }).catch((err)=>{
-      reject(err)
-    })
-  }).then((data)=>{
-    res.json({'status': true, 'data': data})
-  }).catch((err)=>{
-    res.json({'status': false, 'message': err})
-  })
-})
+// router.get("/targets", passport.authenticate('jwt', {session: true}), function(req, res, next) {
+//   var username =  req.session.passport.user.username;
+//   new Promise((resolve, reject)=>{
+//     user.getLocWiseTargets(username, "user").then((data)=>{
+//       resolve(data)
+//     }).catch((err)=>{
+//       reject(err)
+//     })
+//   }).then((data)=>{
+//     res.json({'status': true, 'data': data})
+//   }).catch((err)=>{
+//     res.json({'status': false, 'message': err})
+//   })
+// })
 
 router.post("/profile", passport.authenticate('jwt', {session: true}), function(req, res, next) {
   var username =  req.session.passport.user.username;
@@ -232,6 +232,23 @@ router.get('/threads', passport.authenticate('jwt', {session: true}), (req, res,
   let username = req.session.passport.user.username
   new Promise((resolve, reject)=>{
     user.getThreads(username).then((data)=>{
+      resolve(data)
+    }).catch((err)=>{
+      reject(err)
+    })
+  }).then((data)=>{
+    res.json({'status': true, 'data': data})
+  }).catch((err)=>{
+    res.json({'status': false, 'message': err})
+  })
+})
+
+router.get("/targets", passport.authenticate('jwt', {session: true}), function(req, res, next) {
+  var username =  req.session.passport.user.username;
+  console.log("username", username)
+  new Promise((resolve, reject)=>{
+    console.log("Getting all targets")
+    user.getAllTargets(username, "user").then((data)=>{
       resolve(data)
     }).catch((err)=>{
       reject(err)
