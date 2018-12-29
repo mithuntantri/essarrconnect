@@ -4,7 +4,6 @@ var jwt = require('jwt-simple');
 var sqlQuery = require('../database/sqlWrapper');
 var moment = require('moment')
 let _ = require("underscore");
-var rethinkOps = require('../store/rethinkOps');
 var otplib = require('otplib').default;
 var request = require('request');
 

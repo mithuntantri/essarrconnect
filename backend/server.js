@@ -12,9 +12,6 @@ var redis = require('redis');
 var moment = require('moment');
 var exec = require('child_process').exec;
 
-var config = require("./database/rethinkConfig")
-var r = require('rethinkdb')
-
 var index = require('./routes/index');
 var admin = require('./routes/admin');
 var login = require('./routes/login');
@@ -72,7 +69,7 @@ app.use(passport.session());
 
 
 // Middleware that will create a connection to rethinkdb
-app.use(createConnection)
+// app.use(createConnection)
 
 var baseUrl = process.env.TS_BASE_URL;
 
@@ -142,16 +139,16 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
-app.use(closeConnection)
+// app.use(closeConnection)
 
 function restartInstance(command, callback){
     exec(command, function(error, stdout, stderr){ callback(stdout); });
 }
 
-function restartRethink(){
-  app.use(closeConnection)
-  app.use(createConnection)
-}
+// function restartRethink(){
+//   app.use(closeConnection)
+//   app.use(createConnection)
+// }
 
 /*
  * Send back a 500 error
@@ -165,19 +162,19 @@ function handleError(res) {
 /*
  * Create a RethinkDB connection, and save it in req._rdbConn
  */
-function createConnection(req, res, next) {
-    r.connect(config.rethinkdb).then(function(conn) {
-        req._rdbConn = conn;
-        next();
-    }).error(handleError(res));
-}
+// function createConnection(req, res, next) {
+//     r.connect(config.rethinkdb).then(function(conn) {
+//         req._rdbConn = conn;
+//         next();
+//     }).error(handleError(res));
+// }
 
 /*
  * Close the RethinkDB connection
  */
-function closeConnection(req, res, next) {
-    req._rdbConn.close();
-}
+// function closeConnection(req, res, next) {
+//     req._rdbConn.close();
+// }
 
 mysqlOps.createDatabase()
 

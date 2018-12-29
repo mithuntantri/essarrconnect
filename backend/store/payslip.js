@@ -1,7 +1,6 @@
 var sqlQuery = require('../database/sqlWrapper');
 var moment = require('moment')
 let _ = require("underscore");
-var rethinkOps = require('../store/rethinkOps');
 var request = require('request');
 var fs = require('fs');
 var pdf = require('html-pdf');

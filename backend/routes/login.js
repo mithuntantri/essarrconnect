@@ -16,7 +16,6 @@ var store = require('../store/store')
 var multer  = require('multer')
 var fs = require('fs');
 var path = require('path');
-var rethinkOps = require('../store/rethinkOps');
 var thumbler = require('video-thumb');
 var ffmpeg = require('fluent-ffmpeg');
 var child_process = require('child_process')
