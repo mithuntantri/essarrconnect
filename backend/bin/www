@@ -1,16 +1,16 @@
 var app = require('../server');
-var debug = require('debug')('TrignoSource:server');
+var debug = require('debug')('Essarr:server');
 var http = require('http');
 var express = require('express');
 const https = require('https');
 const fs = require('fs');
 
-var r = require('rethinkdb');
+/*var r = require('rethinkdb');
 var config = require('../database/rethinkConfig');
-var rethinkOps = require('../store/rethinkOps');
+var rethinkOps = require('../store/rethinkOps');*/
 var store = require("../store/store")
 
-r.connect(config.rethinkdb, function(err, conn) {
+/*r.connect(config.rethinkdb, function(err, conn) {
     if (err) {
         console.log("Could not open a connection to initialize the database");
         console.log(err.message);
@@ -23,7 +23,7 @@ r.connect(config.rethinkdb, function(err, conn) {
         startExpress()
       })
     });
-});
+});*/
 
 /**
  * Get port from environment and store in Express.

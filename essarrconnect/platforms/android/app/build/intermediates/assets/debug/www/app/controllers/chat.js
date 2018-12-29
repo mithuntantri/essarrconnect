@@ -5,7 +5,7 @@
         .module('app')
         .controller('ChatController', ChatController);
 
-    DashboardController.$injector = ['$scope', '$rootScope', '$location', '$nativeDrawer', '$timeout', 'Login', 'User', 'Dashboard'];
+    ChatController.$injector = ['$scope', '$rootScope', '$location', '$nativeDrawer', '$timeout', 'Login', 'User', 'Dashboard'];
 
     function ChatController($scope, $rootScope, $location, $nativeDrawer, $timeout, Login, User, Dashboard){
         StatusBar.backgroundColorByHexString('#219787');

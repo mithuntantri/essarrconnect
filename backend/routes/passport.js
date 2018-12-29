@@ -9,14 +9,14 @@ module.exports = function(passport){
     let redis_key, query;
     opts.jwtFromRequest = ExtractJwt.fromAuthHeader();
     opts.secretOrKey = 'eg[isfd-8axcewfgi43209=1dmnbvcrt67890-[;lkjhyt5432qi24';
-    console.log(opts)
+    // console.log(opts)
     passport.use(new JwtStrategy(opts, function (jwt_payload, done) {
       if(jwt_payload.access_level == 'admin'){
         query = "SELECT * FROM `admin` WHERE username = '" + jwt_payload.username + "'";
       }else{
         query = "SELECT * FROM `employees` WHERE id = " + jwt_payload.id + "";
       }
-      console.log(query, jwt_payload)
+      // console.log(query, jwt_payload)
       sqlQuery.executeQuery([query]).then((results) => {
             if(!("type" in jwt_payload)){
                 delete results[0][0].password;
@@ -35,8 +35,8 @@ module.exports = function(passport){
                     }else{
                         results[0][0]['name'] = jwt_payload.name;
                     }
-                    console.log("results[0][0]", results[0][0])
-                    console.log("redis_key", redis_key)
+                    // console.log("results[0][0]", results[0][0])
+                    // console.log("redis_key", redis_key)
                     redis_client.hgetall(redis_key, (err,reply) => {
                         done(null, results[0][0]);
                     })
