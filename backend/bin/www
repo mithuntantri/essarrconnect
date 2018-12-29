@@ -20,7 +20,6 @@ var store = require("../store/store")
     rethinkOps.createRethinkDatabase().then(()=>{
       rethinkOps.createRethinkTable(`tutorials`).then(()=>{
         console.log("[*] RethinkDB up and running")
-        startExpress()
       })
     });
 });*/
@@ -41,12 +40,9 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-function startExpress(){
-  server.listen(port);
-  server.on('error', onError);
-  server.on('listening', onListening);
-}
-
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
