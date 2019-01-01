@@ -99,8 +99,9 @@ var createIWSTable = ()=>{
 						last_name VARCHAR(64) NULL,
 						email VARCHAR(64) NULL,
 						designation VARCHAR(64) NULL,
-						department VARCHAR(64) NULL,
 						location_id INT NULL,
+						date_of_birth VARCHAR(11) NULL DEFAULT NULL,
+						aadhar_number VARCHAR(12) NULL DEFAULT NULL,
 						pan_number VARCHAR(10) NULL DEFAULT NULL,
 						primary_mobile VARCHAR(10) NULL,
 						secondary_mobile VARCHAR(10) NULL,
@@ -109,7 +110,8 @@ var createIWSTable = ()=>{
 						last_login_time VARCHAR(32), 
 						failed_login_attempts INT NOT NULL DEFAULT 0,
 						device_id VARCHAR(48) NULL DEFAULT NULL,
-						push_token VARCHAR(256) NULL DEFAULT NULL
+						push_token VARCHAR(256) NULL DEFAULT NULL,
+						UNIQUE(primary_mobile)
 					);`
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve()
@@ -123,7 +125,8 @@ var createBranchTable = ()=>{
 	return new Promise((resolve, reject)=>{
 		let query = `CREATE TABLE IF NOT EXISTS branches (
 						id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-						name VARCHAR(10) NOT NULL,
+						code VARCHAR(3) NOT NULL,
+						name VARCHAR(64) NOT NULL,
 						address VARCHAR(128) NULL,
 						pin_code INT NULL,
 						latitude FLOAT NULL,
@@ -186,7 +189,8 @@ var createLeavesTable = ()=>{
 						from_date VARCHAR(11) NULL DEFAULT '',
 						to_date VARCHAR(11) NULL DEFAULT '',
 						number_of_days INT NULL DEFAULT 0,
-						reason VARCHAR(32) NULL DEFAULT '',
+						reason VARCHAR(16) NULL DEFAULT '',
+						description VARCHAR(500) NULL DEFAULT '',
 						approved boolean NULL DEFAULT 0
 					);`
 		sqlQuery.executeQuery([query]).then((result)=>{
@@ -247,14 +251,10 @@ var createMSGPTable = ()=>{
 						location_id VARCHAR(3) NOT NULL,
 						date VARCHAR(11) NULL DEFAULT '',
 						timestamp INT NULL DEFAULT NULL,
-						iw_target FLOAT NULL DEFAULT 0,
-						iw_as_on FLOAT NULL DEFAULT 0,
-						mass_target FLOAT NULL DEFAULT 0,
-						mass_as_on FLOAT NULL DEFAULT 0,
-						trade_target FLOAT NULL DEFAULT 0,
-						trade_as_on FLOAT NULL DEFAULT 0,
-						walk_target FLOAT NULL DEFAULT 0,
-						walk_as_on FLOAT NULL DEFAULT 0,
+						target FLOAT NULL DEFAULT 0,
+						as_on FLOAT NULL DEFAULT 0,
+						balance FLOAT NULL DEFAULT 0,
+						per_day FLOAT NULL DEFAULT 0,
 						UNIQUE(location_id, date)
 					);`
 		sqlQuery.executeQuery([query]).then((result)=>{
@@ -272,18 +272,10 @@ var createMSGATable = ()=>{
 						location_id VARCHAR(3) NOT NULL,
 						date VARCHAR(11) NULL DEFAULT '',
 						timestamp INT NULL DEFAULT NULL,
-						cf_target FLOAT NULL DEFAULT 0,
-						cf_as_on FLOAT NULL DEFAULT 0,
-						mats_target FLOAT NULL DEFAULT 0,
-						mats_as_on FLOAT NULL DEFAULT 0,
-						mf_target FLOAT NULL DEFAULT 0,
-						mf_as_on FLOAT NULL DEFAULT 0,
-						sw_target FLOAT NULL DEFAULT 0,
-						sw_as_on FLOAT NULL DEFAULT 0,
-						wc_target FLOAT NULL DEFAULT 0,
-						wc_as_on FLOAT NULL DEFAULT 0,
-						bc_target FLOAT NULL DEFAULT 0,
-						bc_as_on FLOAT NULL DEFAULT 0,
+						target FLOAT NULL DEFAULT 0,
+						as_on FLOAT NULL DEFAULT 0,
+						balance FLOAT NULL DEFAULT 0,
+						per_day FLOAT NULL DEFAULT 0,
 						UNIQUE(location_id, date)
 					);`
 		sqlQuery.executeQuery([query]).then((result)=>{
@@ -325,6 +317,7 @@ var createAnnouncementsTable = ()=>{
 						date VARCHAR(11) NULL DEFAULT '',
 						timestamp INT NULL DEFAULT NULL,
 						title VARCHAR(32) NOT NULL DEFAULT '',
+						category VARCHAR(64) NOT NULL DEFAULT '',
 						message VARCHAR(128) NOT NULL DEFAULT ''
 					);`
 		sqlQuery.executeQuery([query]).then((result)=>{
@@ -342,10 +335,11 @@ var createThreadsTable = ()=>{
 						username VARCHAR(32) NOT NULL, 
 						date VARCHAR(11) NULL DEFAULT '',
 						timestamp INT NULL DEFAULT NULL,
-						user_message_1 VARCHAR(128) NULL DEFAULT '',
-						user_message_2 VARCHAR(128) NULL DEFAULT '',
-						admin_message_1 VARCHAR(128) NULL DEFAULT '',
-						admin_message_2 VARCHAR(128) NULL DEFAULT ''
+						user_message_1 VARCHAR(500) NULL DEFAULT '',
+						user_message_2 VARCHAR(500) NULL DEFAULT '',
+						admin_message_1 VARCHAR(500) NULL DEFAULT '',
+						admin_message_2 VARCHAR(500) NULL DEFAULT '',
+						status boolean NULL DEFAULT 0
 					);`
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve()

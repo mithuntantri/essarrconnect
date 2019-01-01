@@ -53,7 +53,7 @@ var GenerateHTML = (tds, employee)=>{
 	html = html.replace("{{location}}", employee.location)
 	html = html.replace("{{effective_working_days}}", employee.effective_working_days)
 	html = html.replace("{{loss_of_pay_days}}", employee.loss_of_pay_days)
-	html = html.replace("{{department}}", employee.department)
+	html = html.replace("{{department}}", employee.department?employee.department:'NA')
 	html = html.replace("{{bank_account_number}}", employee.account_number)
 	html = html.replace("{{pan_number}}", employee.pan_number?employee.pan_number:'NA')
 	html = html.replace("{{uan_number}}", employee.uan_number?employee.uan_number:'NA')

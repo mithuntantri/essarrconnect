@@ -26,7 +26,7 @@ if (!String.prototype.padStart) {
 
 var UserDetails = (username)=>{
 	return new Promise((resolve, reject)=>{
-		let query = `SELECT id, employee_id, first_name, last_name, email, pan_number, primary_mobile, secondary_mobile FROM employees where employee_id='${username}'`
+		let query = `SELECT e.id, e.employee_id, e.first_name, e.last_name, e.date_of_birth, e.email, e.aadhar_number, e.pan_number, e.primary_mobile, e.secondary_mobile, s.bank_name, s.account_number FROM employees e INNER JOIN salaries s where e.employee_id = s.employee_id AND e.employee_id='${username}'`
 		console.log(query)
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve(result[0][0])
@@ -99,7 +99,18 @@ var getAllLeaves = (username)=>{
 var getIncentives = (username)=>{
 	return new Promise((resolve, reject)=>{
 		let current_date = moment().format("MMM YYYY")
-		let query = `SELECT * from incentives WHERE date LIKE '%${current_date}'`;
+		let query = `SELECT * from incentives i INNER JOIN employees e WHERE i.employee_id=e.employee_id AND i.date LIKE '%${current_date}'`;
+		sqlQuery.executeQuery([query]).then((result)=>{
+			resolve(result[0])
+		}).catch((err)=>{
+			reject(err)
+		})
+	})
+}
+
+var getAllCategory = ()=>{
+	return new Promise((resolve, reject)=>{
+		let query = `SELECT DISTINCT(designation) FROM employees`
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve(result[0])
 		}).catch((err)=>{
@@ -110,7 +121,7 @@ var getIncentives = (username)=>{
 
 var getEmployees = (username)=>{
 	return new Promise((resolve, reject)=>{
-		let query = `SELECT * from employees`;
+		let query = `SELECT * from employees e INNER JOIN branches b WHERE e.location_id = b.id`;
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve(result[0])
 		}).catch((err)=>{
@@ -166,7 +177,7 @@ var getAllThreads = (username)=>{
 
 var addBranch = (branch)=>{
 	return new Promise((resolve, reject)=>{
-		let query = `INSERT INTO branches (name, address, pin_code, latitude, longitude) VALUES('${branch.name}', '${branch.address}', ${branch.pin_code}, ${branch.latitude}, ${branch.longitude})`
+		let query = `INSERT INTO branches (code, name, address, pin_code, latitude, longitude) VALUES('${branch.code.toUpperCase()}', '${branch.name}', '${branch.address}', ${branch.pin_code}, ${branch.latitude}, ${branch.longitude})`
 		console.log(query)
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve()
@@ -208,7 +219,7 @@ var addHoliday = (holiday)=>{
 var addLeave = (username, leave)=>{
 	return new Promise((resolve, reject)=>{
 		let current_year = leave.from_date.split(" ")[2]
-		let query = `INSERT INTO leaves (employee_id, year, from_date, to_date, reason, number_of_days) VALUES('${username}', '${current_year}', '${leave.from_date}', '${leave.to_date}', '${leave.reason}', ${leave.number_of_days})`
+		let query = `INSERT INTO leaves (employee_id, year, from_date, to_date, reason, description, number_of_days) VALUES('${username}', '${current_year}', '${leave.from_date}', '${leave.to_date}', '${leave.reason}', '${leave.description}', ${leave.number_of_days})`
 		console.log(query)
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve()
@@ -238,7 +249,7 @@ var updateThread = (username, thread)=>{
 	return new Promise((resolve, reject)=>{
 		let date = moment().format("DD MMM YYYY")
 		let timestamp = moment().unix()
-		let query = `UPDATE threads SET admin_message_1='${thread.admin_message_1}', user_message_2='${thread.user_message_2}', admin_message_2='${thread.admin_message_2}' where id=${thread.id}`
+		let query = `UPDATE threads SET admin_message_1='${thread.admin_message_1}', user_message_2='${thread.user_message_2}', admin_message_2='${thread.admin_message_2}', status=${thread.status} where id=${thread.id}`
 		console.log(query)
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve()
@@ -252,9 +263,9 @@ var updateThread = (username, thread)=>{
 var addEmployee = (employee)=>{
 	return new Promise((resolve, reject)=>{
 		console.log("Came herer")
-		employee.number = "EA" + (employee.number.toString()).padStart(3, "0")
+		employee.number = "EA" + employee.number.toString()
 		console.log(employee)
-		let query1 = `INSERT INTO employees (employee_id, designation, department, location_id) VALUES('${employee.number}', '${employee.designation}', '${employee.department}', ${employee.location})`
+		let query1 = `INSERT INTO employees (employee_id, first_name, last_name, designation, location_id) VALUES('${employee.number}', '${employee.first_name}',  '${employee.last_name}', '${employee.designation}', ${employee.location})`
 		let query2 = `INSERT INTO salaries (employee_id) VALUES('${employee.number}')`
 		console.log(query1, query2)
 		sqlQuery.executeQuery([query1, query2]).then((result)=>{
@@ -371,7 +382,7 @@ var punchAttendance = (username, position)=>{
 	return new Promise((resolve, reject)=>{
 		approveAttendance(username, position).then((approved)=>{
 			console.log(username, position)
-			position.timestamp = parseInt(position.timestamp / 1000)
+			// position.timestamp = parseInt(position.timestamp / 1000)
 			let query = `INSERT INTO attendance (employee_id, timestamp, accuracy, altitude, altitudeAccuracy, heading, latitude, longitude, speed, approved) VALUES('${username}', ${position.timestamp}, ${position.coords.accuracy}, ${position.coords.altitude}, ${position.coords.altitudeAccuracy}, ${position.coords.heading}, ${position.coords.latitude}, ${position.coords.longitude}, ${position.coords.speed}, ${approved})`
 			console.log(query)
 			sqlQuery.executeQuery([query]).then((result)=>{
@@ -385,13 +396,45 @@ var punchAttendance = (username, position)=>{
 
 var updateProfile = (employee_id, profile)=>{
 	return new Promise((resolve, reject)=>{
-		let query = `UPDATE employees SET first_name='${profile.first_name}', last_name='${profile.last_name}', secondary_mobile='${profile.secondary_mobile}', pan_number='${profile.pan_number}', email='${profile.email}' WHERE employee_id='${employee_id}'`
-		console.log(query)
-		sqlQuery.executeQuery([query]).then(()=>{
+		let query1 = `UPDATE employees SET first_name='${profile.first_name}', last_name='${profile.last_name}', date_of_birth='${profile.date_of_birth}', secondary_mobile='${profile.secondary_mobile}', pan_number='${profile.pan_number}', aadhar_number='${profile.aadhar_number}', email='${profile.email}' WHERE employee_id='${employee_id}'`
+		let query2 = `UPDATE salaries SET bank_name='${profile.bank_name}', account_number='${profile.account_number}' WHERE employee_id='${employee_id}'`
+		console.log(query1, query2)
+		sqlQuery.executeQuery([query1, query2]).then(()=>{
 			resolve()
 		}).catch((err)=>{
 			reject(err)
 		})
+	})
+}
+
+var redoFetchAllTargets = (date, count)=>{
+	return new Promise((resolve, reject)=>{
+		if(count < 10){
+			query1 = `SELECT * FROM msgp WHERE date='${date}'`
+			query2 = `SELECT * FROM msga WHERE date='${date}'`
+			query3 = `SELECT * FROM customerwise WHERE date='${date}'`
+
+			sqlQuery.executeQuery([query1, query2, query3]).then((result)=>{
+				console.log(result)
+				result.location = 'ALL'
+				if(result[0].length > 0){
+					resolve(result)					
+				}else{
+					count++
+					date = moment(date, "DD MMM YYYY").subtract(1, 'days').format("DD MMM YYYY")
+					redoFetchAllTargets(date, count).then((res)=>{
+						resolve(res)
+					}).catch((err)=>{
+						reject(err)
+					})
+				}
+			}).catch((err)=>{
+				console.log(err)
+				reject(err)
+			})
+		}else{
+			resolve(result)
+		}
 	})
 }
 
@@ -432,24 +475,17 @@ var getAllTargets = (username, access_level)=>{
 		let date = moment().format("DD MMM YYYY")
 		let query1, query2, query3
 		if(access_level == 'admin'){
-			query1 = `SELECT * FROM msgp WHERE date='${date}'`
-			query2 = `SELECT * FROM msga WHERE date='${date}'`
-			query3 = `SELECT * FROM customerwise WHERE date='${date}'`
-
-			sqlQuery.executeQuery([query1, query2, query3]).then((result)=>{
-				console.log(result)
-				result.location = 'ALL'
+			redoFetchAllTargets(date, 0).then((result)=>{
 				resolve(result)
 			}).catch((err)=>{
-				console.log(err)
 				reject(err)
 			})
 		}else{
-			let query = `SELECT b.name FROM branches b INNER JOIN employees e WHERE e.location_id = b.id AND e.employee_id='${username}'`
+			let query = `SELECT b.code FROM branches b INNER JOIN employees e WHERE e.location_id = b.id AND e.employee_id='${username}'`
 			console.log(query)
 			sqlQuery.executeQuery([query]).then((res)=>{
 				console.log(res)
-				let location_id = res[0][0].name
+				let location_id = res[0][0].code
 				redoFetchTargets(date, location_id, 0).then((result)=>{
 					resolve(result)
 				}).catch((err)=>{
@@ -516,5 +552,6 @@ module.exports = {
 	addThread: addThread,
 	getThreads: getThreads,
 	getAllThreads: getAllThreads,
-	updateThread: updateThread
+	updateThread: updateThread,
+	getAllCategory:getAllCategory
 }

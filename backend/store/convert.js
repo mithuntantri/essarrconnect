@@ -5,6 +5,28 @@ var sqlQuery = require('../database/sqlWrapper');
 var moment = require('moment')
 let _ = require("underscore");
 let mysqlOps = require("../store/mysqlOps")
+var json2xls = require('json2xls');
+
+var generateAttendanceReport = (employee_id, date)=>{
+    return new Promise((resolve, reject)=>{
+        console.log(employee_id, date)
+        let query = `SELECT e.employee_id, e.first_name, e.last_name, b.code, b.name, b.latitude AS branch_latitude, b.longitude AS branch_longitude, a.timestamp, a.latitude, a.longitude, a.accuracy FROM employees e LEFT OUTER JOIN branches b ON (e.location_id=b.id) LEFT OUTER JOIN attendance a ON (e.employee_id = a.employee_id) WHERE e.employee_id='${employee_id}'`
+        console.log(query)
+        sqlQuery.executeQuery([query]).then((result)=>{
+            _.each(result[0], (res)=>{
+                res.date = moment(res.timestamp).format("DD MMM YYYY")
+                res.time = moment(res.timestamp).format("HH:mm:ss")
+            })
+            var xls = json2xls(result[0]);
+            let filename = `attendance_report_${employee_id}(${date}).xlsx`
+            fs.writeFileSync(`reports/${filename}`, xls, 'binary');
+            resolve(filename)
+        }).catch((err)=>{
+            console.log(err)
+            reject(err)
+        })
+    })
+}
 
 var convertToCSV = (option, filename)=>{
     return new Promise((resolve, reject)=>{
@@ -84,12 +106,14 @@ var importMSGPList = (lines)=>{
             let timestamp = moment().startOf('day').unix()
             for(i=1;i<lines.length-1;i++){
                 let columns = lines[i].split(",")
-                queries.push(`INSERT INTO msgp (location_id, date, timestamp,iw_target, iw_as_on, mass_target, mass_as_on, trade_target, trade_as_on, walk_target, walk_as_on) VALUES('${columns[0]}', '${date}', ${timestamp}, ${parseFloat(columns[1])}, ${parseFloat(columns[2])}, ${parseFloat(columns[3])}, ${parseFloat(columns[4])}, ${parseFloat(columns[5])}, ${parseFloat(columns[6])}, ${parseFloat(columns[7])}, ${parseFloat(columns[8])})`)
+                queries.push(`INSERT INTO msgp (location_id, date, timestamp, target, as_on, balance, per_day) VALUES('${columns[0]}', '${date}', ${timestamp}, ${parseFloat(columns[9])}, ${parseFloat(columns[10])}, ${parseFloat(columns[11])}, ${parseFloat(columns[12])})`)
             }
+            console.log(queries)
             if(queries.length == lines.length-2){
                 sqlQuery.executeQuery(queries).then(()=>{
                     resolve()
                 }).catch((err)=>{
+                    console.log(err)
                     reject(err)
                 })
             }
@@ -108,11 +132,11 @@ var importMSGAList = (lines)=>{
             let queries = []
             let date = moment().format("DD MMM YYYY")
             let timestamp = moment().startOf('day').unix()
-            for(i=1;i<lines.length;i++){
+            for(i=1;i<lines.length-1;i++){
                 let columns = lines[i].split(",")
-                queries.push(`INSERT INTO msga (location_id, date, timestamp,cf_target, cf_as_on, mats_target, mats_as_on, mf_target, mf_as_on, sw_target, sw_as_on, wc_target, wc_as_on, bc_target, bc_as_on) VALUES('${columns[0]}', '${date}', ${timestamp}, ${parseFloat(columns[1])}, ${parseFloat(columns[2])}, ${parseFloat(columns[3])}, ${parseFloat(columns[4])}, ${parseFloat(columns[5])}, ${parseFloat(columns[6])}, ${parseFloat(columns[7])}, ${parseFloat(columns[8])}, ${parseFloat(columns[9])}, ${parseFloat(columns[10])}, ${parseFloat(columns[11])}, ${parseFloat(columns[12])})`)
+                queries.push(`INSERT INTO msga (location_id, date, timestamp, target, as_on, balance, per_day) VALUES('${columns[0]}', '${date}', ${timestamp}, ${parseFloat(columns[13])}, ${parseFloat(columns[14])}, ${parseFloat(columns[15])}, ${parseFloat(columns[16])})`)
             }
-            if(queries.length == lines.length-1){
+            if(queries.length == lines.length-2){
                 console.log(queries)
                 sqlQuery.executeQuery(queries).then(()=>{
                     resolve()
@@ -150,5 +174,6 @@ var importCustomerwiseList = (lines)=>{
 }
 
 module.exports = {
-    convertToCSV: convertToCSV
+    convertToCSV: convertToCSV,
+    generateAttendanceReport: generateAttendanceReport
 }

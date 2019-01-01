@@ -62,6 +62,32 @@ router.post('/login', (req, res, next) => {
   })
 })
 
+router.get("/report", passport.authenticate('jwt', {session: true}), function(req, res, next) {
+  var username =  req.session.passport.user.username;
+  let employee_id = req.query.employee_id
+  let date = req.query.date
+  new Promise((resolve, reject)=>{
+    convert.generateAttendanceReport(employee_id, date).then((filename)=>{
+      resolve(filename)
+    }).catch((err)=>{
+      console.log(err)
+      reject(err)
+    })
+  }).then((filename)=>{
+    console.log(filename)
+    var filePath = path.join(__dirname, '..', 'reports', filename);
+    var fileToSend = fs.readFileSync(filePath);
+    var stat = fs.statSync(filePath);
+    res.set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    res.set('Content-Length', stat.size);
+    res.set('Content-Disposition', filename);
+    res.send(fileToSend);
+  }).catch((err)=>{
+    console.log(err)
+    res.json({'status': false, 'message': err})
+  })
+})
+
 router.get("/targets", passport.authenticate('jwt', {session: true}), function(req, res, next) {
   var username =  req.session.passport.user.username;
   new Promise((resolve, reject)=>{
@@ -81,6 +107,21 @@ router.get("/branches", passport.authenticate('jwt', {session: true}), function(
   var username =  req.session.passport.user.username;
   new Promise((resolve, reject)=>{
     user.getBranches(username).then((data)=>{
+      resolve(data)
+    }).catch((err)=>{
+      reject(err)
+    })
+  }).then((data)=>{
+    res.json({'status': true, 'data': data})
+  }).catch((err)=>{
+    res.json({'status': false, 'message': err})
+  })
+})
+
+router.get("/category", passport.authenticate('jwt', {session: true}), function(req, res, next) {
+  var username =  req.session.passport.user.username;
+  new Promise((resolve, reject)=>{
+    user.getAllCategory().then((data)=>{
       resolve(data)
     }).catch((err)=>{
       reject(err)
@@ -277,14 +318,25 @@ router.post("/announcements", function(req, res, next) {
   var username =  "EAC001";
   var message = req.body.message
   var title = req.body.title
+  var category = req.body.category
   console.log(message, title)
   new Promise((resolve, reject)=>{
-    notifications.broadcastMessage(username, title, message).then((data)=>{
-      resolve(data)
-    }).catch((err)=>{
-      console.log(err)
-      reject(err)
-    })
+    if(category == 'All'){
+      notifications.broadcastMessage(username, title, message, category).then((data)=>{
+        resolve(data)
+      }).catch((err)=>{
+        console.log(err)
+        reject(err)
+      })  
+    }else{
+      notifications.broadcastCategoryMessage(username, title, message, category).then((data)=>{
+        resolve(data)
+      }).catch((err)=>{
+        console.log(err)
+        reject(err)
+      })
+    }
+    
   }).then((data)=>{
     res.json({'status': true, 'data': data})
   }).catch((err)=>{
@@ -338,7 +390,7 @@ router.post("/employees", passport.authenticate('jwt', {session: true}), functio
   var employee = req.body
   console.log(employee)
   new Promise((resolve, reject)=>{
-    if(employee.number != 0 && employee.designation != '' && employee.department != '' && employee.location != 0){
+    if(employee.number != 0 && employee.designation != '' && employee.first_name != '' && employee.last_name != '' && employee.location != 0){
       user.addEmployee(employee).then((data)=>{
         resolve(data)
       }).catch((err)=>{

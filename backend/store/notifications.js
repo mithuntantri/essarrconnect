@@ -77,11 +77,11 @@ var sendSpecificDeviceNotification = (username, access_level, send_to, data)=>{
   })
 }
 
-var broadcastMessage = (username, title, message)=>{
+var broadcastMessage = (username, title, message, category)=>{
   return new Promise((resolve, reject)=>{
     let date = moment().format("DD MMM YYYY")
     let timestamp = moment().unix()
-    let query = `INSERT INTO announcements (username, date, timestamp, title, message) VALUES('${username}', '${date}', ${timestamp},'${title}', '${message}')`
+    let query = `INSERT INTO announcements (username, date, timestamp, title, message,category) VALUES('${username}', '${date}', ${timestamp},'${title}', '${message}', '${category}')`
     sqlQuery.executeQuery([query]).then(()=>{
       var nmessage = { 
         app_id: APP_ID,
@@ -102,7 +102,37 @@ var broadcastMessage = (username, title, message)=>{
   })  
 }
 
+var broadcastCategoryMessage = (username, title, message, category)=>{
+  return new Promise((resolve, reject)=>{
+    let date = moment().format("DD MMM YYYY")
+    let timestamp = moment().unix()
+    let query1 = `SELECT device_id FROM employees WHERE designation='${category}'`
+    let query2 = `INSERT INTO announcements (username, date, timestamp, title, message,category) VALUES('${username}', '${date}', ${timestamp},'${title}', '${message}', '${category}')`
+    sqlQuery.executeQuery([query1, query2]).then((result)=>{
+      let device_ids = _.pluck(result[0], 'device_id')
+      console.log(device_ids)
+      var message = { 
+        app_id: APP_ID,
+        data: {title: title, message: message},
+        contents: {"en": message},
+        headings: {"en": title},
+        included_segments: ["All"],
+        include_player_ids: device_ids
+      };
+      console.log(message)
+      sendNotification(message).then(()=>{
+        resolve()      
+      }).catch((err)=>{
+        reject(err)
+      })
+    }).catch((err)=>{
+      reject(err)
+    })
+  })  
+}
+
 module.exports = {
   broadcastMessage: broadcastMessage,
-  sendSpecificDeviceNotification: sendSpecificDeviceNotification 
+  sendSpecificDeviceNotification: sendSpecificDeviceNotification,
+  broadcastCategoryMessage: broadcastCategoryMessage
 }

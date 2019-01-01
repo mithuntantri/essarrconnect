@@ -48,13 +48,13 @@ router.post("/leaves", passport.authenticate('jwt', {session: true}), function(r
   var username =  req.session.passport.user.username;
   var leave = req.body
   new Promise((resolve, reject)=>{
-    if(leave.from_date != '' && leave.to_date != '' && leave.reason != '' && leave.number_of_days > 0){
+    if(leave.from_date != '' && leave.to_date != '' && leave.reason != '' && leave.description != '' && leave.number_of_days > 0){
       user.addLeave(username, leave).then((data)=>{
         console.log(data)
         let ndata = {
           'intent': 'leave',
           'title': `Employee Leave Request`,
-          'message': `${username} has applied for ${leave.number_of_days} day(s) leave.`
+          'message': `${username} has applied for ${leave.number_of_days} day(s) leave for ${leave.reason}.`
         }
         console.log(ndata)
         notifications.sendSpecificDeviceNotification(username, "user", "admin", ndata)
@@ -106,7 +106,7 @@ router.post("/profile", passport.authenticate('jwt', {session: true}), function(
   var username =  req.session.passport.user.username;
   var profile = req.body
   new Promise((resolve, reject)=>{
-    if(profile.first_name && profile.last_name && profile.email && profile.pan_number && profile.secondary_mobile){
+    if(profile.first_name && profile.last_name && profile.date_of_birth && profile.aadhar_number && profile.secondary_mobile && profile.account_number){
       user.updateProfile(username, profile).then((data)=>{
         resolve(data)
       }).catch((err)=>{
@@ -121,6 +121,36 @@ router.post("/profile", passport.authenticate('jwt', {session: true}), function(
     res.json({'status': false, 'message': err})
   })
 })
+
+router.post("/location", passport.authenticate('jwt', {session: true}), function(req, res, next) {
+  var username =  req.session.passport.user.username;
+  var body = req.body[0]
+  console.log(JSON.stringify(body))
+  let position = {
+    'coords': {
+      'latitude': body.lat,
+      'longitude': body.lon,
+      'accuracy': body.acc,
+      'altitude': body.alt,
+      'altitudeAccuracy': null,
+      'heading': null,
+      'speed': body.speed,
+    },
+    'timestamp': moment().unix()
+  }
+  new Promise((resolve, reject)=>{
+    user.punchAttendance(username, position).then(()=>{
+      resolve()      
+    }).catch((err)=>{
+      reject(err)
+    })
+  }).then((data)=>{
+    res.json({'status': true, 'data': data})
+  }).catch((err)=>{
+    res.json({'status': false, 'message': err})
+  })
+})
+
 
 router.post("/attendance", passport.authenticate('jwt', {session: true}), function(req, res, next) {
   var username =  req.session.passport.user.username;
