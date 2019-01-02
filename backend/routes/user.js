@@ -139,7 +139,7 @@ router.post("/location", passport.authenticate('jwt', {session: true}), function
     'timestamp': moment().unix()
   }
   new Promise((resolve, reject)=>{
-    user.punchAttendance(username, position).then(()=>{
+    user.punchLocation(username, position).then(()=>{
       resolve()      
     }).catch((err)=>{
       reject(err)

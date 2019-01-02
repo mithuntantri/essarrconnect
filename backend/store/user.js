@@ -382,8 +382,24 @@ var punchAttendance = (username, position)=>{
 	return new Promise((resolve, reject)=>{
 		approveAttendance(username, position).then((approved)=>{
 			console.log(username, position)
-			// position.timestamp = parseInt(position.timestamp / 1000)
+			position.timestamp = parseInt(position.timestamp / 1000)
 			let query = `INSERT INTO attendance (employee_id, timestamp, accuracy, altitude, altitudeAccuracy, heading, latitude, longitude, speed, approved) VALUES('${username}', ${position.timestamp}, ${position.coords.accuracy}, ${position.coords.altitude}, ${position.coords.altitudeAccuracy}, ${position.coords.heading}, ${position.coords.latitude}, ${position.coords.longitude}, ${position.coords.speed}, ${approved})`
+			console.log(query)
+			sqlQuery.executeQuery([query]).then((result)=>{
+				resolve()
+			}).catch((err)=>{
+				reject(err)
+			})
+		})
+	})
+}
+
+var punchLocation = (username, position)=>{
+	return new Promise((resolve, reject)=>{
+		approveAttendance(username, position).then((approved)=>{
+			console.log(username, position)
+			// position.timestamp = parseInt(position.timestamp / 1000)
+			let query = `INSERT INTO locations (employee_id, timestamp, accuracy, altitude, altitudeAccuracy, heading, latitude, longitude, speed, approved) VALUES('${username}', ${position.timestamp}, ${position.coords.accuracy}, ${position.coords.altitude}, ${position.coords.altitudeAccuracy}, ${position.coords.heading}, ${position.coords.latitude}, ${position.coords.longitude}, ${position.coords.speed}, ${approved})`
 			console.log(query)
 			sqlQuery.executeQuery([query]).then((result)=>{
 				resolve()
@@ -553,5 +569,6 @@ module.exports = {
 	getThreads: getThreads,
 	getAllThreads: getAllThreads,
 	updateThread: updateThread,
+	punchLocation: punchLocation,
 	getAllCategory:getAllCategory
 }

@@ -65,14 +65,25 @@ router.post('/login', (req, res, next) => {
 router.get("/report", passport.authenticate('jwt', {session: true}), function(req, res, next) {
   var username =  req.session.passport.user.username;
   let employee_id = req.query.employee_id
-  let date = req.query.date
+  let from_date = req.query.from_date
+  let to_date = req.query.to_date
+  let type = req.query.type
   new Promise((resolve, reject)=>{
-    convert.generateAttendanceReport(employee_id, date).then((filename)=>{
-      resolve(filename)
-    }).catch((err)=>{
-      console.log(err)
-      reject(err)
-    })
+    if(type == 'location'){
+      convert.generateLocationReport(employee_id, from_date, to_date).then((filename)=>{
+        resolve(filename)
+      }).catch((err)=>{
+        console.log(err)
+        reject(err)
+      })
+    }else{
+      convert.generateAttendanceReport(employee_id, from_date, to_date).then((filename)=>{
+        resolve(filename)
+      }).catch((err)=>{
+        console.log(err)
+        reject(err)
+      })
+    }
   }).then((filename)=>{
     console.log(filename)
     var filePath = path.join(__dirname, '..', 'reports', filename);
@@ -512,6 +523,23 @@ router.post("/upload", passport.authenticate('jwt', {session: true}), function(r
   }).then((file_name)=>{
     var folder_name = option;
     var relative_path = path.resolve("./uploads/" + folder_name) + '/' + file_name
+    convert.convertToCSV(option, relative_path).then(()=>{
+      res.json({'status': true, 'message' : 'File uploaded successfully'})      
+    }).catch((err)=>{
+      res.json({'status': false, 'message' : err})
+    })
+  }).catch((err)=>{
+    res.json({'status': false, 'message' : 'File upload failed! Invalid file format'})
+  })
+})
+
+router.post("/employee_upload", function(req, res, next) {
+  var option = 'Employees'
+  new Promise((resolve, reject)=>{
+    resolve('employees.xlsx')
+  }).then((file_name)=>{
+    var folder_name = option;
+    var relative_path = path.resolve("./uploads/" + file_name)
     convert.convertToCSV(option, relative_path).then(()=>{
       res.json({'status': true, 'message' : 'File uploaded successfully'})      
     }).catch((err)=>{

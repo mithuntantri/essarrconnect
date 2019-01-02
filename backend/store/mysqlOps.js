@@ -34,6 +34,117 @@ var admins = [
 	}
 ]
 
+var locations = [
+	{
+		"id": 1,
+		"code": "ANE",
+		"name": "Anepalya",
+		"address": "No.2, Gajendra Nagar, Neelasandra, Bengaluru, Karnataka",
+		"pin_code": 560027,
+		"latitude": 12.950505,
+		"longitude": 77.607428
+	},
+	{
+		"id": 2,
+		"code": "BNG",
+		"name": "H Siddaiah Road",
+		"address": "19/1-2, H Siddaiah Rd, near URVASHI THEATRE, Doddamavalli, Sudhama Nagar, Bengaluru, Karnataka",
+		"pin_code": 560002,
+		"latitude": 12.955754,
+		"longitude": 77.584717
+	},
+	{
+		"id": 3,
+		"code": "YED",
+		"name": "K R Road",
+		"address": "Block D2, MM Brigade Yediyur, KR Rd, 7th Block, Jayanagar, Bengaluru, Karnataka",
+		"pin_code": 560082,
+		"latitude": 12.930854,
+		"longitude": 77.574031
+	},
+	{
+		"id": 4,
+		"code": "CHD",
+		"name": "Chitradurga",
+		"address": "",
+		"pin_code": 0,
+		"latitude": 0,
+		"longitude": 0
+	},
+	{
+		"id": 5,
+		"code": "BRG",
+		"name": "Bilekahalli",
+		"address": "142, 4th Cross Rd, Sundar Ram Shetty Nagar, Bilekahalli, Bengaluru, Karnataka ",
+		"pin_code": 560076,
+		"latitude": 12.900621,
+		"longitude": 77.601379
+	},
+	{
+		"id": 6,
+		"code": "BOM",
+		"name": "Bommanahalli",
+		"address": "No 111/1, Hosur Main Road, Near, Begur Main Rd, Rajiv Gandhi Nagar, Bommanahalli, Bengaluru, Karnataka",
+		"pin_code": 560068, 
+		"latitude": 12.906769,
+		"longitude": 77.629482
+	},
+	{
+		"id": 7,
+		"code": "KEN",
+		"name": "Kengeri",
+		"address": "1443, 11st Main Road near Hoysala circle, Gnanabharathi, Stage II, Kengeri Satellite Town, Bengaluru, Karnataka",
+		"pin_code": 560060,
+		"latitude": 12.925577,
+		"longitude": 77.485843
+	},
+	{
+		"id": 8,
+		"code": "KNT",
+		"name": "Konanakunte",
+		"address": "",
+		"pin_code": 0,
+		"latitude": 0,
+		"longitude": 0
+	},
+	{
+		"id": 9,
+		"code": "CUR",
+		"name": "Old Chandapura",
+		"address": "",
+		"pin_code": 0,
+		"latitude": 0,
+		"longitude": 0
+	},
+	{
+		"id": 10,
+		"code": "VKN",
+		"name": "Ramanagara",
+		"address": "",
+		"pin_code": 0,
+		"latitude": 0,
+		"longitude": 0
+	},
+	{
+		"id": 11,
+		"code": "KER",
+		"name": "Tumkur",
+		"address": "",
+		"pin_code": 0,
+		"latitude": 0,
+		"longitude": 0
+	},
+	{
+		"id": 12,
+		"code": "RNA",
+		"name": "Yedamadu",
+		"address": "",
+		"pin_code": 0,
+		"latitude": 0,
+		"longitude": 0
+	}
+]
+
 var insertAdminValues = (admins)=>{
 	return new Promise((resolve, reject)=>{
 		console.log("[*] Preparing Credentials for Admin")
@@ -56,6 +167,23 @@ var insertAdminValues = (admins)=>{
 	})
 }
 
+var insertBranchValues = (branches)=>{
+	return new Promise((resolve, reject)=>{
+		console.log("[*] Preparing data for branches")
+		let queries = []
+		_.each(branches, (branch)=>{
+			console.log(">>>branches",branch)
+			queries.push(`INSERT INTO branches (id, code, name, address, pin_code, latitude, longitude) VALUES(${branch.id},'${branch.code}','${branch.name}','${branch.address}', ${branch.pin_code}, ${branch.latitude}, ${branch.longitude})`)
+			if(queries.length == branches.length){
+				sqlQuery.executeQuery(queries).then((result)=>{
+					resolve()			
+				}).catch((err)=>{
+					reject(err)
+				})
+			}
+		})
+	})
+}
 var createAdminTable = ()=>{
 	return new Promise((resolve, reject)=>{
 		let query = `CREATE TABLE IF NOT EXISTS admin (
@@ -111,6 +239,7 @@ var createIWSTable = ()=>{
 						failed_login_attempts INT NOT NULL DEFAULT 0,
 						device_id VARCHAR(48) NULL DEFAULT NULL,
 						push_token VARCHAR(256) NULL DEFAULT NULL,
+						UNIQUE(employee_id),
 						UNIQUE(primary_mobile)
 					);`
 		sqlQuery.executeQuery([query]).then((result)=>{
@@ -133,7 +262,12 @@ var createBranchTable = ()=>{
 						longitude FLOAT NULL
 					);`
 		sqlQuery.executeQuery([query]).then((result)=>{
-			resolve()
+				insertBranchValues(locations).then(()=>{
+					resolve()
+				}).catch((err)=>{
+					console.log(err)
+					reject(err)
+				})
 		}).catch((err)=>{
 			reject(err)
 		})
@@ -152,7 +286,8 @@ var createSalaryTable = ()=>{
 						uan_number VARCHAR(32) NULL DEFAULT 0,
 						esic_number VARCHAR(32) NULL DEFAULT 0,
 						bank_name VARCHAR(32) NULL DEFAULT '',
-						account_number VARCHAR(32) NULL DEFAULT 0
+						account_number VARCHAR(32) NULL DEFAULT 0,
+						UNIQUE(employee_id)
 					);`
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve()
@@ -203,7 +338,7 @@ var createLeavesTable = ()=>{
 
 var createAttendanceTable = ()=>{
 	return new Promise((resolve, reject)=>{
-		let query = `CREATE TABLE IF NOT EXISTS attendance (
+		let query1 = `CREATE TABLE IF NOT EXISTS attendance (
 						id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
 						employee_id VARCHAR(10) NOT NULL,
 						timestamp INT(15) NULL DEFAULT 0,
@@ -217,7 +352,21 @@ var createAttendanceTable = ()=>{
 						punch_type boolean DEFAULT 0,
 						approved boolean NULL DEFAULT 0
 					);`
-		sqlQuery.executeQuery([query]).then((result)=>{
+		let query2 = `CREATE TABLE IF NOT EXISTS locations (
+						id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+						employee_id VARCHAR(10) NOT NULL,
+						timestamp INT(15) NULL DEFAULT 0,
+						accuracy FLOAT NULL DEFAULT 0,
+						altitude FLOAT NULL DEFAULT 0,
+						altitudeAccuracy FLOAT NULL DEFAULT 0,
+						heading FLOAT NULL DEFAULT 0,
+						latitude FLOAT NULL DEFAULT 0,
+						longitude FLOAT NULL DEFAULT 0,
+						speed FLOAT NULL DEFAULT 0,
+						punch_type boolean DEFAULT 0,
+						approved boolean NULL DEFAULT 0
+					);`
+		sqlQuery.executeQuery([query1, query2]).then((result)=>{
 			resolve()
 		}).catch((err)=>{
 			reject(err)
