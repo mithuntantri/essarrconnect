@@ -72,7 +72,7 @@
         </label>
       </div>
     </div> -->
-    <div class="dashboard-container" ng-if="showLoader">
+    <div class="dashboard-container" ng-if="showLoader" id="secondbody">
       <div class="loader"></div>
     </div>
     <div class="dashboard-container" ng-if="!showLoader">
@@ -87,7 +87,7 @@
               <img src="assets/img/location_pin.png"/>
             </div>
             <div class="details">
-              <div class="title">{{branch.name}}</div>
+              <div class="title">{{branch.name}} ({{branch.code}})</div>
               <div class="address">{{branch.address}}</div>
               <div class="latlon">{{branch.latitude}},{{branch.longitude}}</div>
             </div>
@@ -109,9 +109,9 @@
               <img src="assets/img/employee_pin.png"/>
             </div>
             <div class="details">
-              <div class="title">{{employee.employee_id}}</div>
-              <div class="address">{{employee.designation}} ({{employee.department}})</div>
-              <div class="latlon">{{all_branches[employee.location_id].name}}</div>
+              <div class="title">{{employee.first_name}} {{employee.last_name}}</div>
+              <div class="address">{{employee.designation}} ({{employee.employee_id}})</div>
+              <div class="latlon">{{employee.name}}</div>
             </div>
           </li>
         </ul>
@@ -131,8 +131,8 @@
               <img src="assets/img/salary_pin.png"/>
             </div>
             <div class="details">
-              <div class="title">{{salary.employee_id}}</div>
-              <div class="address">{{salary.designation}} ({{salary.department}})</div>
+              <div class="title">{{salary.first_name}} {{salary.last_name}}</div>
+              <div class="address">{{salary.designation}} ({{salary.employee_id}})</div>
               <div class="latlon">₹{{salary.gross_income | number}}</div>
             </div>
           </li>
@@ -149,12 +149,12 @@
             <div class="trash" ng-click="deleteIncentive($index)">
               <i class="fa fa-trash" style="font-size: 22px;"></i>
             </div>
-            <div class="img">johnclinton1992@gmail.com
+            <div class="img">
               <img src="assets/img/incentive_pin.png"/>
             </div>
             <div class="details">
-              <div class="title">{{incentive.employee_id}}</div>
-              <div class="address">{{incentive.reason}}</div>
+              <div class="title">{{incentive.first_name}} ({{incentive.employee_id}})</div>
+              <div class="address">{{incentive.reason}} for {{incentive.date.split(" ")[1]}} {{incentive.date.split(" ")[2]}}</div>
               <div class="latlon">₹{{incentive.amount}}</div>
             </div>
           </li>
@@ -164,7 +164,8 @@
           <div>No Incentives added for this month. Please add an incentive using the <i class="fa fa-plus"></i> icon at the top</div>          
         </div>
       </div>
-      <div class="dashboard-sub-container" ng-if="features[4].selected">
+      <div class="dashboard-sub-container" ng-if="features[4].selected" style="display: flex;flex-direction: column;justify-content: flex-start;">
+        <div class="welcome-message" style="margin-top: 0px;padding: 10px 3px;font-style: italic;font-size: 15px;">**All target data as on <b>{{all_targets[0][0].date}}</b> for <b>ALL</b> Location(s).</div>
         <ul class="list-data" ng-if="all_targets.length > 0">
           <li>
             <div class="img">
@@ -206,6 +207,40 @@
                 <div class="grid">
                   <div class="value">{{msga_balance_per_day}}</div>
                   <div class="title">Balance/Day</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li style="flex-grow: 2">
+            <div class="img">
+              <img src="assets/img/fingerprint.png"/>
+            </div>
+            <div class="details" style="flex-grow: 2;">
+              <div class="title">Attendance Report (Download)</div>
+              <div class="signup-email-input-container material-input-wrapper">
+                <label class="signup-email-text">
+                Employee ID
+                </label>
+                <select ng-model="report.employee_id">
+                  <option ng-value="null" selected="true">Select Employee ID</option>
+                  <option ng-repeat="e in all_employees" ng-value="e.employee_id">{{e.first_name}} ({{e.employee_id}})</option>
+                </select>
+              </div>
+              <div style="display: flex; flex-direction: row;">
+                <div class="signup-email-input-container material-input-wrapper" style="margin-top: 0px;">
+                  <label class="signup-email-text">
+                  Select Date
+                  </label>
+                  <div class="mobile-number-container">
+                    <input class="login-signup-email-input login-email-exist-input"
+                    maxlength="11" ng-click="showDatePicker('report')"
+                    ng-model="report.date"
+                    id="test-username-input" type="text">
+                  </div>
+                </div>
+                <div class="continue-btn" ng-click="downloadReport()" style="height: 30px;margin: auto; font-size: 15px;">
+                  <div class="loader inside-btn" ng-if="showBtnLoader"></div>
+                  <span ng-if="!showBtnLoader">Download</span>
                 </div>
               </div>
             </div>
@@ -300,28 +335,32 @@
         </div>
       </div>
       <div class="lab-modal-body register">
+        <div style="display: flex;flex-direction: row;min-height: 80px;">
+          <div class="signup-email-input-container material-input-wrapper">
+          <label class="signup-email-text">
+          Branch Code
+          </label>
+          <div class="mobile-number-container">
+            <input class="login-signup-email-input login-email-exist-input"
+            maxlength="3" 
+            ng-model="branch.code" style="text-transform: uppercase;" 
+            id="test-username-input" type="text">
+          </div>
+        </div>
         <div class="signup-email-input-container material-input-wrapper">
-        <label class="signup-email-text">
-        Name of the branch
-        </label>
-        <div class="mobile-number-container">
-          <input class="login-signup-email-input login-email-exist-input"
-          maxlength="64" 
-          ng-model="branch.name" style="text-transform: capitalize;" 
-          id="test-username-input" type="text">
+          <label class="signup-email-text">
+          Branch Name
+          </label>
+          <div class="mobile-number-container">
+            <input class="login-signup-email-input login-email-exist-input"
+            maxlength="64" 
+            ng-model="branch.name" style="text-transform: capitalize;" 
+            id="test-username-input" type="text">
+          </div>
         </div>
       </div>
-        <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
-        <label class="signup-email-text">
-        Address of the branch
-        </label>
-        <div class="mobile-number-container">
-          <textarea style="height: 90px;outline: none;" class="login-signup-email-input login-email-exist-input" maxlength="100" 
-          ng-model="branch.address"
-          id="test-username-input" type="text"></textarea>
-        </div>
-      </div>
-      <div style="display: flex;flex-direction: row;">
+      
+      <div style="display: flex;flex-direction: row;min-height: 80px;">
         <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
           <label class="signup-email-text">
           Pin Code
@@ -339,7 +378,7 @@
           </label>
           <div class="mobile-number-container">
             <input class="login-signup-email-input login-email-exist-input" 
-            ng-model="branch.latitude"
+            ng-model="branch.latitude" 
             type="number" step="0.0001" min="-90" max="90"
             id="test-username-input"/>
           </div>
@@ -354,6 +393,16 @@
             type="number" step="0.0001" min="-180" max="180"
             id="test-username-input"/>
           </div>
+        </div>
+      </div>
+      <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
+        <label class="signup-email-text">
+        Address of the branch
+        </label>
+        <div class="mobile-number-container">
+          <textarea style="height: 90px;outline: none;" class="login-signup-email-input login-email-exist-input" maxlength="128" 
+          ng-model="branch.address"
+          id="test-username-input" type="text"></textarea>
         </div>
       </div>
         <div class="part3 btn-container" style="margin-top: 30px;margin-bottom: 30px;">
@@ -377,11 +426,11 @@
         </div>
         <div class="modal-desc-container">
           <div class="modal-desc">Add an employee & map the location of your branches</div>
-          <img class="logo-ticket-half" src="assets/img/ticket4.png"/>
+          <img class="logo-ticket-half" src="assets/img/transfer.svg"/>
         </div>
       </div>
       <div class="lab-modal-body register">
-        <div class="signup-email-input-container material-input-wrapper">
+      <div class="signup-email-input-container material-input-wrapper">
         <label class="signup-email-text">
         Employee Number
         </label>
@@ -392,6 +441,28 @@
             id="test-username-input" style="text-transform: uppercase;padding: 8px 35px;"/>
         </div>
       </div>
+      <div style="display: flex;flex-direction: row;min-height: 80px;">
+        <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
+        <label class="signup-email-text">
+        First Name
+        </label>
+        <div class="mobile-number-container">
+          <input class="login-signup-email-input login-email-exist-input" maxlength="100" 
+          ng-model="employee.first_name"
+          id="test-username-input" type="text"/>
+        </div>
+      </div>
+      <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
+        <label class="signup-email-text">
+        Last Name
+        </label>
+        <div class="mobile-number-container">
+          <input class="login-signup-email-input login-email-exist-input" maxlength="100" 
+          ng-model="employee.last_name"
+          id="test-username-input" type="text"/>
+        </div>
+      </div>
+      </div>
       <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
         <label class="signup-email-text">
         Designation
@@ -399,16 +470,6 @@
         <div class="mobile-number-container">
           <input class="login-signup-email-input login-email-exist-input" maxlength="100" 
           ng-model="employee.designation"
-          id="test-username-input" type="text"/>
-        </div>
-      </div>
-      <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
-        <label class="signup-email-text">
-        Department
-        </label>
-        <div class="mobile-number-container">
-          <input class="login-signup-email-input login-email-exist-input" maxlength="100" 
-          ng-model="employee.department"
           id="test-username-input" type="text"/>
         </div>
       </div>
@@ -444,7 +505,7 @@
         </div>
         <div class="modal-desc-container">
           <div class="modal-desc">Update the salary details, epf number & other neccessary bank details</div>
-          <img class="logo-ticket-half" src="assets/img/ticket4.png"/>
+          <img class="logo-ticket-half" src="assets/img/transfer.svg"/>
         </div>
       </div>
       <div class="lab-modal-body register">
@@ -472,7 +533,7 @@
             </div>
           </div>
         </div>
-        <div class="signup-email-input-container large material-input-wrapper" style="display: flex;flex-direction: row;margin-left:0;margin-right: 0px;">
+        <!-- <div class="signup-email-input-container large material-input-wrapper" style="display: flex;flex-direction: row;margin-left:0;margin-right: 0px;">
            <div class="signup-email-input-container large material-input-wrapper">
             <label class="signup-email-text">
             Bank Name
@@ -495,8 +556,19 @@
               id="test-username-input" type="text">
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="signup-email-input-container large material-input-wrapper" style="display: flex;flex-direction: row;margin-left:0;margin-right: 0px;">
+          <div class="signup-email-input-container large material-input-wrapper">
+            <label class="signup-email-text">
+            HRA
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              maxlength="64" 
+              ng-model="salary.hra"
+              id="test-username-input" type="text">
+            </div>
+          </div>
           <div class="signup-email-input-container large material-input-wrapper">
             <label class="signup-email-text">
             UAN Number
@@ -508,7 +580,8 @@
               id="test-username-input" type="text">
             </div>
           </div>
-
+        </div>
+        <div class="signup-email-input-container large material-input-wrapper" style="display: flex;flex-direction: row;margin-left:0;margin-right: 0px;">
           <div class="signup-email-input-container large material-input-wrapper">
             <label class="signup-email-text">
             ESIC Number
@@ -520,8 +593,6 @@
               id="test-username-input" type="text">
             </div>
           </div>
-        </div>
-        <div class="signup-email-input-container large material-input-wrapper" style="display: flex;flex-direction: row;margin-left:0;margin-right: 0px;">
           <div class="signup-email-input-container large material-input-wrapper">
             <label class="signup-email-text">
             EPF Number
@@ -555,7 +626,7 @@
         </div>
         <div class="modal-desc-container">
           <div class="modal-desc">Add the list of holiday details for the current year</div>
-          <img class="logo-ticket-half" src="assets/img/ticket4.png"/>
+          <img class="logo-ticket-half" src="assets/img/transfer.svg"/>
         </div>
       </div>
       <div class="lab-modal-body register">
@@ -615,7 +686,7 @@
         </div>
         <div class="modal-desc-container">
           <div class="modal-desc">Add the list of employee incentive details for the current month</div>
-          <img class="logo-ticket-half" src="assets/img/ticket4.png"/>
+          <img class="logo-ticket-half" src="assets/img/transfer.svg"/>
         </div>
       </div>
       <div class="lab-modal-body register">
@@ -672,7 +743,7 @@
         </div>
         <div class="modal-desc-container">
           <div class="modal-desc">Upload the MSGA, MSGP or Customerwise daily target data</div>
-          <img class="logo-ticket-half" src="assets/img/ticket4.png"/>
+          <img class="logo-ticket-half" src="assets/img/transfer.svg"/>
         </div>
       </div>
       <div class="lab-modal-body register">
@@ -710,6 +781,7 @@
 <div class="modal fade" id="lab-slide-bottom-popup-announcements" data-keyboard="false" data-backdrop="false">
     <div class="lab-modal">
       <div class="lab-modal-head">
+        <i class="fa fa-close" data-dismiss="modal"></i>
         <div class="modal-title-container">
           <span class="modal-title">ESSARR AUTOMOTIVES</span>
         </div>
@@ -728,6 +800,17 @@
           maxlength="64" 
           ng-model="announcement.title" style="text-transform: capitalize;" 
           id="test-username-input" type="text">
+        </div>
+      </div>
+      <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
+        <label class="signup-email-text">
+        Select Category
+        </label>
+        <div class="mobile-number-container">
+          <select ng-model="announcement.category">
+            <option ng-value="All" selected="true">ALL</option>
+            <option ng-repeat="l in all_categories track by $index" ng-value="all_categories[$index].designation">{{l.designation}}</option>
+          </select>
         </div>
       </div>
         <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">

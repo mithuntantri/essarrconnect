@@ -5,9 +5,9 @@
         .module('app')
         .controller('HomeController', HomeController);
 
-    HomeController.$injector = ['$scope', '$location', '$timeout', 'Login'];
+    HomeController.$injector = ['$scope', '$location', '$timeout', 'Login', '$q'];
 
-    function HomeController($scope, $location, $timeout, Login){
+    function HomeController($scope, $location, $timeout, Login, $q){
 
     	$scope.isLoggedIn = false
     	$scope.showOTP = false
@@ -75,7 +75,7 @@
         $scope.verifyUser = ()=>{
             $scope.showBtnLoader = true
             if($scope.current_modal == 'register'){
-                Login.verifyUser($scope.register.username, $scope.otp.join("")).then((result)=>{
+                Login.verifyUser($scope.register.username, $scope.otp).then((result)=>{
                     $scope.showBtnLoader = false
                     if(result.data.status){
                         showBottom(result.data.data.message)
@@ -87,14 +87,16 @@
                     }
                 })                
             }else if($scope.current_modal == 'login'){
-                Login.verifyLogin($scope.login.username, $scope.otp.join("")).then((result)=>{
+                Login.verifyLogin($scope.login.username, $scope.otp).then((result)=>{
                     $scope.showBtnLoader = false
                     if(result.data.status){
+                        $scope.showOTP = false
                         localStorage.setItem('token', result.data.data.token)
                         $location.url("/dashboard")
                         showBottom(result.data.data.message)
                     }else{
                         $scope.otp = ''
+                        $scope.showOTP = false
                         $scope.closeAllModals()
                         showBottom(result.data.message)
                     }
@@ -176,7 +178,7 @@
               var success = function (otp) {
                 console.log("GOT OTP", otp);
                 $timeout(()=>{
-                    $scope.otp = otp.split("")  
+                    $scope.otp = parseInt(otp)
                     $scope.verifyUser()                 
                 })
                 OTPAutoVerification.stopOTPListener();
@@ -189,6 +191,43 @@
 
               OTPAutoVerification.startOTPListener(options, success, failure);
         }
+
+
+        
+        $scope.getPermissions = (permissions, list)=>{
+            let defer = $q.defer()
+            permissions.hasPermission(list, checkPermissionCallback, null);
+            function checkPermissionCallback(status) {
+                if (!status.hasPermission) {
+                    var errorCallback = function () {
+                        console.warn('Storage permission is not turned on');
+                        defer.reject()
+                    }
+                    permissions.requestPermission(
+                      list,
+                      function (status) {
+                          if (!status.hasPermission) {
+                              errorCallback();
+                          } else {
+                              // continue with downloading/ Accessing operation 
+                              // $scope.downloadFile();
+                              defer.resolve()
+                          }
+                      },
+                      errorCallback);
+                }else{
+                    defer.resolve()
+                }
+            }
+            return defer.promise
+        }
+
+        setTimeout(()=>{
+            var permissions = window.cordova.plugins.permissions;
+            $scope.getPermissions(permissions, permissions.WRITE_EXTERNAL_STORAGE).then(()=>{
+                $scope.getPermissions(permissions, permissions.READ_EXTERNAL_STORAGE)            
+            })           
+        }, 2000)
 
         function showBottom(message) {
           window.plugins.toast.showWithOptions(

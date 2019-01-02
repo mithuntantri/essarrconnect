@@ -94,5 +94,42 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-android-permissions": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-android-permissions@^1.0.0"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-background-mode": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-background-mode@^0.7.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-device": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-device"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-mauron85-background-geolocation": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-mauron85-background-geolocation@alpha"
+    },
+    "is_top_level": true,
+    "variables": {
+      "GOOGLE_PLAY_SERVICES_VERSION": "11+",
+      "ANDROID_SUPPORT_LIBRARY_VERSION": "23+",
+      "ALWAYS_USAGE_DESCRIPTION": "App requires ...",
+      "MOTION_USAGE_DESCRIPTION": "App requires motion detection"
+    }
   }
 }

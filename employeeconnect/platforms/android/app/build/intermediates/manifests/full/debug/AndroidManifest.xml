@@ -25,32 +25,35 @@
     <uses-feature android:name="android.hardware.location.gps" />
 
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
 
     <permission
         android:name="com.essarrautomotives.employeeconnect.permission.RECEIVE_ADM_MESSAGE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.essarrautomotives.employeeconnect.permission.RECEIVE_ADM_MESSAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.hardware.location" />
     <!-- Create a unique permission for your app and use it so only your app can receive your OneSignal messages. -->
     <permission
         android:name="com.essarrautomotives.employeeconnect.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.essarrautomotives.employeeconnect.permission.C2D_MESSAGE" />
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /> <!-- Required, makes sure notifications are delivered on time. -->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <!--
  Required so the device vibrates on receiving a push notification.
          Vibration settings of the device still apply.
     -->
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!--
- Use to restore notifications the user hasn't interacted with.
-         They could be missed notifications if the user reboots their device if this isn't in place.
-    -->
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- START: ShortcutBadger -->
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- START: ShortcutBadger -->
     <!-- Samsung -->
     <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
     <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" /> <!-- HTC -->
@@ -68,6 +71,7 @@
     <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS" /> <!-- EvMe -->
     <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ" />
     <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE" />
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
 
     <application
         android:debuggable="true"
@@ -79,7 +83,7 @@
             android:name="com.essarrautomotives.employeeconnect.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
             android:label="@string/activity_name"
-            android:launchMode="singleTop"
+            android:launchMode="singleInstance"
             android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
             android:windowSoftInputMode="adjustResize" >
             <intent-filter android:label="@string/launcher_name" >
@@ -108,6 +112,59 @@
                 <category android:name="com.essarrautomotives.employeeconnect" />
             </intent-filter>
         </receiver>
+
+        <service android:name="de.appplant.cordova.plugin.background.ForegroundService" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <service
+            android:name="com.marianhello.bgloc.sync.SyncService"
+            android:exported="true"
+            android:process=":sync" >
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/syncadapter" />
+        </service>
+        <service android:name="com.marianhello.bgloc.sync.AuthenticatorService" >
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+        </service>
+
+        <provider
+            android:name="com.marianhello.bgloc.data.provider.LocationContentProvider"
+            android:authorities="@string/mauron85_bgloc_content_authority"
+            android:exported="false"
+            android:syncable="true" />
+
+        <service
+            android:name="com.marianhello.bgloc.service.LocationServiceImpl"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.marianhello.bgloc.BootCompletedReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.intentfilter.androidpermissions.PermissionsActivity"
+            android:excludeFromRecents="true"
+            android:theme="@style/AppTheme.Transparent" />
 
         <meta-data
             android:name="onesignal_app_id"
@@ -174,11 +231,39 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+        <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+        </service>
 
-        <activity
-            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.INSTALL_PACKAGES" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+            android:enabled="true"
             android:exported="false"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <receiver
             android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
@@ -202,15 +287,16 @@
             </intent-filter>
         </service>
 
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
             android:authorities="com.essarrautomotives.employeeconnect.firebaseinitprovider"
             android:exported="false"
             android:initOrder="100" />
-
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

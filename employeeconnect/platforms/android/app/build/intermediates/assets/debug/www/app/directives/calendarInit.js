@@ -1,8 +1,9 @@
 angular.module('app')
-.directive("calendarShow", function(Dashboard) {
+.directive("calendarShow", function($location, $route, Dashboard) {
   return { 
     restrict: 'A',
     link: function (scope, oElement, attrs) {
+
       scope.resetVariables = function(){
         scope.edit = true;
         scope.getTitle = '';
@@ -41,7 +42,7 @@ angular.module('app')
           })
           
           _.each(Dashboard.AllLeaves, (leaves)=>{
-            leaves.title = leaves.reason + " " + (leaves.approved == 1?"(Approved)":"(Not Approved)")
+            leaves.title = leaves.reason + " " + (leaves.approved == 0?"(Pending)":"(Approved)")
             console.log(leaves.title)
             all_events.push({
               type: 'leave',
@@ -136,7 +137,8 @@ angular.module('app')
       scope.deleteLeave = function(id){
         Dashboard.deleteLeave(id).then((result)=>{
           $("#eventDetails").modal("hide"); 
-          scope.resetVariables();
+          $location.url('/calendar')
+          $route.reload()
         })
       }
 

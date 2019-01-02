@@ -250,6 +250,44 @@ module.exports = [
     "clobbers": [
       "OneSignal"
     ]
+  },
+  {
+    "id": "cordova-plugin-android-permissions.Permissions",
+    "file": "plugins/cordova-plugin-android-permissions/www/permissions.js",
+    "pluginId": "cordova-plugin-android-permissions",
+    "clobbers": [
+      "cordova.plugins.permissions"
+    ]
+  },
+  {
+    "id": "cordova-plugin-device.device",
+    "file": "plugins/cordova-plugin-device/www/device.js",
+    "pluginId": "cordova-plugin-device",
+    "clobbers": [
+      "device"
+    ]
+  },
+  {
+    "id": "cordova-plugin-background-mode.BackgroundMode",
+    "file": "plugins/cordova-plugin-background-mode/www/background-mode.js",
+    "pluginId": "cordova-plugin-background-mode",
+    "clobbers": [
+      "cordova.plugins.backgroundMode",
+      "plugin.backgroundMode"
+    ]
+  },
+  {
+    "id": "cordova-plugin-mauron85-background-geolocation.BackgroundGeolocation",
+    "file": "plugins/cordova-plugin-mauron85-background-geolocation/www/BackgroundGeolocation.js",
+    "pluginId": "cordova-plugin-mauron85-background-geolocation",
+    "clobbers": [
+      "BackgroundGeolocation"
+    ]
+  },
+  {
+    "id": "cordova-plugin-mauron85-background-geolocation.radio",
+    "file": "plugins/cordova-plugin-mauron85-background-geolocation/www/radio.js",
+    "pluginId": "cordova-plugin-mauron85-background-geolocation"
   }
 ];
 module.exports.metadata = 
@@ -264,7 +302,11 @@ module.exports.metadata =
   "cordova-plugin-statusbar": "2.4.2",
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-x-toast": "2.7.2",
-  "onesignal-cordova-plugin": "2.4.6"
+  "onesignal-cordova-plugin": "2.4.6",
+  "cordova-plugin-android-permissions": "1.0.0",
+  "cordova-plugin-device": "2.0.2",
+  "cordova-plugin-background-mode": "0.7.2",
+  "cordova-plugin-mauron85-background-geolocation": "3.0.0-alpha.50"
 };
 // BOTTOM OF METADATA
 });

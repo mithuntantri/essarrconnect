@@ -24,8 +24,8 @@
               <img src="assets/img/thread_pin.png"/>
               <span class="chip" style="margin-top: 10px;
     font-size: 11px;
-    text-align: center;" ng-class="{'red': (thread.user_message_1 && !thread.admin_message_2) || (thread.user_message_2 && !thread.admin_message_2), 'green': thread.admin_message_2}">{{(thread.user_message_1 && !thread.admin_message_2) || 
-              (thread.user_message_2 && !thread.admin_message_2)?'OPEN':'CLOSED'}}</span>
+    text-align: center;" ng-class="{'red': (thread.user_message_1 && !thread.admin_message_2 && !thread.status) || (thread.user_message_2 && !thread.admin_message_2 && !thread.status), 'green': thread.admin_message_2 || thread.status}">{{(thread.user_message_1 && !thread.admin_message_2 && !thread.status) || 
+              (thread.user_message_2 && !thread.admin_message_2 && !thread.status)?'OPEN':'CLOSED'}}</span>
             </div>
             <div class="details" style="flex-grow: 2;margin-top: 20px;">
               <div class="address" ng-if="thread.user_message_1">
@@ -95,8 +95,8 @@
 		    </div>
 		    <div class="chat-input">      
 		      <form>
-			    	<input type="text" id="chat-input" ng-model="new_message" placeholder="{{thread | getPlaceholder}}" ng-disabled="(thread.user_message_1 && !thread.admin_message_1)"/>
-			      	<button type="submit" ng-disabled="(thread.user_message_1 && !thread.admin_message_1)" class="chat-submit" id="chat-submit"
+			    	<input type="text" id="chat-input" ng-model="new_message" placeholder="{{thread | getPlaceholder}}" ng-disabled="((thread.user_message_1 && !thread.admin_message_1) || thread.status)" maxlength="500" />
+			      	<button type="submit" ng-disabled="((thread.user_message_1 && !thread.admin_message_1) || thread.status)" class="chat-submit" id="chat-submit"
 			      		ng-click="startThread();$event.preventDefault()">
 			      		<i class="fa fa-slack"></i>
 			      	</button>

@@ -13,20 +13,39 @@
     	
         console.log('DashboardController')
         $scope.User = User
+        $scope.Dashboard = Dashboard
+        console.log($scope.Dashboard.AllTargets[0][0])
+        $scope.msga = $scope.Dashboard.AllTargets[0][0]
         $scope.title = 'ESSARR Employee Connect'
         $scope.showLoader = false
 
         $scope.all_announcements = []
 
+        $scope.wish = 'Morning'
+        let time = parseInt(moment().format("HH"))
+        console.log(time)
+        if(time >= 12 && time < 16){
+            $scope.wish = 'Afternoon'
+        }else if(time >= 16 && time <= 23){
+            $scope.wish = 'Evening'
+        }
+
         $scope.profile = User.UserDetails
         if($scope.profile.secondary_mobile)
             $scope.profile.secondary_mobile = parseInt($scope.profile.secondary_mobile)
+        if($scope.profile.aadhar_number)
+            $scope.profile.aadhar_number = parseInt($scope.profile.aadhar_number)
+        if($scope.profile.pan_number == "null")
+            $scope.profile.pan_number = ''
+        if($scope.profile.bank_name == '')
+            $scope.profile.bank_name = 'Karnataka Bank'
+
         $scope.goTo = (url)=>{
             $location.url(url)
         }
 
         $scope.all_paylsips = []
-        _.times(6, (i)=>{
+        _.times(3, (i)=>{
             $scope.all_paylsips.push({
                 'month': moment().subtract(i+1, 'months').format("MMM YYYY")
             })
@@ -34,6 +53,7 @@
 
         $scope.leave = {
             'reason': '',
+            'description': '',
             'from_date': moment().format("DD MMM YYYY"),
             'to_date': moment().format("DD MMM YYYY"),
             'number_of_days': 1
@@ -41,7 +61,7 @@
 
         $scope.openAddModal = (modal_name)=>{
             $scope.current_modal = modal_name
-            $('#lab-slide-bottom-popup-'+modal_name).modal('show');
+            $('#lab-slide-bottom-popup-'+modal_name).modal().show();
             $('.lab-slide-up').find('a').attr('data-toggle', 'modal');
             $('.lab-slide-up').find('a').attr('data-target', '#lab-slide-bottom-popup-'+modal_name);
         }
@@ -50,7 +70,7 @@
             $('#lab-slide-bottom-popup-'+modal_name).modal().hide();
         }
 
-        if(!User.UserDetails.first_name || !User.UserDetails.last_name || !User.UserDetails.pan_number){
+        if(!User.UserDetails.date_of_birth || !User.UserDetails.first_name || !User.UserDetails.last_name || !User.UserDetails.aadhar_number || !User.UserDetails.account_number || !User.UserDetails.secondary_mobile){
             $scope.openAddModal('profile')
         }
 
@@ -107,16 +127,18 @@
         }
 
         function showBottom(message) {
-          window.plugins.toast.showWithOptions(
-            {
-              message: message,
-              duration: "short", // which is 2000 ms. "long" is 4000. Or specify the nr of ms yourself.
-              position: "bottom",
-              addPixelsY: -40  // added a negative value to move it up a bit (default 0)
-            },
-            function(){}, // optional
-            function(){}    // optional
-          );
+            if(message){
+                 window.plugins.toast.showWithOptions(
+                    {
+                      message: message,
+                      duration: "short", // which is 2000 ms. "long" is 4000. Or specify the nr of ms yourself.
+                      position: "bottom",
+                      addPixelsY: -40  // added a negative value to move it up a bit (default 0)
+                    },
+                    function(){}, // optional
+                    function(){}    // optional
+                  );
+            }
         }
 
         $scope.showDatePicker = (type)=>{
@@ -137,6 +159,8 @@
                 $timeout(()=>{
                     if(type == 'start'){
                         $scope.leave.from_date = moment(date).format("DD MMM YYYY")                    
+                    }else if(type == 'dob'){
+                        $scope.profile.date_of_birth = moment(date).format("DD MMM YYYY")                    
                     }else{
                         $scope.leave.to_date = moment(date).format("DD MMM YYYY")                    
                     }
@@ -156,6 +180,10 @@
 
         $scope.openVehicleMaintenance = ()=>{
             showBottom('Vehicle Maintenance will be coming soon')
+        }
+
+         $scope.openMyMeetings = ()=>{
+            showBottom('My Meetings will be coming soon')
         }
 
         $scope.punchAttendance = ()=>{
@@ -192,12 +220,8 @@
             showBottom(`Downloading..`)
             let data = $scope.all_paylsips[index].month.split(" ")
             Dashboard.downloadPayslip(data[0], data[1]).then((result)=>{
-                if(result.data.status){
-                    $scope.closeAddModal('payslips')
-                    showBottom(`Payslip for ${month} downloaded successfully`)
-                }else{
-                    showBottom(result.data.message)
-                }
+                $scope.closeAddModal('payslips')
+                showBottom(result)
             }).catch((err)=>{
                 showBottom(err)
             })

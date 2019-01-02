@@ -64,7 +64,7 @@
         		$scope.showLoader = false
         		if(result.data.status){
         			$scope.all_threads = result.data.data
-        			if($scope.all_threads[0] && !$scope.all_threads[0].admin_message_2){
+        			if($scope.all_threads[0] && !$scope.all_threads[0].admin_message_2 && !$scope.all_threads[0].status){
         				$scope.thread = $scope.all_threads[0]
         			}
         		}else{

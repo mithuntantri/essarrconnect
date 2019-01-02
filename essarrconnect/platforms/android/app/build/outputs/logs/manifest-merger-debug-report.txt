@@ -1,39 +1,42 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-28:12
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-28:12
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-28:12
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-28:12
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:2:1-107:12
-MERGED from [:CordovaLib] /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:20:1-27:12
-MERGED from [com.google.firebase:firebase-messaging:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-12.0.1.aar/9984c8ea0b4ea9f0866b90286ba8abb1/AndroidManifest.xml:17:1-37:12
-MERGED from [com.google.android.gms:play-services-location:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-location-12.0.1.aar/7e7c642b3d4ccf9a5ff2cf19c7d07d18/AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-base:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/7e9297c37e63d4b7225c30aa1a5d3b3d/AndroidManifest.xml:17:1-29:12
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:17:1-59:12
-MERGED from [com.google.firebase:firebase-common:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-12.0.1.aar/5c3f726df161ffba4058b4ec6f2a7846/AndroidManifest.xml:2:1-15:12
-MERGED from [com.google.android.gms:play-services-tasks:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-tasks-12.0.1.aar/8b37c697cadcf092150c78515174e840/AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-basement:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/9573146ca4130920950376c14a2ea43d/AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-location:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-location-15.0.1.aar/6be65767af4ad51f14db2ac03b843b79/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-messaging:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-15.0.2.aar/e4487477806cc06e340a5114495c6630/AndroidManifest.xml:17:1-37:12
+MERGED from [com.google.firebase:firebase-core:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-core-15.0.2.aar/b5fb4918eaba488de8bd841c93b6ca0a/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/301501545a85f523a38a972f0f51eb9d/AndroidManifest.xml:17:1-34:12
+MERGED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:17:1-55:12
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-15.0.2.aar/4d9d94e2ca153255c7b92ad79de6cacf/AndroidManifest.xml:17:1-41:12
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:17:1-65:12
+MERGED from [com.google.firebase:firebase-iid-interop:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-15.0.0.aar/f40b8ffb72a21fad5db6b1b72860e45b/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/d1c6412452e65679686acccaa6badf2c/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.firebase:firebase-common:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-15.0.1.aar/b9194d0ec28dbb1acba458579d78f176/AndroidManifest.xml:2:1-15:12
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/611adac4f0d54090c735a58ce5462154/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-measurement-connector:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-15.0.0.aar/6a1985cc45ad838795bbd50ca5a6bea1/AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-stats-15.0.1.aar/d2cae756f9e50acff8b03d015bb027cc/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-15.0.1.aar/1b4624fffa751b19ad02db66e0083fe2/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-15.0.1.aar/58a47c6766af421e7ece06a7754f8f97/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/41bdad97a0bc4ea0c07c0017ff919de1/AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/5a3d668dc01d26b791033171498f49e2/AndroidManifest.xml:17:1-22:12
+MERGED from [:CordovaLib] /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:20:1-27:12
 MERGED from [com.android.support:customtabs:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/customtabs-27.1.1.aar/5817fd52c5e0e2445a427bd0a12af89d/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.firebase:firebase-messaging-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-license-12.0.1.aar/17961e4ea4e58b4a427f197a2366b5e9/AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:support-media-compat:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/a7130e053c9ade964f8b6ad89f989c5d/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-fragment:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/f891eae5b5e35466a45c5ff680b5325c/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-ui:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/176711b1fb12cfc5b6d2cfb9a54f6451/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-utils:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/5c8174add20e8fd8c7f4ef8292a31829/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-compat:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/3309ebefec4a4d43bc5c84638b798f74/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.gms:play-services-location-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-location-license-12.0.1.aar/99fe2c137b5d4abce7b02fbcc27ae0e8/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-base-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-license-12.0.1.aar/4647d114ccd65b217d1fe86c7f43a25d/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.firebase:firebase-iid-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-license-12.0.1.aar/c2563b4343548a245cc9f9d17c5892c1/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-12.0.1.aar/3c0ac0866edc7213b0cd1ceb3872224e/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.firebase:firebase-common-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-license-12.0.1.aar/29e6449beadd91d6715579435aa35f4e/AndroidManifest.xml:17:1-24:12
 MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/b32bd5703228715fc3592683bb44f4f9/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/801a40d46c22c949c15ce9e4eda8eaf6/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/9b9471a95dba1589b8a8790ad570ce85/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-12.0.1.aar/92ae8fef3b1668bc57e96df210804606/AndroidManifest.xml:17:1-24:12
 MERGED from [android.arch.core:runtime:1.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/e150e7b989f548be8325a1b324705abf/AndroidManifest.xml:17:1-22:12
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-28:12
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-28:12
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-28:12
+MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-15.0.2.aar/bb264edd385e3e9dafd45baf850a80e6/AndroidManifest.xml:17:1-24:12
+INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
 	package
 		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:102-146
 		INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml
@@ -68,42 +71,54 @@ uses-permission#android.permission.INTERNET
 ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:4:5-67
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:17:5-67
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:17:5-67
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/301501545a85f523a38a972f0f51eb9d/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/301501545a85f523a38a972f0f51eb9d/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-15.0.2.aar/4d9d94e2ca153255c7b92ad79de6cacf/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-15.0.2.aar/4d9d94e2ca153255c7b92ad79de6cacf/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:23:5-67
 	android:name
 		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:4:22-64
 application
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:5:5-21:19
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:5:5-41:19
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:49:5-105:19
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:49:5-105:19
-MERGED from [com.google.firebase:firebase-messaging:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-12.0.1.aar/9984c8ea0b4ea9f0866b90286ba8abb1/AndroidManifest.xml:22:5-35:19
-MERGED from [com.google.firebase:firebase-messaging:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-12.0.1.aar/9984c8ea0b4ea9f0866b90286ba8abb1/AndroidManifest.xml:22:5-35:19
-MERGED from [com.google.android.gms:play-services-location:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-location-12.0.1.aar/7e7c642b3d4ccf9a5ff2cf19c7d07d18/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-location:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-location-12.0.1.aar/7e7c642b3d4ccf9a5ff2cf19c7d07d18/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-base:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/7e9297c37e63d4b7225c30aa1a5d3b3d/AndroidManifest.xml:22:5-27:19
-MERGED from [com.google.android.gms:play-services-base:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/7e9297c37e63d4b7225c30aa1a5d3b3d/AndroidManifest.xml:22:5-27:19
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:34:5-57:19
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:34:5-57:19
-MERGED from [com.google.firebase:firebase-common:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-12.0.1.aar/5c3f726df161ffba4058b4ec6f2a7846/AndroidManifest.xml:7:5-13:19
-MERGED from [com.google.firebase:firebase-common:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-12.0.1.aar/5c3f726df161ffba4058b4ec6f2a7846/AndroidManifest.xml:7:5-13:19
-MERGED from [com.google.android.gms:play-services-tasks:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-tasks-12.0.1.aar/8b37c697cadcf092150c78515174e840/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-tasks:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-tasks-12.0.1.aar/8b37c697cadcf092150c78515174e840/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-basement:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/9573146ca4130920950376c14a2ea43d/AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.android.gms:play-services-basement:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/9573146ca4130920950376c14a2ea43d/AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.firebase:firebase-messaging-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-license-12.0.1.aar/17961e4ea4e58b4a427f197a2366b5e9/AndroidManifest.xml:22:5-20
-MERGED from [com.google.firebase:firebase-messaging-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-license-12.0.1.aar/17961e4ea4e58b4a427f197a2366b5e9/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-location-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-location-license-12.0.1.aar/99fe2c137b5d4abce7b02fbcc27ae0e8/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-location-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-location-license-12.0.1.aar/99fe2c137b5d4abce7b02fbcc27ae0e8/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-base-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-license-12.0.1.aar/4647d114ccd65b217d1fe86c7f43a25d/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-base-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-license-12.0.1.aar/4647d114ccd65b217d1fe86c7f43a25d/AndroidManifest.xml:22:5-20
-MERGED from [com.google.firebase:firebase-iid-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-license-12.0.1.aar/c2563b4343548a245cc9f9d17c5892c1/AndroidManifest.xml:22:5-20
-MERGED from [com.google.firebase:firebase-iid-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-license-12.0.1.aar/c2563b4343548a245cc9f9d17c5892c1/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-12.0.1.aar/3c0ac0866edc7213b0cd1ceb3872224e/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-12.0.1.aar/3c0ac0866edc7213b0cd1ceb3872224e/AndroidManifest.xml:22:5-20
-MERGED from [com.google.firebase:firebase-common-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-license-12.0.1.aar/29e6449beadd91d6715579435aa35f4e/AndroidManifest.xml:22:5-20
-MERGED from [com.google.firebase:firebase-common-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-license-12.0.1.aar/29e6449beadd91d6715579435aa35f4e/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-12.0.1.aar/92ae8fef3b1668bc57e96df210804606/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-12.0.1.aar/92ae8fef3b1668bc57e96df210804606/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-location:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-location-15.0.1.aar/6be65767af4ad51f14db2ac03b843b79/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-location-15.0.1.aar/6be65767af4ad51f14db2ac03b843b79/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-messaging:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-15.0.2.aar/e4487477806cc06e340a5114495c6630/AndroidManifest.xml:22:5-35:19
+MERGED from [com.google.firebase:firebase-messaging:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-15.0.2.aar/e4487477806cc06e340a5114495c6630/AndroidManifest.xml:22:5-35:19
+MERGED from [com.google.firebase:firebase-core:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-core-15.0.2.aar/b5fb4918eaba488de8bd841c93b6ca0a/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-core:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-core-15.0.2.aar/b5fb4918eaba488de8bd841c93b6ca0a/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/301501545a85f523a38a972f0f51eb9d/AndroidManifest.xml:26:5-32:19
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/301501545a85f523a38a972f0f51eb9d/AndroidManifest.xml:26:5-32:19
+MERGED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:28:5-53:19
+MERGED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:28:5-53:19
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-15.0.2.aar/4d9d94e2ca153255c7b92ad79de6cacf/AndroidManifest.xml:28:5-39:19
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-15.0.2.aar/4d9d94e2ca153255c7b92ad79de6cacf/AndroidManifest.xml:28:5-39:19
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:34:5-63:19
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:34:5-63:19
+MERGED from [com.google.firebase:firebase-iid-interop:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-15.0.0.aar/f40b8ffb72a21fad5db6b1b72860e45b/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-iid-interop:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-15.0.0.aar/f40b8ffb72a21fad5db6b1b72860e45b/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/d1c6412452e65679686acccaa6badf2c/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/d1c6412452e65679686acccaa6badf2c/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.firebase:firebase-common:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-15.0.1.aar/b9194d0ec28dbb1acba458579d78f176/AndroidManifest.xml:7:5-13:19
+MERGED from [com.google.firebase:firebase-common:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-15.0.1.aar/b9194d0ec28dbb1acba458579d78f176/AndroidManifest.xml:7:5-13:19
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/611adac4f0d54090c735a58ce5462154/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/611adac4f0d54090c735a58ce5462154/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-15.0.0.aar/6a1985cc45ad838795bbd50ca5a6bea1/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-measurement-connector:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-15.0.0.aar/6a1985cc45ad838795bbd50ca5a6bea1/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-stats-15.0.1.aar/d2cae756f9e50acff8b03d015bb027cc/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-stats-15.0.1.aar/d2cae756f9e50acff8b03d015bb027cc/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-15.0.1.aar/1b4624fffa751b19ad02db66e0083fe2/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-15.0.1.aar/1b4624fffa751b19ad02db66e0083fe2/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-15.0.1.aar/58a47c6766af421e7ece06a7754f8f97/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-15.0.1.aar/58a47c6766af421e7ece06a7754f8f97/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/41bdad97a0bc4ea0c07c0017ff919de1/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/41bdad97a0bc4ea0c07c0017ff919de1/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-15.0.2.aar/bb264edd385e3e9dafd45baf850a80e6/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-15.0.2.aar/bb264edd385e3e9dafd45baf850a80e6/AndroidManifest.xml:22:5-20
 	android:supportsRtl
 		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:5:114-140
 	android:label
@@ -172,32 +187,124 @@ category#com.essarrautomotives.adminconnect
 ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:18:17-79
 	android:name
 		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:18:27-76
+meta-data#com.google.android.gms.version
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:21:9-122
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/41bdad97a0bc4ea0c07c0017ff919de1/AndroidManifest.xml:23:9-25:69
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/41bdad97a0bc4ea0c07c0017ff919de1/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:21:66-119
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:21:20-65
+service#com.marianhello.bgloc.sync.SyncService
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:22:9-27:19
+	android:process
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:22:96-119
+	android:exported
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:22:18-41
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:22:42-95
+intent-filter#android.content.SyncAdapter
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:23:13-25:29
+action#android.content.SyncAdapter
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:24:17-70
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:24:25-67
+meta-data#android.content.SyncAdapter
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:26:13-105
+	android:resource
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:26:67-102
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:26:24-66
+service#com.marianhello.bgloc.sync.AuthenticatorService
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:28:9-33:19
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:28:18-80
+intent-filter#android.accounts.AccountAuthenticator
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:29:13-31:29
+action#android.accounts.AccountAuthenticator
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:30:17-80
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:30:25-77
+meta-data#android.accounts.AccountAuthenticator
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:32:13-117
+	android:resource
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:32:77-114
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:32:24-76
+provider#com.marianhello.bgloc.sync.DummyContentProvider
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:34:9-181
+	android:authorities
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:34:19-66
+	android:syncable
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:34:155-178
+	android:exported
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:34:67-91
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:34:92-154
+service#com.marianhello.bgloc.LocationService
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:35:9-121
+	android:enabled
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:35:18-40
+	android:exported
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:35:41-65
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:35:66-118
+receiver#com.marianhello.bgloc.BootCompletedReceiver
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:36:9-40:20
+	android:enabled
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:36:19-41
+	android:exported
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:36:42-65
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:36:66-124
+intent-filter#android.intent.action.BOOT_COMPLETED
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:37:13-39:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:38:17-79
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:38:25-76
 uses-sdk
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:22:5-74
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:42:5-74
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:5:5-44
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:5:5-44
-MERGED from [:CordovaLib] /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:25:5-44
-MERGED from [:CordovaLib] /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:25:5-44
-MERGED from [com.google.firebase:firebase-messaging:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-12.0.1.aar/9984c8ea0b4ea9f0866b90286ba8abb1/AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-messaging:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-12.0.1.aar/9984c8ea0b4ea9f0866b90286ba8abb1/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-location:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-location-12.0.1.aar/7e7c642b3d4ccf9a5ff2cf19c7d07d18/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-location:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-location-12.0.1.aar/7e7c642b3d4ccf9a5ff2cf19c7d07d18/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-base:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/7e9297c37e63d4b7225c30aa1a5d3b3d/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-base:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/7e9297c37e63d4b7225c30aa1a5d3b3d/AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-common:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-12.0.1.aar/5c3f726df161ffba4058b4ec6f2a7846/AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-common:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-12.0.1.aar/5c3f726df161ffba4058b4ec6f2a7846/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-tasks:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-tasks-12.0.1.aar/8b37c697cadcf092150c78515174e840/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-tasks:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-tasks-12.0.1.aar/8b37c697cadcf092150c78515174e840/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-basement:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/9573146ca4130920950376c14a2ea43d/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/9573146ca4130920950376c14a2ea43d/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-location:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-location-15.0.1.aar/6be65767af4ad51f14db2ac03b843b79/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-location-15.0.1.aar/6be65767af4ad51f14db2ac03b843b79/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-messaging:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-15.0.2.aar/e4487477806cc06e340a5114495c6630/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-messaging:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-15.0.2.aar/e4487477806cc06e340a5114495c6630/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-core:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-core-15.0.2.aar/b5fb4918eaba488de8bd841c93b6ca0a/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-core:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-core-15.0.2.aar/b5fb4918eaba488de8bd841c93b6ca0a/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/301501545a85f523a38a972f0f51eb9d/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/301501545a85f523a38a972f0f51eb9d/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-15.0.2.aar/4d9d94e2ca153255c7b92ad79de6cacf/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-15.0.2.aar/4d9d94e2ca153255c7b92ad79de6cacf/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-15.0.0.aar/f40b8ffb72a21fad5db6b1b72860e45b/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-15.0.0.aar/f40b8ffb72a21fad5db6b1b72860e45b/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/d1c6412452e65679686acccaa6badf2c/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/d1c6412452e65679686acccaa6badf2c/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-common:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-15.0.1.aar/b9194d0ec28dbb1acba458579d78f176/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-15.0.1.aar/b9194d0ec28dbb1acba458579d78f176/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/611adac4f0d54090c735a58ce5462154/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/611adac4f0d54090c735a58ce5462154/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-15.0.0.aar/6a1985cc45ad838795bbd50ca5a6bea1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-15.0.0.aar/6a1985cc45ad838795bbd50ca5a6bea1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-stats-15.0.1.aar/d2cae756f9e50acff8b03d015bb027cc/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-stats-15.0.1.aar/d2cae756f9e50acff8b03d015bb027cc/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-15.0.1.aar/1b4624fffa751b19ad02db66e0083fe2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-15.0.1.aar/1b4624fffa751b19ad02db66e0083fe2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-15.0.1.aar/58a47c6766af421e7ece06a7754f8f97/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-15.0.1.aar/58a47c6766af421e7ece06a7754f8f97/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/41bdad97a0bc4ea0c07c0017ff919de1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/41bdad97a0bc4ea0c07c0017ff919de1/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/5a3d668dc01d26b791033171498f49e2/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/5a3d668dc01d26b791033171498f49e2/AndroidManifest.xml:20:5-44
+MERGED from [:CordovaLib] /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:25:5-44
+MERGED from [:CordovaLib] /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:25:5-44
 MERGED from [com.android.support:customtabs:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/customtabs-27.1.1.aar/5817fd52c5e0e2445a427bd0a12af89d/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:customtabs:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/customtabs-27.1.1.aar/5817fd52c5e0e2445a427bd0a12af89d/AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-messaging-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-license-12.0.1.aar/17961e4ea4e58b4a427f197a2366b5e9/AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-messaging-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-license-12.0.1.aar/17961e4ea4e58b4a427f197a2366b5e9/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-media-compat:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/a7130e053c9ade964f8b6ad89f989c5d/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-media-compat:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/a7130e053c9ade964f8b6ad89f989c5d/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/f891eae5b5e35466a45c5ff680b5325c/AndroidManifest.xml:20:5-44
@@ -208,106 +315,150 @@ MERGED from [com.android.support:support-core-utils:27.1.1] /home/mithuntantri/.
 MERGED from [com.android.support:support-core-utils:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/5c8174add20e8fd8c7f4ef8292a31829/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/3309ebefec4a4d43bc5c84638b798f74/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/3309ebefec4a4d43bc5c84638b798f74/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-location-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-location-license-12.0.1.aar/99fe2c137b5d4abce7b02fbcc27ae0e8/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-location-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-location-license-12.0.1.aar/99fe2c137b5d4abce7b02fbcc27ae0e8/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-base-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-license-12.0.1.aar/4647d114ccd65b217d1fe86c7f43a25d/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-base-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-license-12.0.1.aar/4647d114ccd65b217d1fe86c7f43a25d/AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-iid-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-license-12.0.1.aar/c2563b4343548a245cc9f9d17c5892c1/AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-iid-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-license-12.0.1.aar/c2563b4343548a245cc9f9d17c5892c1/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-12.0.1.aar/3c0ac0866edc7213b0cd1ceb3872224e/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-12.0.1.aar/3c0ac0866edc7213b0cd1ceb3872224e/AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-common-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-license-12.0.1.aar/29e6449beadd91d6715579435aa35f4e/AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-common-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-license-12.0.1.aar/29e6449beadd91d6715579435aa35f4e/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/b32bd5703228715fc3592683bb44f4f9/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/b32bd5703228715fc3592683bb44f4f9/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/801a40d46c22c949c15ce9e4eda8eaf6/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/801a40d46c22c949c15ce9e4eda8eaf6/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/9b9471a95dba1589b8a8790ad570ce85/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/9b9471a95dba1589b8a8790ad570ce85/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-12.0.1.aar/92ae8fef3b1668bc57e96df210804606/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-12.0.1.aar/92ae8fef3b1668bc57e96df210804606/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/e150e7b989f548be8325a1b324705abf/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/e150e7b989f548be8325a1b324705abf/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-15.0.2.aar/bb264edd385e3e9dafd45baf850a80e6/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-15.0.2.aar/bb264edd385e3e9dafd45baf850a80e6/AndroidManifest.xml:20:5-44
 	android:targetSdkVersion
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:22:42-71
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:42:42-71
 	android:minSdkVersion
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:22:15-41
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:42:15-41
 uses-permission#android.permission.RECEIVE_SMS
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:23:5-70
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:43:5-70
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:23:22-67
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:43:22-67
 uses-permission#com.amazon.device.messaging.permission.RECEIVE
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:24:5-86
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:44:5-86
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:24:22-83
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:44:22-83
 permission#com.essarrautomotives.adminconnect.permission.RECEIVE_ADM_MESSAGE
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:25:5-136
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:45:5-136
 	android:protectionLevel
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:25:98-133
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:45:98-133
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:25:17-97
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:45:17-97
 uses-permission#com.essarrautomotives.adminconnect.permission.RECEIVE_ADM_MESSAGE
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:26:5-105
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:46:5-105
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:26:22-102
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:46:22-102
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:27:5-81
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:47:5-81
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:27:22-78
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:47:22-78
+uses-permission#android.permission.AUTHENTICATE_ACCOUNTS
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:48:5-80
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:48:22-77
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:49:5-71
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:49:22-68
+uses-permission#android.permission.READ_SYNC_SETTINGS
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:50:5-77
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:50:22-74
+uses-permission#android.permission.WRITE_SYNC_SETTINGS
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:51:5-78
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:51:22-75
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:52:5-81
+MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:30:5-81
+MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:30:5-81
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:52:22-78
+uses-permission#com.google.android.gms.permission.ACTIVITY_RECOGNITION
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:53:5-94
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:53:22-91
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:54:5-79
+MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:25:5-79
+MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:25:5-79
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/301501545a85f523a38a972f0f51eb9d/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/301501545a85f523a38a972f0f51eb9d/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-15.0.2.aar/4d9d94e2ca153255c7b92ad79de6cacf/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-15.0.2.aar/4d9d94e2ca153255c7b92ad79de6cacf/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:54:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:55:5-81
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:55:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:56:5-79
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:56:22-76
+uses-permission#android.permission.ACCESS_LOCATION_EXTRA_COMMANDS
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:57:5-89
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:57:22-86
+uses-permission#android.permission.WAKE_LOCK
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:58:5-68
+MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:19:5-68
+MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:19:5-68
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/301501545a85f523a38a972f0f51eb9d/AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/301501545a85f523a38a972f0f51eb9d/AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-15.0.2.aar/4d9d94e2ca153255c7b92ad79de6cacf/AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-15.0.2.aar/4d9d94e2ca153255c7b92ad79de6cacf/AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:24:5-68
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:58:22-65
+uses-permission#android.hardware.location
+ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:59:5-65
+	android:name
+		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:59:22-62
 permission#${applicationId}.permission.C2D_MESSAGE
 ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:8:5-10:47
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:28:5-30:47
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:28:5-30:47
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:28:5-30:47
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:28:5-30:47
 	android:protectionLevel
 		ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:10:9-44
 	android:name
 		ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:9:9-63
 permission#com.essarrautomotives.adminconnect.permission.C2D_MESSAGE
 ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:8:5-10:47
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:28:5-30:47
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:28:5-30:47
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:28:5-30:47
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:28:5-30:47
 	android:protectionLevel
 		ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:10:9-44
 	android:name
 		ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:9:9-63
 uses-permission#${applicationId}.permission.C2D_MESSAGE
 ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:12:5-79
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:32:5-79
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:32:5-79
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:32:5-79
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:32:5-79
 	android:name
 		ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:12:22-76
 uses-permission#com.essarrautomotives.adminconnect.permission.C2D_MESSAGE
 ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:12:5-79
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:32:5-79
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:32:5-79
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:32:5-79
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:32:5-79
 	android:name
 		ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:12:22-76
 uses-permission#com.google.android.c2dm.permission.RECEIVE
 ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:18:5-82
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:26:5-82
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:26:5-82
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:26:5-82
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:26:5-82
 	android:name
 		ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:18:22-79
-uses-permission#android.permission.WAKE_LOCK
-ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:19:5-68
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:24:5-68
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:24:5-68
-	android:name
-		ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:19:22-65
 uses-permission#android.permission.VIBRATE
 ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:24:5-66
 	android:name
 		ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:24:22-63
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:25:5-79
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:22:5-79
-MERGED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:22:5-79
-	android:name
-		ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:25:22-76
-uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:30:5-81
-	android:name
-		ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:30:22-78
 uses-permission#com.sec.android.provider.badge.permission.READ
 ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:32:5-86
 	android:name
@@ -460,10 +611,6 @@ ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/tr
 		ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:94:19-62
 intent-filter#android.intent.action.BOOT_COMPLETED+android.intent.action.QUICKBOOT_POWERON
 ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:95:13-98:29
-action#android.intent.action.BOOT_COMPLETED
-ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:96:17-79
-	android:name
-		ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:96:25-76
 action#android.intent.action.QUICKBOOT_POWERON
 ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:97:17-82
 	android:name
@@ -479,62 +626,126 @@ ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/tr
 	android:name
 		ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:102:25-81
 service#com.google.firebase.messaging.FirebaseMessagingService
-ADDED from [com.google.firebase:firebase-messaging:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-12.0.1.aar/9984c8ea0b4ea9f0866b90286ba8abb1/AndroidManifest.xml:28:9-34:19
+ADDED from [com.google.firebase:firebase-messaging:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-15.0.2.aar/e4487477806cc06e340a5114495c6630/AndroidManifest.xml:28:9-34:19
 	android:exported
-		ADDED from [com.google.firebase:firebase-messaging:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-12.0.1.aar/9984c8ea0b4ea9f0866b90286ba8abb1/AndroidManifest.xml:30:13-36
+		ADDED from [com.google.firebase:firebase-messaging:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-15.0.2.aar/e4487477806cc06e340a5114495c6630/AndroidManifest.xml:30:13-36
 	android:name
-		ADDED from [com.google.firebase:firebase-messaging:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-12.0.1.aar/9984c8ea0b4ea9f0866b90286ba8abb1/AndroidManifest.xml:29:13-82
+		ADDED from [com.google.firebase:firebase-messaging:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-15.0.2.aar/e4487477806cc06e340a5114495c6630/AndroidManifest.xml:29:13-82
 intent-filter#com.google.firebase.MESSAGING_EVENT
-ADDED from [com.google.firebase:firebase-messaging:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-12.0.1.aar/9984c8ea0b4ea9f0866b90286ba8abb1/AndroidManifest.xml:31:13-33:29
+ADDED from [com.google.firebase:firebase-messaging:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-15.0.2.aar/e4487477806cc06e340a5114495c6630/AndroidManifest.xml:31:13-33:29
 	android:priority
-		ADDED from [com.google.firebase:firebase-messaging:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-12.0.1.aar/9984c8ea0b4ea9f0866b90286ba8abb1/AndroidManifest.xml:31:28-51
+		ADDED from [com.google.firebase:firebase-messaging:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-15.0.2.aar/e4487477806cc06e340a5114495c6630/AndroidManifest.xml:31:28-51
 action#com.google.firebase.MESSAGING_EVENT
-ADDED from [com.google.firebase:firebase-messaging:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-12.0.1.aar/9984c8ea0b4ea9f0866b90286ba8abb1/AndroidManifest.xml:32:17-78
+ADDED from [com.google.firebase:firebase-messaging:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-15.0.2.aar/e4487477806cc06e340a5114495c6630/AndroidManifest.xml:32:17-78
 	android:name
-		ADDED from [com.google.firebase:firebase-messaging:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-12.0.1.aar/9984c8ea0b4ea9f0866b90286ba8abb1/AndroidManifest.xml:32:25-75
-activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/7e9297c37e63d4b7225c30aa1a5d3b3d/AndroidManifest.xml:23:9-26:75
-	android:exported
-		ADDED from [com.google.android.gms:play-services-base:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/7e9297c37e63d4b7225c30aa1a5d3b3d/AndroidManifest.xml:25:13-37
-	android:theme
-		ADDED from [com.google.android.gms:play-services-base:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/7e9297c37e63d4b7225c30aa1a5d3b3d/AndroidManifest.xml:26:13-72
+		ADDED from [com.google.firebase:firebase-messaging:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-15.0.2.aar/e4487477806cc06e340a5114495c6630/AndroidManifest.xml:32:25-75
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/301501545a85f523a38a972f0f51eb9d/AndroidManifest.xml:27:9-31:19
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:35:9-39:19
+MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:35:9-39:19
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/7e9297c37e63d4b7225c30aa1a5d3b3d/AndroidManifest.xml:24:13-79
-receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
-ADDED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:35:9-44:20
-	android:exported
-		ADDED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:37:13-36
-	android:permission
-		ADDED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:38:13-73
-	android:name
-		ADDED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:36:13-78
-service#com.google.firebase.iid.FirebaseInstanceIdService
-ADDED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:50:9-56:19
-	android:exported
-		ADDED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:52:13-36
-	android:name
-		ADDED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:51:13-77
-intent-filter#com.google.firebase.INSTANCE_ID_EVENT
-ADDED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:53:13-55:29
-	android:priority
-		ADDED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:53:28-51
-action#com.google.firebase.INSTANCE_ID_EVENT
-ADDED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:54:17-80
-	android:name
-		ADDED from [com.google.firebase:firebase-iid:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-12.0.1.aar/e87d8734720a6d67d861081d1afebba5/AndroidManifest.xml:54:25-77
-provider#com.google.firebase.provider.FirebaseInitProvider
-ADDED from [com.google.firebase:firebase-common:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-12.0.1.aar/5c3f726df161ffba4058b4ec6f2a7846/AndroidManifest.xml:8:9-12:39
-	android:authorities
-		ADDED from [com.google.firebase:firebase-common:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-12.0.1.aar/5c3f726df161ffba4058b4ec6f2a7846/AndroidManifest.xml:10:13-72
-	android:exported
-		ADDED from [com.google.firebase:firebase-common:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-12.0.1.aar/5c3f726df161ffba4058b4ec6f2a7846/AndroidManifest.xml:11:13-37
-	android:initOrder
-		ADDED from [com.google.firebase:firebase-common:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-12.0.1.aar/5c3f726df161ffba4058b4ec6f2a7846/AndroidManifest.xml:12:13-36
-	android:name
-		ADDED from [com.google.firebase:firebase-common:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-12.0.1.aar/5c3f726df161ffba4058b4ec6f2a7846/AndroidManifest.xml:9:13-77
-meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/9573146ca4130920950376c14a2ea43d/AndroidManifest.xml:23:9-25:69
+		ADDED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/301501545a85f523a38a972f0f51eb9d/AndroidManifest.xml:27:18-89
+meta-data#com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar
+ADDED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/301501545a85f523a38a972f0f51eb9d/AndroidManifest.xml:28:13-30:85
 	android:value
-		ADDED from [com.google.android.gms:play-services-basement:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/9573146ca4130920950376c14a2ea43d/AndroidManifest.xml:25:13-66
+		ADDED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/301501545a85f523a38a972f0f51eb9d/AndroidManifest.xml:30:17-82
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:12.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/9573146ca4130920950376c14a2ea43d/AndroidManifest.xml:24:13-58
+		ADDED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/301501545a85f523a38a972f0f51eb9d/AndroidManifest.xml:29:17-139
+uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
+ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:26:5-110
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-15.0.2.aar/4d9d94e2ca153255c7b92ad79de6cacf/AndroidManifest.xml:26:5-110
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-15.0.2.aar/4d9d94e2ca153255c7b92ad79de6cacf/AndroidManifest.xml:26:5-110
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:26:22-107
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:29:9-33:20
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-15.0.2.aar/4d9d94e2ca153255c7b92ad79de6cacf/AndroidManifest.xml:29:9-33:20
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-15.0.2.aar/4d9d94e2ca153255c7b92ad79de6cacf/AndroidManifest.xml:29:9-33:20
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:31:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:30:13-85
+receiver#com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver
+ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:34:9-42:20
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:36:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:37:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:38:13-69
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:35:13-100
+intent-filter#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:39:13-41:29
+action#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:40:17-79
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:40:25-76
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:44:9-47:40
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-15.0.2.aar/4d9d94e2ca153255c7b92ad79de6cacf/AndroidManifest.xml:35:9-38:40
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-15.0.2.aar/4d9d94e2ca153255c7b92ad79de6cacf/AndroidManifest.xml:35:9-38:40
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:46:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:47:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:45:13-84
+service#com.google.android.gms.measurement.AppMeasurementJobService
+ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:48:9-52:72
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:50:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:51:13-37
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:52:13-69
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-analytics-15.0.2.aar/48f5fa663a26f582363e35c55b474212/AndroidManifest.xml:49:13-87
+meta-data#com.google.firebase.components:com.google.firebase.iid.Registrar
+ADDED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:36:13-38:85
+	android:value
+		ADDED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:38:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:37:17-96
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:41:9-50:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:43:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:44:13-73
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:42:13-78
+service#com.google.firebase.iid.FirebaseInstanceIdService
+ADDED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:56:9-62:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:58:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:57:13-77
+intent-filter#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:59:13-61:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:59:28-51
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:60:17-80
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:60:25-77
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/d1c6412452e65679686acccaa6badf2c/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/d1c6412452e65679686acccaa6badf2c/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/d1c6412452e65679686acccaa6badf2c/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/d1c6412452e65679686acccaa6badf2c/AndroidManifest.xml:24:13-79
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-15.0.1.aar/b9194d0ec28dbb1acba458579d78f176/AndroidManifest.xml:8:9-12:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-15.0.1.aar/b9194d0ec28dbb1acba458579d78f176/AndroidManifest.xml:10:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-15.0.1.aar/b9194d0ec28dbb1acba458579d78f176/AndroidManifest.xml:11:13-37
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-15.0.1.aar/b9194d0ec28dbb1acba458579d78f176/AndroidManifest.xml:12:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-common-15.0.1.aar/b9194d0ec28dbb1acba458579d78f176/AndroidManifest.xml:9:13-77

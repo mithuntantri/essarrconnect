@@ -41,6 +41,74 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+.splash-background{
+  position: absolute;
+  bottom: -156px;
+  width: 100%;
+  height: 100%;
+}
+
+.splash-background img{
+  width: 88%;
+}
+
+#introblocks {
+    color: #FFFFFF;
+    background: #219787;
+    position: relative;
+    flex-grow: 2;
+    margin-bottom: 30px;
+}
+#introblocks ul, #introblocks ul li {
+    border-color: #FFFFFF;
+}
+#introblocks ul {
+    display: table;
+    width: 100%;
+    height: 100%;
+    border: none;
+    list-style: none;
+    padding: 0px 0 0 23%;
+    margin: 0px;
+    padding-bottom: 100px;
+}
+#introblocks ul li{
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  margin: 0 auto;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+#introblocks ul li .left{
+
+}
+
+#introblocks ul li .right{
+  font-family: 'GlacialIndifference-Regular';
+  margin-left: 15px;
+}
+
+#introblocks ul li .right .title{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#introblocks ul li .right .content{
+  font-size: 13px;
+}
+
+.nospace {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.modal{
+  z-index: 2000 !important;
 }
 
 .splash > .part1{
@@ -68,7 +136,7 @@ body {
 .splash > .part2{
     width: 100%;
     text-align: center;
-    padding: 25px 50px;
+    padding: 10px 50px;
     color: #2D2F3B;
 }
 
@@ -80,12 +148,13 @@ body {
 
 .splash > .part2 > .desc{
     font-family: 'GlacialIndifference-Regular';
-    font-size: 19px;
+    font-size: 15px;
 }
 
 .splash > .part3{
     width: 100%;
     padding: 20px 30px;
+    z-index: 1000;
 }
 
 .continue-btn{
@@ -104,7 +173,7 @@ body {
 }
 
 .essarr-logo{
-  width: 65%;
+  width: 35%;
   margin: 0 auto;
 }
 

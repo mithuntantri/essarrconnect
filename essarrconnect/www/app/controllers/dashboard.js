@@ -5,9 +5,9 @@
         .module('app')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$injector = ['$scope', '$rootScope', '$location', '$nativeDrawer', '$timeout', 'Login', 'User', 'Dashboard'];
+    DashboardController.$injector = ['$scope', '$rootScope', '$location', '$route', '$nativeDrawer', '$timeout', 'Login', 'User', 'Dashboard'];
 
-    function DashboardController($scope, $rootScope, $location, $nativeDrawer, $timeout, Login, User, Dashboard){
+    function DashboardController($scope, $rootScope, $location, $route, $nativeDrawer, $timeout, Login, User, Dashboard){
         StatusBar.backgroundColorByHexString('#219787');
         StatusBar.styleLightContent();
     	
@@ -23,6 +23,7 @@
         $scope.all_incentives = []
         $scope.all_announcements = []
         $scope.all_targets = []
+        $scope.all_categories= []
 
         $scope.upload_types = [
             {name:'MSGP Retail Target'},
@@ -43,6 +44,7 @@
         }
 
         $scope.branch = {
+            'code': '',
             'name' : '',
             'address': '',
             'latitude': 0.00,
@@ -52,6 +54,8 @@
 
         $scope.employee = {
             'number': null,
+            'first_name': '',
+            'last_name': '',
             'designation': '',
             'department': '',
             'location': null
@@ -82,7 +86,13 @@
 
         $scope.announcement = {
             'title': '',
+            'category': 'All',
             'message': ''
+        }
+
+        $scope.report = {
+            'employee_id': null,
+            'date': moment().subtract(1, 'days').format("DD MMM YYYY")
         }
 
         $rootScope.drawer.init( options );
@@ -94,7 +104,7 @@
             {'name': 'Manage Employees', 'selected': false},
             {'name': 'Manage Salary', 'selected': false},
             {'name': 'Manage Incentives', 'selected': false},
-            {'name': 'Track Targets', 'selected': false},
+            {'name': 'Track Targets / Attendance', 'selected': false},
             {'name': 'Leave Requests', 'selected': false},
             {'name': 'Holiday Chart', 'selected': false},
             {'name': 'Employee Questions', 'selected': false},
@@ -104,6 +114,7 @@
         $scope.features[$scope.selectedFeature].selected = true
 
         $scope.showDashboard = (index)=>{
+            $rootScope.drawer.init( options );
             console.log("showDashboard", index)
             _.each($scope.features, (f)=>{f.selected = false})
             $scope.features[index].selected = true
@@ -164,46 +175,53 @@
                     }
                 })
             }else if(index == 4){
-                Dashboard.getAllTargets().then((result)=>{
-                    $scope.showLoader = false
+                Dashboard.getEmployees().then((result)=>{
                     if(result.data.status){
-                        $scope.all_targets = result.data.data
-                         $scope.msgp_target = 0
-                         $scope.msgp_completed = 0
-                         $scope.msgp_balance = 0
-                         $scope.msga_target = 0
-                         $scope.msga_completed = 0
-                         $scope.msga_balance = 0
-                        _.each($scope.all_targets[0], (msgp)=>{
-                            msgp.total_target = msgp.iw_target + msgp.trade_target + msgp.mass_target + msgp.walk_target
-                            $scope.msgp_target += parseFloat(msgp.total_target.toFixed(2))
-                            msgp.target_as_on = msgp.iw_as_on + msgp.trade_as_on + msgp.mass_as_on + msgp.walk_as_on
-                            $scope.msgp_completed += parseFloat(msgp.target_as_on.toFixed(2))
-                            msgp.balance = msgp.total_target - msgp.target_as_on
-                            $scope.msgp_balance += parseFloat(msgp.balance.toFixed(2))
+                        $scope.all_employees = result.data.data
+                         Dashboard.getAllTargets().then((result)=>{
+                            $scope.showLoader = false
+                            if(result.data.status){
+                                $scope.all_targets = result.data.data
+                                 $scope.msgp_target = 0
+                                 $scope.msgp_completed = 0
+                                 $scope.msgp_balance = 0
+                                 $scope.msga_target = 0
+                                 $scope.msga_completed = 0
+                                 $scope.msga_balance = 0
+                                _.each($scope.all_targets[0], (msgp)=>{
+                                    msgp.total_target = msgp.target
+                                    $scope.msgp_target += parseFloat(msgp.total_target.toFixed(2))
+                                    msgp.target_as_on = msgp.as_on
+                                    $scope.msgp_completed += parseFloat(msgp.target_as_on.toFixed(2))
+                                    msgp.total_balance = msgp.balance
+                                    $scope.msgp_balance += parseFloat(msgp.balance.toFixed(2))
+                                    msgp.total_per_day = msgp.per_day
+                                    $scope.msgp_balance_per_day = parseFloat(msgp.total_per_day.toFixed(2))
+                                })
+                                _.each($scope.all_targets[1], (msga)=>{
+                                    msga.total_target = msga.target
+                                    $scope.msga_target += parseFloat(msga.total_target.toFixed(2))
+                                    msga.target_as_on = msga.as_on
+                                    $scope.msga_completed += parseFloat(msga.target_as_on.toFixed(2))
+                                    msga.total_balance = msga.balance
+                                    $scope.msga_balance += parseFloat(msga.balance.toFixed(2))
+                                    msga.total_per_day = msga.per_day
+                                    $scope.msga_balance_per_day = parseFloat(msga.total_per_day.toFixed(2))
+                                })
+                                $scope.msgp_completed = parseFloat($scope.msgp_completed.toFixed(2))
+                                $scope.msga_completed = parseFloat($scope.msga_completed.toFixed(2))
+
+                                $scope.msgp_target = parseFloat($scope.msgp_target.toFixed(2))
+                                $scope.msga_target = parseFloat($scope.msga_target.toFixed(2))
+                            }else{
+                                showBottom(result.data.message)
+                            }
                         })
-                        _.each($scope.all_targets[1], (msga)=>{
-                            msga.total_target = msga.cf_target + msga.mats_target + msga.mf_target + msga.sw_target + msga.wc_target + msga.bc_target
-                            $scope.msga_target += parseFloat(msga.total_target.toFixed(2))
-                            msga.target_as_on = msga.cf_as_on + msga.mats_as_on + msga.mf_as_on + msga.sw_as_on + msga.wc_as_on + msga.bc_as_on
-                            $scope.msga_completed += parseFloat(msga.target_as_on.toFixed(2))
-                            msga.balance = msga.total_target - msga.target_as_on
-                            $scope.msga_balance += parseFloat(msga.balance.toFixed(2))
-                        })
-                        $scope.msgp_completed = parseFloat($scope.msgp_completed.toFixed(2))
-                        $scope.msga_completed = parseFloat($scope.msga_completed.toFixed(2))
-                        console.log($scope.all_targets)
-                        var a = moment().endOf('month');
-                        var b = moment().startOf('day');
-                        var remaining = a.diff(b, 'days')
-                        console.log("remaining", remaining)
-                        $scope.msgp_balance_per_day = parseFloat(($scope.msgp_balance / remaining).toFixed(2))
-                        $scope.msga_balance_per_day = parseFloat(($scope.msga_balance / remaining).toFixed(2))
-                        console.log($scope.all_targets)
                     }else{
                         showBottom(result.data.message)
                     }
                 })
+               
             }else if(index == 5){
                 Dashboard.getAllLeaves().then((result)=>{
                     $scope.showLoader = false
@@ -227,14 +245,17 @@
             }else if(index == 7){
                 $location.url('/chat')
             }else if(index == 8){
-                Dashboard.getAnnouncements().then((result)=>{
-                    $scope.showLoader = false
-                    if(result.data.status){
-                        $scope.all_announcements = result.data.data
-                        console.log($scope.all_announcements)
-                    }else{
-                        showBottom(result.data.message)
-                    }
+                Dashboard.getAllCategory().then((res)=>{
+                    $scope.all_categories = res.data.data
+                    Dashboard.getAnnouncements().then((result)=>{
+                        $scope.showLoader = false
+                        if(result.data.status){
+                            $scope.all_announcements = result.data.data
+                            console.log($scope.all_announcements)
+                        }else{
+                            showBottom(result.data.message)
+                        }
+                    })
                 })
             }
             console.log($scope.features)    
@@ -248,16 +269,18 @@
         }
 
         function showBottom(message) {
-          window.plugins.toast.showWithOptions(
-            {
-              message: message,
-              duration: "short", // which is 2000 ms. "long" is 4000. Or specify the nr of ms yourself.
-              position: "bottom",
-              addPixelsY: -40  // added a negative value to move it up a bit (default 0)
-            },
-            function(){}, // optional
-            function(){}    // optional
-          );
+            if(message){
+                window.plugins.toast.showWithOptions(
+                {
+                  message: message,
+                  duration: "short", // which is 2000 ms. "long" is 4000. Or specify the nr of ms yourself.
+                  position: "bottom",
+                  addPixelsY: -40  // added a negative value to move it up a bit (default 0)
+                },
+                function(){}, // optional
+                function(){}    // optional
+              );
+            }
         }
 
         $scope.addFeature = ()=>{
@@ -279,21 +302,22 @@
 
         $scope.openAddIncentive = ()=>{
             $scope.current_modal = 'incentive'
-            $('#lab-slide-bottom-popup-incentive').modal('show');
+            $('#lab-slide-bottom-popup-incentive').modal().show();
             $('.lab-slide-up').find('a').attr('data-toggle', 'modal');
             $('.lab-slide-up').find('a').attr('data-target', '#lab-slide-bottom-popup-incentive');
         }
 
         $scope.openAddAnnouncement = ()=>{
-          $scope.current_modal = 'incentive'
-            $('#lab-slide-bottom-popup-announcements').modal('show');
+            console.log('announcement modal')
+          $scope.current_modal = 'announcement'
+            $('#lab-slide-bottom-popup-announcements').modal().show();
             $('.lab-slide-up').find('a').attr('data-toggle', 'modal');
             $('.lab-slide-up').find('a').attr('data-target', '#lab-slide-bottom-popup-announcements');
         }
 
         $scope.openUploadForm = ()=>{
             $scope.current_modal = 'upload'
-            $('#lab-slide-bottom-popup-upload').modal('show');
+            $('#lab-slide-bottom-popup-upload').modal().show();
             $('.lab-slide-up').find('a').attr('data-toggle', 'modal');
             $('.lab-slide-up').find('a').attr('data-target', '#lab-slide-bottom-popup-upload');
         }
@@ -301,26 +325,26 @@
         $scope.openUpdateSalary = (index)=>{
             $scope.salary = $scope.all_salaries[index]
             $scope.current_modal = 'salary'
-            $('#lab-slide-bottom-popup-salary').modal('show');
+            $('#lab-slide-bottom-popup-salary').modal().show();
             $('.lab-slide-up').find('a').attr('data-toggle', 'modal');
             $('.lab-slide-up').find('a').attr('data-target', '#lab-slide-bottom-popup-salary');
         }
         $scope.openAddHoliday = ()=>{
             $scope.current_modal = 'holiday'
-            $('#lab-slide-bottom-popup-holiday').modal('show');
+            $('#lab-slide-bottom-popup-holiday').modal().show();
             $('.lab-slide-up').find('a').attr('data-toggle', 'modal');
             $('.lab-slide-up').find('a').attr('data-target', '#lab-slide-bottom-popup-holiday');
         }
         $scope.openAddLocation = ()=>{
             $scope.current_modal = 'location'
-            $('#lab-slide-bottom-popup-location').modal('show');
+            $('#lab-slide-bottom-popup-location').modal().show();
             $('.lab-slide-up').find('a').attr('data-toggle', 'modal');
             $('.lab-slide-up').find('a').attr('data-target', '#lab-slide-bottom-popup-location');
         }
 
         $scope.openAddEmployee = ()=>{
             $scope.current_modal = 'employee'
-            $('#lab-slide-bottom-popup-employee').modal('show');
+            $('#lab-slide-bottom-popup-employee').modal().show();
             $('.lab-slide-up').find('a').attr('data-toggle', 'modal');
             $('.lab-slide-up').find('a').attr('data-target', '#lab-slide-bottom-popup-employee');
         }
@@ -350,7 +374,7 @@
         }
 
         $scope.closeAddAnnouncement = ()=>{
-            $('#lab-slide-bottom-popup-announcements').modal().hide();
+            $('#lab-slide-bottom-popup-announcements').modal().hide()
         }
 
 
@@ -367,6 +391,24 @@
                     showBottom(result.data.message)
                 }
             })
+        }
+
+        $scope.downloadReport = ()=>{
+            if($scope.report.employee_id && $scope.report.date){
+                 $scope.showBtnLoader = true
+                console.log($scope.report)
+                Dashboard.downloadReport($scope.report).then((result)=>{
+                    $scope.showBtnLoader = false
+                    $scope.showDashboard($scope.selectedFeature)
+                    showBottom(result)
+                }).catch((err)=>{
+                    $scope.showBtnLoader = false
+                    showBottom(err)
+                })
+            }else{
+                showBottom(`Please fill in all details`)
+            }
+           
         }
 
         $scope.addAnnouncement = ()=>{
@@ -558,6 +600,8 @@
                 $timeout(()=>{
                     if(type == 'start'){
                         $scope.holiday.from_date = moment(date).format("DD MMM YYYY")                    
+                    }else if(type == 'report'){
+                        $scope.report.date = moment(date).format("DD MMM YYYY")                    
                     }else{
                         $scope.holiday.to_date = moment(date).format("DD MMM YYYY")                    
                     }

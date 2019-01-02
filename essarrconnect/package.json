@@ -13,11 +13,19 @@
       "cordova-plugin-CDVNavBar": {},
       "cordova-plugin-datepicker": {},
       "onesignal-cordova-plugin": {},
-      "cordova-plugin-file-transfer": {}
+      "cordova-plugin-file-transfer": {},
+      "cordova-plugin-android-permissions": {},
+      "cordova-plugin-mauron85-background-geolocation": {
+        "GOOGLE_PLAY_SERVICES_VERSION": "11+",
+        "ANDROID_SUPPORT_LIBRARY_VERSION": "23+",
+        "ALWAYS_USAGE_DESCRIPTION": "App requires ...",
+        "MOTION_USAGE_DESCRIPTION": "App requires motion detection"
+      }
     }
   },
   "dependencies": {
     "cordova-android": "~7.0.0",
+    "cordova-plugin-android-permissions": "^1.0.0",
     "cordova-plugin-cdvnavbar": "^2.5.0",
     "cordova-plugin-datepicker": "git+https://github.com/VitaliiBlagodir/cordova-plugin-datepicker.git",
     "cordova-plugin-file": "^6.0.1",
@@ -26,6 +34,7 @@
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-x-toast": "^2.7.2",
     "hammer": "0.0.5",
-    "onesignal-cordova-plugin": "2.4.6"
+    "onesignal-cordova-plugin": "2.4.6",
+    "pulltorefreshjs": "^0.1.16"
   }
 }

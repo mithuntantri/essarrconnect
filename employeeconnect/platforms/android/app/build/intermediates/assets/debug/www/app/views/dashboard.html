@@ -14,7 +14,9 @@
 <div class="target-container">
   <div class="target">
     <div class="value">
-      <span class="green">0.00</span> / 0.00
+      <span class="green">
+      {{msga.as_on}}</span> 
+      / {{msga.target}}
     </div>
     <div class="title">
       Progress vs Target
@@ -22,14 +24,14 @@
   </div>
   <div class="target">
     <div class="value red">
-      0.00
+      {{msga.per_day}}
     </div>
      <div class="title">
       Balance/Day
     </div>
   </div>
 </div>
-<div class="welcome-message">Good Morning! <b>{{profile.first_name}}</b></div>
+<div class="welcome-message">Good {{wish}}! <b>{{profile.first_name}}</b></div>
 <div class="features-container">
   <div class="feature" ng-click="openAddModal('profile')">
     <div class="icon"><img src="assets/img/programmer.png"/></div>
@@ -67,6 +69,10 @@
     <div class="icon"><img src="assets/img/maintenance.png"/></div>
     <div class="title">Vehicle Maintenance</div>
   </div>
+  <div class="feature" ng-click="openMyMeetings()">
+    <div class="icon"><img src="assets/img/meetings.png"/></div>
+    <div class="title">My Meetings</div>
+  </div>
   <div class="feature" ng-click="logout()">
     <div class="icon"><img src="assets/img/exit.png"/></div>
     <div class="title">Log Out from App</div>
@@ -86,13 +92,23 @@
       <div class="lab-modal-body register">
         <div class="signup-email-input-container material-input-wrapper">
           <label class="signup-email-text">
-          Leave Reason
+          Leave Subject
           </label>
           <div class="mobile-number-container">
             <input class="login-signup-email-input login-email-exist-input"
-            maxlength="64" 
+            maxlength="16" 
             ng-model="leave.reason"
             id="test-username-input" type="text">
+          </div>
+        </div>
+        <div class="signup-email-input-container material-input-wrapper">
+          <label class="signup-email-text">
+          Leave Description
+          </label>
+          <div class="mobile-number-container">
+            <textarea style="height: 60px;outline: none;" class="login-signup-email-input login-email-exist-input" maxlength="500" 
+            ng-model="leave.description"
+            id="test-username-input" type="text"></textarea>
           </div>
         </div>
         <div class="signup-email-input-container material-input-wrapper" style="display: flex;flex-direction: row;margin-left:0;margin-right: 0px;">
@@ -156,7 +172,7 @@
         </div>
       </div>
       <div class="lab-modal-body register">
-        <div style="display: flex;flex-direction: row;justify-content: space-between;min-height: 90px;">
+        <!-- <div style="display: flex;flex-direction: row;justify-content: space-between;min-height: 90px;">
           <div class="signup-email-input-container material-input-wrapper">
             <label class="signup-email-text">
             First Name
@@ -177,25 +193,50 @@
               id="test-username-input" type="text">
             </div>
           </div>
-        </div>
-        <div class="signup-email-input-container material-input-wrapper">
-          <label class="signup-email-text">
-          Email Address
-          </label>
-          <div class="mobile-number-container">
-            <input class="login-signup-email-input login-email-exist-input" 
-            ng-model="profile.email"
-            id="test-username-input" type="email">
+        </div> -->
+        <div class="signup-email-input-container large material-input-wrapper" style="display: flex;flex-direction: row;margin-left:0;margin-right: 0px;margin-top: -15px;">
+          <div class="signup-email-input-container material-input-wrapper">
+            <label class="signup-email-text">
+            Date of Birth
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              maxlength="11" ng-click="showDatePicker('dob')"
+              ng-model="profile.date_of_birth"
+              id="test-username-input" type="text">
+            </div>
+          </div>
+          <div class="signup-email-input-container material-input-wrapper">
+            <label class="signup-email-text">
+            Email (Optional)
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input" 
+              ng-model="profile.email"
+              id="test-username-input" type="email">
+            </div>
           </div>
         </div>
-        <div class="signup-email-input-container material-input-wrapper">
-          <label class="signup-email-text">
-          PAN Number
-          </label>
-          <div class="mobile-number-container">
-            <input class="login-signup-email-input login-email-exist-input" 
-            ng-model="profile.pan_number"
-            id="test-username-input" type="text">
+        <div class="signup-email-input-container large material-input-wrapper" style="display: flex;flex-direction: row;margin-left:0;margin-right: 0px;">
+          <div class="signup-email-input-container material-input-wrapper">
+            <label class="signup-email-text">
+            PAN (Optional)
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input" 
+              ng-model="profile.pan_number" maxlength="10" 
+              id="test-username-input" type="text">
+            </div>
+          </div>
+          <div class="signup-email-input-container material-input-wrapper">
+            <label class="signup-email-text">
+            Aadhar Number
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input" 
+              ng-model="profile.aadhar_number" maxlength="12" 
+              id="test-username-input" type="number">
+            </div>
           </div>
         </div>
         <div class="signup-email-input-container material-input-wrapper">
@@ -207,6 +248,30 @@
             <input class="login-signup-email-input login-email-exist-input" 
               ng-model="profile.secondary_mobile" type="number"
               id="test-username-input" style="text-transform: uppercase;padding: 8px 70px;"/>
+          </div>
+        </div>
+        <div class="signup-email-input-container large material-input-wrapper" style="display: flex;flex-direction: row;margin-left:0;margin-right: 0px;">
+           <div class="signup-email-input-container large material-input-wrapper">
+            <label class="signup-email-text">
+            Bank Name
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              maxlength="64" ng-disabled="true"
+              ng-model="profile.bank_name"
+              id="test-username-input" type="text">
+            </div>
+          </div>
+          <div class="signup-email-input-container large material-input-wrapper">
+            <label class="signup-email-text">
+            Bank Account Number
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              maxlength="64" 
+              ng-model="profile.account_number"
+              id="test-username-input" type="text">
+            </div>
           </div>
         </div>
         <div class="part3 btn-container" style="margin-top: 30px;justify-content: flex-start;">
@@ -225,7 +290,7 @@
           <span class="modal-title">ESSARR AUTOMOTIVES</span>
         </div>
         <div class="modal-desc-container">
-          <div class="modal-desc">Download your last 6 month paylsips and keep track of your taxes</div>
+          <div class="modal-desc">Download your last 3 month paylsips and keep track of your taxes</div>
           <img class="logo-ticket-half" src="assets/img/transfer.svg"/>
         </div>
       </div>

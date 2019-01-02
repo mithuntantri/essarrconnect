@@ -1,0 +1,73 @@
+{
+  "_from": "cordova-plugin-mauron85-background-geolocation@alpha",
+  "_id": "cordova-plugin-mauron85-background-geolocation@3.0.0-alpha.50",
+  "_inBundle": false,
+  "_integrity": "sha512-TVdsJ4gPOuFANB3SX/bDLp4igK6o5nPXO95+tv9RpLr5Rwh2XhiozmEpaC0mnMFiuKi6j1xbaZLklhhVBwC14w==",
+  "_location": "/cordova-plugin-mauron85-background-geolocation",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-mauron85-background-geolocation@alpha",
+    "name": "cordova-plugin-mauron85-background-geolocation",
+    "escapedName": "cordova-plugin-mauron85-background-geolocation",
+    "rawSpec": "alpha",
+    "saveSpec": null,
+    "fetchSpec": "alpha"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-mauron85-background-geolocation/-/cordova-plugin-mauron85-background-geolocation-3.0.0-alpha.50.tgz",
+  "_shasum": "f3ad11f513885fc3951e64bc443bddbae7346a6c",
+  "_spec": "cordova-plugin-mauron85-background-geolocation@alpha",
+  "_where": "/home/mithuntantri/mithuntantri/essarrconnect/employeeconnect",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/mauron85/cordova-plugin-background-geolocation/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-mauron85-background-geolocation",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova Background Geolocation Plugin",
+  "engines": {
+    "cordovaDependencies": {
+      "0.0.1": {
+        "cordova": ">=3.0.0"
+      },
+      "2.3.3": {
+        "cordova": ">=7.1.0",
+        "cordova-android": ">=6.3.0",
+        "cordova-ios": ">=4.4.0"
+      }
+    }
+  },
+  "homepage": "https://github.com/mauron85/cordova-plugin-background-geolocation#readme",
+  "keywords": [
+    "gps",
+    "location",
+    "geolocation",
+    "background",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova",
+    "phonegap"
+  ],
+  "license": "Apache-2.0",
+  "main": "./www/BackgroundGeolocation.js",
+  "name": "cordova-plugin-mauron85-background-geolocation",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mauron85/cordova-plugin-background-geolocation.git"
+  },
+  "types": "./www/BackgroundGeolocation.d.ts",
+  "version": "3.0.0-alpha.50"
+}

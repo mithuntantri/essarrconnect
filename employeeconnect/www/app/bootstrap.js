@@ -1,7 +1,7 @@
 // (function() {
     'use strict';
 
-    var origin = 'https://tidy-kangaroo-88.localtunnel.me'
+    var origin = 'http://essarrautomotives.com'
     var baseUrl = origin + '/api'
     
     var addedObservers = false;
@@ -64,6 +64,18 @@
                         deferred.resolve()
                     }
                     return deferred.promise
+                }],
+                getTargetDetails: ['$q', 'Dashboard', function($q, Dashboard){
+                    let defer = $q.defer()
+                    Dashboard.getAllTargets().then((result)=>{
+                        if(result.data.status){
+                            Dashboard.AllTargets = result.data.data.targets
+                            defer.resolve()
+                        }else{
+                            defer.reject()
+                        }
+                    })
+                    return defer.promise
                 }]
             }
         })
@@ -245,7 +257,9 @@ function logoutEmail() {
     })
     .filter('getPlaceholder', ()=>{
         return((obj)=>{
-            if(!obj.user_message_1){
+            if(obj.status){
+                return 'Thread is closed by admin'
+            }else if(!obj.user_message_1){
                 return 'Start a thread'
             }else if(!obj.admin_message_1){
                 return 'Waiting for admin reply'
@@ -256,5 +270,120 @@ function logoutEmail() {
             }
         })
     })
-
+    function onDeviceReady() {
+          BackgroundGeolocation.configure({
+            locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,
+            desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
+            stationaryRadius: 50,
+            distanceFilter: 50,
+            notificationTitle: 'Punch Attendance',
+            notificationText: 'Enabled',
+            debug: false,
+            interval: 3600000,
+            stopOnTerminate: false,
+            startOnBoot: true,
+            stopOnStillActivity: false,
+            fastestInterval: 3600000,
+            notificationsEnabled: false,
+            activitiesInterval: 3600000,
+            url: `${baseUrl}/user/location`,
+            httpHeaders: {
+              'X-FOO': 'bar',
+              'Authorization': 'JWT ' + localStorage.getItem('token')
+            },
+            // customize post properties
+            postTemplate: {
+              lat: '@latitude',
+              lon: '@longitude',
+              acc: '@accuracy',
+              alt: '@altitude',
+              speed: '@speed' // you can also add your own properties
+            }
+          });
+ 
+          BackgroundGeolocation.on('location', function(location) {
+            console.log("on location", location)
+            // handle your locations here
+            // to perform long running operation on iOS
+            // you need to create background task
+            BackgroundGeolocation.startTask(function(taskKey) {
+              // execute long running task
+              // eg. ajax post location
+              // IMPORTANT: task has to be ended by endTask
+              BackgroundGeolocation.endTask(taskKey);
+            });
+          });
+         
+  BackgroundGeolocation.on('stationary', function(stationaryLocation) {
+    // handle stationary locations here
+  });
+ 
+  BackgroundGeolocation.on('error', function(error) {
+    console.log('[ERROR] BackgroundGeolocation error:', error.code, error.message);
+  });
+ 
+  BackgroundGeolocation.on('start', function() {
+    console.log('[INFO] BackgroundGeolocation service has been started');
+  });
+ 
+  BackgroundGeolocation.on('stop', function() {
+    console.log('[INFO] BackgroundGeolocation service has been stopped');
+  });
+ 
+  BackgroundGeolocation.on('authorization', function(status) {
+    console.log('[INFO] BackgroundGeolocation authorization status: ' + status);
+    if (status !== BackgroundGeolocation.AUTHORIZED) {
+      // we need to set delay or otherwise alert may not be shown
+      setTimeout(function() {
+        var showSettings = confirm('App requires location tracking permission. Would you like to open app settings?');
+        if (showSetting) {
+          return BackgroundGeolocation.showAppSettings();
+        }
+      }, 1000);
+    }
+  });
+ 
+  BackgroundGeolocation.on('background', function() {
+    console.log('[INFO] App is in background');
+    // you can also reconfigure service (changes will be applied immediately)
+    BackgroundGeolocation.configure({ debug: false });
+  });
+ 
+  BackgroundGeolocation.on('foreground', function() {
+    console.log('[INFO] App is in foreground');
+    BackgroundGeolocation.configure({ debug: false });
+  });
+ 
+  BackgroundGeolocation.on('abort_requested', function() {
+    console.log('[INFO] Server responded with 285 Updates Not Required');
+ 
+    // Here we can decide whether we want stop the updates or not.
+    // If you've configured the server to return 285, then it means the server does not require further update.
+    // So the normal thing to do here would be to `BackgroundGeolocation.stop()`.
+    // But you might be counting on it to receive location updates in the UI, so you could just reconfigure and set `url` to null.
+  });
+ 
+  BackgroundGeolocation.on('http_authorization', () => {
+    console.log('[INFO] App needs to authorize the http requests');
+  });
+ 
+  BackgroundGeolocation.checkStatus(function(status) {
+    console.log('[INFO] BackgroundGeolocation service is running', status.isRunning);
+    console.log('[INFO] BackgroundGeolocation services enabled', status.locationServicesEnabled);
+    console.log('[INFO] BackgroundGeolocation auth status: ' + status.authorization);
+ 
+    // you don't need to check status before start (this is just the example)
+    if (!status.isRunning) {
+      BackgroundGeolocation.start(); //triggers start on start event
+    }
+  });
+ 
+  // you can also just start without checking for status
+  // BackgroundGeolocation.start();
+ 
+  // Don't forget to remove listeners at some point!
+  // BackgroundGeolocation.removeAllListeners();
+}
+ 
+document.addEventListener('deviceready', onDeviceReady, false);
 // })();

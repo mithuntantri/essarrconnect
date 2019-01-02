@@ -84,6 +84,23 @@
         	})
         }
 
+        $scope.toggleThreadStatus = (index)=>{
+        	$scope.all_threads[index].status = !$scope.all_threads[index].status
+        	$scope.all_threads[index].submitting = true
+        	$scope.all_threads[index].replied_1 = true
+        	$scope.all_threads[index].replied_2 = true
+        	showBottom(`${$scope.all_threads[index].status?'Closing':'Re-Opening'} thread..`)
+        	console.log("$scope.updateThread", index, $scope.all_threads[index])
+        	Dashboard.updateThread($scope.all_threads[index]).then((result)=>{
+        		$scope.getThreads()
+        		if(result.data.status){
+        			showBottom("Thread status changed successfully")
+        		}else{
+        			showBottom("Something went wrong! Please try again")
+        		}
+        	})
+        }
+
         $scope.updateThread = (index)=>{
         	$scope.all_threads[index].submitting = true
         	$scope.all_threads[index].replied_1 = true

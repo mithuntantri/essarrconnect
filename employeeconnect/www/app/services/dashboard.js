@@ -16,6 +16,7 @@ class Dashboard{
         this.showDashboard(this.selectedFeature)
         this.AllHolidays = []
         this.AllLeaves = []
+        this.AllTargets = []
 	}
 	showDashboard(index){
         console.log("showDashboard", index)
@@ -211,13 +212,13 @@ class Dashboard{
         var fileTransfer = new FileTransfer();
         let url = `${baseUrl}/user/payslip?month=${month}&year=${year}`
         var uri = encodeURI(url);
-        var fileURL = `file:///storage/emulated/0/download/payslip_${month}(${year}).pdf`
+        var fileURL = `file:///storage/emulated/0/download/payslip_${month}(${year})_${moment().unix()}.pdf`
         fileTransfer.download(
             uri,
             fileURL,
             function(entry) {
-                console.log("download complete: " + entry.toURL());
-                defer.resolve()
+                console.log("Download complete: " + entry.toURL());
+                defer.resolve(`Payslip for ${month} downloaded Successfully`)
             },
             function(error) {
                 console.log("download error source " + error.source);

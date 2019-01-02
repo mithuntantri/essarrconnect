@@ -123,28 +123,13 @@
 		  <div class="lab-modal-body register">
 		  	<div class="signup-email-input-container material-input-wrapper">
 				<label class="signup-email-text" style="text-align: center;">
-				Please wait while we try to automatically verify the One Time Password (OTP) sent to<br/> <b>+91-{{register.mobile_number}}</b>
+				Please wait while we try to automatically verify the One Time Password (OTP) sent to<br/> <span ng-if="register.mobile_number"><b>+91-{{register.mobile_number}}</b></span><span ng-if="!register.mobile_number"><b>registered mobile number</b></span>
 				</label>
 				<div class="loader"></div>
 				<div class="iws-number-container" style="margin: 15px 0;">
 					<input class="login-signup-email-input login-email-exist-input otp-input" 
-						placeholder="*" type="number" maxlength="1"
-						value="{{otp[0]}}" style="text-transform: uppercase;padding: 30px 7px;margin: 0 10px 0 0;font-size: 36px;"/>
-					<input class="login-signup-email-input login-email-exist-input otp-input" 
-						placeholder="*" type="number" maxlength="1"
-						value="{{otp[1]}}" style="text-transform: uppercase;padding: 30px 7px;margin: 0 10px;font-size: 36px;"/>
-					<input class="login-signup-email-input login-email-exist-input otp-input" 
-						placeholder="*" type="number" maxlength="1" 
-						value="{{otp[2]}}" style="text-transform: uppercase;padding: 30px 7px;margin: 0 10px;font-size: 36px;"/>
-					<input class="login-signup-email-input login-email-exist-input otp-input" 
-						placeholder="*"  type="number" maxlength="1"
-						value="{{otp[3]}}" style="text-transform: uppercase;padding: 30px 7px;margin: 0 10px;font-size: 36px;"/>
-					<input class="login-signup-email-input login-email-exist-input otp-input" 
-						placeholder="*"  type="number" maxlength="1"
-						value="{{otp[4]}}" style="text-transform: uppercase;padding: 30px 7px;margin: 0 10px;font-size: 36px;"/>
-					<input class="login-signup-email-input login-email-exist-input otp-input" 
-						placeholder="*"  type="number" maxlength="1"
-						value="{{otp[5]}}" style="text-transform: uppercase;padding: 30px 7px;margin: 0 0 0 10px;font-size: 36px;"/>
+						 type="number" maxlength="1"
+						ng-model="otp" style="text-transform: uppercase;padding: 30px 16px;margin: 0 10px 0 10px;font-size: 36px;"/>
 				</div>
 			</div>
 		  	<div class="part3 btn-container" style="margin-top: 30px;">

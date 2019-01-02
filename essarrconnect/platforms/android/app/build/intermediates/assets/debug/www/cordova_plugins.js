@@ -236,6 +236,22 @@ module.exports = [
     "clobbers": [
       "window.FileTransfer"
     ]
+  },
+  {
+    "id": "cordova-plugin-android-permissions.Permissions",
+    "file": "plugins/cordova-plugin-android-permissions/www/permissions.js",
+    "pluginId": "cordova-plugin-android-permissions",
+    "clobbers": [
+      "cordova.plugins.permissions"
+    ]
+  },
+  {
+    "id": "cordova-plugin-mauron85-background-geolocation.backgroundGeolocation",
+    "file": "plugins/cordova-plugin-mauron85-background-geolocation/www/backgroundGeolocation.js",
+    "pluginId": "cordova-plugin-mauron85-background-geolocation",
+    "clobbers": [
+      "backgroundGeolocation"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -249,7 +265,9 @@ module.exports.metadata =
   "cordova-plugin-datepicker": "0.9.2",
   "onesignal-cordova-plugin": "2.4.6",
   "cordova-plugin-file": "6.0.1",
-  "cordova-plugin-file-transfer": "1.7.1"
+  "cordova-plugin-file-transfer": "1.7.1",
+  "cordova-plugin-android-permissions": "1.0.0",
+  "cordova-plugin-mauron85-background-geolocation": "2.3.6"
 };
 // BOTTOM OF METADATA
 });

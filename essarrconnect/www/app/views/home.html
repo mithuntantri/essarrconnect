@@ -1,6 +1,49 @@
 <div class="splash">
-	<div class="part1">
+	<div class="part1" style="position: relative;margin-bottom: 10px;flex-grow: 1;">
 		<img class="essarr-logo" src="assets/img/essarr_admin_logo.png"/>
+	</div>
+	<div id="introblocks">
+		<ul>
+			<li>
+				<div class="left">
+					<i class="fa fa-2x fa-clock-o"></i>
+				</div>
+				<div class="right">
+					<div class="title">Opening Hours</div>
+					<div class="content">
+						09.30 AM - 07.30 PM / Mon - Sat<br/>
+						10.00 AM - 02.00 PM / Sun
+					</div>
+				</div>
+			</li>
+			<li>
+		        <div class="left">
+		        	<i class="fa fa-2x fa-phone"></i>
+		        </div>
+		        <div class="right">
+		          <div class="title">Customer Support</div>
+		          <div class="content">
+		          	<a href="tel:+919071959697" style="color: white;">+91 9071 959 697</a>
+		          </div>
+		        </div>
+		    </li>
+		    <li style="border: none;">
+		        <div class="left">
+		        	<i class="fa fa-2x fa-envelope-o"></i>
+		        </div>
+		        <div class="right">
+		          <div class="title">Parts Enquiry</div>
+		          <div class="content">
+		          	<a href="mailto:partsenquiry@essarrautomotives.com" style="color: white;">
+		            partsenquiry@essarrautomotives.com</a>
+		          </div>
+		        </div>
+		      </li>
+		</ul>
+
+		<div class="splash-background">
+			<img src="assets/img/services.png"/>
+		</div>
 	</div>
 	<div class="part2" ng-if="showTokenLoader" style="min-height: 231px;">
 		<div class="loader"></div>
@@ -12,6 +55,7 @@
 	<div class="part3" ng-if="!showTokenLoader">
 		<div class="continue-btn" ng-click="openSignIn()">Continue</div>
 	</div>
+	
 	<!-- MODAL CONTENT SAMPLE STARTS HERE -->
 	<div class="modal fade" id="lab-slide-bottom-popup-login" data-keyboard="false" data-backdrop="false">
 		<div class="lab-modal">

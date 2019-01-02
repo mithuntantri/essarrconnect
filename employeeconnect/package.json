@@ -16,7 +16,21 @@
       "cordova-plugin-file": {},
       "cordova-plugin-file-transfer": {},
       "cordova-plugin-whitelist": {},
-      "onesignal-cordova-plugin": {}
+      "onesignal-cordova-plugin": {},
+      "cordova-plugin-android-permissions": {},
+      "cordova-plugin-background-mode": {},
+      "cordova-plugin-mauron85-background-geolocation": {
+        "GOOGLE_PLAY_SERVICES_VERSION": "11+",
+        "ANDROID_SUPPORT_LIBRARY_VERSION": "23+",
+        "ALWAYS_USAGE_DESCRIPTION": "App requires ...",
+        "MOTION_USAGE_DESCRIPTION": "App requires motion detection",
+        "ICON": "@mipmap/icon",
+        "SMALL_ICON": "@mipmap/icon",
+        "ACCOUNT_NAME": "@string/app_name",
+        "ACCOUNT_LABEL": "@string/app_name",
+        "ACCOUNT_TYPE": "$PACKAGE_NAME.account",
+        "CONTENT_AUTHORITY": "$PACKAGE_NAME"
+      }
     }
   },
   "dependencies": {
@@ -24,11 +38,15 @@
     "cordova-android": "^7.1.4",
     "cordova-ios": "^4.5.5",
     "cordova-plugin-CDVNavBar": "~2.5.0",
+    "cordova-plugin-android-permissions": "^1.0.0",
+    "cordova-plugin-background-mode": "^0.7.2",
     "cordova-plugin-cdvnavbar": "^2.5.0",
     "cordova-plugin-datepicker": "git+https://github.com/VitaliiBlagodir/cordova-plugin-datepicker.git",
+    "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-file": "^6.0.1",
     "cordova-plugin-file-transfer": "^1.7.1",
     "cordova-plugin-geolocation": "^4.0.1",
+    "cordova-plugin-mauron85-background-geolocation": "^3.0.0-alpha.50",
     "cordova-plugin-otp-auto-verification": "^1.0.1",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "1",

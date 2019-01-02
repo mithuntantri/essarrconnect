@@ -35,6 +35,12 @@ class Dashboard{
     		method: 'GET'
     	})
     }
+    getAllCategory(){
+        return this.$http({
+            url: `${baseUrl}/admin/category`,
+            method: 'GET'
+        })
+    }
     getSalaries(){
         return this.$http({
             url: `${baseUrl}/admin/salaries`,
@@ -236,6 +242,35 @@ class Dashboard{
             defer.reject()
           }
         })
+        return defer.promise
+    }
+
+    downloadReport(report){
+        let defer = this.$q.defer()
+        var fileTransfer = new FileTransfer();
+        let url = `${baseUrl}/admin/report?employee_id=${report.employee_id}&date=${report.date}`
+        var uri = encodeURI(url);
+        var fileURL = `file:///storage/emulated/0/download/attendance_report_${report.employee_id}(${report.date}).xlsx`
+        fileTransfer.download(
+            uri,
+            fileURL,
+            function(entry) {
+                console.log("Download complete: " + entry.toURL());
+                defer.resolve(`Attendance report for ${report.employee_id} downloaded Successfully`)
+            },
+            function(error) {
+                console.log("download error source " + error.source);
+                console.log("download error target " + error.target);
+                console.log("download error code" + error.code);
+                defer.reject("Failed to download Attendance report")
+            },
+            false,
+            {
+                headers: {
+                    "Authorization":  'JWT '+ localStorage.getItem('token')
+                }
+            }
+        );
         return defer.promise
     }
 }

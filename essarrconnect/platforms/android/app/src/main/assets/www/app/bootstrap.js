@@ -1,7 +1,7 @@
 // (function() {
     'use strict';
 
-    var origin = 'https://tidy-kangaroo-88.localtunnel.me'
+    var origin = 'http://essarrautomotives.com'
     var baseUrl = origin + '/api'
     var addedObservers = false
     

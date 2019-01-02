@@ -47,6 +47,30 @@
             {
               "xml": "<feature name=\"OneSignalPush\"><param name=\"android-package\" value=\"com.plugin.gcm.OneSignalPush\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"Permissions\"><param name=\"android-package\" value=\"com.android.plugins.Permissions\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"BackgroundMode\"><param name=\"android-package\" value=\"de.appplant.cordova.plugin.background.BackgroundMode\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<preference name=\"KeepRunning\" value=\"true\" />",
+              "count": 1
+            },
+            {
+              "xml": "<preference name=\"AndroidLaunchMode\" value=\"singleInstance\" />",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"BackgroundGeolocation\"><param name=\"android-package\" value=\"com.tenforwardconsulting.bgloc.cordova.BackgroundGeolocationPlugin\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -77,15 +101,85 @@
           ],
           "/manifest": [
             {
-              "xml": "<uses-permission android:name=\"com.amazon.device.messaging.permission.RECEIVE\" />",
-              "count": 1
-            },
-            {
               "xml": "<permission android:name=\"com.essarrautomotives.employeeconnect.permission.RECEIVE_ADM_MESSAGE\" android:protectionLevel=\"signature\" />",
               "count": 1
             },
             {
               "xml": "<uses-permission android:name=\"com.essarrautomotives.employeeconnect.permission.RECEIVE_ADM_MESSAGE\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\" />",
+              "count": 2
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+              "count": 2
+            },
+            {
+              "xml": "<manifest xmlns:tools=\"http://schemas.android.com/tools\" />",
+              "count": 1,
+              "mode": "merge",
+              "id": "config.xml",
+              "oldAttrib": {
+                "android:hardwareAccelerated": "true",
+                "android:versionCode": "10000",
+                "android:versionName": "1.0.0",
+                "package": "com.essarrautomotives.employeeconnect",
+                "xmlns:android": "http://schemas.android.com/apk/res/android",
+                "xmlns:tools": "http://schemas.android.com/tools"
+              }
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" tools:node=\"replace\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
+              "count": 2
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.AUTHENTICATE_ACCOUNTS\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.READ_SYNC_SETTINGS\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.WRITE_SYNC_SETTINGS\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"com.google.android.gms.permission.ACTIVITY_RECOGNITION\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_LOCATION_EXTRA_COMMANDS\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.hardware.location\" />",
               "count": 1
             }
           ],
@@ -101,6 +195,104 @@
             {
               "xml": "<receiver android:name=\"com.onesignal.ADMMessageHandler$Receiver\" android:permission=\"com.amazon.device.messaging.permission.SEND\"><intent-filter><action android:name=\"com.amazon.device.messaging.intent.REGISTRATION\" /><action android:name=\"com.amazon.device.messaging.intent.RECEIVE\" /><category android:name=\"com.essarrautomotives.employeeconnect\" /></intent-filter></receiver>",
               "count": 1
+            },
+            {
+              "xml": "<service android:name=\"de.appplant.cordova.plugin.background.ForegroundService\" />",
+              "count": 1
+            },
+            {
+              "xml": "<meta-data android:name=\"com.google.android.gms.version\" android:value=\"@integer/google_play_services_version\" />",
+              "count": 1
+            },
+            {
+              "xml": "<service android:exported=\"true\" android:name=\"com.marianhello.bgloc.sync.SyncService\" android:process=\":sync\"><intent-filter><action android:name=\"android.content.SyncAdapter\" /></intent-filter><meta-data android:name=\"android.content.SyncAdapter\" android:resource=\"@xml/syncadapter\" /></service>",
+              "count": 1
+            },
+            {
+              "xml": "<service android:name=\"com.marianhello.bgloc.sync.AuthenticatorService\"><intent-filter><action android:name=\"android.accounts.AccountAuthenticator\" /></intent-filter><meta-data android:name=\"android.accounts.AccountAuthenticator\" android:resource=\"@xml/authenticator\" /></service>",
+              "count": 1
+            },
+            {
+              "xml": "<provider android:authorities=\"@string/mauron85_bgloc_content_authority\" android:exported=\"false\" android:name=\"com.marianhello.bgloc.data.provider.LocationContentProvider\" android:syncable=\"true\" />",
+              "count": 1
+            },
+            {
+              "xml": "<service android:enabled=\"true\" android:exported=\"false\" android:name=\"com.marianhello.bgloc.service.LocationServiceImpl\" />",
+              "count": 1
+            },
+            {
+              "xml": "<receiver android:enabled=\"true\" android:exported=\"true\" android:name=\"com.marianhello.bgloc.BootCompletedReceiver\"><intent-filter><action android:name=\"android.intent.action.BOOT_COMPLETED\" /></intent-filter></receiver>",
+              "count": 1
+            }
+          ],
+          "/manifest/uses-permission[@android:name='android.permission.WRITE_EXTERNAL_STORAGE']": [
+            {
+              "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" tools:node=\"replace\" />",
+              "count": 1,
+              "mode": "merge",
+              "id": "config.xml",
+              "oldAttrib": {
+                "android:name": "android.permission.WRITE_EXTERNAL_STORAGE",
+                "tools:node": "replace"
+              }
+            }
+          ]
+        }
+      },
+      "res/values/strings.xml": {
+        "parents": {
+          "/resources": [
+            {
+              "xml": "<string name=\"mauron85_bgloc_account_name\">@string/app_name</string>",
+              "count": 1
+            },
+            {
+              "xml": "<string name=\"mauron85_bgloc_account_type\">com.essarrautomotives.employeeconnect.account</string>",
+              "count": 1
+            },
+            {
+              "xml": "<string name=\"mauron85_bgloc_content_authority\">com.essarrautomotives.employeeconnect</string>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "res/xml/authenticator.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<account-authenticator android:accountType=\"@string/mauron85_bgloc_account_type\" android:icon=\"@mipmap/icon\" android:label=\"@string/app_name\" android:smallIcon=\"@mipmap/icon\" xmlns:android=\"http://schemas.android.com/apk/res/android\" />",
+              "count": 1,
+              "mode": "overwrite",
+              "plugin": "cordova-plugin-mauron85-background-geolocation",
+              "oldAttrib": {
+                "android:accountType": "@string/mauron85_bgloc_account_type",
+                "android:icon": "@mipmap/icon",
+                "android:label": "@string/app_name",
+                "android:smallIcon": "@mipmap/icon",
+                "xmlns:android": "http://schemas.android.com/apk/res/android"
+              }
+            }
+          ]
+        }
+      },
+      "res/xml/syncadapter.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<sync-adapter android:accountType=\"@string/mauron85_bgloc_account_type\" android:allowParallelSyncs=\"false\" android:contentAuthority=\"@string/mauron85_bgloc_content_authority\" android:isAlwaysSyncable=\"true\" android:supportsUploading=\"true\" android:userVisible=\"false\" xmlns:android=\"http://schemas.android.com/apk/res/android\" />",
+              "count": 1,
+              "mode": "overwrite",
+              "plugin": "cordova-plugin-mauron85-background-geolocation",
+              "oldAttrib": {
+                "android:accountType": "@string/mauron85_bgloc_account_type",
+                "android:allowParallelSyncs": "false",
+                "android:contentAuthority": "@string/mauron85_bgloc_content_authority",
+                "android:isAlwaysSyncable": "true",
+                "android:supportsUploading": "true",
+                "android:userVisible": "false",
+                "xmlns:android": "http://schemas.android.com/apk/res/android"
+              }
             }
           ]
         }
@@ -136,6 +328,26 @@
       "PACKAGE_NAME": "com.essarrautomotives.employeeconnect"
     },
     "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "com.essarrautomotives.employeeconnect"
+    },
+    "cordova-plugin-android-permissions": {
+      "PACKAGE_NAME": "com.essarrautomotives.employeeconnect"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.essarrautomotives.employeeconnect"
+    },
+    "cordova-plugin-background-mode": {
+      "PACKAGE_NAME": "com.essarrautomotives.employeeconnect"
+    },
+    "cordova-plugin-mauron85-background-geolocation": {
+      "GOOGLE_PLAY_SERVICES_VERSION": "11+",
+      "ANDROID_SUPPORT_LIBRARY_VERSION": "23+",
+      "ICON": "@mipmap/icon",
+      "SMALL_ICON": "@mipmap/icon",
+      "ACCOUNT_NAME": "@string/app_name",
+      "ACCOUNT_LABEL": "@string/app_name",
+      "ACCOUNT_TYPE": "$PACKAGE_NAME.account",
+      "CONTENT_AUTHORITY": "$PACKAGE_NAME",
       "PACKAGE_NAME": "com.essarrautomotives.employeeconnect"
     }
   },
@@ -391,6 +603,44 @@
       "clobbers": [
         "OneSignal"
       ]
+    },
+    {
+      "id": "cordova-plugin-android-permissions.Permissions",
+      "file": "plugins/cordova-plugin-android-permissions/www/permissions.js",
+      "pluginId": "cordova-plugin-android-permissions",
+      "clobbers": [
+        "cordova.plugins.permissions"
+      ]
+    },
+    {
+      "id": "cordova-plugin-device.device",
+      "file": "plugins/cordova-plugin-device/www/device.js",
+      "pluginId": "cordova-plugin-device",
+      "clobbers": [
+        "device"
+      ]
+    },
+    {
+      "id": "cordova-plugin-background-mode.BackgroundMode",
+      "file": "plugins/cordova-plugin-background-mode/www/background-mode.js",
+      "pluginId": "cordova-plugin-background-mode",
+      "clobbers": [
+        "cordova.plugins.backgroundMode",
+        "plugin.backgroundMode"
+      ]
+    },
+    {
+      "id": "cordova-plugin-mauron85-background-geolocation.BackgroundGeolocation",
+      "file": "plugins/cordova-plugin-mauron85-background-geolocation/www/BackgroundGeolocation.js",
+      "pluginId": "cordova-plugin-mauron85-background-geolocation",
+      "clobbers": [
+        "BackgroundGeolocation"
+      ]
+    },
+    {
+      "id": "cordova-plugin-mauron85-background-geolocation.radio",
+      "file": "plugins/cordova-plugin-mauron85-background-geolocation/www/radio.js",
+      "pluginId": "cordova-plugin-mauron85-background-geolocation"
     }
   ],
   "plugin_metadata": {
@@ -403,6 +653,10 @@
     "cordova-plugin-statusbar": "2.4.2",
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-x-toast": "2.7.2",
-    "onesignal-cordova-plugin": "2.4.6"
+    "onesignal-cordova-plugin": "2.4.6",
+    "cordova-plugin-android-permissions": "1.0.0",
+    "cordova-plugin-device": "2.0.2",
+    "cordova-plugin-background-mode": "0.7.2",
+    "cordova-plugin-mauron85-background-geolocation": "3.0.0-alpha.50"
   }
 }

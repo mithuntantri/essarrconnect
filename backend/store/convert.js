@@ -159,7 +159,7 @@ var importEmployeesList = (lines)=>{
                 for(i=1;i<lines.length-1;i++){
                     let columns = lines[i].split(",")
                     let location_id = _.filter(branches, (b)=>{return b.code == columns[4]})
-                    queries.push(`INSERT INTO employees (employee_id, first_name, last_name, location_id, designation) VALUES('${columns[2]}', '${columns[0]}', '${columns[1]}', ${location_id.id?location_id.id:0}, '${columns[5]}')`)
+                    queries.push(`INSERT INTO employees (employee_id, first_name, last_name, location_id, designation) VALUES('${columns[2]}', '${columns[0]}', '${columns[1]}', ${location_id[0].id?location_id[0].id:0}, '${columns[5]}')`)
                     queries.push(`INSERT INTO salaries (employee_id, uan_number, epf_number, esic_number, bank_name) VALUES('${columns[2]}', '${columns[6]}', '${columns[7]}', '${columns[8]?columns[8]:''}', 'Karnataka Bank')`)
                 }
                 console.log(queries.length, lines.length)

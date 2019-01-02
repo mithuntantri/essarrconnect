@@ -92,6 +92,7 @@ ext {
 
 // PLUGIN GRADLE EXTENSIONS START
 apply from: "../onesignal-cordova-plugin/adminconnect-build-extras-onesignal.gradle"
+apply from: "../cordova-plugin-mauron85-background-geolocation/adminconnect-logtofile.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras = file('build-extras.gradle').exists()
@@ -261,6 +262,8 @@ dependencies {
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
     compile "com.onesignal:OneSignal:3.10.5"
+    compile "com.google.android.gms:play-services-location:12+"
+    compile "com.android.support:support-v4:23+"
     // SUB-PROJECT DEPENDENCIES END
 }
 

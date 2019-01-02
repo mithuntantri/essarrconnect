@@ -24,18 +24,18 @@
               <img src="assets/img/thread_pin.png"/>
               <span class="chip" style="margin-top: 10px;
     font-size: 11px;
-    text-align: center;" ng-class="{'red': (thread.user_message_1 && !thread.admin_message_2) || (thread.user_message_2 && !thread.admin_message_2), 'green': thread.admin_message_2}">{{(thread.user_message_1 && !thread.admin_message_2) || 
-              (thread.user_message_2 && !thread.admin_message_2)?'OPEN':'CLOSED'}}</span>
+    text-align: center;" ng-class="{'red': (thread.user_message_1 && !thread.admin_message_2 && !thread.status) || (thread.user_message_2 && !thread.admin_message_2 && !thread.status), 'green': thread.admin_message_2 || thread.status}" ng-click="toggleThreadStatus($index)">{{(thread.user_message_1 && !thread.admin_message_2 && !thread.status) || 
+              (thread.user_message_2 && !thread.admin_message_2 && !thread.status)?'OPEN':'CLOSED'}}</span>
             </div>
             <div class="details" style="flex-grow: 2;">
               <div class="address" ng-if="thread.user_message_1">
               	<span class="bold">{{thread.username}}: </span>{{thread.user_message_1}}</div>
               <div class="address" ng-if="thread.admin_message_1 && thread.replied_1">
               	<span class="bold">You: </span>{{thread.admin_message_1}}</div>
-              <div class="address" ng-if="!thread.admin_message_1_temp && !thread.replied_1" style="margin: 10px 0;position: relative;padding-right: 35px;">
+              <div class="address" ng-if="!thread.admin_message_1_temp && !thread.replied_1 && !thread.status" style="margin: 10px 0;position: relative;padding-right: 35px;">
               	<span class="bold">You: </span>
               	 <div class="mobile-number-container">
-		          <textarea style="font-size: 15px;height: 65px;outline: none;padding-right: 10px;" class="login-signup-email-input login-email-exist-input" maxlength="100" ng-disabled="thread.submitting"
+		          <textarea style="font-size: 15px;height: 65px;outline: none;padding-right: 10px;" class="login-signup-email-input login-email-exist-input" maxlength="500" ng-disabled="thread.submitting"
 		          ng-model="thread.admin_message_1"
 		          id="test-username-input" type="text"></textarea>
 		        </div>
@@ -48,10 +48,10 @@
               	<span class="bold">{{thread.username}}: </span>{{thread.user_message_2}}</div>
               <div class="address" ng-if="thread.admin_message_2 && thread.replied_2">
               	<span class="bold">You: </span>{{thread.admin_message_2}}</div>
-              <div class="address" ng-if="!thread.admin_message_2_temp && !thread.replied_2" style="margin: 10px 0;position: relative;padding-right: 35px;">
+              <div class="address" ng-if="!thread.admin_message_2_temp && !thread.replied_2 && !thread.status" style="margin: 10px 0;position: relative;padding-right: 35px;">
               	<span class="bold">You: </span>
               	 <div class="mobile-number-container">
-		          <textarea style="font-size: 15px;height: 65px;outline: none;padding-right: 10px;" class="login-signup-email-input login-email-exist-input" maxlength="100" ng-disabled="thread.submitting"
+		          <textarea style="font-size: 15px;height: 65px;outline: none;padding-right: 10px;" class="login-signup-email-input login-email-exist-input" maxlength="500" ng-disabled="thread.submitting"
 		          ng-model="thread.admin_message_2"
 		          id="test-username-input" type="text"></textarea>
 		        </div>
