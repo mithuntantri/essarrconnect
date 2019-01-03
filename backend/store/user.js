@@ -62,7 +62,7 @@ var getBranches = (username)=>{
 
 var getAllAnnouncements = (username)=>{
 	return new Promise((resolve, reject)=>{
-		let query = `SELECT * from announcements a INNER JOIN employees e WHERE e.designation == a.category OR a.category='ALL'`;
+		let query = `SELECT * from announcements a INNER JOIN employees e WHERE e.designation == a.category OR a.category='ALL' OR a.category=e.employee_id`;
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve(result[0])
 		}).catch((err)=>{
@@ -352,7 +352,12 @@ var updateLeave = (id, status)=>{
 	return new Promise((resolve, reject)=>{
 		let query = `UPDATE leaves SET approved=${status} WHERE id=${id}`
 		sqlQuery.executeQuery([query]).then((result)=>{
-			resolve()
+			query = `SELECT * FROM leaves WHERE id=${id}`
+			sqlQuery.executeQuery([query]).then((result)=>{
+				resolve(result[0])				
+			}).catch((err)=>{
+				reject(err)
+			})
 		}).catch((err)=>{
 			reject(err)
 		})

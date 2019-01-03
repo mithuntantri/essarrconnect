@@ -65,6 +65,10 @@ var sendSpecificDeviceNotification = (username, access_level, send_to, data)=>{
         included_segments: ["All"],
         include_player_ids: device_ids
       };
+      let date = moment().format("DD MMM YYYY")
+      let timestamp = moment().unix()
+      query = `INSERT INTO announcements (username, date, timestamp, title, message,category) VALUES('${username}', '${date}', ${timestamp},'${data.title}', '${data.message}', '${send_to}')`
+      sqlQuery.executeQuery([query])      
       console.log(message)
       sendNotification(message).then(()=>{
         resolve()      

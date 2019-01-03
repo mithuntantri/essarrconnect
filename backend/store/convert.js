@@ -60,7 +60,9 @@ var generateAttendanceReport = (employee_id, from_date, to_date)=>{
                 'first_name': result[0][0].first_name,
                 'last_name': result[0][0].last_name,
                 'branch_code': result[0][0].code,
+                'number_of_days_in_month': 0,
                 'number_of_sundays': getAmountOfWeekDaysInMonth(now, 0)
+                'number_of_sundays_worked': 0
             }
             var xls = json2xls(data);
             let filename = `attendance_report_${employee_id}(${from_date}).xlsx`
