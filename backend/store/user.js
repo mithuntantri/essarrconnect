@@ -62,7 +62,7 @@ var getBranches = (username)=>{
 
 var getAllAnnouncements = (username)=>{
 	return new Promise((resolve, reject)=>{
-		let query = `SELECT * from announcements`;
+		let query = `SELECT * from announcements a INNER JOIN employees e WHERE e.designation == a.category OR a.category='ALL'`;
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve(result[0])
 		}).catch((err)=>{
@@ -85,7 +85,7 @@ var getLeaves = (username)=>{
 
 var getAllLeaves = (username)=>{
 	return new Promise((resolve, reject)=>{
-		let query = `SELECT * from leaves`;
+		let query = `SELECT * from leaves l INNER JOIN employees e WHERE e.employee_id=l.employee_id`;
 		console.log(query)
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve(result[0])
