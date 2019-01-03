@@ -272,7 +272,7 @@ router.put("/leaves", passport.authenticate('jwt', {session: true}), function(re
   var status = req.query.status
   new Promise((resolve, reject)=>{
     user.updateLeave(id, status).then((data)=>{
-      notifications.sendSpecificDeviceNotification(username, "admin", id, {title: `Leave request ${status:'approved':'declined'}`, 'message': `Your leave request for ${data.number_of_days} day(s) with subject ${data.reason} has been ${data.approved:'approved!', 'declined!'}`})
+      notifications.sendSpecificDeviceNotification(username, "admin", id, {title: `Leave request ${status?'approved':'declined'}`, 'message': `Your leave request for ${data.number_of_days} day(s) with subject ${data.reason} has been ${data.approved?'approved!':'declined!'}`})
       resolve(data)
     }).catch((err)=>{
       reject(err)
