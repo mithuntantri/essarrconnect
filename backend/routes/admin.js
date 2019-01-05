@@ -333,7 +333,7 @@ router.post("/announcements", function(req, res, next) {
   var category = req.body.category
   console.log(message, title)
   new Promise((resolve, reject)=>{
-    if(category == 'All'){
+    if(category == 'ALL'){
       notifications.broadcastMessage(username, title, message, category).then((data)=>{
         resolve(data)
       }).catch((err)=>{

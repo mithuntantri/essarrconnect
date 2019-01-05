@@ -85,7 +85,7 @@ var broadcastMessage = (username, title, message, category)=>{
   return new Promise((resolve, reject)=>{
     let date = moment().format("DD MMM YYYY")
     let timestamp = moment().unix()
-    let query = `INSERT INTO announcements (username, date, timestamp, title, message,category) VALUES('${username}', '${date}', ${timestamp},'${title}', '${message}', '${category}')`
+    let query = `INSERT INTO announcements (username, date, timestamp, title, message,category) VALUES('${username}', '${date}', ${timestamp},'${title}', '${message}', 'ALL')`
     sqlQuery.executeQuery([query]).then(()=>{
       var nmessage = { 
         app_id: APP_ID,

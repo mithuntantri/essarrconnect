@@ -65,7 +65,7 @@ var getAllAnnouncements = (username)=>{
 		if(username == 'admin'){
 			let query = `SELECT * FROM announcements ORDER BY timestamp DESC`
 		}else{
-			let query = `SELECT * from announcements a INNER JOIN employees e WHERE e.designation = a.category OR a.category='ALL' OR a.category=${user_message_2} ORDER BY a.timestamp DESC`;			
+			let query = `SELECT * from announcements a INNER JOIN employees e ON (a.category=e.id) WHERE e.employee_id=${username} ORDER BY a.timestamp DESC`;			
 		}
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve(result[0])
@@ -89,7 +89,7 @@ var getLeaves = (username)=>{
 
 var getAllLeaves = (username)=>{
 	return new Promise((resolve, reject)=>{
-		let query = `SELECT * from leaves l INNER JOIN employees e WHERE e.employee_id=l.employee_id`;
+		let query = `SELECT l.*, e.first_name, e.last_name, e.employee_id from leaves l INNER JOIN employees e WHERE e.employee_id=l.employee_id ORDER BY l.timestamp DESC`;
 		console.log(query)
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve(result[0])
