@@ -62,7 +62,7 @@ var getBranches = (username)=>{
 
 var getAllAnnouncements = (username)=>{
 	return new Promise((resolve, reject)=>{
-		let query = `SELECT * from announcements a INNER JOIN employees e WHERE e.designation == a.category OR a.category='ALL' OR a.category=e.employee_id`;
+		let query = `SELECT * from announcements a INNER JOIN employees e WHERE e.designation = a.category OR a.category='ALL' OR a.category=e.employee_id`;
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve(result[0])
 		}).catch((err)=>{
@@ -73,7 +73,7 @@ var getAllAnnouncements = (username)=>{
 
 var getLeaves = (username)=>{
 	return new Promise((resolve, reject)=>{
-		let query = `SELECT * from leaves WHERE employee_id='${username}'`;
+		let query = `SELECT * from leaves WHERE employee_id='${username}' ORDER BY timestamp`;
 		console.log(query)
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve(result[0])
@@ -219,7 +219,8 @@ var addHoliday = (holiday)=>{
 var addLeave = (username, leave)=>{
 	return new Promise((resolve, reject)=>{
 		let current_year = leave.from_date.split(" ")[2]
-		let query = `INSERT INTO leaves (employee_id, year, from_date, to_date, reason, description, number_of_days) VALUES('${username}', '${current_year}', '${leave.from_date}', '${leave.to_date}', '${leave.reason}', '${leave.description}', ${leave.number_of_days})`
+		let timestamp = moment().unix()
+		let query = `INSERT INTO leaves (employee_id, year, from_date, to_date, reason, description, number_of_days, timestamp) VALUES('${username}', '${current_year}', '${leave.from_date}', '${leave.to_date}', '${leave.reason}', '${leave.description}', ${leave.number_of_days}, ${timestamp})`
 		console.log(query)
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve()

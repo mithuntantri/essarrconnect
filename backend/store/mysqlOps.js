@@ -5,23 +5,6 @@ var sqlQuery = require('../database/sqlWrapper');
 var moment = require('moment')
 let _ = require("underscore");
 
-var createDatabase = ()=>{
-	return new Promise((resolve, reject)=>{
-		console.log("[*] Creating neccessary database (if not exists)")
-		let database_name = process.env.TS_MYSQL_DBNAME
-		let query = `CREATE DATABASE IF NOT EXISTS ${database_name}`
-		sqlQuery.executeQuery([query]).then((result)=>{
-			createTables().then(()=>{
-				resolve()				
-			}).catch((err)=>{
-				reject(err)
-			})
-		}).catch((err)=>{
-			reject(err)
-		})
-	})
-}
-
 var admins = [
 	{
 		"name": "Mithun Tantri",
@@ -150,7 +133,6 @@ var insertAdminValues = (admins)=>{
 		console.log("[*] Preparing Credentials for Admin")
 		let queries = []
 		_.each(admins, (admin)=>{
-			console.log(">>>admin",admin)
 			hash.genSalt(15, function (error, salt) {
         		hash.hash(admin.password, salt, function (err, hashed_password) {
 					queries.push(`INSERT INTO admin (name, email, primary_mobile, username, password, admin_type) VALUES('${admin.name}','${admin.email}','${admin.primary_mobile}','${admin.username}', '${hashed_password}', '${admin.admin_type}')`)
@@ -172,8 +154,7 @@ var insertBranchValues = (branches)=>{
 		console.log("[*] Preparing data for branches")
 		let queries = []
 		_.each(branches, (branch)=>{
-			console.log(">>>branches",branch)
-			queries.push(`INSERT INTO branches (id, code, name, address, pin_code, latitude, longitude) VALUES(${branch.id},'${branch.code}','${branch.name}','${branch.address}', ${branch.pin_code}, ${branch.latitude}, ${branch.longitude})`)
+			queries.push(`INSERT IGNORE INTO branches (id, code, name, address, pin_code, latitude, longitude) VALUES(${branch.id},'${branch.code}','${branch.name}','${branch.address}', ${branch.pin_code}, ${branch.latitude}, ${branch.longitude})`)
 			if(queries.length == branches.length){
 				sqlQuery.executeQuery(queries).then((result)=>{
 					resolve()			
@@ -184,6 +165,7 @@ var insertBranchValues = (branches)=>{
 		})
 	})
 }
+
 var createAdminTable = ()=>{
 	return new Promise((resolve, reject)=>{
 		let query = `CREATE TABLE IF NOT EXISTS admin (
@@ -206,7 +188,6 @@ var createAdminTable = ()=>{
 				insertAdminValues(admins).then(()=>{
 					resolve()
 				}).catch((err)=>{
-					console.log(err)
 					reject(err)
 				})
 			}else{
@@ -265,7 +246,6 @@ var createBranchTable = ()=>{
 				insertBranchValues(locations).then(()=>{
 					resolve()
 				}).catch((err)=>{
-					console.log(err)
 					reject(err)
 				})
 		}).catch((err)=>{
@@ -328,6 +308,17 @@ var createLeavesTable = ()=>{
 						description VARCHAR(500) NULL DEFAULT '',
 						approved boolean NULL DEFAULT 0
 					);`
+		sqlQuery.executeQuery([query]).then((result)=>{
+			resolve()
+		}).catch((err)=>{
+			reject(err)
+		})
+	})
+}
+
+var alterLeavesTable = ()=>{
+	return new Promise((resolve, reject)=>{
+		let query = `ALTER TABLE leaves ADD COLUMN timestamp INT(15) NULL DEFAULT 0`
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve()
 		}).catch((err)=>{
@@ -498,58 +489,39 @@ var createThreadsTable = ()=>{
 	})
 }
 
-var createTables = ()=>{
+const createTables = async () =>{
 	return new Promise((resolve, reject)=>{
 		console.log("[*] Creating neccessary tables (if not exists)")
-		createAdminTable().then(()=>{
-			createIWSTable().then(()=>{
-				createSalaryTable().then(()=>{
-					createBranchTable().then(()=>{
-						createHolidaysTable().then(()=>{
-							createIncentivesTable().then(()=>{
-								createLeavesTable().then(()=>{
-									createAttendanceTable().then(()=>{
-										createMSGPTable().then(()=>{
-											createMSGATable().then(()=>{
-												createCustomerwiseTable().then(()=>{
-													createAnnouncementsTable().then(()=>{
-														createThreadsTable().then(()=>{
-															resolve()
-														}).catch((err)=>{
-															reject(err)
-														})
-													}).catch((err)=>{
-														reject(err)
-													})
-												}).catch((err)=>{
-													reject(err)
-												})
-											}).catch((err)=>{
-												reject(err)
-											})
-										}).catch((err)=>{
-											reject(err)
-										})
-									}).catch((err)=>{
-										reject(err)
-									})
-								}).catch((err)=>{
-									reject(err)
-								})
-							}).catch((err)=>{
-								reject(err)
-							})
-						}).catch((err)=>{
-							reject(err)							
-						})
-					}).catch((err)=>{
-						reject(err)
-					})
-				}).catch((err)=>{
-					reject(err)
-				})
-			}).catch((err)=>{
-				reject(err)
+		Promise.all([	createAdminTable(),
+						createIWSTable(),
+						createSalaryTable(),
+						createBranchTable(),
+						createHolidaysTable(),
+						createIncentivesTable(),
+						createLeavesTable(),
+						createAttendanceTable(),
+						createMSGPTable(),
+						createMSGATable(),
+						createCustomerwiseTable(),
+						createAnnouncementsTable(),
+						createThreadsTable(),
+						alterLeavesTable()
+		]).then(()=>{
+			resolve()			
+		}).catch((err)=>{
+			reject(err)
+		})
+	})
+}
+
+const createDatabase = async () =>{
+	return new Promise((resolve, reject)=>{
+		console.log("[*] Creating neccessary database (if not exists)")
+		let database_name = process.env.TS_MYSQL_DBNAME
+		let query = `CREATE DATABASE IF NOT EXISTS ${database_name}`
+		sqlQuery.executeQuery([query]).then((result)=>{
+			createTables().then(()=>{
+				resolve()				
 			})
 		}).catch((err)=>{
 			reject(err)

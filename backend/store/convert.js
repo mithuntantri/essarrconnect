@@ -60,9 +60,12 @@ var generateAttendanceReport = (employee_id, from_date, to_date)=>{
                 'first_name': result[0][0].first_name,
                 'last_name': result[0][0].last_name,
                 'branch_code': result[0][0].code,
-                'number_of_days_in_month': 0,
+                'number_of_days': getTotalNumberOfDays(employee_id),
                 'number_of_sundays': getAmountOfWeekDaysInMonth(now, 0),
-                'number_of_sundays_worked': 0
+                'number_of_sundays_worked': getTotalSundaysWorked(employee_id),
+                'number_of_weekdays_worked': getTotalWeekdaysWorked(employee_id),
+                'total_working_days': getTotalWorkingDays(from_date, to_date),
+                'total_days_worked': getTotalDaysWorked(employee_id)
             }
             var xls = json2xls(data);
             let filename = `attendance_report_${employee_id}(${from_date}).xlsx`
