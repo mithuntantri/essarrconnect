@@ -239,7 +239,7 @@ router.put("/threads", passport.authenticate('jwt', {session: true}), function(r
 router.get("/announcements", passport.authenticate('jwt', {session: true}), function(req, res, next) {
   var username =  req.session.passport.user.username;
   new Promise((resolve, reject)=>{
-    user.getAllAnnouncements(username).then((data)=>{
+    user.getAllAnnouncements("admin").then((data)=>{
       resolve(data)
     }).catch((err)=>{
       reject(err)
