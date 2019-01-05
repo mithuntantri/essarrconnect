@@ -213,7 +213,7 @@ var UserRegister = (username, mobile_number)=>{
 	return new Promise((resolve, reject)=>{
 		let employee_id = "EA" + username.toString().padStart(3, "0")
 		console.log(employee_id)
-		let query = `SELECT * FROM employees WHERE employee_id='${employee_id}'`
+		let query = `SELECT * FROM employees WHERE employee_id='${employee_id}' OR primary_mobile='${mobile_number}'`
 		console.log(query)
 		sqlQuery.executeQuery([query]).then((result)=>{
 			if(result[0].length > 0){
