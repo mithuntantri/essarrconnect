@@ -54,7 +54,7 @@ var sendSpecificDeviceNotification = (username, access_level, send_to, data)=>{
     sqlQuery.executeQuery([query]).then((result)=>{
       console.log(result)
       var device_ids = []
-      _.each(result, (r)=>{
+      _.each(result[0], (r)=>{
         device_ids.push(r[0].device_ids)
       })
       var message = { 
