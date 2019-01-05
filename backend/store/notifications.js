@@ -62,7 +62,6 @@ var sendSpecificDeviceNotification = (username, access_level, send_to, data)=>{
         data: data,
         contents: {"en": data.message},
         headings: {"en": data.title},
-        included_segments: ["All"],
         include_player_ids: device_ids
       };
       let date = moment().format("DD MMM YYYY")
