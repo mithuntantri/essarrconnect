@@ -55,7 +55,8 @@ var sendSpecificDeviceNotification = (username, access_level, send_to, data)=>{
       console.log(result)
       var device_ids = []
       _.each(result[0], (r)=>{
-        device_ids.push(r[0].device_id)
+        console.log("r", r)
+        device_ids.push(r.device_id)
       })
       var message = { 
         app_id: APP_ID,
