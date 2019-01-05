@@ -51,6 +51,28 @@ router.post('/userLogin', (req, res, next) => {
   })
 })
 
+router.post('/forgotPassword', (req, res, next) => {
+  let username = req.body.username
+  let device_id = req.headers.OS_userID
+  let push_token = req.headers.OS_pushToken
+  console.log(device_id, push_token)
+  new Promise((resolve, reject)=>{
+    if(username != ''){
+        login.forgotPassword(username, device_id, push_token).then((data)=>{
+          resolve(data)
+        }).catch((err)=>{
+          reject(err)
+        })
+    }else{
+        reject(`Fill in Username / Employee ID`)
+    }
+  }).then((data)=>{
+    res.json({'status': true, 'message': data})
+  }).catch((err)=>{
+    res.json({'status': false, 'message': err})
+  })
+})
+
 router.post('/resendOTP', (req, res, next) => {
   let username = req.body.username
   new Promise((resolve, reject)=>{

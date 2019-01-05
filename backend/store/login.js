@@ -103,6 +103,32 @@ var UpdatFailedAttempt = (username, failed_login_attempts)=>{
 	})
 }
 
+var forgotPassword = (username, device_id, push_token)=>{
+	return new Promise((resolve, reject)=>{
+		let employee_id = "EA" + username.toString().padStart(3, "0")
+		let query1 = `SELECT * FROM employees where employee_id='${employee_id}'`
+		let query2 = `UPDATE employees SET device_id='${device_id}', push_token='${push_token}' WHERE employee_id='${employee_id}'`
+		sqlQuery.executeQuery([query1, query2]).then((result)=>{
+			if(result[0].length > 0){
+				if(result[0][0].password && result[0][0].failed_login_attempts < 3){
+			    	sendOTPWrapper(result[0][0].primary_mobile).then((result)=>{
+						resolve(`OTP sent successfully`)													
+					}).catch((err)=>{
+						reject(`You have exceeded maximum limit. Please try again after 10 minutes`)
+					})	
+				}else if(result[0][0].failed_login_attempts >=3){
+				    UpdatFailedAttempt(username, result[0][0].failed_login_attempts+1);
+					reject(`Username blocked for multiple failed attempts. Please contact administrator`)
+				}else{
+					reject(`Username not registered. Please register`)
+				}
+			}else{
+				reject(`Invalid Username / Password`)
+			}
+		})
+	})
+}
+
 var UserLogin = (username, password, device_id, push_token)=>{
 	return new Promise((resolve, reject)=>{
 		let employee_id = "EA" + username.toString().padStart(3, "0")
@@ -352,5 +378,6 @@ module.exports = {
 	SetPassword: SetPassword,
 	ValidateToken: ValidateToken,
 	GenerateToken: GenerateToken,
-	updateDeviceInfo: updateDeviceInfo
+	updateDeviceInfo: updateDeviceInfo,
+	forgotPassword: forgotPassword
 }

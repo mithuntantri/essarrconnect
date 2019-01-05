@@ -505,7 +505,7 @@ const createTables = async () =>{
 						createCustomerwiseTable(),
 						createAnnouncementsTable(),
 						createThreadsTable(),
-						alterLeavesTable()
+						// alterLeavesTable()
 		]).then(()=>{
 			resolve()			
 		}).catch((err)=>{
