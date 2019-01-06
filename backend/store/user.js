@@ -67,7 +67,7 @@ var getAllAnnouncements = (username)=>{
 		if(username == 'admin'){
 			query = `SELECT * FROM announcements a INNER JOIN employees e ON(a.username = e.employee_id) WHERE category='admin' OR category='All' ORDER BY timestamp DESC`
 		}else{
-			query = `SELECT * from announcements a INNER JOIN employees e ON (a.category = e.id) WHERE e.employee_id='${username}' ORDER BY a.timestamp DESC`;			
+			query = `SELECT * from announcements a INNER JOIN employees e ON (a.category = e.employee_id) WHERE e.employee_id='${username}' ORDER BY a.timestamp DESC`;			
 		}
 		console.log("query", query)
 		sqlQuery.executeQuery([query]).then((result)=>{
