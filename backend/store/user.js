@@ -63,10 +63,11 @@ var getBranches = (username)=>{
 var getAllAnnouncements = (username)=>{
 	return new Promise((resolve, reject)=>{
 		console.log("getAllAnnouncements", username)
+		let query 
 		if(username == 'admin'){
-			let query = `SELECT * FROM announcements ORDER BY timestamp DESC`
+			query = `SELECT * FROM announcements ORDER BY timestamp DESC`
 		}else{
-			let query = `SELECT * from announcements a INNER JOIN employees e ON (a.category=e.id) WHERE e.employee_id='${username}' ORDER BY a.timestamp DESC`;			
+			query = `SELECT * from announcements a INNER JOIN employees e ON (a.category=e.id) WHERE e.employee_id='${username}' ORDER BY a.timestamp DESC`;			
 		}
 		console.log("query", query)
 		sqlQuery.executeQuery([query]).then((result)=>{
