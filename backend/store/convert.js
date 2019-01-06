@@ -13,7 +13,7 @@ var generateLocationReport = (employee_id, from_date, to_date)=>{
         if(employee_id == null || employee_id == 'null' || employee_id == undefined){
             employee_id = ''
         }
-        let query = `SELECT e.employee_id, e.first_name, e.last_name, b.code, b.name, b.latitude AS branch_latitude, b.longitude AS branch_longitude, a.timestamp, a.latitude, a.longitude, a.accuracy, a.approved FROM employees e LEFT OUTER JOIN branches b ON (e.location_id=b.id) LEFT OUTER JOIN locations a ON (e.employee_id = a.employee_id) WHERE e.employee_id LIKE '%${employee_id}%'`
+        let query = `SELECT e.employee_id, e.first_name, e.last_name, b.code, b.name, b.latitude AS branch_latitude, b.longitude AS branch_longitude, a.timestamp, a.latitude, a.longitude, a.accuracy, a.approved FROM employees e LEFT OUTER JOIN branches b ON (e.location_id=b.id) LEFT OUTER JOIN locations a ON (e.employee_id = a.employee_id) WHERE e.employee_id LIKE '%${employee_id}%' ORDER BY e.employee_id`
         console.log(query)
         let start_timestamp = moment(from_date, "DD MMM YYYY").unix()
         let end_timestamp = moment(to_date, "DD MMM YYYY").unix()
@@ -22,8 +22,8 @@ var generateLocationReport = (employee_id, from_date, to_date)=>{
                 return res.timestamp > start_timestamp && res.timestamp <= end_timestamp
             })
             _.each(result[0], (res)=>{
-                res.date = moment(res.timestamp).format("DD MMM YYYY")
-                res.time = moment(res.timestamp).format("HH:mm:ss")
+                res.date = moment.unix(res.timestamp).format("DD MMM YYYY")
+                res.time = moment.unix(res.timestamp).format("HH:mm:ss")
             })
             var xls = json2xls(result[0]);
             let filename = `location_report_${employee_id}(${from_date}).xlsx`
@@ -46,9 +46,10 @@ function getAmountOfWeekDaysInMonth(date, weekday) {
 var generateAttendanceReport = (employee_id, from_date, to_date)=>{
     return new Promise((resolve, reject)=>{
         console.log(employee_id, from_date, to_date)
-        if(!employee_id)
+        if(employee_id == null || employee_id == 'null' || employee_id == undefined){
             employee_id = ''
-        let query = `SELECT e.employee_id, e.first_name, e.last_name, b.code, b.name, b.latitude AS branch_latitude, b.longitude AS branch_longitude, a.timestamp, a.latitude, a.longitude, a.accuracy, a.approved FROM employees e LEFT OUTER JOIN branches b ON (e.location_id=b.id) LEFT OUTER JOIN attendance a ON (e.employee_id = a.employee_id) WHERE e.employee_id LIKE '%${employee_id}%'`
+        }
+        let query = `SELECT e.employee_id, e.first_name, e.last_name, b.code, b.name, b.latitude AS branch_latitude, b.longitude AS branch_longitude, a.timestamp, a.latitude, a.longitude, a.accuracy, a.approved FROM employees e LEFT OUTER JOIN branches b ON (e.location_id=b.id) LEFT OUTER JOIN attendance a ON (e.employee_id = a.employee_id) WHERE e.employee_id LIKE '%${employee_id}%' ORDER BY e.employee_id`
         console.log(query)
         let start_timestamp = moment(from_date, "DD MMM YYYY").unix()
         let end_timestamp = moment(to_date, "DD MMM YYYY").unix()
@@ -56,19 +57,26 @@ var generateAttendanceReport = (employee_id, from_date, to_date)=>{
             result[0] = _.filter(result[0], (res)=>{
                 return res.timestamp > start_timestamp && res.timestamp <= end_timestamp
             })
-            let data = {
-                'employee_id': result[0][0].employee_id,
-                'first_name': result[0][0].first_name,
-                'last_name': result[0][0].last_name,
-                'branch_code': result[0][0].code,
-                'number_of_days': getTotalNumberOfDays(employee_id),
-                'number_of_sundays': getAmountOfWeekDaysInMonth(now, 0),
-                'number_of_sundays_worked': getTotalSundaysWorked(employee_id),
-                'number_of_weekdays_worked': getTotalWeekdaysWorked(employee_id),
-                'total_working_days': getTotalWorkingDays(from_date, to_date),
-                'total_days_worked': getTotalDaysWorked(employee_id)
-            }
-            var xls = json2xls(data);
+            let employee_ids = _.pluck(result[0], 'employee_id')
+            let overall_data = []
+            _.each(employee_ids, (employee_id)=>{
+                let data = {
+                    'employee_id': result[0][0].employee_id,
+                    'first_name': result[0][0].first_name,
+                    'last_name': result[0][0].last_name,
+                    'branch_code': result[0][0].code,
+                    'number_of_days': 0,
+                    'number_of_sundays': 0,
+                    'number_of_sundays_worked': 0,
+                    'number_of_weekdays_worked': 0,
+                    'total_working_days': 0,
+                    'total_days_worked': 0,
+                    'loss_of_pay': 0,
+                    'total_hours_punched': 0
+                }  
+                overall_data.push(data)
+            })
+            var xls = json2xls(overall_data);
             let filename = `attendance_report_${employee_id}(${from_date}).xlsx`
             fs.writeFileSync(`reports/${filename}`, xls, 'binary');
             resolve(filename)
