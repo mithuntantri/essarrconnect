@@ -47,9 +47,9 @@ var sendSpecificDeviceNotification = (username, access_level, send_to, data)=>{
   return new Promise((resolve, reject)=>{
     let query
     if(access_level == 'user' && send_to == 'admin'){
-      query = `SELECT device_id FROM admin`
+      query = `SELECT * FROM admin`
     }else if(access_level == 'admin'){
-      query = `SELECT device_id FROM employees WHERE id='${send_to}' OR employee_id='${send_to}'`
+      query = `SELECT * FROM employees WHERE id='${send_to}' OR employee_id='${send_to}'`
     }
     sqlQuery.executeQuery([query]).then((result)=>{
       console.log(result)

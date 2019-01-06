@@ -12,7 +12,7 @@ var generateLocationReport = (employee_id, from_date, to_date)=>{
         console.log(employee_id, from_date, to_date)
         if(!employee_id)
             employee_id = ''
-        let query = `SELECT e.employee_id, e.first_name, e.last_name, b.code, b.name, b.latitude AS branch_latitude, b.longitude AS branch_longitude, a.timestamp, a.latitude, a.longitude, a.accuracy, a.approved FROM employees e LEFT OUTER JOIN branches b ON (e.location_id=b.id) LEFT OUTER JOIN locations a ON (e.employee_id = a.employee_id) WHERE e.employee_id LIKE '%${employee_id}%'`
+        let query = `SELECT e.employee_id, e.first_name, e.last_name, b.code, b.name, b.latitude AS branch_latitude, b.longitude AS branch_longitude, a.timestamp, a.latitude, a.longitude, a.accuracy, a.approved FROM employees e LEFT OUTER JOIN branches b ON (e.location_id=b.id) LEFT OUTER JOIN locations a ON (e.employee_id = a.employee_id) WHERE e.employee_id LIKE '%${employee_id?employee_id:''}%'`
         console.log(query)
         let start_timestamp = moment(from_date, "DD MMM YYYY").unix()
         let end_timestamp = moment(to_date, "DD MMM YYYY").unix()
