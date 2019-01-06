@@ -65,7 +65,7 @@ var getAllAnnouncements = (username)=>{
 		console.log("getAllAnnouncements", username)
 		let query 
 		if(username == 'admin'){
-			query = `SELECT * FROM announcements ORDER BY timestamp DESC`
+			query = `SELECT * FROM announcements WHERE category='admin' ORDER BY timestamp DESC`
 		}else{
 			query = `SELECT * from announcements a INNER JOIN employees e ON (a.category=e.id) WHERE e.employee_id='${username}' ORDER BY a.timestamp DESC`;			
 		}
