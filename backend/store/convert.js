@@ -19,7 +19,7 @@ var generateLocationReport = (employee_id, from_date, to_date)=>{
         let end_timestamp = moment(to_date, "DD MMM YYYY").unix()
         sqlQuery.executeQuery([query]).then((result)=>{
             result[0] = _.filter(result[0], (res)=>{
-                return res.timestamp > start_timestamp && res.timestamp <= end.timestamp
+                return res.timestamp > start_timestamp && res.timestamp <= end_timestamp
             })
             _.each(result[0], (res)=>{
                 res.date = moment(res.timestamp).format("DD MMM YYYY")
@@ -54,7 +54,7 @@ var generateAttendanceReport = (employee_id, from_date, to_date)=>{
         let end_timestamp = moment(to_date, "DD MMM YYYY").unix()
         sqlQuery.executeQuery([query]).then((result)=>{
             result[0] = _.filter(result[0], (res)=>{
-                return res.timestamp > start_timestamp && res.timestamp <= end.timestamp
+                return res.timestamp > start_timestamp && res.timestamp <= end_timestamp
             })
             let data = {
                 'employee_id': result[0][0].employee_id,
