@@ -14,6 +14,24 @@ var admins = [
 		"username": "EAC001",
 		"admin_type": "SU",
 		"password": "EAC001@123"
+	},
+	{
+		"name": "Puneeth Prasanna",
+		"email": "puneeth@essarrautomotives.com",
+		"primary_mobile": "8867742253",
+		"secondary_mobile": "",
+		"username": "EAC002",
+		"admin_type": "SU",
+		"password": "EAC002@puneeth"
+	},
+	{
+		"name": "Vidya Shankar",
+		"email": "vidyashankar@essarrautomotives.com",
+		"primary_mobile": "8867742253",
+		"secondary_mobile": "",
+		"username": "EAC003",
+		"admin_type": "MG",
+		"password": "EAC003@345"
 	}
 ]
 

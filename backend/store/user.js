@@ -290,7 +290,7 @@ var addEmployee = (employee)=>{
 var updateEmployee = (employee)=>{
 	return new Promise((resolve, reject)=>{
 		console.log(employee)
-		let query1 = `UPDATE employees SET first_name='${employee.first_name}', last_name='${employee.last_name}', designation='${employee.designation}', location_id=${employee.location_id}) WHERE employee_id='${employee.employee_id}'`
+		let query1 = `UPDATE employees SET first_name='${employee.first_name}', last_name='${employee.last_name}', designation='${employee.designation}', location_id=${employee.location_id} WHERE employee_id='${employee.employee_id}'`
 		console.log(query1)
 		sqlQuery.executeQuery([query1]).then((result)=>{
 			resolve()
