@@ -225,11 +225,20 @@ var addHoliday = (holiday)=>{
 	})
 }
 
+function escapeHtml(unsafe) {
+    return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+ }
+
 var addLeave = (username, leave)=>{
 	return new Promise((resolve, reject)=>{
 		let current_year = leave.from_date.split(" ")[2]
 		let timestamp = moment().unix()
-		let query = `INSERT INTO leaves (employee_id, year, from_date, to_date, reason, description, number_of_days, timestamp) VALUES('${username}', '${current_year}', '${leave.from_date}', '${leave.to_date}', '${encodeURI(leave.reason)}', '${encodeURI(leave.description)}', ${leave.number_of_days}, ${timestamp})`
+		let query = `INSERT INTO leaves (employee_id, year, from_date, to_date, reason, description, number_of_days, timestamp) VALUES('${username}', '${current_year}', '${leave.from_date}', '${leave.to_date}', '${escapeHtml(leave.reason)}', '${escapeHtml(leave.description)}', ${leave.number_of_days}, ${timestamp})`
 		console.log(query)
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve()
@@ -244,7 +253,7 @@ var addThread = (username, thread)=>{
 	return new Promise((resolve, reject)=>{
 		let date = moment().format("DD MMM YYYY")
 		let timestamp = moment().unix()
-		let query = `INSERT INTO threads (username, date, timestamp, user_message_1) VALUES('${username}', '${date}', ${timestamp}, '${encodeURI(thread.user_message_1)}')`
+		let query = `INSERT INTO threads (username, date, timestamp, user_message_1) VALUES('${username}', '${date}', ${timestamp}, '${escapeHtml(thread.user_message_1)}')`
 		console.log(query)
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve()
@@ -259,7 +268,7 @@ var updateThread = (username, thread)=>{
 	return new Promise((resolve, reject)=>{
 		let date = moment().format("DD MMM YYYY")
 		let timestamp = moment().unix()
-		let query = `UPDATE threads SET admin_message_1='${encodeURI(thread.admin_message_1)}', user_message_2='${encodeURI(thread.user_message_2)}', admin_message_2='${encodeURI(thread.admin_message_2)}', status=${thread.status} where id=${thread.id}`
+		let query = `UPDATE threads SET admin_message_1='${escapeHtml(thread.admin_message_1)}', user_message_2='${escapeHtml(thread.user_message_2)}', admin_message_2='${escapeHtml(thread.admin_message_2)}', status=${thread.status} where id=${thread.id}`
 		console.log(query)
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve()
