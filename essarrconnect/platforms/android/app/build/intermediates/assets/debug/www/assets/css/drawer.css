@@ -32,14 +32,19 @@
     left: 0;
     line-height: 28px;
     padding-bottom: 15px;
-    padding-left: 15px;
+    padding-right: 15px;
     padding-top: 13px;
     position: absolute;
-    top: 56px;
+    top: 0px;
+    text-align: right;
     width: 100%;
     z-index: 1110; }
   #drawer .nav {
     height: 100%; flex-direction: column;}
+    
+    #drawer .nav li:last-child{
+      border: none !important;
+    }
     #drawer .nav li {
       border-bottom: 1px solid #e9e9e9;
       font-size: 14px;
@@ -234,7 +239,7 @@
   #topbar.drawer {
     position: relative; }
   #topbar.large {
-    height: 140px;
+    height: 85px;
     background: #219787;
     /*background-image: -webkit-linear-gradient(132deg,#f09819,#f87739 51%,#ff5858);*/
     /*background-image: linear-gradient(132deg,#f09819,#f87739 51%,#ff5858);*/

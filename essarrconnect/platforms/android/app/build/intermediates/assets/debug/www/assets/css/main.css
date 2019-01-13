@@ -204,7 +204,7 @@ select{
 
 ul.list-data{
     list-style: none;
-    display: flex;
+    display: table;
     flex-direction: column;
     padding: 0;
     width: 100%;
@@ -249,7 +249,18 @@ ul.list-data > li > .img{
     flex-direction: column;
     width: 50px;
 }
+
+ul.list-data > li > div > .img{
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+}
+
 ul.list-data > li > .img > img{
+    width: 50px;
+}
+
+ul.list-data > li > div > .img > img{
     width: 50px;
 }
 
@@ -259,7 +270,20 @@ ul.list-data > li > .details{
     flex-direction: column;
 }
 
+ul.list-data > li > div > .details{
+    display: flex;
+    margin-left: 15px;
+    flex-direction: column;
+}
+
+
 ul.list-data > li > .details > .title{
+    font-size: 19px;
+    font-weight: bold;
+    color: #219787;
+}
+
+ul.list-data > li > div > .details > .title{
     font-size: 19px;
     font-weight: bold;
     color: #219787;
@@ -309,6 +333,5 @@ ul.list-data > li > .details > .latlon{
 
 .address{
     text-overflow: ellipsis;
-    line-height: 20px;
-    overflow: hidden;
+    min-height: 20px;
 }

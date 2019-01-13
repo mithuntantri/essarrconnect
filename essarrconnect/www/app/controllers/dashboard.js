@@ -86,13 +86,15 @@
 
         $scope.announcement = {
             'title': '',
-            'category': 'All',
+            'category': 'ALL',
             'message': ''
         }
 
         $scope.report = {
             'employee_id': null,
-            'date': moment().subtract(1, 'days').format("DD MMM YYYY")
+            'from_date': moment().subtract(1, 'days').format("DD MMM YYYY"),
+            'to_date': moment().subtract(1, 'days').format("DD MMM YYYY"),
+            'type': null
         }
 
         $rootScope.drawer.init( options );
@@ -100,16 +102,24 @@
     	$rootScope.title = 'Essarr Admin Connect'
 
         $scope.features = [
-            {'name': 'Manage Branches', 'selected': false},
-            {'name': 'Manage Employees', 'selected': false},
-            {'name': 'Manage Salary', 'selected': false},
-            {'name': 'Manage Incentives', 'selected': false},
-            {'name': 'Track Targets / Attendance', 'selected': false},
-            {'name': 'Leave Requests', 'selected': false},
-            {'name': 'Holiday Chart', 'selected': false},
-            {'name': 'Employee Questions', 'selected': false},
-            {'name': 'Send Announcements', 'selected': false},
+            {'name': 'Manage Branches', 'selected': false, 'disabled': false},
+            {'name': 'Manage Employees', 'selected': false, 'disabled': false},
+            {'name': 'Manage Salary', 'selected': false, 'disabled': false},
+            {'name': 'Manage Incentives', 'selected': false, 'disabled': false},
+            {'name': 'Track Targets', 'selected': false, 'disabled': false},
+            {'name': 'Leave Requests', 'selected': false, 'disabled': false},
+            {'name': 'Holiday Chart', 'selected': false, 'disabled': false},
+            {'name': 'Employee Questions', 'selected': false, 'disabled': false},
+            {'name': 'Announcements / Notifications', 'selected': false, 'disabled': false},
+            {'name': 'Download Reports', 'selected': false, 'disabled': false},
         ]
+
+        if(User.AdminDetails.admin_type == 'MG'){
+            _.each($scope.features, (features)=>{
+                features.disabled = true
+            })
+            $scope.features[4].disabled = false
+        }
 
         $scope.features[$scope.selectedFeature].selected = true
 
@@ -257,6 +267,8 @@
                         }
                     })
                 })
+            }else if(index == 9){
+                $scope.showLoader = false
             }
             console.log($scope.features)    
         }
@@ -281,6 +293,14 @@
                 function(){}    // optional
               );
             }
+        }
+
+        $scope.updateEmployee = (index)=>{
+            $scope.employee = $scope.all_employees[index]
+            $scope.employee.number = parseInt($scope.employee.employee_id.substring(2,8))
+            $scope.employee.location = $scope.employee.location_id
+            $scope.employee.update = true
+            $scope.openAddEmployee()
         }
 
         $scope.addFeature = ()=>{
@@ -393,10 +413,12 @@
             })
         }
 
-        $scope.downloadReport = ()=>{
-            if($scope.report.employee_id && $scope.report.date){
-                 $scope.showBtnLoader = true
+        $scope.downloadReport = (type)=>{
+            if($scope.report.from_date && $scope.report.to_date){
+                $scope.showBtnLoader = true
                 console.log($scope.report)
+                $scope.report.type = type
+                showBottom(`Downloading ${type} report..`)
                 Dashboard.downloadReport($scope.report).then((result)=>{
                     $scope.showBtnLoader = false
                     $scope.showDashboard($scope.selectedFeature)
@@ -475,16 +497,29 @@
         $scope.addEmployee = ()=>{
             $scope.showBtnLoader = true
             console.log($scope.employee)
-            Dashboard.addEmployee($scope.employee).then((result)=>{
-                $scope.showBtnLoader = false
-                if(result.data.status){
-                    $scope.closeAddEmployee()
-                    $scope.showDashboard($scope.selectedFeature)
-                    showBottom(result.data.message)
-                }else{
-                    showBottom(result.data.message)
-                }
-            })
+            if(!$scope.employee.update){
+                Dashboard.addEmployee($scope.employee).then((result)=>{
+                    $scope.showBtnLoader = false
+                    if(result.data.status){
+                        $scope.closeAddEmployee()
+                        $scope.showDashboard($scope.selectedFeature)
+                        showBottom(result.data.message)
+                    }else{
+                        showBottom(result.data.message)
+                    }
+                })   
+            }else{
+                Dashboard.updateEmployee($scope.employee).then((result)=>{
+                    $scope.showBtnLoader = false
+                    if(result.data.status){
+                        $scope.closeAddEmployee()
+                        $scope.showDashboard($scope.selectedFeature)
+                        showBottom(result.data.message)
+                    }else{
+                        showBottom(result.data.message)
+                    }
+                })  
+            }
         }
 
         $scope.deleteBranch = (index)=>{
@@ -600,8 +635,10 @@
                 $timeout(()=>{
                     if(type == 'start'){
                         $scope.holiday.from_date = moment(date).format("DD MMM YYYY")                    
-                    }else if(type == 'report'){
-                        $scope.report.date = moment(date).format("DD MMM YYYY")                    
+                    }else if(type == 'report_start'){
+                        $scope.report.from_date = moment(date).format("DD MMM YYYY")                    
+                    }else if(type == 'report_end'){
+                        $scope.report.to_date = moment(date).format("DD MMM YYYY")                    
                     }else{
                         $scope.holiday.to_date = moment(date).format("DD MMM YYYY")                    
                     }

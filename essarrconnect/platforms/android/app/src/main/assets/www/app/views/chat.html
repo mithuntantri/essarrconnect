@@ -29,7 +29,7 @@
             </div>
             <div class="details" style="flex-grow: 2;">
               <div class="address" ng-if="thread.user_message_1">
-              	<span class="bold">{{thread.username}}: </span>{{thread.user_message_1}}</div>
+              	<span class="bold">{{thread.first_name}} ({{thread.username}}): </span>{{thread.user_message_1}}</div>
               <div class="address" ng-if="thread.admin_message_1 && thread.replied_1">
               	<span class="bold">You: </span>{{thread.admin_message_1}}</div>
               <div class="address" ng-if="!thread.admin_message_1_temp && !thread.replied_1 && !thread.status" style="margin: 10px 0;position: relative;padding-right: 35px;">

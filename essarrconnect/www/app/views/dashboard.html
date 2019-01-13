@@ -42,7 +42,7 @@
     <li style="border-bottom: 0px;font-weight: bold;">
       <a>Employee Connect</a>
     </li>
-    <li ng-repeat="f in features track by $index" 
+    <li ng-repeat="f in features track by $index" ng-if="!f.disabled" 
     ng-click="showDashboard($index);drawer.hide()"><a>{{f.name}}</a></li>
     <div class="bottom">
       <li ng-click="logout();drawer.hide()"><a>Log Out</a></li>
@@ -100,7 +100,7 @@
       </div>
       <div class="dashboard-sub-container" ng-if="features[1].selected">
         <ul class="list-data" ng-if="all_employees.length > 0">
-          <li ng-repeat="employee in all_employees">
+          <li ng-repeat="employee in all_employees" ng-click="updateEmployee($index)">
             <div class="deleting" ng-if="employee.deleting"></div>
             <div class="trash" ng-click="deleteEmployee($index)">
               <i class="fa fa-trash" style="font-size: 22px;"></i>
@@ -211,40 +211,6 @@
               </div>
             </div>
           </li>
-          <li style="flex-grow: 2">
-            <div class="img">
-              <img src="assets/img/fingerprint.png"/>
-            </div>
-            <div class="details" style="flex-grow: 2;">
-              <div class="title">Attendance Report (Download)</div>
-              <div class="signup-email-input-container material-input-wrapper">
-                <label class="signup-email-text">
-                Employee ID
-                </label>
-                <select ng-model="report.employee_id">
-                  <option ng-value="null" selected="true">Select Employee ID</option>
-                  <option ng-repeat="e in all_employees" ng-value="e.employee_id">{{e.first_name}} ({{e.employee_id}})</option>
-                </select>
-              </div>
-              <div style="display: flex; flex-direction: row;">
-                <div class="signup-email-input-container material-input-wrapper" style="margin-top: 0px;">
-                  <label class="signup-email-text">
-                  Select Date
-                  </label>
-                  <div class="mobile-number-container">
-                    <input class="login-signup-email-input login-email-exist-input"
-                    maxlength="11" ng-click="showDatePicker('report')"
-                    ng-model="report.date"
-                    id="test-username-input" type="text">
-                  </div>
-                </div>
-                <div class="continue-btn" ng-click="downloadReport()" style="height: 30px;margin: auto; font-size: 15px;">
-                  <div class="loader inside-btn" ng-if="showBtnLoader"></div>
-                  <span ng-if="!showBtnLoader">Download</span>
-                </div>
-              </div>
-            </div>
-          </li>
         </ul>
         <div class="nothing-message" ng-if="all_targets.length == 0">
           <img src="assets/img/no_targets.png" style="width: 120px;margin: 0 auto;" />
@@ -268,9 +234,10 @@
               <img src="assets/img/leave_pin.png"/>
             </div>
             <div class="details">
-              <div class="title">{{leave.employee_id}}</div>
+              <div class="title">{{leave.first_name}} ({{leave.employee_id}})</div>
               <div class="address">{{leave.from_date}} to {{leave.to_date}}</div>
               <div class="latlon">{{leave.reason}}</div>
+              <div class="address">{{leave.description}}</div>
             </div>
           </li>
         </ul>
@@ -310,8 +277,11 @@
             </div>
             <div class="details">
               <div class="title">{{announcement.title}}</div>
-              <div class="address">{{announcement.date}}</div>
+              <div class="address">{{announcement.first_name}} ({{announcement.employee_id}})</div>
               <div class="latlon">{{announcement.message}}</div>
+              <div class="latlon" ng-cloak style="font-size: 13px;font-weight: normal;text-align: right;">
+                <span data-livestamp="{{announcement.timestamp}}"></span>
+              </div>
             </div>
           </li>
         </ul>
@@ -319,6 +289,105 @@
           <img src="assets/img/no_announcements.png" style="width: 120px;margin: 0 auto;" />
           <div>No Announcements added. Please use the <i class="fa fa-filter"></i> icon at the top to create announcements</div>          
         </div>
+      </div>
+      <div class="dashboard-sub-container" ng-if="features[9].selected">
+        <ul class="list-data">
+
+          <li style="flex-grow: 2; flex-direction: column;">
+            <div style="display: flex;flex-direction: row;">
+              <div class="img">
+                <img src="assets/img/fingerprint.png"/>
+              </div>
+              <div class="details" style="flex-grow: 2;">
+                <div class="title">Attendance Report (Download)</div>
+              </div>
+            </div>
+            <div class="signup-email-input-container material-input-wrapper">
+                  <label class="signup-email-text">
+                  Employee ID
+                  </label>
+                  <select ng-model="report.employee_id">
+                    <option ng-value="null" selected="true">All Employees</option>
+                    <option ng-repeat="e in all_employees" ng-value="e.employee_id">{{e.first_name}} ({{e.employee_id}})</option>
+                  </select>
+                </div>
+                <div style="display: flex; flex-direction: row;">
+                  <div class="signup-email-input-container material-input-wrapper" style="margin-top: 0px;">
+                    <label class="signup-email-text">
+                    From Date
+                    </label>
+                    <div class="mobile-number-container">
+                      <input class="login-signup-email-input login-email-exist-input"
+                      maxlength="11" ng-click="showDatePicker('report_start')"
+                      ng-model="report.from_date"
+                      id="test-username-input" type="text">
+                    </div>
+                  </div>
+                  <div class="signup-email-input-container material-input-wrapper" style="margin-top: 0px;">
+                    <label class="signup-email-text">
+                    To Date
+                    </label>
+                    <div class="mobile-number-container">
+                      <input class="login-signup-email-input login-email-exist-input"
+                      maxlength="11" ng-click="showDatePicker('report_end')"
+                      ng-model="report.to_date"
+                      id="test-username-input" type="text">
+                    </div>
+                  </div>
+                  <div class="continue-btn" ng-click="downloadReport('attendance')" style="height: 35px;margin: auto; font-size: 15px;max-width: 90px;">
+                    <div class="loader inside-btn" ng-if="showBtnLoader"></div>
+                    <span ng-if="!showBtnLoader">Download</span>
+                  </div>
+                </div>
+          </li>
+           <li style="flex-grow: 2;flex-direction: column;">
+            <div style="display: flex;flex-direction: row;">
+              <div class="img">
+                <img src="assets/img/location_pin.png"/>
+              </div>
+              <div class="details" style="flex-grow: 2;">
+                <div class="title">Location Report (Download)</div>
+              </div>
+            </div>
+            <div class="signup-email-input-container material-input-wrapper">
+              <label class="signup-email-text">
+              Employee ID
+              </label>
+              <select ng-model="report.employee_id">
+                <option ng-value="null" selected="true">All Employees</option>
+                <option ng-repeat="e in all_employees" ng-value="e.employee_id">{{e.first_name}} ({{e.employee_id}})</option>
+              </select>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+              <div class="signup-email-input-container material-input-wrapper" style="margin-top: 0px;">
+                <label class="signup-email-text">
+                From Date
+                </label>
+                <div class="mobile-number-container">
+                  <input class="login-signup-email-input login-email-exist-input"
+                  maxlength="11" ng-click="showDatePicker('report_start')"
+                  ng-model="report.from_date"
+                  id="test-username-input" type="text">
+                </div>
+              </div>
+              <div class="signup-email-input-container material-input-wrapper" style="margin-top: 0px;">
+                <label class="signup-email-text">
+                To Date
+                </label>
+                <div class="mobile-number-container">
+                  <input class="login-signup-email-input login-email-exist-input"
+                  maxlength="11" ng-click="showDatePicker('report_end')"
+                  ng-model="report.to_date"
+                  id="test-username-input" type="text">
+                </div>
+              </div>
+              <div class="continue-btn" ng-click="downloadReport('location')" style="height: 35px;margin: auto; font-size: 15px;max-width: 90px;">
+                <div class="loader inside-btn" ng-if="showBtnLoader"></div>
+                <span ng-if="!showBtnLoader">Download</span>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
       <!-- <div ng-view=""></div> -->
@@ -437,7 +506,7 @@
         <div class="iws-number-container">
           <span class="iws-code" style="width: 30px;">EA</span>
           <input class="login-signup-email-input login-email-exist-input" 
-            ng-model="employee.number" type="number" ng-disabled="showOTP"
+            ng-model="employee.number" type="number" ng-disabled="showOTP || employee.update"
             id="test-username-input" style="text-transform: uppercase;padding: 8px 35px;"/>
         </div>
       </div>
@@ -487,7 +556,8 @@
         <div class="part3 btn-container" style="margin-top: 30px;margin-bottom: 30px;">
         <div class="continue-btn" ng-click="addEmployee()">
           <div class="loader inside-btn" ng-if="showBtnLoader"></div>
-          <span ng-if="!showBtnLoader">ADD EMPLOYEE</span>
+          <span ng-if="!showBtnLoader && !employee.update">ADD EMPLOYEE</span>
+          <span ng-if="!showBtnLoader && employee.update">UPDATE EMPLOYEE</span>
         </div>
       </div>
       <!-- <div class="signup-email-input-container material-input-wrapper create-account"> -->
@@ -808,7 +878,7 @@
         </label>
         <div class="mobile-number-container">
           <select ng-model="announcement.category">
-            <option ng-value="All" selected="true">ALL</option>
+            <option ng-value="ALL" selected="true">ALL</option>
             <option ng-repeat="l in all_categories track by $index" ng-value="all_categories[$index].designation">{{l.designation}}</option>
           </select>
         </div>

@@ -73,6 +73,13 @@ class Dashboard{
             data: employee
         })
     }
+    updateEmployee(employee){
+        return this.$http({
+            url: `${baseUrl}/admin/employees`,
+            method:'PUT',
+            data: employee
+        })
+    }
     deleteEmployee(id){
         return this.$http({
             url: `${baseUrl}/admin/employees?id=${id}`,
@@ -248,15 +255,15 @@ class Dashboard{
     downloadReport(report){
         let defer = this.$q.defer()
         var fileTransfer = new FileTransfer();
-        let url = `${baseUrl}/admin/report?employee_id=${report.employee_id}&date=${report.date}`
+        let url = `${baseUrl}/admin/report?employee_id=${report.employee_id}&from_date=${report.from_date}&to_date=${report.to_date}&type=${report.type}`
         var uri = encodeURI(url);
-        var fileURL = `file:///storage/emulated/0/download/attendance_report_${report.employee_id}(${report.date}).xlsx`
+        var fileURL = `file:///storage/emulated/0/download/${report.type}_report_${report.employee_id?report.employee_id:'all'}(${report.from_date}_${report.to_date}).xlsx`
         fileTransfer.download(
             uri,
             fileURL,
             function(entry) {
                 console.log("Download complete: " + entry.toURL());
-                defer.resolve(`Attendance report for ${report.employee_id} downloaded Successfully`)
+                defer.resolve(`Attendance report for ${report.type} downloaded Successfully`)
             },
             function(error) {
                 console.log("download error source " + error.source);
