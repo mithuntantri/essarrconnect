@@ -38,7 +38,7 @@ var UserDetails = (username)=>{
 
 var AdminDetails = (username)=>{
 	return new Promise((resolve, reject)=>{
-		let query = `SELECT id, username, name, email, primary_mobile, secondary_mobile FROM admin where username='${username}'`
+		let query = `SELECT id, username, name, email, primary_mobile, secondary_mobile, admin_type FROM admin where username='${username}'`
 		console.log(query)
 		sqlQuery.executeQuery([query]).then((result)=>{
 			console.log(result)
@@ -175,7 +175,7 @@ var getThreads = (username)=>{
 
 var getAllThreads = (username)=>{
 	return new Promise((resolve, reject)=>{
-		let query = `SELECT * from threads ORDER BY timestamp DESC`;
+		let query = `SELECT * from threads t INNER JOIN employees e ON(t.username=e.employee_id) ORDER BY timestamp DESC`;
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve(result[0])
 		}).catch((err)=>{
@@ -229,7 +229,7 @@ var addLeave = (username, leave)=>{
 	return new Promise((resolve, reject)=>{
 		let current_year = leave.from_date.split(" ")[2]
 		let timestamp = moment().unix()
-		let query = `INSERT INTO leaves (employee_id, year, from_date, to_date, reason, description, number_of_days, timestamp) VALUES('${username}', '${current_year}', '${leave.from_date}', '${leave.to_date}', '${leave.reason}', '${leave.description}', ${leave.number_of_days}, ${timestamp})`
+		let query = `INSERT INTO leaves (employee_id, year, from_date, to_date, reason, description, number_of_days, timestamp) VALUES('${username}', '${current_year}', '${leave.from_date}', '${leave.to_date}', '${encodeURI(leave.reason)}', '${encodeURI(leave.description)}', ${leave.number_of_days}, ${timestamp})`
 		console.log(query)
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve()
@@ -244,7 +244,7 @@ var addThread = (username, thread)=>{
 	return new Promise((resolve, reject)=>{
 		let date = moment().format("DD MMM YYYY")
 		let timestamp = moment().unix()
-		let query = `INSERT INTO threads (username, date, timestamp, user_message_1) VALUES('${username}', '${date}', ${timestamp}, '${thread.user_message_1}')`
+		let query = `INSERT INTO threads (username, date, timestamp, user_message_1) VALUES('${username}', '${date}', ${timestamp}, '${encodeURI(thread.user_message_1)}')`
 		console.log(query)
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve()
@@ -259,7 +259,7 @@ var updateThread = (username, thread)=>{
 	return new Promise((resolve, reject)=>{
 		let date = moment().format("DD MMM YYYY")
 		let timestamp = moment().unix()
-		let query = `UPDATE threads SET admin_message_1='${thread.admin_message_1}', user_message_2='${thread.user_message_2}', admin_message_2='${thread.admin_message_2}', status=${thread.status} where id=${thread.id}`
+		let query = `UPDATE threads SET admin_message_1='${encodeURI(thread.admin_message_1)}', user_message_2='${encodeURI(thread.user_message_2)}', admin_message_2='${encodeURI(thread.admin_message_2)}', status=${thread.status} where id=${thread.id}`
 		console.log(query)
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve()
@@ -279,6 +279,20 @@ var addEmployee = (employee)=>{
 		let query2 = `INSERT INTO salaries (employee_id) VALUES('${employee.number}')`
 		console.log(query1, query2)
 		sqlQuery.executeQuery([query1, query2]).then((result)=>{
+			resolve()
+		}).catch((err)=>{
+			console.log(err)
+			reject(err)
+		})
+	})
+}
+
+var updateEmployee = (employee)=>{
+	return new Promise((resolve, reject)=>{
+		console.log(employee)
+		let query1 = `UPDATE employees SET first_name='${employee.first_name}', last_name='${employee.last_name}', designation='${employee.designation}', location_id=${employee.location_id}) WHERE employee_id='${employee.employee_id}'`
+		console.log(query1)
+		sqlQuery.executeQuery([query1]).then((result)=>{
 			resolve()
 		}).catch((err)=>{
 			console.log(err)
@@ -585,5 +599,6 @@ module.exports = {
 	getAllThreads: getAllThreads,
 	updateThread: updateThread,
 	punchLocation: punchLocation,
+	updateEmployee: updateEmployee,
 	getAllCategory:getAllCategory
 }

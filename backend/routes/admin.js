@@ -418,6 +418,27 @@ router.post("/employees", passport.authenticate('jwt', {session: true}), functio
   })
 })
 
+router.put("/employees", passport.authenticate('jwt', {session: true}), function(req, res, next) {
+  var username =  req.session.passport.user.username;
+  var employee = req.body
+  console.log(employee)
+  new Promise((resolve, reject)=>{
+    if(employee.number != 0 && employee.designation != '' && employee.first_name != '' && employee.last_name != '' && employee.location != 0){
+      user.updateEmployee(employee).then((data)=>{
+        resolve(data)
+      }).catch((err)=>{
+        reject(err)
+      })
+    }else{
+      reject(`Please fill in all details`)        
+    }
+  }).then((data)=>{
+    res.json({'status': true, 'data': data})
+  }).catch((err)=>{
+    res.json({'status': false, 'message': err})
+  })
+})
+
 router.post("/incentives", passport.authenticate('jwt', {session: true}), function(req, res, next) {
   var username =  req.session.passport.user.username;
   var incentives = req.body
