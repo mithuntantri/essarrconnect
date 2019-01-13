@@ -97,6 +97,10 @@ var getAllLeaves = (username)=>{
 		let query = `SELECT l.*, e.first_name, e.last_name, e.employee_id from leaves l INNER JOIN employees e WHERE e.employee_id=l.employee_id ORDER BY l.timestamp DESC`;
 		console.log(query)
 		sqlQuery.executeQuery([query]).then((result)=>{
+			_.each(result[0], (res)=>{
+				res.reason = reescapeHtml(res.reason)
+				res.description = reescapeHtml(res.description)
+			})
 			resolve(result[0])
 		}).catch((err)=>{
 			reject(err)
@@ -232,7 +236,16 @@ function escapeHtml(unsafe) {
          .replace(/>/g, "&gt;")
          .replace(/"/g, "&quot;")
          .replace(/'/g, "&#039;");
- }
+}
+
+function reescapeHtml(unsafe) {
+    return unsafe
+         .replace(/&amp;/g, "&")
+         .replace(/&lt;/g, "<")
+         .replace(/&gt;/g, ">")
+         .replace(/&quot;/g, "\"")
+         .replace(/&#039;/g, "\'");
+}
 
 var addLeave = (username, leave)=>{
 	return new Promise((resolve, reject)=>{
