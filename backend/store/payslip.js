@@ -132,7 +132,7 @@ var CalculateTDS = (employee)=>{
 		tax_to_be_deducted: 0,
 		monthly_projected_tax: 0
 	}
-	let month_diff = Math.floor(moment([2018, 4, 1]).diff(moment(), 'months', true) * -1)
+	let month_diff = Math.floor(moment([2019, 4, 1]).diff(moment(), 'months', true) * -1) -1
 	tds.basic.gross = employee.basic * month_diff
 	tds.basic.taxable = tds.basic.gross
 
@@ -221,7 +221,7 @@ var GeneratePaylsip = (employee_id, month, year)=>{
 
 			employee.net_income = employee.gross_income - employee.total_deductions + employee.incentives + employee.over_time
 
-			employee.other_allowance = employee.gross_income - employee.basic - employee.total_deductions
+			employee.other_allowance = employee.gross_income - employee.basic - employee.hra - employee.travel_allowance - employee.washing_allowance + employee_id.incentives
 			employee.per_day_income = Math.floor(employee.total_gross / 26)
 			employee.loss_of_pay_amount = employee.loss_of_pay_days * employee.per_day_income
 			
