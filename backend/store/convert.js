@@ -295,10 +295,56 @@ var importCSV = (option, filename)=>{
                 }).catch((err)=>{
                     reject(err)
                 })
+            }else if(option.includes("salary")){
+                importSalaryList(lines, option).then(()=>{
+                    resolve()
+                }).catch((err)=>{
+                    reject(err)
+                })
             }else{
                 reject(`Invalid Upload option`)
             }
         })
+    })
+}
+
+var importSalaryList = (lines, option)=>{
+    return new Promise((resolve, reject)=>{
+        let columns = lines[0].split(",")
+        console.log(lines.length)
+        if(columns.length != 17){
+            reject('Invalid Salary List File')
+        }else{
+            let query = `SELECT * FROM branches`;
+            sqlQuery.executeQuery([query]).then((result)=>{
+                let branches = result[0]
+                console.log(branches)
+                let queries = []
+                for(i=1;i<lines.length-1;i++){
+                    let columns = lines[i].split(",")
+                    let location_id = _.filter(branches, (b)=>{
+                    console.log(columns[3], b.code)
+                        return b.code.toLowerCase() == columns[3].trim().toLowerCase()
+                    })
+                    console.log("location_id", location_id, columns[4], columns[2])
+                    let query1 = `INSERT INTO employees (employee_id, first_name, last_name, location_id, designation, status, pf_status) VALUES('${columns[0]}', '${columns[1]}', '${columns[2]}', ${location_id[0].id?location_id[0].id:0}, '${columns[4]}', '${columns[15]}', '${columns[16]}') ON DUPLICATE KEY UPDATE first_name='${columns[1]}', last_name='${columns[2]}', location_id=${location_id[0].id?location_id[0].id:0}, designation='${columns[4]}', status='${columns[15]}', pf_status='${columns[16]}'`
+                    queries.push(query1)
+                    let payroll_month = option.split("_")[1] + " " + option.split("_")[2]
+                    console.log("payroll_month", payroll_month)
+                    let query2 = `INSERT INTO salaries (employee_id, payroll_month, gross_income, incentives, basic, hra, travel_allowance, washing_allowance, other_benefits, leaves_unapproved, total_sundays, sunday_amount) VALUES('${columns[0]}', '${payroll_month}', ${columns[5]}, ${columns[6]?columns[6]:0}, ${columns[7]?columns[7]:0}, ${columns[8]?columns[8]:0}, ${columns[9]?columns[9]:0}, ${columns[10]?columns[10]:0}, ${columns[11]?columns[11]:0}, ${columns[12]?columns[12]:0}, ${columns[13]?columns[13]:0}, ${columns[14]?columns[14]:0}) ON DUPLICATE KEY UPDATE gross_income=${columns[5]?columns[5]:0}, incentives=${columns[6]?columns[6]:0}, basic=${columns[7]?columns[7]:0}, hra=${columns[8]?columns[8]:0}, travel_allowance=${columns[9]?columns[9]:0}, washing_allowance=${columns[10]?columns[10]:0}, other_benefits=${columns[11]?columns[11]:0}, leaves_unapproved=${columns[12]?columns[12]:0}, total_sundays=${columns[13]?columns[13]:0}, sunday_amount=${columns[14]?columns[14]:0}`
+                    queries.push(query2)
+                }
+                console.log(queries.length, lines.length)
+                if(queries.length == (lines.length-2)*2){
+                    sqlQuery.executeQuery(queries).then(()=>{
+                        resolve()
+                    }).catch((err)=>{
+                        console.log(err)
+                        reject(err)
+                    })
+                }
+            })
+        }
     })
 }
 

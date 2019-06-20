@@ -40,7 +40,7 @@ var storage = multer.diskStorage({
     cb(null, dir)
   },
   filename: function (req, file, cb) {
-    let admin_id =  req.user.username;
+    let admin_id =  req.user?req.user.username:'Admin';
     cb(null, admin_id + '_' + moment().format("DDMMMYYYY") + '.' + file.originalname.split('.').pop())
   }
 })
@@ -113,6 +113,53 @@ router.get("/targets", passport.authenticate('jwt', {session: true}), function(r
     res.json({'status': false, 'message': err})
   })
 })
+
+router.get("/dashboard", passport.authenticate('jwt', {session: true}), function(req, res, next) {
+  var username =  req.session.passport.user.username;
+  new Promise((resolve, reject)=>{
+    user.getDashboardData(username, "admin").then((data)=>{
+      resolve(data)
+    }).catch((err)=>{
+      reject(err)
+    })
+  }).then((data)=>{
+    res.json({'status': true, 'data': data})
+  }).catch((err)=>{
+    res.json({'status': false, 'message': err})
+  })
+})
+
+router.get("/blocked_users", passport.authenticate('jwt', {session: true}), function(req, res, next) {
+  var username =  req.session.passport.user.username;
+  new Promise((resolve, reject)=>{
+    user.getAllBlockedUsers(username, "admin").then((data)=>{
+      resolve(data)
+    }).catch((err)=>{
+      reject(err)
+    })
+  }).then((data)=>{
+    res.json({'status': true, 'data': data})
+  }).catch((err)=>{
+    res.json({'status': false, 'message': err})
+  })
+})
+
+router.post("/unblock_user", passport.authenticate('jwt', {session: true}), function(req, res, next) {
+  var username =  req.session.passport.user.username;
+  var employee_id =  req.body.employee_id;
+  new Promise((resolve, reject)=>{
+    user.unblockUser(employee_id).then((data)=>{
+      resolve(data)
+    }).catch((err)=>{
+      reject(err)
+    })
+  }).then((data)=>{
+    res.json({'status': true, 'data': data})
+  }).catch((err)=>{
+    res.json({'status': false, 'message': err})
+  })
+})
+
 
 router.get("/branches", passport.authenticate('jwt', {session: true}), function(req, res, next) {
   var username =  req.session.passport.user.username;
@@ -397,6 +444,41 @@ router.post("/salaries", passport.authenticate('jwt', {session: true}), function
   })
 })
 
+router.post("/vehicles", passport.authenticate('jwt', {session: true}), function(req, res, next) {
+  var username =  req.session.passport.user.username;
+  var vehicle = req.body
+  new Promise((resolve, reject)=>{
+    if(vehicle.vehicle_number != '' && vehicle.model != '' && vehicle.color != '' && vehicle.branch_id != ''){
+      user.addVehicle(vehicle).then((data)=>{
+        resolve(data)
+      }).catch((err)=>{
+        reject(err)
+      })
+    }else{
+      reject(`Please fill in all details`)        
+    }
+  }).then((data)=>{
+    res.json({'status': true, 'message': data})
+  }).catch((err)=>{
+    res.json({'status': false, 'message': err})
+  })
+})
+
+router.get("/vehicles", passport.authenticate('jwt', {session: true}), function(req, res, next) {
+  var username =  req.session.passport.user.username;
+  new Promise((resolve, reject)=>{
+      user.getVehicles(username).then((data)=>{
+        resolve(data)
+      }).catch((err)=>{
+        reject(err)
+      })
+  }).then((data)=>{
+    res.json({'status': true, 'data': data})
+  }).catch((err)=>{
+    res.json({'status': false, 'message': err})
+  })
+})
+
 router.post("/employees", passport.authenticate('jwt', {session: true}), function(req, res, next) {
   var username =  req.session.passport.user.username;
   var employee = req.body
@@ -563,6 +645,30 @@ router.post("/employee_upload", function(req, res, next) {
     var folder_name = option;
     var relative_path = path.resolve("./uploads/" + file_name)
     convert.convertToCSV(option, relative_path).then(()=>{
+      res.json({'status': true, 'message' : 'File uploaded successfully'})      
+    }).catch((err)=>{
+      res.json({'status': false, 'message' : err})
+    })
+  }).catch((err)=>{
+    res.json({'status': false, 'message' : 'File upload failed! Invalid file format'})
+  })
+})
+
+router.post("/salary_upload", function(req, res, next) {
+  var option = req.query.payroll
+  new Promise((resolve, reject)=>{
+    upload(req,res,function(err){
+      var file_name = req.file.filename
+      if(err){
+        reject(err)
+      }else{
+        resolve(file_name)
+      }
+    })
+  }).then((file_name)=>{
+    var folder_name = option;
+    var relative_path = path.resolve("./uploads/Salary/" + file_name)
+    convert.convertToCSV("salary_"+option, relative_path).then(()=>{
       res.json({'status': true, 'message' : 'File uploaded successfully'})      
     }).catch((err)=>{
       res.json({'status': false, 'message' : err})

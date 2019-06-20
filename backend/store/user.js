@@ -26,7 +26,7 @@ if (!String.prototype.padStart) {
 
 var UserDetails = (username)=>{
 	return new Promise((resolve, reject)=>{
-		let query = `SELECT e.id, e.employee_id, e.first_name, e.last_name, e.date_of_birth, e.email, e.aadhar_number, e.pan_number, e.primary_mobile, e.secondary_mobile, s.bank_name, s.account_number FROM employees e INNER JOIN salaries s where e.employee_id = s.employee_id AND e.employee_id='${username}'`
+		let query = `SELECT e.id, e.employee_id, e.first_name, e.last_name, e.date_of_birth, e.email, e.aadhar_number, e.pan_number, e.primary_mobile, e.secondary_mobile, e.bank_name, e.account_number FROM employees e WHERE e.employee_id='${username}'`
 		console.log(query)
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve(result[0][0])
@@ -463,10 +463,9 @@ var punchLocation = (username, position)=>{
 
 var updateProfile = (employee_id, profile)=>{
 	return new Promise((resolve, reject)=>{
-		let query1 = `UPDATE employees SET first_name='${profile.first_name}', last_name='${profile.last_name}', date_of_birth='${profile.date_of_birth}', secondary_mobile='${profile.secondary_mobile}', pan_number='${profile.pan_number}', aadhar_number='${profile.aadhar_number}', email='${profile.email}' WHERE employee_id='${employee_id}'`
-		let query2 = `UPDATE salaries SET bank_name='${profile.bank_name}', account_number='${profile.account_number}' WHERE employee_id='${employee_id}'`
-		console.log(query1, query2)
-		sqlQuery.executeQuery([query1, query2]).then(()=>{
+		let query = `UPDATE employees SET first_name='${profile.first_name}', last_name='${profile.last_name}', date_of_birth='${profile.date_of_birth}', secondary_mobile='${profile.secondary_mobile}', pan_number='${profile.pan_number}', aadhar_number='${profile.aadhar_number}', email='${profile.email}',bank_name='${profile.bank_name}', account_number='${profile.account_number}' WHERE employee_id='${employee_id}'`
+		console.log(query)
+		sqlQuery.executeQuery([query]).then(()=>{
 			resolve()
 		}).catch((err)=>{
 			reject(err)
@@ -588,6 +587,90 @@ var getLocWiseTargets = (username, access_level)=>{
 	})
 }
 
+var getAllBlockedUsers = ()=>{
+	return new Promise((resolve, reject)=>{
+		let query = `SELECT employee_id, first_name, last_name, designation, failed_login_attempts FROM employees WHERE failed_login_attempts > 2`
+		sqlQuery.executeQuery([query]).then((result)=>{
+			resolve(result[0])			
+		}).catch((err)=>{
+			reject(err)
+		})
+	})
+}
+
+var unblockUser = (employee_id)=>{
+	return new Promise((resolve, reject)=>{
+		let query = `UPDATE employees SET failed_login_attempts=0 WHERE employee_id='${employee_id}'`
+		sqlQuery.executeQuery([query]).then((result)=>{
+			resolve(result[0])			
+		}).catch((err)=>{
+			reject(err)
+		})
+	})
+}
+
+var getDashboardData = (username, access_level)=>{
+	return new Promise((resolve, reject)=>{
+		let prev_month = moment().subtract(1, 'month').format("MMM YYYY")
+		let query = [
+			`SELECT COUNT(*) AS total_employees FROM employees WHERE status='ACTIVE'`,
+			`SELECT COUNT(*) AS total_branches FROM branches`,
+			`SELECT sum(gross_income) AS total_salary FROM salaries WHERE payroll_month='${prev_month}'`,
+			`SELECT COUNT(*) AS total_blocked FROM employees WHERE failed_login_attempts >= 3`,
+			`SELECT COUNT(*) AS total_vehicles FROM vehicles`
+		]
+		console.log(query)
+		sqlQuery.executeQuery(query).then((result)=>{
+			resolve({
+				'total_employees': result[0][0].total_employees,
+				'total_branches': result[1][0].total_branches,
+				'payroll_month': prev_month,
+				'total_salary': result[2][0].total_salary,
+				'total_blocked': result[3][0].total_blocked,
+				'total_vehicles': result[4][0].total_vehicles
+			})
+		}).catch((err)=>{
+			reject(err)
+		})
+	})
+}
+
+var unblockUser = (employee_id)=>{
+	return new Promise((resolve, reject)=>{
+		let query = `UPDATE employees SET failed_login_attempts=0 WHERE employee_id='${employee_id}'`
+		sqlQuery.executeQuery([query]).then(()=>{
+			getAllBlockedUsers().then((result)=>{
+				resolve(result)
+			}).catch((err)=>{
+				reject(err)
+			})
+		}).catch((err)=>{
+			reject(err)
+		})
+	})
+}
+
+var addVehicle = (vehicle)=>{
+	return new Promise((resolve, reject)=>{
+		let query = `INSERT INTO vehicles VALUES('${vehicle.vehicle_number}', '${vehicle.model}', '${vehicle.color}', ${vehicle.branch_id}, ${vehicle.oil_change_kms}, ${vehicle.last_service_kms}, '${vehicle.last_service_date}')`
+		sqlQuery.executeQuery([query]).then((result)=>{
+			resolve()
+		}).catch((err)=>{
+			reject(err)
+		})
+	})
+}
+
+var getVehicles = (username)=>{
+	return new Promise((resolve, reject)=>{
+		let query = `SELECT * FROM vehicles`
+		sqlQuery.executeQuery([query]).then((result)=>{
+			resolve(result[0])
+		}).catch((err)=>{
+			reject(err)
+		})
+	})
+}
 
 module.exports = {
 	UserDetails: UserDetails,
@@ -622,5 +705,10 @@ module.exports = {
 	updateThread: updateThread,
 	punchLocation: punchLocation,
 	updateEmployee: updateEmployee,
-	getAllCategory:getAllCategory
+	getAllCategory:getAllCategory,
+	getAllBlockedUsers: getAllBlockedUsers,
+	getDashboardData: getDashboardData,
+	unblockUser: unblockUser,
+	addVehicle: addVehicle,
+	getVehicles: getVehicles
 }

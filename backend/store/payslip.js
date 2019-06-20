@@ -4,9 +4,11 @@ let _ = require("underscore");
 var request = require('request');
 var fs = require('fs');
 var pdf = require('html-pdf');
+var currentPath = process.cwd();
+console.log("currentPath", currentPath)
 var options = { 
 	"format": 'Letter', 
-	"base": "file:///home/mithuntantri/mithuntantri/essarrconnect/backend",
+	"base": "file://"+ process.cwd(),
 	"border": {
 	    "top": "0.25in",
 	    "right": "0.5in",
@@ -14,7 +16,7 @@ var options = {
 	    "left": "0.5in"
 	},
 };
-
+console.log(options)
 // var employee = {
 // 	'first_name': 'Vidya Shankar',
 // 	'last_name': 'N V',
@@ -39,13 +41,17 @@ var options = {
 // }
 
 var calculations = {
-	'provident_fund': 0.12, //12% of Basic
-	'employee_state_insurance': 0.0175, //1.75% of Basic,
+	'provident_fund_self': 0.12, //12% of Basic
+	'provident_fund_employer': 0.12, //12% of Basic
+	'employee_state_insurance_self': 0.0175, //1.75% of Basic,
+	'employee_state_insurance_employer': 0.0475, //4.75% of Basic,
 	'tax_deducation_at_source': 0
 }
 
 var GenerateHTML = (tds, employee)=>{
 	var html = fs.readFileSync('./views/payslip.html', 'utf8');
+	html = html.replace("{{month}}", employee.month)
+	html = html.replace("{{year}}", employee.year)
 	html = html.replace("{{name}}", employee.first_name + ' ' + employee.last_name)
 	html = html.replace("{{employee_number}}", employee.employee_id)
 	html = html.replace("{{designation}}", employee.designation)
@@ -59,17 +65,23 @@ var GenerateHTML = (tds, employee)=>{
 	html = html.replace("{{uan_number}}", employee.uan_number?employee.uan_number:'NA')
 	html = html.replace("{{epf_number}}", employee.epf_number?employee.epf_number:'NA')
 	html = html.replace("{{basic_pay}}", employee.basic)
-	html = html.replace("{{other_allowance}}", employee.other_allowance)
+	html = html.replace("{{travel_allowance}}", employee.travel_allowance)
+	html = html.replace("{{washing_allowance}}", employee.washing_allowance)
+	html = html.replace("{{other_allowance}}", employee.other_benefits)
 	html = html.replace("{{gross_income}}", employee.gross_income)
 	html = html.replace("{{incentives}}", employee.incentives)
+	html = html.replace("{{over_time}}", employee.over_time)
 	html = html.replace("{{total_earnings}}", employee.total_earnings)
 	html = html.replace("{{professional_tax}}", employee.professional_tax)
 	html = html.replace("{{tds}}", employee.tax_deducation_at_source)
 	html = html.replace("{{hra}}", employee.hra)
 	html = html.replace("{{epf}}", employee.provident_fund)
+	html = html.replace("{{epf_emp}}", employee.provident_fund_employer)
 	html = html.replace("{{esic}}", employee.employee_state_insurance)
+	html = html.replace("{{esic_emp}}", employee.employee_state_insurance_employer)
 	html = html.replace("{{loss_of_pay_amount}}", employee.loss_of_pay_amount)
 	html = html.replace("{{total_deductions}}", employee.total_deductions)
+	html = html.replace("{{other_deductions}}", 0)
 	html = html.replace("{{net_pay_for_the_month}}", employee.net_income)
 	html = html.replace("{{net_pay_for_the_month_figures}}", employee.net_income_figures)
 
@@ -89,6 +101,7 @@ var GenerateHTML = (tds, employee)=>{
 	html = html.replace("{{total_income}}", tds.total_income)
 	html = html.replace("{{tax_to_be_deducted}}", tds.tax_to_be_deducted)
 	html = html.replace("{{monthly_projected_tax}}", tds.monthly_projected_tax)
+	html = html.replace("{{education_cess}}", tds.education_cess)
 	console.log(html)
 	return html
 }
@@ -128,63 +141,95 @@ var CalculateTDS = (employee)=>{
 
 	tds.annual_gross = employee.gross_income * 12
 	tds.annual_prof_tax = employee.professional_tax * 12
-	tds.total_80c_deduction = (employee.employee_state_insurance * 12) + (employee.provident_fund * 12)
+	tds.total_80c_deduction = employee.provident_fund * 12 * 2
 
 	tds.total_income = tds.annual_gross - tds.annual_prof_tax - tds.total_80c_deduction
 
-	if((tds.total_income-250000) > 0){
-		tds.tax_to_be_deducted = (tds.total_income-250000) * 5 / 100
-	}else{
+	if(tds.total_income <= 250000){
 		tds.tax_to_be_deducted = 0
+	}else if(tds.total_income > 250000 && tds.total_income <= 500000){
+		tds.tax_to_be_deducted = Math.ceil(tds.total_income * 5 /100)
+	}else if(tds.total_income > 500000 && tds.total_income <= 1000000){
+		tds.tax_to_be_deducted = 12500 + Math.ceil((tds.total_income-500000)*20/100)
 	}
 
-	tds.monthly_projected_tax = (tds.tax_to_be_deducted / (12 - month_diff)).toFixed(2)
+	tds.education_cess = Math.ceil(tds.tax_to_be_deducted * 4 /100)
+
+	tds.monthly_projected_tax = Math.ceil(tds.tax_to_be_deducted / 12)
 	return tds
 }
 
 var GeneratePaylsip = (employee_id, month, year)=>{
 
 	return new Promise((resolve, reject)=>{
-		let query1 = `SELECT * FROM employees e INNER JOIN salaries s WHERE e.employee_id=s.employee_id and e.employee_id='${employee_id}'`
-		let query2 = `SELECT * FROM incentives WHERE employee_id='${employee_id}' and date LIKE '%${month} ${year}'`
-		let query3 = `SELECT b.name FROM branches b INNER JOIN employees e WHERE b.id=e.location_id AND e.employee_id='${employee_id}'`
+		let query1 = `SELECT * FROM employees e INNER JOIN salaries s WHERE e.employee_id=s.employee_id and e.employee_id='${employee_id}' AND s.payroll_month='${month} ${year}'`
+		let query2 = `SELECT b.name FROM branches b INNER JOIN employees e WHERE b.id=e.location_id AND e.employee_id='${employee_id}'`
 		console.log(query1, query2)
-		sqlQuery.executeQuery([query1, query3, query2]).then((result)=>{
+		sqlQuery.executeQuery([query1, query2]).then((result)=>{
 			let employee = result[0][0]
 			let branch = result[1][0]
-			console.log("branch", branch)
-			employee.incentives = 0
-			employee.professional_tax = 200
-			employee.loss_of_pay_days = 0
-			employee.location = 'NA'
 
+			console.log("employee", employee)
+			console.log("branch", branch)
+
+			//Professional Tax
+			employee.professional_tax = 0
+			if(employee.gross_income > 15000)
+				employee.professional_tax = 200
+
+			//Loss of Pay
+			employee.loss_of_pay_days = employee.leaves_unapproved
+
+			//Location Details
+			employee.location = 'NA'
 			if(branch){
 				employee.location = branch.name				
 			}
 
-			if(result[2][0]){
-				employee.incentives = result[2][0].amount
-			}
 			employee.effective_working_days = moment().daysInMonth();
 
-			employee.provident_fund = employee.basic * calculations.provident_fund
-			if(employee.gross_income < 21000){
-				employee.employee_state_insurance = parseFloat((employee.basic * calculations.employee_state_insurance).toFixed(2))				
+			console.log("Phase I", employee)
+
+			// Provident Fund
+			if(employee.pf_status == 'YES'){
+				employee.provident_fund = ((employee.basic<=15000?employee.basic:15000) * calculations.provident_fund_self)
+				employee.provident_fund_employer  = ((employee.basic<=15000?employee.basic:15000) * calculations.provident_fund_employer)
+				employee.provident_fund = Math.floor(employee.provident_fund)
+			}else{
+				employee.provident_fund = 0
+				employee.provident_fund_employer = 0
+			}
+
+			employee.total_gross = employee.gross_income + employee.incentives
+			
+			// State Insurance
+			if(employee.total_gross < 21000){
+				employee.employee_state_insurance = parseFloat((employee.basic * calculations.employee_state_insurance_self).toFixed(2))				
+				employee.employee_state_insurance_employer = parseFloat((employee.basic * calculations.employee_state_insurance_employer).toFixed(2))
+				employee.employee_state_insurance = Math.floor(employee.employee_state_insurance)
 			}else{
 				employee.employee_state_insurance = 0
+				employee.employee_state_insurance_employer = 0
 			}
+
 			employee.tax_deducation_at_source = employee.basic * calculations.tax_deducation_at_source
 			employee.total_deductions = employee.professional_tax + employee.provident_fund + employee.employee_state_insurance + employee.tax_deducation_at_source
 			
-			employee.total_earnings = employee.gross_income + employee.incentives
+			employee.over_time = employee.total_sundays * employee.sunday_amount
 
-			employee.net_income = employee.gross_income - employee.total_deductions + employee.incentives
+			employee.total_earnings = employee.gross_income + employee.incentives + employee.over_time
+
+			employee.net_income = employee.gross_income - employee.total_deductions + employee.incentives + employee.over_time
 
 			employee.other_allowance = employee.gross_income - employee.basic - employee.total_deductions
-			employee.per_day_income = employee.gross_income / employee.effective_working_days
+			employee.per_day_income = Math.floor(employee.total_gross / 26)
 			employee.loss_of_pay_amount = employee.loss_of_pay_days * employee.per_day_income
+			
 			employee.net_income_figures = 'Rupees ' + inWords(parseInt(employee.net_income))
-
+		
+			employee.month = month
+			employee.year = year
+			
 			console.log(employee)
 
 			let destination_file = `./payslips/${employee.employee_id}_${month}(${year}).pdf`

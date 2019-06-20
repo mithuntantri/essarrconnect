@@ -230,9 +230,15 @@ var createIWSTable = ()=>{
 						date_of_birth VARCHAR(11) NULL DEFAULT NULL,
 						aadhar_number VARCHAR(12) NULL DEFAULT NULL,
 						pan_number VARCHAR(10) NULL DEFAULT NULL,
+						epf_number VARCHAR(32) NULL DEFAULT 0,
+						esic_number VARCHAR(32) NULL DEFAULT 0,
+						bank_name VARCHAR(32) NULL DEFAULT '',
+						account_number VARCHAR(32) NULL DEFAULT 0,
 						primary_mobile VARCHAR(10) NULL,
 						secondary_mobile VARCHAR(10) NULL,
 						password VARCHAR(255) NULL, 
+						pf_status ENUM('YES', 'NO') NOT NULL DEFAULT 'YES',
+						status ENUM('ACTIVE', 'INACTIVE') NOT NULL DEFAULT 'ACTIVE',
 						first_time_login boolean NOT NULL DEFAULT true,
 						last_login_time VARCHAR(32), 
 						failed_login_attempts INT NOT NULL DEFAULT 0,
@@ -275,17 +281,72 @@ var createBranchTable = ()=>{
 var createSalaryTable = ()=>{
 	return new Promise((resolve, reject)=>{
 		let query = `CREATE TABLE IF NOT EXISTS salaries (
-						id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+						id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 						employee_id VARCHAR(10) NOT NULL,
+						payroll_month VARCHAR(10) NOT NULL,
 						gross_income FLOAT NULL DEFAULT 0,
+						incentives FLOAT NULL DEFAULT 0,
 						basic FLOAT NULL DEFAULT 0,
 						hra FLOAT NULL DEFAULT 0,
-						epf_number VARCHAR(32) NULL DEFAULT 0,
-						uan_number VARCHAR(32) NULL DEFAULT 0,
-						esic_number VARCHAR(32) NULL DEFAULT 0,
-						bank_name VARCHAR(32) NULL DEFAULT '',
-						account_number VARCHAR(32) NULL DEFAULT 0,
-						UNIQUE(employee_id)
+						travel_allowance FLOAT NULL DEFAULT 0,
+						washing_allowance FLOAT NULL DEFAULT 0,
+						other_benefits FLOAT NULL DEFAULT 0,
+						leaves_unapproved INT DEFAULT 0,
+						total_sundays INT DEFAULT 0,
+						sunday_amount FLOAT DEFAULT 0,
+						UNIQUE(employee_id, payroll_month)
+					);`
+		sqlQuery.executeQuery([query]).then((result)=>{
+			resolve()
+		}).catch((err)=>{
+			reject(err)
+		})
+	})
+}
+
+var createVehicleTable = ()=>{
+	return new Promise((resolve, reject)=>{
+		let query = `CREATE TABLE IF NOT EXISTS vehicles (
+						vehicle_number VARCHAR(10) PRIMARY KEY NOT NULL,
+						model VARCHAR(16) NOT NULL,
+						color VARCHAR(16) NOT NULL,
+						branch_id INT NOT NULL,
+						oil_change_kms FLOAT NOT NULL,
+						last_service_kms FLOAT NOT NULL,
+						last_service_date VARCHAR(11) NOT NULL
+					);`
+		sqlQuery.executeQuery([query]).then((result)=>{
+			resolve()
+		}).catch((err)=>{
+			reject(err)
+		})
+	})
+}
+
+var createVehicleTrackTable = ()=>{
+	return new Promise((resolve, reject)=>{
+		let query = `CREATE TABLE IF NOT EXISTS vehicles_track (
+						id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+						vehicle_number VARCHAR(10) NULL,
+						timestamp INT NOT NULL,
+						opening_km FLOAT NOT NULL
+					);`
+		sqlQuery.executeQuery([query]).then((result)=>{
+			resolve()
+		}).catch((err)=>{
+			reject(err)
+		})
+	})
+}
+
+var createVehicleRefuelTable = ()=>{
+	return new Promise((resolve, reject)=>{
+		let query = `CREATE TABLE IF NOT EXISTS vehicles_refuel (
+						id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+						vehicle_number VARCHAR(10) NULL,
+						timestamp INT NOT NULL,
+						refuel_km FLOAT NOT NULL,
+						refuel_ltr FLOAT NOT NULL
 					);`
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve()
@@ -523,6 +584,9 @@ const createTables = async () =>{
 						createCustomerwiseTable(),
 						createAnnouncementsTable(),
 						createThreadsTable(),
+						createVehicleTable(),
+						createVehicleRefuelTable(),
+						createVehicleTrackTable()
 						// alterLeavesTable()
 		]).then(()=>{
 			resolve()			
