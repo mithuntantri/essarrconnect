@@ -28,6 +28,81 @@ router.get('/userDetails', passport.authenticate('jwt', {session: true}), (req, 
   })
 })
 
+router.get("/getAllVehicles", passport.authenticate('jwt', {session: true}), function(req, res, next) {
+  var username =  req.session.passport.user.username;
+  new Promise((resolve, reject)=>{
+      user.getAllVehicles(username).then((data)=>{
+        resolve(data)
+      }).catch((err)=>{
+        reject(err)
+      })
+  }).then((data)=>{
+    res.json({'status': true, 'data': data})
+  }).catch((err)=>{
+    res.json({'status': false, 'message': err})
+  })
+})
+
+router.post("/updateFuel", passport.authenticate('jwt', {session: true}), function(req, res, next) {
+  var fuel =  req.body;
+  new Promise((resolve, reject)=>{
+      user.updateFuel(fuel).then((data)=>{
+        resolve(data)
+      }).catch((err)=>{
+        reject(err)
+      })
+  }).then((data)=>{
+    res.json({'status': true, 'data': data})
+  }).catch((err)=>{
+    res.json({'status': false, 'message': err})
+  })
+})
+
+router.post("/updateOilChange", passport.authenticate('jwt', {session: true}), function(req, res, next) {
+  var oil_change =  req.body;
+  new Promise((resolve, reject)=>{
+      user.updateOilChange(oil_change).then((data)=>{
+        resolve(data)
+      }).catch((err)=>{
+        reject(err)
+      })
+  }).then((data)=>{
+    res.json({'status': true, 'data': data})
+  }).catch((err)=>{
+    res.json({'status': false, 'message': err})
+  })
+})
+
+router.post("/updateService", passport.authenticate('jwt', {session: true}), function(req, res, next) {
+  var service =  req.body;
+  new Promise((resolve, reject)=>{
+      user.updateService(service).then((data)=>{
+        resolve(data)
+      }).catch((err)=>{
+        reject(err)
+      })
+  }).then((data)=>{
+    res.json({'status': true, 'data': data})
+  }).catch((err)=>{
+    res.json({'status': false, 'message': err})
+  })
+})
+
+router.post("/updateKms", passport.authenticate('jwt', {session: true}), function(req, res, next) {
+  var kms =  req.body;
+  new Promise((resolve, reject)=>{
+      user.updateKms(kms).then((data)=>{
+        resolve(data)
+      }).catch((err)=>{
+        reject(err)
+      })
+  }).then((data)=>{
+    res.json({'status': true, 'data': data})
+  }).catch((err)=>{
+    res.json({'status': false, 'message': err})
+  })
+})
+
 router.get('/leaves', passport.authenticate('jwt', {session: true}), (req, res, next) => {
   let username = req.session.passport.user.username
   console.log("username", username)
@@ -201,8 +276,8 @@ router.put("/threads", passport.authenticate('jwt', {session: true}), function(r
 })
 
 
-router.get("/payslip", passport.authenticate('jwt', {session: true}), function(req, res, next) {
-  var username =  req.session.passport.user.username;
+router.get("/payslip", function(req, res, next) {
+  var username =  req.query.employee_id;
   var month = req.query.month
   var year = req.query.year
   new Promise((resolve, reject)=>{

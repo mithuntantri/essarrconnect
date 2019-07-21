@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-62:12
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-62:12
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-62:12
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-62:12
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-62:12
+INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-62:12
+INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-62:12
+INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-62:12
 MERGED from [com.github.tony19:logback-android:1.1.1-9] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/logback-android-1.1.1-9.aar/738873ef0c92eb66211d93af746c77e5/AndroidManifest.xml:2:1-11:12
 MERGED from [com.intentfilter:android-permissions:0.1.7] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/android-permissions-0.1.7.aar/b5c8835d631253f454bd05cf2db1d8bf/AndroidManifest.xml:2:1-18:12
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/9d067d562d81183c8280e15603e52d47/AndroidManifest.xml:2:1-107:12
@@ -25,7 +25,7 @@ MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] /ho
 MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/d76e9d2fba773fb2112f06450afbbba3/AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/ef434e73cac847df8aa4c5a6380312ba/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:appcompat-v7:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/4dd4fae0ac2fe3178084bedb9c0d62cd/AndroidManifest.xml:17:1-22:12
-MERGED from [:CordovaLib] /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:20:1-27:12
+MERGED from [:CordovaLib] /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:20:1-27:12
 MERGED from [com.github.tony19:apktool-lib:1.4.4-5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/apktool-lib-1.4.4-5.aar/bcf302a3125b4b9f840046102acb72c9/AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:customtabs:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/customtabs-27.1.1.aar/00f19fe0a0253e3d22676bcb67c02d38/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-media-compat:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/965494032890de0747cfe373b0b106b0/AndroidManifest.xml:17:1-22:12
@@ -40,43 +40,43 @@ MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/mithuntantri/.gra
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/eb83d713180d6e6c92bfd4301bdc5a56/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/be99f001cbb05b8c89ee6cc296e5e80e/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-15.0.2.aar/3bb56df372eec12323812dd01249e604/AndroidManifest.xml:17:1-24:12
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-62:12
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-62:12
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-62:12
+INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-62:12
+INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-62:12
+INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-62:12
 	package
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:102-149
-		INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:102-149
+		INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml
 	android:versionName
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:74-101
-		INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:74-101
+		INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml
 	xmlns:tools
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:209-255
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:209-255
 	android:hardwareAccelerated
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:11-45
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:11-45
 	xmlns:android
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:150-208
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:150-208
 	android:versionCode
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:46-73
-		INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:2:46-73
+		INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml
 supports-screens
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:3:5-191
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:3:5-191
 	android:largeScreens
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:3:49-76
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:3:49-76
 	android:smallScreens
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:3:132-159
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:3:132-159
 	android:normalScreens
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:3:77-105
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:3:77-105
 	android:xlargeScreens
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:3:160-188
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:3:160-188
 	android:resizeable
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:3:106-131
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:3:106-131
 	android:anyDensity
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:3:23-48
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:3:23-48
 uses-permission#android.permission.INTERNET
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:4:5-67
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:4:5-67
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/9d067d562d81183c8280e15603e52d47/AndroidManifest.xml:17:5-67
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/9d067d562d81183c8280e15603e52d47/AndroidManifest.xml:17:5-67
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/e595331ac643dd96603a80c05091b333/AndroidManifest.xml:22:5-67
@@ -88,9 +88,9 @@ MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntan
 MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/89f65d3ca69585d68842daa29b77b387/AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/89f65d3ca69585d68842daa29b77b387/AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:4:22-64
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:4:22-64
 application
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:5:5-42:19
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:5:5-42:19
 MERGED from [com.intentfilter:android-permissions:0.1.7] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/android-permissions-0.1.7.aar/b5c8835d631253f454bd05cf2db1d8bf/AndroidManifest.xml:11:5-16:19
 MERGED from [com.intentfilter:android-permissions:0.1.7] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/android-permissions-0.1.7.aar/b5c8835d631253f454bd05cf2db1d8bf/AndroidManifest.xml:11:5-16:19
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/9d067d562d81183c8280e15603e52d47/AndroidManifest.xml:49:5-105:19
@@ -130,156 +130,156 @@ MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/mithunt
 MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-15.0.2.aar/3bb56df372eec12323812dd01249e604/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-15.0.2.aar/3bb56df372eec12323812dd01249e604/AndroidManifest.xml:22:5-20
 	android:supportsRtl
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:5:114-140
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:5:114-140
 	android:label
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:5:81-113
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:5:81-113
 	android:hardwareAccelerated
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:5:18-52
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:5:18-52
 	android:icon
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:5:53-80
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:5:53-80
 activity#com.essarrautomotives.employeeconnect.MainActivity
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:6:9-11:20
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:6:9-11:20
 	android:label
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:6:97-134
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:6:97-134
 	android:launchMode
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:6:135-170
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:6:135-170
 	android:windowSoftInputMode
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:6:262-304
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:6:262-304
 	android:configChanges
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:6:19-96
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:6:19-96
 	android:theme
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:6:199-261
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:6:199-261
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:6:171-198
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:6:171-198
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:7:13-10:29
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:7:13-10:29
 	android:label
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:7:28-65
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:7:28-65
 action#android.intent.action.MAIN
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:8:17-69
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:8:17-69
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:8:25-66
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:8:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:9:17-77
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:9:17-77
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:9:27-74
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:9:27-74
 amazon:enable-feature
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:12:9-159
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:12:9-159
 	xmlns:amazon
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:12:100-156
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:12:100-156
 	android:required
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:12:75-99
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:12:75-99
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:12:32-74
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:12:32-74
 service#com.onesignal.ADMMessageHandler
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:13:9-92
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:13:9-92
 	android:exported
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:13:18-42
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:13:18-42
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:13:43-89
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:13:43-89
 receiver#com.onesignal.ADMMessageHandler$Receiver
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:14:9-20:20
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:14:9-20:20
 	android:permission
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:14:75-139
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:14:75-139
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:14:19-74
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:14:19-74
 intent-filter#com.amazon.device.messaging.intent.RECEIVE+com.amazon.device.messaging.intent.REGISTRATION+com.essarrautomotives.employeeconnect
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:15:13-19:29
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:15:13-19:29
 action#com.amazon.device.messaging.intent.REGISTRATION
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:16:17-90
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:16:17-90
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:16:25-87
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:16:25-87
 action#com.amazon.device.messaging.intent.RECEIVE
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:17:17-85
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:17:17-85
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:17:25-82
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:17:25-82
 category#com.essarrautomotives.employeeconnect
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:18:17-82
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:18:17-82
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:18:27-79
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:18:27-79
 service#de.appplant.cordova.plugin.background.ForegroundService
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:21:9-91
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:21:9-91
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:21:18-88
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:21:18-88
 meta-data#com.google.android.gms.version
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:22:9-122
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:22:9-122
 MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/d76e9d2fba773fb2112f06450afbbba3/AndroidManifest.xml:23:9-25:69
 MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/d76e9d2fba773fb2112f06450afbbba3/AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:22:66-119
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:22:66-119
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:22:20-65
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:22:20-65
 service#com.marianhello.bgloc.sync.SyncService
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:23:9-28:19
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:23:9-28:19
 	android:process
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:23:96-119
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:23:96-119
 	android:exported
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:23:18-41
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:23:18-41
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:23:42-95
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:23:42-95
 intent-filter#android.content.SyncAdapter
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:24:13-26:29
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:24:13-26:29
 action#android.content.SyncAdapter
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:25:17-70
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:25:17-70
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:25:25-67
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:25:25-67
 meta-data#android.content.SyncAdapter
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:27:13-105
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:27:13-105
 	android:resource
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:27:67-102
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:27:67-102
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:27:24-66
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:27:24-66
 service#com.marianhello.bgloc.sync.AuthenticatorService
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:29:9-34:19
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:29:9-34:19
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:29:18-80
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:29:18-80
 intent-filter#android.accounts.AccountAuthenticator
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:30:13-32:29
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:30:13-32:29
 action#android.accounts.AccountAuthenticator
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:31:17-80
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:31:17-80
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:31:25-77
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:31:25-77
 meta-data#android.accounts.AccountAuthenticator
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:33:13-117
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:33:13-117
 	android:resource
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:33:77-114
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:33:77-114
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:33:24-76
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:33:24-76
 provider#com.marianhello.bgloc.data.provider.LocationContentProvider
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:35:9-208
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:35:9-208
 	android:authorities
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:35:19-81
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:35:19-81
 	android:syncable
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:35:182-205
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:35:182-205
 	android:exported
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:35:82-106
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:35:82-106
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:35:107-181
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:35:107-181
 service#com.marianhello.bgloc.service.LocationServiceImpl
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:36:9-133
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:36:9-133
 	android:enabled
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:36:18-40
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:36:18-40
 	android:exported
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:36:41-65
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:36:41-65
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:36:66-130
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:36:66-130
 receiver#com.marianhello.bgloc.BootCompletedReceiver
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:37:9-41:20
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:37:9-41:20
 	android:enabled
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:37:19-41
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:37:19-41
 	android:exported
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:37:42-65
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:37:42-65
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:37:66-124
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:37:66-124
 intent-filter#android.intent.action.BOOT_COMPLETED
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:38:13-40:29
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:38:13-40:29
 action#android.intent.action.BOOT_COMPLETED
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:39:17-79
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:39:17-79
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:39:25-76
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:39:25-76
 uses-sdk
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:43:5-74
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:43:5-74
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:43:5-74
+INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:43:5-74
 MERGED from [com.github.tony19:logback-android:1.1.1-9] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/logback-android-1.1.1-9.aar/738873ef0c92eb66211d93af746c77e5/AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.tony19:logback-android:1.1.1-9] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/logback-android-1.1.1-9.aar/738873ef0c92eb66211d93af746c77e5/AndroidManifest.xml:7:5-9:41
 MERGED from [com.intentfilter:android-permissions:0.1.7] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/android-permissions-0.1.7.aar/b5c8835d631253f454bd05cf2db1d8bf/AndroidManifest.xml:7:5-9:41
@@ -322,8 +322,8 @@ MERGED from [com.android.support:support-v4:27.1.1] /home/mithuntantri/.gradle/c
 MERGED from [com.android.support:support-v4:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/ef434e73cac847df8aa4c5a6380312ba/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/4dd4fae0ac2fe3178084bedb9c0d62cd/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/4dd4fae0ac2fe3178084bedb9c0d62cd/AndroidManifest.xml:20:5-44
-MERGED from [:CordovaLib] /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:25:5-44
-MERGED from [:CordovaLib] /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:25:5-44
+MERGED from [:CordovaLib] /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:25:5-44
+MERGED from [:CordovaLib] /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:25:5-44
 MERGED from [com.github.tony19:apktool-lib:1.4.4-5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/apktool-lib-1.4.4-5.aar/bcf302a3125b4b9f840046102acb72c9/AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.tony19:apktool-lib:1.4.4-5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/apktool-lib-1.4.4-5.aar/bcf302a3125b4b9f840046102acb72c9/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:customtabs:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/customtabs-27.1.1.aar/00f19fe0a0253e3d22676bcb67c02d38/AndroidManifest.xml:20:5-44
@@ -352,51 +352,51 @@ MERGED from [android.arch.core:runtime:1.1.0] /home/mithuntantri/.gradle/caches/
 MERGED from [android.arch.core:runtime:1.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/be99f001cbb05b8c89ee6cc296e5e80e/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-15.0.2.aar/3bb56df372eec12323812dd01249e604/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-15.0.2.aar/3bb56df372eec12323812dd01249e604/AndroidManifest.xml:20:5-44
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:43:5-74
+INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:43:5-74
 	android:targetSdkVersion
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:43:42-71
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:43:42-71
 	android:minSdkVersion
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:43:15-41
-		INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:43:15-41
+		INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:44:5-102
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:44:5-102
 	tools:node
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:44:79-99
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:44:79-99
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:44:22-78
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:44:22-78
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:45:5-81
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:45:5-81
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:45:22-78
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:45:22-78
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:46:5-79
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:46:5-79
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:46:22-76
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:46:22-76
 uses-feature#android.hardware.location.gps
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:47:5-66
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:47:5-66
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:47:19-63
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:47:19-63
 uses-permission#android.permission.RECEIVE_SMS
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:48:5-70
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:48:5-70
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:48:22-67
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:48:22-67
 permission#com.essarrautomotives.employeeconnect.permission.RECEIVE_ADM_MESSAGE
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:49:5-139
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:49:5-139
 	android:protectionLevel
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:49:101-136
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:49:101-136
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:49:17-100
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:49:17-100
 uses-permission#com.essarrautomotives.employeeconnect.permission.RECEIVE_ADM_MESSAGE
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:50:5-108
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:50:5-108
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:50:22-105
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:50:22-105
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:51:5-80
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:51:5-80
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:51:22-77
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:51:22-77
 uses-permission#android.permission.WAKE_LOCK
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:53:5-68
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:53:5-68
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/9d067d562d81183c8280e15603e52d47/AndroidManifest.xml:19:5-68
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/9d067d562d81183c8280e15603e52d47/AndroidManifest.xml:19:5-68
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/e595331ac643dd96603a80c05091b333/AndroidManifest.xml:24:5-68
@@ -408,31 +408,31 @@ MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntan
 MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/89f65d3ca69585d68842daa29b77b387/AndroidManifest.xml:24:5-68
 MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/89f65d3ca69585d68842daa29b77b387/AndroidManifest.xml:24:5-68
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:53:22-65
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:53:22-65
 uses-permission#android.permission.AUTHENTICATE_ACCOUNTS
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:54:5-80
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:54:5-80
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:54:22-77
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:54:22-77
 uses-permission#android.permission.READ_SYNC_SETTINGS
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:55:5-77
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:55:5-77
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:55:22-74
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:55:22-74
 uses-permission#android.permission.WRITE_SYNC_SETTINGS
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:56:5-78
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:56:5-78
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:56:22-75
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:56:22-75
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:57:5-81
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:57:5-81
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/9d067d562d81183c8280e15603e52d47/AndroidManifest.xml:30:5-81
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/9d067d562d81183c8280e15603e52d47/AndroidManifest.xml:30:5-81
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:57:22-78
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:57:22-78
 uses-permission#com.google.android.gms.permission.ACTIVITY_RECOGNITION
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:58:5-94
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:58:5-94
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:58:22-91
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:58:22-91
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:59:5-79
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:59:5-79
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/9d067d562d81183c8280e15603e52d47/AndroidManifest.xml:25:5-79
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/9d067d562d81183c8280e15603e52d47/AndroidManifest.xml:25:5-79
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/e595331ac643dd96603a80c05091b333/AndroidManifest.xml:23:5-79
@@ -444,15 +444,15 @@ MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntan
 MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/89f65d3ca69585d68842daa29b77b387/AndroidManifest.xml:22:5-79
 MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/89f65d3ca69585d68842daa29b77b387/AndroidManifest.xml:22:5-79
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:59:22-76
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:59:22-76
 uses-permission#android.permission.ACCESS_LOCATION_EXTRA_COMMANDS
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:60:5-89
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:60:5-89
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:60:22-86
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:60:22-86
 uses-permission#android.hardware.location
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:61:5-65
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:61:5-65
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:61:22-62
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/src/main/AndroidManifest.xml:61:22-62
 activity#com.intentfilter.androidpermissions.PermissionsActivity
 ADDED from [com.intentfilter:android-permissions:0.1.7] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/android-permissions-0.1.7.aar/b5c8835d631253f454bd05cf2db1d8bf/AndroidManifest.xml:12:9-15:59
 	android:excludeFromRecents

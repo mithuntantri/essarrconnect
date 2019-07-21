@@ -15,7 +15,7 @@
     	$rootScope.drawer = $nativeDrawer;
         $scope.User = User
         $scope.Dashboard = Dashboard
-        $scope.selectedFeature = 4
+        $scope.selectedFeature = 0
         $scope.all_branches = []
         $scope.all_employees = []
         $scope.all_salaries = []
@@ -24,6 +24,10 @@
         $scope.all_announcements = []
         $scope.all_targets = []
         $scope.all_categories= []
+        $scope.all_vehicles = []
+        $scope.all_users_blocked = []
+        $scope.DashboardDetails = $scope.Dashboard.DashboardDetails
+        console.log($scope.DashboardDetails)
 
         $scope.upload_types = [
             {name:'MSGP Retail Target'},
@@ -59,6 +63,16 @@
             'designation': '',
             'department': '',
             'location': null
+        }
+
+        $scope.vehicle = {
+            'vehicle_number': null,
+            'model': null,
+            'color': null,
+            'last_oil_change': 0,
+            'last_service_kms': 0,
+            'last_service_date': null,
+            'branch_id': null
         }
 
         $scope.salary = {
@@ -102,9 +116,10 @@
     	$rootScope.title = 'Essarr Admin Connect'
 
         $scope.features = [
+            {'name': 'Dashboard', 'selected': false, 'disabled': false},
             {'name': 'Manage Branches', 'selected': false, 'disabled': false},
             {'name': 'Manage Employees', 'selected': false, 'disabled': false},
-            {'name': 'Manage Salary', 'selected': false, 'disabled': false},
+            {'name': 'Manage Vehicles', 'selected': false, 'disabled': false},
             {'name': 'Manage Incentives', 'selected': false, 'disabled': false},
             {'name': 'Track Targets', 'selected': false, 'disabled': false},
             {'name': 'Leave Requests', 'selected': false, 'disabled': false},
@@ -112,6 +127,7 @@
             {'name': 'Employee Questions', 'selected': false, 'disabled': false},
             {'name': 'Announcements / Notifications', 'selected': false, 'disabled': false},
             {'name': 'Download Reports', 'selected': false, 'disabled': false},
+            {'name': 'Blocked Users', 'selected': false, 'disabled': false},
         ]
 
         if(User.AdminDetails.admin_type == 'MG'){
@@ -132,6 +148,15 @@
             $rootScope.title = $scope.features[index].name
             $scope.showLoader = true
             if(index == 0){
+                $scope.showLoader = true
+                Dashboard.getDashboardDetails().then((result)=>{
+                    if(result.data.status){
+                        Dashboard.DashboardDetails = result.data.data
+                        $scope.DashboardDetails = result.data.data
+                    }
+                    $scope.showLoader = false
+                })
+            }else if(index == 1){
                 Dashboard.getBranches().then((result)=>{
                     $scope.showLoader = false
                     if(result.data.status){
@@ -140,7 +165,7 @@
                         showBottom(result.data.message)
                     }
                 })
-            }else if(index == 1){
+            }else if(index == 2){
                 Dashboard.getBranches().then((result)=>{
                     if(result.data.status){
                         $scope.all_branches = result.data.data
@@ -156,17 +181,33 @@
                         showBottom(result.data.message)
                     }
                 })
-            }else if(index == 2){
-                Dashboard.getSalaries().then((result)=>{
-                    $scope.showLoader = false
+            }else if(index == 3){
+                // Dashboard.getSalaries().then((result)=>{
+                //     $scope.showLoader = false
+                //     if(result.data.status){
+                //         $scope.all_salaries = result.data.data
+                //         console.log($scope.all_salaries)
+                //     }else{
+                //         showBottom(result.data.message)
+                //     }
+                // })
+                Dashboard.getBranches().then((result)=>{
                     if(result.data.status){
-                        $scope.all_salaries = result.data.data
-                        console.log($scope.all_salaries)
+                        $scope.all_branches = result.data.data
+                        Dashboard.getVehicles().then((result)=>{
+                            $scope.showLoader = false
+                            if(result.data.status){
+                                $scope.all_vehicles = result.data.data
+                            }else{
+                                showBottom(result.data.message)
+                            }
+                        })
                     }else{
                         showBottom(result.data.message)
                     }
                 })
-            }else if(index == 3){
+
+            }else if(index == 4){
                 Dashboard.getIncentives().then((result)=>{
                     $scope.showLoader = false
                     if(result.data.status){
@@ -184,7 +225,7 @@
                         showBottom(result.data.message)
                     }
                 })
-            }else if(index == 4){
+            }else if(index == 5){
                 Dashboard.getEmployees().then((result)=>{
                     if(result.data.status){
                         $scope.all_employees = result.data.data
@@ -232,7 +273,7 @@
                     }
                 })
                
-            }else if(index == 5){
+            }else if(index == 6){
                 Dashboard.getAllLeaves().then((result)=>{
                     $scope.showLoader = false
                     if(result.data.status){
@@ -242,7 +283,7 @@
                         showBottom(result.data.message)
                     }
                 })
-            }else if(index == 6){
+            }else if(index == 7){
                 Dashboard.getHolidays().then((result)=>{
                     $scope.showLoader = false
                     if(result.data.status){
@@ -252,9 +293,9 @@
                         showBottom(result.data.message)
                     }
                 })
-            }else if(index == 7){
-                $location.url('/chat')
             }else if(index == 8){
+                $location.url('/chat')
+            }else if(index == 9){
                 Dashboard.getAllCategory().then((res)=>{
                     $scope.all_categories = res.data.data
                     Dashboard.getAnnouncements().then((result)=>{
@@ -267,8 +308,22 @@
                         }
                     })
                 })
-            }else if(index == 9){
+            }else if(index == 10){
                 $scope.showLoader = false
+            }else if(index == 11){
+                if($scope.DashboardDetails.total_blocked > 0){
+                    $scope.showLoader = true
+                    Dashboard.getUsersBlocked().then((res)=>{
+                        $scope.all_users_blocked = res.data.data
+                        $scope.showLoader = false
+                    }).catch((err)=>{
+                        $scope.showLoader = false
+                        showBottom(`Something went wrong`)
+                    })
+                }else{
+                    $scope.showLoader = false
+                    showBottom(`No users blocked`)
+                }
             }
             console.log($scope.features)    
         }
@@ -305,17 +360,19 @@
 
         $scope.addFeature = ()=>{
             console.log("open Modal",$scope.selectedFeature)
-            if($scope.selectedFeature == 0){
+            if($scope.selectedFeature == 1){
                 $scope.openAddLocation()
-            }else if($scope.selectedFeature == 1 || $scope.selectedFeature == 2){
+            }else if($scope.selectedFeature == 2){
                 $scope.openAddEmployee()
             }else if($scope.selectedFeature == 3){
-                $scope.openAddIncentive()
+                $scope.openAddVehicle()
             }else if($scope.selectedFeature == 4){
+                $scope.openAddIncentive()
+            }else if($scope.selectedFeature == 5){
                 $scope.openUploadForm()
-            }else if($scope.selectedFeature == 6){
+            }else if($scope.selectedFeature == 7){
                 $scope.openAddHoliday()
-            }else if($scope.selectedFeature == 8){
+            }else if($scope.selectedFeature == 9){
                 $scope.openAddAnnouncement()
             }
         }
@@ -325,6 +382,13 @@
             $('#lab-slide-bottom-popup-incentive').modal().show();
             $('.lab-slide-up').find('a').attr('data-toggle', 'modal');
             $('.lab-slide-up').find('a').attr('data-target', '#lab-slide-bottom-popup-incentive');
+        }
+
+        $scope.openAddVehicle = ()=>{
+            $scope.current_modal = 'vehicle'
+            $('#lab-slide-bottom-popup-vehicle').modal().show();
+            $('.lab-slide-up').find('a').attr('data-toggle', 'modal');
+            $('.lab-slide-up').find('a').attr('data-target', '#lab-slide-bottom-popup-vehicle');   
         }
 
         $scope.openAddAnnouncement = ()=>{
@@ -340,6 +404,13 @@
             $('#lab-slide-bottom-popup-upload').modal().show();
             $('.lab-slide-up').find('a').attr('data-toggle', 'modal');
             $('.lab-slide-up').find('a').attr('data-target', '#lab-slide-bottom-popup-upload');
+        }
+
+        $scope.openUploadPayroll = ()=>{
+            $scope.current_modal = 'upload-salary'
+            $('#lab-slide-bottom-popup-upload-salary').modal().show();
+            $('.lab-slide-up').find('a').attr('data-toggle', 'modal');
+            $('.lab-slide-up').find('a').attr('data-target', '#lab-slide-bottom-popup-upload-salary');
         }
 
         $scope.openUpdateSalary = (index)=>{
@@ -373,6 +444,10 @@
             $('#lab-slide-bottom-popup-location').modal().hide();
         }
 
+        $scope.closeAddVehicle = ()=>{
+            $('#lab-slide-bottom-popup-vehicle').modal().hide();
+        }
+
         $scope.closeAddIncentive = ()=>{
             $('#lab-slide-bottom-popup-incentive').modal().hide();
         }
@@ -391,6 +466,10 @@
 
         $scope.closeUpload = ()=>{
             $('#lab-slide-bottom-popup-upload').modal().hide();
+        }
+
+        $scope.closeUploadSalary = ()=>{
+            $('#lab-slide-bottom-popup-upload-salary').modal().hide();
         }
 
         $scope.closeAddAnnouncement = ()=>{
@@ -522,6 +601,22 @@
             }
         }
 
+        $scope.addVehicle = ()=>{
+            $scope.showBtnLoader = true
+            console.log($scope.vehicle)
+            Dashboard.addVehicle($scope.vehicle).then((result)=>{
+                $scope.showBtnLoader = false
+                if(result.data.status){
+                    $scope.closeAddVehicle()
+                    $scope.showDashboard($scope.selectedFeature)
+                    showBottom(result.data.message)
+                }else{
+                    showBottom(result.data.message)
+                }
+            })   
+        }
+
+
         $scope.deleteBranch = (index)=>{
             $scope.all_branches[index].deleting = true
             Dashboard.deleteBranch($scope.all_branches[index].id).then((result)=>{
@@ -534,6 +629,20 @@
                 }
             })
         }
+
+         $scope.deleteVehicle = (index)=>{
+            $scope.all_vehicles[index].deleting = true
+            Dashboard.deleteVehicle($scope.all_vehicles[index].vehicle_number).then((result)=>{
+                if(result.data.status){
+                    $scope.all_vehicles.splice(index, 1)
+                    showBottom(`Vehicle deleted successfully`)
+                }else{
+                    $scope.all_vehicles[index].deleting = false
+                    showBottom(result.data.message)
+                }
+            })
+        }
+
 
         $scope.updateLeave = (index, status)=>{
             $scope.all_leaves[index].deleting = true
@@ -592,6 +701,10 @@
             Dashboard.uploadFileMF(element)
         }
 
+        $scope.uploadFileMS = (element)=>{
+            Dashboard.uploadFileMS(element)
+        }
+
         $scope.uploadTarget = ()=>{
             $scope.showBtnLoader = true
             if($scope.selected_upload_type != '' || $scope.selected_upload_type != null){
@@ -600,6 +713,39 @@
                     $scope.closeUpload()
                     $scope.showDashboard($scope.selectedFeature)
                     showBottom('File Uploaded successfully')
+                }).catch((err)=>{
+                    $scope.showBtnLoader = false
+                    if(err.code == 'ER_BAD_FIELD_ERROR'){
+                        showBottom('Invalid data in uploaded file! Please rectify and try again')                        
+                    }else if(err.code == 'ER_DUP_ENTRY'){
+                        showBottom($scope.selected_upload_type + ' file already uploaded today')                        
+                    }else{
+                        showBottom('Something went wrong! Try again')                        
+                    }
+                })
+
+            }else{
+                $scope.showBtnLoader = false
+                showBottom('Select the Upload file category')
+            }
+        }
+
+        $scope.upload_payroll_months = [
+            moment().subtract(1, 'month').format("MMM YYYY"),
+            moment().subtract(2, 'month').format("MMM YYYY"),
+            moment().subtract(3, 'month').format("MMM YYYY")
+        ]
+
+        $scope.selected_upload_payroll_month = $scope.upload_payroll_months[0]
+
+        $scope.uploadPayroll = ()=>{
+            $scope.showBtnLoader = true
+            if($scope.selected_upload_payroll_month != '' || $scope.selected_upload_payroll_month != null){
+                Dashboard.uploadPayrollFile('Salary', $scope.selected_upload_payroll_month).then(()=>{
+                    $scope.showBtnLoader = false
+                    $scope.closeUploadSalary()
+                    $scope.showDashboard($scope.selectedFeature)
+                    showBottom('Payroll Uploaded successfully')
                 }).catch((err)=>{
                     $scope.showBtnLoader = false
                     if(err.code == 'ER_BAD_FIELD_ERROR'){
@@ -639,6 +785,8 @@
                         $scope.report.from_date = moment(date).format("DD MMM YYYY")                    
                     }else if(type == 'report_end'){
                         $scope.report.to_date = moment(date).format("DD MMM YYYY")                    
+                    }else if(type == 'service_date'){
+                        $scope.vehicle.last_service_date = moment(date).format("DD MMM YYYY")                    
                     }else{
                         $scope.holiday.to_date = moment(date).format("DD MMM YYYY")                    
                     }
@@ -651,5 +799,53 @@
 
             datePicker.show(options, onSuccess, onError)
         }
+
+        $scope.unblockUser = (index)=>{
+            Dashboard.unblockUser($scope.all_users_blocked[index].employee_id).then((result)=>{
+                if(result.data.status){
+                    $scope.all_users_blocked = result.data.data
+                    showBottom(`User inblocked successfully`)
+                }else{
+                    showBottom(`Something went wrong`)
+                }
+            })
+        }
+
+        document.addEventListener("backbutton", onBackKeyDown, false);
+
+        var exitApp = false, intval = setInterval(function (){exitApp = false;}, 2000);
+
+        function onBackKeyDown(e) {
+            e.preventDefault();
+            if (exitApp) {
+                clearInterval(intval) 
+                (navigator.app && navigator.app.exitApp()) || (device && device.exitApp())
+            }
+            else {
+                exitApp = true
+                showBottom(`Press back again to exit`)
+                $scope.goBackFromModal()
+            } 
+        }
+
+        $scope.goBackFromModal = ()=>{
+            switch($scope.current_modal){
+                case 'employee':    $scope.closeAddEmployee();
+                case 'salary':    $scope.closeUpdateSalary();
+                case 'vehicle':    $scope.closeAddVehicle();
+                case 'incentive':    $scope.closeAddIncentive();
+                case 'location':    $scope.closeAddLocation();
+                case 'announcement':    $scope.closeAddAnnouncement();
+                case 'holiday':    $scope.closeAddHolidays();
+                case 'upload':    $scope.closeUpload();
+                case 'upload-salary':    $scope.closeUploadSalary();
+                case 'employee':    $scope.closeAddEmployee();
+                                    $scope.showDashboard($scope.selectedFeature)
+                                    break;
+                default:    $scope.showDashboard(0)
+                            break;
+            }
+        }
+
     }
 })()

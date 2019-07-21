@@ -211,6 +211,7 @@ class Dashboard{
         let defer = this.$q.defer()
         var fileTransfer = new FileTransfer();
         let url = `${baseUrl}/user/payslip?month=${month}&year=${year}`
+        console.log(url)
         var uri = encodeURI(url);
         var fileURL = `file:///storage/emulated/0/download/payslip_${month}(${year})_${moment().unix()}.pdf`
         fileTransfer.download(

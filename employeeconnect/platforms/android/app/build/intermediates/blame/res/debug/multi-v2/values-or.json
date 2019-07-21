@@ -1,6 +1,28 @@
 {
     "logs": [
         {
+            "outputFile": "/home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-or/values-or.xml",
+            "map": [
+                {
+                    "source": "/home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-15.0.2.aar/893d57e30279271f7d6c54c548b78877/res/values-or/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "205",
+                        "endColumns": "102",
+                        "endOffsets": "307"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "106",
+                        "endOffsets": "157"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-or/values-or.xml",
             "map": [
                 {

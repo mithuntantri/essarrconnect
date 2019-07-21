@@ -42,7 +42,7 @@ angular.module('app')
           })
           
           _.each(Dashboard.AllLeaves, (leaves)=>{
-            leaves.title = leaves.reason + " " + (leaves.approved == 0?"(Pending)":"(Approved)")
+            leaves.title = leaves.reason + " " + (leaves.approved == 0?"(Pending)":leaves.approved == 1?"(Declined)":"(Approved)")
             console.log(leaves.title)
             all_events.push({
               type: 'leave',
@@ -70,7 +70,7 @@ angular.module('app')
             selectable: true,
             selectHelper: true,
             select: function(start, end, allDay) {
-              $("#eventCreate").modal("show");
+              $("#eventCreate").modal().show();
               calendar.fullCalendar('unselect'); 
             },
             dayClick: function(date, jsEvent, view) {
@@ -85,7 +85,7 @@ angular.module('app')
               scope.getEndDate = moment(calEvent.start).format("DD MMM YYYY");
               scope.getStatus = calEvent.status
               if(calEvent.type == 'leave'){
-                $("#eventDetails").modal("show");                
+                $("#eventDetails").modal().show();                
               }
               scope.$apply();
             },
@@ -136,7 +136,9 @@ angular.module('app')
       
       scope.deleteLeave = function(id){
         Dashboard.deleteLeave(id).then((result)=>{
-          $("#eventDetails").modal("hide"); 
+          $("#eventDetails").modal().hide(); 
+          $('body').removeClass('modal-open');
+          $('.modal-backdrop').remove();
           $location.url('/calendar')
           $route.reload()
         })
@@ -160,7 +162,7 @@ angular.module('app')
             }
             newEvent.backgroundColor = scope.event_color;
           	angular.element("#calendar").fullCalendar('renderEvent',newEvent);
-  					$("#eventCreate").modal("hide");
+  					$("#eventCreate").modal().hide();
   					scope.resetVariables();
 					}
       };

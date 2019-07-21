@@ -66,20 +66,29 @@
                 if(result.data.status){
                     $scope.showOTP = true
                     $scope.openOTPScreen()
+                    showBottom('OTP sent successfully')
                 }else{
-                    $scope.error = result.data.message
+                    showBottom(result.data.message)
                 }
             })
         }
 
         $scope.verifyUser = ()=>{
+            if(isNaN($scope.otp)){
+                $scope.otp = $('')
+            }
             $scope.showBtnLoader = true
             if($scope.current_modal == 'register'){
                 Login.verifyUser($scope.register.username, $scope.otp).then((result)=>{
                     $scope.showBtnLoader = false
                     if(result.data.status){
                         showBottom(result.data.data.message)
+                        $scope.showOTP = false
+                        $scope.otp = ''
+                        $scope.closeAllModals()
+                        localStorage.setItem('token', result.data.data.token)
                         $scope.openSetPassword()
+                        // $location.url("/dashboard")
                     }else{
                         $scope.otp = ''
                         $scope.closeAllModals()
@@ -97,6 +106,20 @@
                     }else{
                         $scope.otp = ''
                         $scope.showOTP = false
+                        $scope.closeAllModals()
+                        showBottom(result.data.message)
+                    }
+                })
+            }else if($scope.current_modal == 'forgot_password'){
+                Login.verifyForgotPassword($scope.login.username, $scope.otp).then((result)=>{
+                    $scope.showBtnLoader = false
+                    if(result.data.status){
+                        $scope.showOTP = false
+                        $scope.register.username = $scope.login.username
+                        $scope.openSetPassword()
+                        showBottom(result.data.data.message)
+                    }else{
+                        $scope.otp = ''
                         $scope.closeAllModals()
                         showBottom(result.data.message)
                     }
@@ -131,8 +154,8 @@
             $scope.current_modal = 'register'
             StatusBar.backgroundColorByHexString('#219787');
             StatusBar.styleLightContent();
-            $('#lab-slide-bottom-popup-login').modal('hide');
-			$('#lab-slide-bottom-popup-register').modal('show');
+            $('#lab-slide-bottom-popup-login').modal().hide();
+			$('#lab-slide-bottom-popup-register').modal().show();
 		    $('.lab-slide-up').find('a').attr('data-toggle', 'modal');
 		    $('.lab-slide-up').find('a').attr('data-target', '#lab-slide-bottom-popup-register');
 		}
@@ -141,8 +164,8 @@
             $scope.current_modal = 'login'
             StatusBar.backgroundColorByHexString('#219787');
             StatusBar.styleLightContent();
-            $('#lab-slide-bottom-popup-register').modal('hide');
-            $('#lab-slide-bottom-popup-login').modal('show');
+            $('#lab-slide-bottom-popup-register').modal().hide();
+            $('#lab-slide-bottom-popup-login').modal().show();
             $('.lab-slide-up').find('a').attr('data-toggle', 'modal');
             $('.lab-slide-up').find('a').attr('data-target', '#lab-slide-bottom-popup-login');
         }
@@ -151,9 +174,9 @@
             $scope.startOTPRead()
             StatusBar.backgroundColorByHexString('#219787');
             StatusBar.styleLightContent();
-            $('#lab-slide-bottom-popup-register').modal('hide');
-            $('#lab-slide-bottom-popup-login').modal('hide');
-            $('#lab-slide-bottom-popup-otp').modal('show');
+            $('#lab-slide-bottom-popup-register').modal().hide();
+            $('#lab-slide-bottom-popup-login').modal().hide();
+            $('#lab-slide-bottom-popup-otp').modal().show();
             $('.lab-slide-up').find('a').attr('data-toggle', 'modal');
             $('.lab-slide-up').find('a').attr('data-target', '#lab-slide-bottom-popup-otp');
         }
@@ -161,10 +184,39 @@
         $scope.openSetPassword = ()=>{
             StatusBar.backgroundColorByHexString('#219787');
             StatusBar.styleLightContent();
-            $('#lab-slide-bottom-popup-otp').modal('hide');
-            $('#lab-slide-bottom-popup-setpass').modal('show');
+            $('#lab-slide-bottom-popup-otp').modal().hide();
+            $('#lab-slide-bottom-popup-setpass').modal().show();
             $('.lab-slide-up').find('a').attr('data-toggle', 'modal');
             $('.lab-slide-up').find('a').attr('data-target', '#lab-slide-bottom-popup-setpass');
+        }
+
+        $scope.forgotPassword = ()=>{
+            $scope.current_modal = 'forgot_password'
+            Login.forgotPassword($scope.login.username).then((result)=>{
+                if(result.data.status){
+                    showBottom(result.data.message)
+                    $scope.openOTPScreen()
+                    $scope.showOTP = true
+                }else{
+                    showBottom(result.data.message)
+                }
+            })
+        }
+
+        $scope.otpInput = {
+            size:6,
+            type:"number",
+            value: "",
+            onDone: function(value){
+                console.log(value);
+            },
+            onChange: function(value){
+                console.log(value);
+                if(value.length == 6){
+                    $scope.otp = value
+                    $scope.verifyUser()
+                }
+            }
         }
 
         $scope.startOTPRead = ()=>{
@@ -179,6 +231,10 @@
                 console.log("GOT OTP", otp);
                 $timeout(()=>{
                     $scope.otp = parseInt(otp)
+                    $scope.otpInput.value = otp
+                    _.times(6, (i)=>{
+                        $('#otpInput'+i).val(otp.split("")[i])
+                    })
                     $scope.verifyUser()                 
                 })
                 OTPAutoVerification.stopOTPListener();

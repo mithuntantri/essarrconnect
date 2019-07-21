@@ -182,6 +182,10 @@
             showBottom('Vehicle Maintenance will be coming soon')
         }
 
+        $scope.openPayslips = ()=>{
+            $scope.openAddModal('payslips')
+        }
+
          $scope.openMyMeetings = ()=>{
             showBottom('My Meetings will be coming soon')
         }

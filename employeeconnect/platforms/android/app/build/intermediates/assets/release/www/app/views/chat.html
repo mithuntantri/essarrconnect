@@ -1,0 +1,107 @@
+<div class="chat-container">
+	<div id="cont">
+	  <div ng-click="drawer.show()" class="fixed" id="topbar">
+	    <div class="title">
+	      {{ title }}
+	    </div>
+	  </div>
+	  <!-- <div class="add-btn" ng-click="openAnnouncements();drawer.hide()">
+	    <i class="fa fa-plus" style="font-size: 21px;"></i>
+	  </div> -->
+	</div>
+	<div id="center-text">
+	   <!--  <h2>ChatBox UI</h2>
+	    <p>Message send and scroll to bottom enabled </p> -->
+  	</div> 
+  	<div class="dashboard-container" ng-if="showLoader">
+  		<div class="loader"></div>
+  	</div>
+	<div id="body" ng-show="!showLoader" style="display: flex;flex-direction: column;flex-grow:2;
+    font-family: 'GlacialIndifference-Regular';padding: 15px;"> 
+    	<ul class="list-data" ng-if="all_threads.length > 0">
+          <li ng-repeat="thread in all_threads">
+            <div class="img">
+              <img src="assets/img/thread_pin.png"/>
+              <span class="chip" style="margin-top: 10px;
+    font-size: 11px;
+    text-align: center;" ng-class="{'red': (thread.user_message_1 && !thread.admin_message_2 && !thread.status) || (thread.user_message_2 && !thread.admin_message_2 && !thread.status), 'green': thread.admin_message_2 || thread.status}">{{(thread.user_message_1 && !thread.admin_message_2 && !thread.status) || 
+              (thread.user_message_2 && !thread.admin_message_2 && !thread.status)?'OPEN':'CLOSED'}}</span>
+            </div>
+            <div class="details" style="flex-grow: 2;margin-top: 20px;">
+              <div class="address" ng-if="thread.user_message_1">
+              	<span class="bold">You: </span>{{thread.user_message_1}}</div>
+              <div class="address" ng-if="thread.admin_message_1">
+              	<span class="bold">Admin: </span>{{thread.admin_message_1}}</div>
+              <div class="address" ng-if="thread.user_message_2">
+              	<span class="bold">You: </span>{{thread.user_message_2}}</div>
+              <div class="address" ng-if="thread.admin_message_2">
+              	<span class="bold">Admin: </span>{{thread.admin_message_2}}</div>
+              <div class="latlon" ng-cloak style="font-size: 13px;font-weight: normal;text-align: right;">
+                <span data-livestamp="{{thread.timestamp}}"></span>
+              </div>
+            </div>
+          </li>
+        </ul>
+  		<div class="nothing-message" ng-if="all_threads.length == 0" style="height: 100%;">
+          <img src="assets/img/no_threads.png" style="width: 120px;margin: 0 auto;" />
+          <div>No Questions thread started. Please use the floating <i class="fa fa-slack"></i> icon to start a question thread</div>          
+        </div>
+	<div id="chat-circle" class="btn btn-raised">
+        <div id="chat-overlay"></div>
+		    <i class="fa fa-slack" style="margin-left: -15px;font-size: 32px;"></i>
+		</div>
+	  	<div class="chat-box">
+		    <div class="chat-box-header">
+		      Question Thread
+		      <span class="chat-box-toggle"><i class="fa fa-close" style="margin-left: -15px;"></i></span>
+		    </div>
+		    <div class="chat-box-body">
+		      <div class="chat-box-overlay">   
+		      </div>
+		      	<div class="chat-logs">
+		       		<div id="cm-msg-1" class="chat-msg self" ng-if="thread.user_message_1">
+		              	<span class="msg-avatar">
+		                	<img src="assets/img/user.png">
+		              	</span>
+		              	<div class="cm-msg-text">
+		              		{{thread.user_message_1}}
+		              	</div>
+		            </div>
+		            <div id="cm-msg-2" class="chat-msg user" ng-if="thread.admin_message_1">
+		              	<span class="msg-avatar">
+		                	<img src="assets/img/admin.svg">
+		              	</span>
+		              	<div class="cm-msg-text">
+		              		{{thread.admin_message_1}}
+		              	</div>
+		            </div>
+		            <div id="cm-msg-3" class="chat-msg self" ng-if="thread.user_message_2">
+		              	<span class="msg-avatar">
+		                	<img src="assets/img/user.png">
+		              	</span>
+		              	<div class="cm-msg-text">
+		              		{{thread.user_message_2}}
+		              	</div>
+		            </div>
+		            <div id="cm-msg-4" class="chat-msg user" ng-if="thread.admin_message_2">
+		              	<span class="msg-avatar">
+		                	<img src="assets/img/admin.svg">
+		              	</span>
+		              	<div class="cm-msg-text">
+		              		{{thread.admin_message_2}}
+		              	</div>
+		            </div>
+		      </div><!--chat-log -->
+		    </div>
+		    <div class="chat-input">      
+		      <form>
+			    	<input type="text" id="chat-input" ng-model="new_message" placeholder="{{thread | getPlaceholder}}" ng-disabled="((thread.user_message_1 && !thread.admin_message_1) || thread.status)" maxlength="500" />
+			      	<button type="submit" ng-disabled="((thread.user_message_1 && !thread.admin_message_1) || thread.status)" class="chat-submit" id="chat-submit"
+			      		ng-click="startThread();$event.preventDefault()">
+			      		<i class="fa fa-slack"></i>
+			      	</button>
+		      </form>      
+		    </div>
+	  	</div>
+	</div>
+</div>

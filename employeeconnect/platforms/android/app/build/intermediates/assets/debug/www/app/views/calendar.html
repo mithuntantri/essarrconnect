@@ -31,7 +31,7 @@
         </div>
         <div class="status-container">
           <div class="title">Status</div>
-          <div class="value" ng-class="{'red':getStatus == 0, 'green':getStatus == 1}">{{getStatus==0?'Pending':'Approved'}}</div>
+          <div class="value" ng-class="{'red':getStatus == 0 || getStatus == 1, 'green':getStatus == 2}">{{(getStatus == 0?"Pending":getStatus == 1?"Declined":"Approved")}}</div>
         </div>
         <!-- <div>Start Time :
           <input type="text" class="form-control" ng-disabled="edit" ng-model="getStartTime">

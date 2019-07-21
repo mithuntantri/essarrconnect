@@ -1,4 +1,4 @@
-#Wed Jan 02 08:10:46 IST 2019
-base.0=/home/mithuntantri/mithuntantri/essarrconnect/employeeconnect/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
+#Sun Jul 21 20:47:44 IST 2019
+base.0=/home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

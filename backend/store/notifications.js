@@ -113,18 +113,18 @@ var broadcastCategoryMessage = (username, title, message, category)=>{
     let query1 = `SELECT device_id FROM employees WHERE designation='${category}'`
     let query2 = `INSERT INTO announcements (username, date, timestamp, title, message,category) VALUES('${username}', '${date}', ${timestamp},'${title}', '${message}', '${category}')`
     sqlQuery.executeQuery([query1, query2]).then((result)=>{
-      let device_ids = _.pluck(result[0], 'device_id')
-      console.log(device_ids)
-      var message = { 
+      let device_ids = _.filter(_.pluck(result[0], 'device_id'), (x)=>{ return x})
+      console.log("device_ids", device_ids)
+      var msg = { 
         app_id: APP_ID,
         data: {title: title, message: message},
         contents: {"en": message},
         headings: {"en": title},
-        included_segments: ["All"],
+        // included_segments: ["All"],
         include_player_ids: device_ids
       };
-      console.log(message)
-      sendNotification(message).then(()=>{
+      console.log(msg)
+      sendNotification(msg).then(()=>{
         resolve()      
       }).catch((err)=>{
         reject(err)

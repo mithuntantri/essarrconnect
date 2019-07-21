@@ -1,0 +1,248 @@
+<div class="chat-container">
+	<div id="cont">
+	  <div ng-click="drawer.show()" class="fixed" id="topbar">
+	    <div class="title">
+	      {{ title }}
+	    </div>
+	  </div>
+	  <!-- <div class="add-btn" ng-click="openAnnouncements();drawer.hide()">
+	    <i class="fa fa-plus" style="font-size: 21px;"></i>
+	  </div> -->
+	</div>
+	<div id="center-text">
+	   <!--  <h2>ChatBox UI</h2>
+	    <p>Message send and scroll to bottom enabled </p> -->
+  	</div> 
+  	<div class="dashboard-container" ng-if="showLoader">
+  		<div class="loader"></div>
+  	</div>
+	<div id="body" ng-show="!showLoader" style="display: flex;flex-direction: column;flex-grow:2;
+    font-family: 'GlacialIndifference-Regular';padding: 15px;"> 
+     <ul class="list-data" ng-if="User.AllVehicles.length > 0">
+          <li ng-repeat="vehicle in User.AllVehicles" style="padding-bottom: 90px;">
+	            <div class="img">
+	              <img src="assets/img/vehicle_pin.png"/>
+	            </div>
+	            <div class="details">
+	              <div class="title" style="text-transform: uppercase;">
+	                KA{{vehicle.vehicle_number}}
+	              </div>
+	              <div class="address">{{vehicle.model}} ({{vehicle.color}})</div>
+	              <div class="latlon">Last Oil Change : {{vehicle.oil_change_kms}} kms</div>
+	              <div class="latlon">Last Service : {{vehicle.last_service_kms}} kms | {{vehicle.last_service_date}}</div>
+	              <hr/>
+	              <div class="latlon">Current Kms: {{vehicle.current_kms}} kms</div>
+	              <hr/>
+	              <div class="latlon">Next Oil Change : {{vehicle.next_oil_change_kms}} kms</div>
+	              <div class="latlon">Next Service : {{vehicle.next_service_kms}} kms | {{vehicle.next_service_date}}</div>
+	            </div>
+		        <div ng-if="vehicle.designation == 'UNIT HEAD' || vehicle.designation == 'CASHIER' || vehicle.designation == 'STORES INCHARGE'" style="display: flex;flex-direction: row;position: absolute;bottom: 10px;left:0;">
+		        	<div class="vehicle-btn" 
+		        	ng-click="openModal('fuel', $index)">Update Fuel</div>
+		        	<div class="vehicle-btn"
+		        	ng-click="openModal('oil', $index)">Update Oil Change</div>
+		        	<div class="vehicle-btn"
+		        	ng-click="openModal('service', $index)">Update Service</div>
+		        	<div class="vehicle-btn"
+		        	ng-click="openModal('kms', $index)">Update Kms</div>
+		        </div>
+          </li>
+        </ul>
+        <div class="nothing-message" ng-if="User.AllVehicles.length == 0">
+          <img src="assets/img/vehicle_pin.png" style="width: 120px;margin: 0 auto;" />
+          <div>No Vehicles added. Please add a vehicle using the <i class="fa fa-plus"></i> icon at the top & then update details</div>          
+        </div>
+	</div>
+</div>
+
+<div class="modal fade" id="lab-slide-bottom-popup-fuel" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal">
+      <div class="lab-modal-head">
+        <div class="modal-title-container">
+          <span class="modal-title">ESSARR AUTOMOTIVES</span>
+        </div>
+        <div class="modal-desc-container">
+          <div class="modal-desc">Update Fuel Refill details for vehicle maintenance</div>
+          <img class="logo-ticket-half" src="assets/img/transfer.svg"/>
+        </div>
+      </div>
+      <div class="lab-modal-body register">
+        <div class="signup-email-input-container material-input-wrapper">
+          <label class="signup-email-text">
+          Refuel KM
+          </label>
+          <div class="mobile-number-container">
+            <input class="login-signup-email-input login-email-exist-input"
+            maxlength="16" 
+            ng-model="fuel.kms"
+            id="test-username-input" type="text">
+          </div>
+        </div>
+        <div class="signup-email-input-container material-input-wrapper">
+          <label class="signup-email-text">
+          Refuel Litres
+          </label>
+          <div class="mobile-number-container">
+            <input class="login-signup-email-input login-email-exist-input"
+            maxlength="16" 
+            ng-model="fuel.litres"
+            id="test-username-input" type="text">
+          </div>
+        </div>
+          <div class="signup-email-input-container material-input-wrapper" style="margin-top: 0px;">
+            <label class="signup-email-text">
+            Refuel Date
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              maxlength="11" ng-click="showDatePicker('fuel')"
+              ng-model="fuel.date"
+              id="test-username-input" type="text">
+            </div>
+          </div>
+      <div class="part3 btn-container" style="margin-top: 30px;margin-bottom: 30px;">
+        <div class="continue-btn" ng-click="addFuel()">
+          <div class="loader inside-btn" ng-if="showBtnLoader"></div>
+          <span ng-if="!showBtnLoader">UPDATE REFUEL</span>
+        </div>
+      </div>
+      <!-- <div class="signup-email-input-container material-input-wrapper create-account"> -->
+        <!-- <span class="sign-up-txt">Not an Admin?&nbsp;</span> -->
+        <!-- <span class="sign-up-btn" ng-click="openPlaystore()">User Connect</span> -->
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>
+
+<div class="modal fade" id="lab-slide-bottom-popup-oil" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal">
+      <div class="lab-modal-head">
+        <div class="modal-title-container">
+          <span class="modal-title">ESSARR AUTOMOTIVES</span>
+        </div>
+        <div class="modal-desc-container">
+          <div class="modal-desc">Update Oil Change details for vehicle maintenance</div>
+          <img class="logo-ticket-half" src="assets/img/transfer.svg"/>
+        </div>
+      </div>
+      <div class="lab-modal-body register">
+        <div class="signup-email-input-container material-input-wrapper">
+          <label class="signup-email-text">
+          Oil Change KM
+          </label>
+          <div class="mobile-number-container">
+            <input class="login-signup-email-input login-email-exist-input"
+            maxlength="16" 
+            ng-model="oil_change.kms"
+            id="test-username-input" type="text">
+          </div>
+        </div>
+          <div class="signup-email-input-container material-input-wrapper" style="margin-top: 0px;">
+            <label class="signup-email-text">
+            Oil Change Date
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              maxlength="11" ng-click="showDatePicker('oil')"
+              ng-model="oil_change.date"
+              id="test-username-input" type="text">
+            </div>
+          </div>
+      <div class="part3 btn-container" style="margin-top: 30px;margin-bottom: 30px;">
+        <div class="continue-btn" ng-click="addOilChange()">
+          <div class="loader inside-btn" ng-if="showBtnLoader"></div>
+          <span ng-if="!showBtnLoader">UPDATE OIL CHANGE</span>
+        </div>
+      </div>
+      <!-- <div class="signup-email-input-container material-input-wrapper create-account"> -->
+        <!-- <span class="sign-up-txt">Not an Admin?&nbsp;</span> -->
+        <!-- <span class="sign-up-btn" ng-click="openPlaystore()">User Connect</span> -->
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="lab-slide-bottom-popup-service" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal">
+      <div class="lab-modal-head">
+        <div class="modal-title-container">
+          <span class="modal-title">ESSARR AUTOMOTIVES</span>
+        </div>
+        <div class="modal-desc-container">
+          <div class="modal-desc">Update Vehicle Service details for vehicle maintenance</div>
+          <img class="logo-ticket-half" src="assets/img/transfer.svg"/>
+        </div>
+      </div>
+      <div class="lab-modal-body register">
+        <div class="signup-email-input-container material-input-wrapper">
+          <label class="signup-email-text">
+          Service KM
+          </label>
+          <div class="mobile-number-container">
+            <input class="login-signup-email-input login-email-exist-input"
+            maxlength="16" 
+            ng-model="service.kms"
+            id="test-username-input" type="text">
+          </div>
+        </div>
+          <div class="signup-email-input-container material-input-wrapper" style="margin-top: 0px;">
+            <label class="signup-email-text">
+            Service Date
+            </label>
+            <div class="mobile-number-container">
+              <input class="login-signup-email-input login-email-exist-input"
+              maxlength="11" ng-click="showDatePicker('service')"
+              ng-model="service.date"
+              id="test-username-input" type="text">
+            </div>
+          </div>
+      <div class="part3 btn-container" style="margin-top: 30px;margin-bottom: 30px;">
+        <div class="continue-btn" ng-click="addService()">
+          <div class="loader inside-btn" ng-if="showBtnLoader"></div>
+          <span ng-if="!showBtnLoader">UPDATE SERVICE</span>
+        </div>
+      </div>
+      <!-- <div class="signup-email-input-container material-input-wrapper create-account"> -->
+        <!-- <span class="sign-up-txt">Not an Admin?&nbsp;</span> -->
+        <!-- <span class="sign-up-btn" ng-click="openPlaystore()">User Connect</span> -->
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="lab-slide-bottom-popup-kms" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal">
+      <div class="lab-modal-head">
+        <div class="modal-title-container">
+          <span class="modal-title">ESSARR AUTOMOTIVES</span>
+        </div>
+        <div class="modal-desc-container">
+          <div class="modal-desc">Update Opening & Closing Kms for vehicle maintenance</div>
+          <img class="logo-ticket-half" src="assets/img/transfer.svg"/>
+        </div>
+      </div>
+      <div class="lab-modal-body register">
+        <div class="signup-email-input-container material-input-wrapper">
+          <label class="signup-email-text">
+          Current Kms
+          </label>
+          <div class="mobile-number-container">
+            <input class="login-signup-email-input login-email-exist-input"
+            maxlength="16" 
+            ng-model="kms.kms"
+            id="test-username-input" type="text">
+          </div>
+        </div>
+      <div class="part3 btn-container" style="margin-top: 30px;margin-bottom: 30px;">
+        <div class="continue-btn" ng-click="addKms()">
+          <div class="loader inside-btn" ng-if="showBtnLoader"></div>
+          <span ng-if="!showBtnLoader">UPDATE KMS</span>
+        </div>
+      </div>
+      <!-- <div class="signup-email-input-container material-input-wrapper create-account"> -->
+        <!-- <span class="sign-up-txt">Not an Admin?&nbsp;</span> -->
+        <!-- <span class="sign-up-btn" ng-click="openPlaystore()">User Connect</span> -->
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,4 @@
+#Wed May 15 13:45:08 IST 2019
+base.0=/home/mithuntantri/.mithuntantri/essarrconnect/employeeconnect/platforms/android/app/build/intermediates/transforms/dex/release/0
+path.0=classes.dex
+renamed.0=classes.dex

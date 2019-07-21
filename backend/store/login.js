@@ -275,7 +275,7 @@ var verifyOTPWrapper = (mobile, otp)=>{
 	        }else{
 	        	redis_client.hmset(mobile, 'otp', reply.otp, 'resend_attempts', reply.resend_attempts, 'verify_attempts', parseInt(reply.verify_attempts)-1);
 	        	redis_client.expire(mobile, 120);
-	            resolve(`Invalid OTP. You have ${parseInt(reply.verify_attempts)-1} attempts to verify`)
+	            reject(`Invalid OTP. You have ${parseInt(reply.verify_attempts)-1} attempts to verify`)
 	        }
 	    });
 	})
@@ -284,7 +284,9 @@ var verifyOTPWrapper = (mobile, otp)=>{
 var VerifyOTP = (username, otp)=>{
 	return new Promise((resolve, reject)=>{
 		let employee_id = "EA" + username.toString().padStart(3, "0")
+		console.log(employee_id)
 		let query = `SELECT * FROM employees where employee_id='${employee_id}'`
+		console.log(query)
 		sqlQuery.executeQuery([query]).then((result)=>{
 			console.log(result)
 			if(result[0].length > 0){

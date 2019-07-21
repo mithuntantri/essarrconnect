@@ -44,7 +44,7 @@
 					<input class="login-signup-email-input login-email-exist-input" 
 					ng-model="login.password" ng-disabled="showOTP"
 					id="test-username-input" type="password">
-					<span class="request-otp">Forgot Password?</span>
+					<span class="request-otp" ng-click="forgotPassword()">Forgot Password?</span>
 				</div>
 			</div>
 		  	<div class="part3 btn-container" style="margin-top: 30px;">
@@ -126,10 +126,11 @@
 				Please wait while we try to automatically verify the One Time Password (OTP) sent to<br/> <span ng-if="register.mobile_number"><b>+91-{{register.mobile_number}}</b></span><span ng-if="!register.mobile_number"><b>registered mobile number</b></span>
 				</label>
 				<div class="loader"></div>
-				<div class="iws-number-container" style="margin: 15px 0;">
-					<input class="login-signup-email-input login-email-exist-input otp-input" 
+				<div class="iws-number-container" style="margin: 15px 0;overflow: hidden;">
+					<!-- <input class="login-signup-email-input login-email-exist-input otp-input" 
 						 type="number" maxlength="1"
-						ng-model="otp" style="text-transform: uppercase;padding: 30px 16px;margin: 0 10px 0 10px;font-size: 36px;"/>
+						ng-model="otp" style="text-transform: uppercase;padding: 30px 16px;margin: 0 10px 0 10px;font-size: 36px;"/> -->
+					<div otp-input-directive options="otpInput"></div>
 				</div>
 			</div>
 		  	<div class="part3 btn-container" style="margin-top: 30px;">

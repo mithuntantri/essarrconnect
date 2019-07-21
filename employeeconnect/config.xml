@@ -42,8 +42,8 @@
     <plugin name="cordova-plugin-android-permissions" spec="^1.0.0" />
     <plugin name="cordova-plugin-background-mode" spec="^0.7.2" />
     <plugin name="cordova-plugin-mauron85-background-geolocation" spec="^3.0.0-alpha.50">
-        <variable name="GOOGLE_PLAY_SERVICES_VERSION" value="11+" />
-        <variable name="ANDROID_SUPPORT_LIBRARY_VERSION" value="23+" />
+        <variable name="GOOGLE_PLAY_SERVICES_VERSION" value="9+" />
+        <variable name="ANDROID_SUPPORT_LIBRARY_VERSION" value="19+" />
         <variable name="ALWAYS_USAGE_DESCRIPTION" value="App requires ..." />
         <variable name="MOTION_USAGE_DESCRIPTION" value="App requires motion detection" />
         <variable name="ICON" value="@mipmap/icon" />

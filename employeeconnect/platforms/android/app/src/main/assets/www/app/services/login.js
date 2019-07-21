@@ -49,11 +49,30 @@ class Login{
 		})
 	}
 
+	forgotPassword(username){
+		return this.$http({
+			url: `${baseUrl}/login/forgotPassword`,
+			method: 'POST',
+			data: {username: username}
+		})
+	}
+
 	setPassword(data){
 		return this.$http({
 			url: `${baseUrl}/register/setPassword`,
 			method: 'POST',
 			data: data
+		})
+	}
+
+	verifyForgotPassword(username, otp){
+		return this.$http({
+			url: `${baseUrl}/login/verifyLogin`,
+			method: 'POST',
+			data: {
+				'username': username,
+				'otp': otp
+			}
 		})
 	}
 }

@@ -134,7 +134,7 @@ var getAllCategory = ()=>{
 
 var getEmployees = (username)=>{
 	return new Promise((resolve, reject)=>{
-		let query = `SELECT * from employees e INNER JOIN branches b WHERE e.location_id = b.id`;
+		let query = `SELECT e.*, b.id AS branch_id, b.code, b.name, b.address, b.pin_code, b.latitude, b.longitude from employees e INNER JOIN branches b WHERE e.location_id = b.id`;
 		sqlQuery.executeQuery([query]).then((result)=>{
 			resolve(result[0])
 		}).catch((err)=>{
@@ -334,6 +334,19 @@ var deleteBranch = (id)=>{
 		})
 	})
 }
+
+var deleteVehicles = (id)=>{
+	return new Promise((resolve, reject)=>{
+		let query = `DELETE FROM vehicles WHERE vehicle_number='${id}'`
+		console.log(query)
+		sqlQuery.executeQuery([query]).then((result)=>{
+			resolve()
+		}).catch((err)=>{
+			reject(err)
+		})
+	})
+}
+
 
 var deleteLeave = (id)=>{
 	return new Promise((resolve, reject)=>{
@@ -663,9 +676,98 @@ var addVehicle = (vehicle)=>{
 
 var getVehicles = (username)=>{
 	return new Promise((resolve, reject)=>{
-		let query = `SELECT * FROM vehicles`
+		let query = `SELECT * FROM vehicles v LEFT OUTER JOIN (select vehicle_number, opening_km, timestamp FROM vehicles_track t WHERE t.timestamp=(select max(t1.timestamp) FROM vehicles_track t1 WHERE t.vehicle_number=t1.vehicle_number GROUP BY vehicle_number)) v1 ON v.vehicle_number=v1.vehicle_number`
 		sqlQuery.executeQuery([query]).then((result)=>{
+			_.each(result[0], (r)=>{
+				if(r.opening_km){
+					r.current_kms = r.opening_km
+				}else{
+					r.current_kms = r.last_service_kms > r.oil_change_kms?r.last_service_kms:r.oil_change_kms
+				}
+				r.next_oil_change_kms = r.oil_change_kms + 1800
+				r.next_service_kms = r.last_service_kms + 1800
+				r.next_service_date = moment(r.last_service_date, 'DD MMM YYYY').add(75, 'days').format("DD MMM YYYY")
+			})
 			resolve(result[0])
+		}).catch((err)=>{
+			reject(err)
+		})
+	})
+}
+
+var getAllVehicles = (username)=>{
+	return new Promise((resolve, reject)=>{
+		let query = `SELECT location_id, designation FROM employees WHERE employee_id='${username}'`
+		console.log(query)
+		sqlQuery.executeQuery([query]).then((result)=>{
+			console.log(result[0])
+			let location_id = result[0][0].location_id
+			let designation = result[0][0].designation
+			query = `SELECT * FROM vehicles v LEFT OUTER JOIN (select vehicle_number, opening_km, timestamp FROM vehicles_track t WHERE t.timestamp=(select max(t1.timestamp) FROM vehicles_track t1 WHERE t.vehicle_number=t1.vehicle_number GROUP BY vehicle_number)) v1 ON v.vehicle_number=v1.vehicle_number WHERE v.branch_id=${location_id}`
+			console.log(query)
+			sqlQuery.executeQuery([query]).then((result)=>{
+				_.each(result[0], (r)=>{
+					if(r.opening_km){
+						r.current_kms = r.opening_km
+					}else{
+						r.current_kms = r.last_service_kms > r.oil_change_kms?r.last_service_kms:r.oil_change_kms
+					}
+					r.designation = designation
+					r.next_oil_change_kms = r.oil_change_kms + 1800
+					r.next_service_kms = r.last_service_kms + 1800
+					r.next_service_date = moment(r.last_service_date, 'DD MMM YYYY').add(75, 'days').format("DD MMM YYYY")
+				})
+				resolve(result[0])
+			}).catch((err)=>{
+				reject(err)
+			})	
+		})
+	})
+}
+
+var updateFuel = (fuel)=>{
+	return new Promise((resolve, reject)=>{
+		let timestamp = moment(fuel.date, 'DD MMM YYYY').unix()
+		let query = `INSERT INTO vehicles_refuel VALUES(NULL, '${fuel.vehicle_number}', ${timestamp}, ${fuel.kms}, ${fuel.litres})`
+		sqlQuery.executeQuery([query]).then((result)=>{
+			resolve()
+		}).catch((err)=>{
+			reject(err)
+		})
+	})
+}
+
+var updateOilChange = (oil_change)=>{
+	return new Promise((resolve, reject)=>{
+		let timestamp = moment(oil_change.date, 'DD MMM YYYY').unix()
+		let query = `UPDATE vehicles SET oil_change_kms=${oil_change.kms} WHERE vehicle_number='${oil_change.vehicle_number}'`
+		sqlQuery.executeQuery([query]).then((result)=>{
+			resolve()
+		}).catch((err)=>{
+			reject(err)
+		})
+	})
+}
+
+var updateService = (service)=>{
+	return new Promise((resolve, reject)=>{
+		let timestamp = moment(service.date, 'DD MMM YYYY').unix()
+		let query = `UPDATE vehicles SET last_service_kms=${service.kms}, last_service_date='${service.date}' WHERE vehicle_number='${service.vehicle_number}'`
+		console.log(query)
+		sqlQuery.executeQuery([query]).then((result)=>{
+			resolve()
+		}).catch((err)=>{
+			reject(err)
+		})
+	})
+}
+
+var updateKms = (kms)=>{
+	return new Promise((resolve, reject)=>{
+		let timestamp = moment().unix()
+		let query = `INSERT INTO vehicles_track VALUES(NULL, '${kms.vehicle_number}', ${timestamp}, ${kms.kms})`
+		sqlQuery.executeQuery([query]).then((result)=>{
+			resolve()
 		}).catch((err)=>{
 			reject(err)
 		})
@@ -710,5 +812,11 @@ module.exports = {
 	getDashboardData: getDashboardData,
 	unblockUser: unblockUser,
 	addVehicle: addVehicle,
-	getVehicles: getVehicles
+	getVehicles: getVehicles,
+	getAllVehicles: getAllVehicles,
+	updateFuel: updateFuel,
+	updateOilChange: updateOilChange,
+	updateService: updateService,
+	updateKms: updateKms,
+	deleteVehicles: deleteVehicles
 }

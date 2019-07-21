@@ -20,7 +20,23 @@ class Dashboard{
         this.validFormats = ['xls', 'xlsx', 'csv'];
         this.FileMessage = null
         this.theFile = null
+        this.DashboardDetails = {}
 	}
+    getDashboardDetails(){
+        return this.$http({
+            url: `${baseUrl}/admin/dashboard`,
+            method: 'GET'
+        })
+    }
+    unblockUser(employee_id){
+        return this.$http({
+            url: `${baseUrl}/admin/unblock_user`,
+            method: 'POST',
+            data: {
+                employee_id: employee_id
+            }
+        })
+    }
 	showDashboard(index){
         console.log("showDashboard", index)
         _.each(this.features, (f)=>{f.selected = false})
@@ -54,15 +70,40 @@ class Dashboard{
             data: branch
         })
     }
+    addVehicle(vehicle){
+        return this.$http({
+            url: `${baseUrl}/admin/vehicles`,
+            method:'POST',
+            data: vehicle
+        })
+    }
     deleteBranch(id){
         return this.$http({
             url: `${baseUrl}/admin/branches?id=${id}`,
             method:'DELETE',
         })
     }
+    deleteVehicle(id){
+        return this.$http({
+            url: `${baseUrl}/admin/vehicles?id=${id}`,
+            method:'DELETE',
+        })
+    }
     getEmployees(){
         return this.$http({
             url: `${baseUrl}/admin/employees`,
+            method: 'GET'
+        })
+    }
+    getVehicles(){
+        return this.$http({
+            url: `${baseUrl}/admin/vehicles`,
+            method: 'GET'
+        })
+    }
+    getUsersBlocked(){
+        return this.$http({
+            url: `${baseUrl}/admin/blocked_users`,
             method: 'GET'
         })
     }
@@ -196,6 +237,11 @@ class Dashboard{
         console.log(this.temp_element)
     }
 
+     uploadFileMS(element){
+        this.temp_element = element
+        console.log(this.temp_element)
+    }
+
     uploadFile(option){
         let defer = this.$q.defer()
         this.$timeout(()=>{
@@ -217,6 +263,63 @@ class Dashboard{
             data.append('file', this.theFile);
             var token = localStorage.getItem('token')
             let url = `${baseUrl}/admin/upload?option=${option}`
+            this.$http({
+              url: url,
+              method: 'POST',
+              headers: {'Content-Type': undefined},
+              data: data
+            }).then((response)=>{
+              if(response.data.status){
+                defer.resolve()
+              }else{
+                defer.reject(response.data.message)
+              }
+            }).catch(()=>{
+                defer.reject()
+            })
+            angular.element("input[type='file']").val(null);
+          } else if(!is_valid){
+            this.theFile = ''
+            angular.element("input[type='file']").val(null);
+            this.FileMessage = 'Please upload correct File Name, File extension is not supported';
+            defer.reject()
+          } else if(!is_one){
+            this.theFile = ''
+            angular.element("input[type='file']").val(null);
+            this.FileMessage = 'Cannot upload more than one file at a time';
+            defer.reject()
+          } else if(!is_valid_filename){
+            this.theFile = ''
+            angular.element("input[type='file']").val(null);
+            this.FileMessage = 'Filename cannot exceed 64 Characters';
+            defer.reject()
+          }
+        })
+        return defer.promise
+    }
+
+    uploadPayrollFile(option, payroll_month){
+        payroll_month = payroll_month.split(" ")[0] + "_"  +payroll_month.split(" ")[1]
+        let defer = this.$q.defer()
+        this.$timeout(()=>{
+          let element = this.temp_element
+          this.theFile = element.files[0];
+          this.FileMessage = null;
+          var filename = this.theFile.name;
+          var ext = filename.split(".").pop()
+          var is_valid = this.validFormats.indexOf(ext) !== -1;
+          var is_one = element.files.length == 1
+          var is_valid_filename = this.theFile.name.length <= 128
+          if(!is_valid_filename){
+            this.theFile.name = option + "_" + moment().unix()
+          }
+          console.log(this.theFile, this.FileMessage, is_valid, is_one, is_valid_filename)
+          console.log(ext, filename)
+          if (is_valid && is_one && is_valid_filename){
+            var data = new FormData();
+            data.append('file', this.theFile);
+            var token = localStorage.getItem('token')
+            let url = `${baseUrl}/admin/salary_upload?option=Salary&payroll=${payroll_month}`
             this.$http({
               url: url,
               method: 'POST',

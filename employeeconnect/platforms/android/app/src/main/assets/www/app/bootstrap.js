@@ -1,12 +1,12 @@
 // (function() {
     'use strict';
 
-    var origin = 'http://essarrautomotives.com'
+    var origin = 'http://9dbb4575.ngrok.io'
     var baseUrl = origin + '/api'
     
     var addedObservers = false;
     
-    angular.module('app',['ngRoute'])
+    angular.module('app',['ngRoute', 'ngSanitize', 'otpInputDirective'])
     .config(function($routeProvider, $httpProvider)
     {
         $routeProvider
@@ -24,6 +24,26 @@
             templateUrl  : 'app/views/chat.html',
             controller   : 'ChatController',
             controllerAs : 'Chat'
+        })
+        .when("/vehicles", {
+            templateUrl  : 'app/views/vehicles.html',
+            controller   : 'VehiclesController',
+            controllerAs : 'Vehicles',
+            resolve: {
+                getAllVehicles: ['$q', 'User', function($q, User){
+                    let deferred = $q.defer()
+                    User.getAllVehicles().then((result)=>{
+                        if(result.data.status){
+                            User.AllVehicles = result.data.data
+                            deferred.resolve()
+                        }else{
+                            deferred.reject()
+                        }
+                    }).catch(()=>{
+                        deferred.reject()
+                    })
+                }]
+            }
         })
         .when("/dashboard", {
             templateUrl  : 'app/views/dashboard.html',
@@ -267,6 +287,15 @@ function logoutEmail() {
                 return 'Write a reply'
             }else{
                 return 'Thread is closed for reply'
+            }
+        })
+    })
+    .filter('truncateValue', ()=>{
+        return((obj)=>{
+            if(obj){
+                return parseFloat(obj.toFixed(2))
+            }else{
+                return '0.00'
             }
         })
     })

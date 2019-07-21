@@ -19,7 +19,7 @@
     {{ title }}
   </div>
 </div>
-<div class="add-btn" ng-click="addFeature();drawer.hide()" ng-if="selectedFeature != 5">
+<div class="add-btn" ng-click="addFeature();drawer.hide()" ng-if="selectedFeature != 5 || selectedFeature != 0">
   <i class="fa fa-plus" style="font-size: 23px;"></i>
 </div>
 <!-- toggle icon for toggling menu -->
@@ -42,7 +42,7 @@
     <li style="border-bottom: 0px;font-weight: bold;">
       <a>Employee Connect</a>
     </li>
-    <li ng-repeat="f in features track by $index" ng-if="!f.disabled" 
+    <li ng-repeat="f in features track by $index" ng-if="!f.disabled && $index !=5 && $index != 6 && $index != 10 && $index != 8" 
     ng-click="showDashboard($index);drawer.hide()"><a>{{f.name}}</a></li>
     <div class="bottom">
       <li ng-click="logout();drawer.hide()"><a>Log Out</a></li>
@@ -76,7 +76,78 @@
       <div class="loader"></div>
     </div>
     <div class="dashboard-container" ng-if="!showLoader">
-      <div class="dashboard-sub-container" ng-if="features[0].selected">
+      <div class="dashboard-sub-container" style="flex-direction: column;justify-content: start;" ng-if="features[0].selected">
+        <div class="dashboard-tile">
+          <div class="card" ng-click="showDashboard(1)">
+            <div class="description">
+              <img src="assets/img/location_pin.png" style="width: 33px;" />
+              <span>{{DashboardDetails.total_branches}}</span>
+            </div>
+            <div class="title">Branches</div>
+          </div>
+          <div class="card" ng-click="showDashboard(2)">
+            <div class="description">
+              <img src="assets/img/employee_pin.png"/>
+              <span>{{DashboardDetails.total_employees}}</span>
+            </div>
+            <div class="title">Employees</div>
+          </div>
+          <div class="card" ng-click="showDashboard(3)">
+            <div class="description">
+              <img src="assets/img/vehicle_pin.png"/>
+              <span>{{DashboardDetails.total_vehicles}}</span>
+            </div>
+            <div class="title">Vehicles</div>
+          </div>
+        </div>
+        <ul class="list-data">
+          <li class="dashboard-list" ng-click="openUploadPayroll()">
+            <div class="details">
+              <div class="title color-card-dashboard cute-purple">
+                <span>Salary Paid ({{DashboardDetails.payroll_month}})</span>
+                <span>₹{{DashboardDetails.total_salary / 2 | number}}</span>
+              </div>
+            </div>
+          </li>
+          <li class="dashboard-list" ng-click="showDashboard(11)">
+            <div class="details">
+              <div class="title color-card-dashboard cute-red">
+                <span>Blocked Users</span>
+                <span>{{DashboardDetails.total_blocked}}</span>
+              </div>
+            </div>
+          </li>
+          <li class="dashboard-list" ng-click="showDashboard(5)">
+            <div class="details">
+              <div class="title color-card-dashboard cute-darkpurple">
+                <span>Track Targets</span>
+              </div>
+            </div>
+          </li>
+          <li class="dashboard-list" ng-click="showDashboard(10)">
+            <div class="details">
+              <div class="title color-card-dashboard cute-green">
+                <span>Download Reports</span>
+              </div>
+            </div>
+          </li>
+          <li class="dashboard-list" ng-click="showDashboard(6)">
+            <div class="details">
+              <div class="title color-card-dashboard cute-orange">
+                <span>Leave Requests</span>
+              </div>
+            </div>
+          </li>
+          <li class="dashboard-list" ng-click="showDashboard(8)">
+            <div class="details">
+              <div class="title color-card-dashboard cute-mustard">
+                <span>Employee Questions</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="dashboard-sub-container" ng-if="features[1].selected">
         <ul class="list-data" ng-if="all_branches.length > 0">
           <li ng-repeat="branch in all_branches">
             <div class="deleting" ng-if="branch.deleting"></div>
@@ -98,11 +169,11 @@
           <div>No Branches added. Please add a branch using the <i class="fa fa-plus"></i> icon at the top</div>          
         </div>
       </div>
-      <div class="dashboard-sub-container" ng-if="features[1].selected">
+      <div class="dashboard-sub-container" ng-if="features[2].selected">
         <ul class="list-data" ng-if="all_employees.length > 0">
           <li ng-repeat="employee in all_employees" ng-click="updateEmployee($index)">
             <div class="deleting" ng-if="employee.deleting"></div>
-            <div class="trash" ng-click="deleteEmployee($index)">
+            <div class="trash" ng-click="deleteEmployee($index);$event.stopPropagation()">
               <i class="fa fa-trash" style="font-size: 22px;"></i>
             </div>
             <div class="img">
@@ -120,29 +191,37 @@
           <div>No Employees added. Please add an employee using the <i class="fa fa-plus"></i> icon at the top</div>          
         </div>
       </div>
-      <div class="dashboard-sub-container" ng-if="features[2].selected">
-        <ul class="list-data" ng-if="all_salaries.length > 0">
-          <li ng-repeat="salary in all_salaries" ng-click="openUpdateSalary($index)">
-            <!-- <div class="deleting" ng-if="salary.deleting"></div>
-            <div class="trash" ng-click="deleteEmployee($index)">
+      <div class="dashboard-sub-container" ng-if="features[3].selected">
+        <ul class="list-data" ng-if="all_vehicles.length > 0">
+          <li ng-repeat="vehicle in all_vehicles">
+            <div class="deleting" ng-if="vehicle.deleting"></div>
+            <div class="trash" ng-click="deleteVehicle($index)">
               <i class="fa fa-trash" style="font-size: 22px;"></i>
-            </div> -->
+            </div>
             <div class="img">
-              <img src="assets/img/salary_pin.png"/>
+              <img src="assets/img/vehicle_pin.png"/>
             </div>
             <div class="details">
-              <div class="title">{{salary.first_name}} {{salary.last_name}}</div>
-              <div class="address">{{salary.designation}} ({{salary.employee_id}})</div>
-              <div class="latlon">₹{{salary.gross_income | number}}</div>
+              <div class="title" style="text-transform: uppercase;">
+                KA{{vehicle.vehicle_number}}
+              </div>
+              <div class="address">{{vehicle.model}} ({{vehicle.color}})</div>
+              <div class="latlon">Last Oil Change : {{vehicle.oil_change_kms}} kms</div>
+              <div class="latlon">Last Service : {{vehicle.last_service_kms}} kms | {{vehicle.last_service_date}}</div>
+              <hr/>
+              <div class="latlon">Current Kms: {{vehicle.current_kms}} kms</div>
+              <hr/>
+              <div class="latlon">Next Oil Change : {{vehicle.next_oil_change_kms}} kms</div>
+              <div class="latlon">Next Service : {{vehicle.next_service_kms}} kms | {{vehicle.next_service_date}}</div>
             </div>
           </li>
         </ul>
-        <div class="nothing-message" ng-if="all_salaries.length == 0">
-          <img src="assets/img/no_employee.png" style="width: 120px;margin: 0 auto;" />
-          <div>No Employees added. Please add an employee using the <i class="fa fa-plus"></i> icon at the top & then update salary</div>          
+        <div class="nothing-message" ng-if="all_vehicles.length == 0">
+          <img src="assets/img/vehicle_pin.png" style="width: 120px;margin: 0 auto;" />
+          <div>No Vehicles added. Please add a vehicle using the <i class="fa fa-plus"></i> icon at the top & then update details</div>          
         </div>
       </div>
-      <div class="dashboard-sub-container" ng-if="features[3].selected">
+      <div class="dashboard-sub-container" ng-if="features[4].selected">
         <ul class="list-data" ng-if="all_incentives.length > 0">
           <li ng-repeat="incentive in all_incentives">
             <div class="deleting" ng-if="incentive.deleting"></div>
@@ -164,7 +243,29 @@
           <div>No Incentives added for this month. Please add an incentive using the <i class="fa fa-plus"></i> icon at the top</div>          
         </div>
       </div>
-      <div class="dashboard-sub-container" ng-if="features[4].selected" style="display: flex;flex-direction: column;justify-content: flex-start;">
+      <div class="dashboard-sub-container" ng-if="features[11].selected">
+        <ul class="list-data" ng-if="all_users_blocked.length > 0">
+          <li ng-repeat="users in all_users_blocked">
+            <div class="trash" ng-click="unblockUser($index)">
+              <i class="fa fa-unlock" style="font-size: 22px;"></i>
+            </div>
+            <div class="img">
+              <img src="assets/img/employee_pin.png"/>
+            </div>
+            <div class="details">
+              <div class="title">{{users.first_name}} {{users.last_name}}
+              </div>
+              <div class="address">{{users.designation}} ({{users.employee_id}})</div>
+              <div class="latlon">Failed Attempts : {{users.failed_login_attempts}}</div>
+            </div>
+          </li>
+        </ul>
+        <div class="nothing-message" ng-if="all_users_blocked.length == 0">
+          <img src="assets/img/no_incentive.png" style="width: 120px;margin: 0 auto;" />
+          <div>No Users Blocked.</div>          
+        </div>
+      </div>
+      <div class="dashboard-sub-container" ng-if="features[5].selected" style="display: flex;flex-direction: column;justify-content: flex-start;">
         <div class="welcome-message" style="margin-top: 0px;padding: 10px 3px;font-style: italic;font-size: 15px;">**All target data as on <b>{{all_targets[0][0].date}}</b> for <b>ALL</b> Location(s).</div>
         <ul class="list-data" ng-if="all_targets.length > 0">
           <li>
@@ -217,7 +318,7 @@
           <div>No Targets added for this month. Please upload the targets using the <i class="fa fa-plus"></i> icon at the top</div>          
         </div>
       </div>
-      <div class="dashboard-sub-container" ng-if="features[5].selected">
+      <div class="dashboard-sub-container" ng-if="features[6].selected">
         <ul class="list-data" ng-if="all_leaves.length > 0">
           <li ng-repeat="leave in all_leaves">
             <div class="deleting" ng-if="leave.deleting"></div>
@@ -246,7 +347,7 @@
           <div>No Leave Requests added. Please use the <i class="fa fa-filter"></i> icon at the top to filter pending & approved requests</div>          
         </div>
       </div>
-      <div class="dashboard-sub-container" ng-if="features[6].selected">
+      <div class="dashboard-sub-container" ng-if="features[7].selected">
         <ul class="list-data" ng-if="all_holidays.length > 0">
           <li ng-repeat="holiday in all_holidays">
             <div class="deleting" ng-if="holiday.deleting"></div>
@@ -268,8 +369,8 @@
           <div>No Holidays added. Please add a holiday using the <i class="fa fa-plus"></i> icon at the top</div>          
         </div>
       </div>
-      <div class="dashboard-container" ng-if="features[7].selected">Employee Questions</div>
-      <div class="dashboard-sub-container" ng-if="features[8].selected">
+      <div class="dashboard-container" ng-if="features[8].selected">Employee Questions</div>
+      <div class="dashboard-sub-container" ng-if="features[9].selected">
         <ul class="list-data" ng-if="all_announcements.length > 0">
           <li ng-repeat="announcement in all_announcements">
             <div class="img">
@@ -290,7 +391,7 @@
           <div>No Announcements added. Please use the <i class="fa fa-filter"></i> icon at the top to create announcements</div>          
         </div>
       </div>
-      <div class="dashboard-sub-container" ng-if="features[9].selected">
+      <div class="dashboard-sub-container" ng-if="features[10].selected">
         <ul class="list-data">
 
           <li style="flex-grow: 2; flex-direction: column;">
@@ -558,6 +659,111 @@
           <div class="loader inside-btn" ng-if="showBtnLoader"></div>
           <span ng-if="!showBtnLoader && !employee.update">ADD EMPLOYEE</span>
           <span ng-if="!showBtnLoader && employee.update">UPDATE EMPLOYEE</span>
+        </div>
+      </div>
+      <!-- <div class="signup-email-input-container material-input-wrapper create-account"> -->
+        <!-- <span class="sign-up-txt">Not an Admin?&nbsp;</span> -->
+        <!-- <span class="sign-up-btn" ng-click="openPlaystore()">User Connect</span> -->
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>
+<div class="modal fade" id="lab-slide-bottom-popup-vehicle" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal">
+      <div class="lab-modal-head">
+        <div class="modal-title-container">
+          <span class="modal-title">ESSARR AUTOMOTIVES</span>
+        </div>
+        <div class="modal-desc-container">
+          <div class="modal-desc">Add a vehicle & map the location of your branches</div>
+          <img class="logo-ticket-half" src="assets/img/transfer.svg"/>
+        </div>
+      </div>
+      <div class="lab-modal-body register">
+      <div style="display: flex;flex-direction: row;min-height: 80px;">
+      <div class="signup-email-input-container material-input-wrapper">
+        <label class="signup-email-text">
+        Vehicle Number
+        </label>
+        <div class="iws-number-container">
+          <span class="iws-code" style="width: 30px;">KA</span>
+          <input class="login-signup-email-input login-email-exist-input" 
+            ng-model="vehicle.vehicle_number" type="text"
+            id="test-username-input" style="text-transform: uppercase;padding: 8px 35px;"/>
+        </div>
+      </div>
+      <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
+        <label class="signup-email-text">
+        Model
+        </label>
+        <div class="mobile-number-container">
+          <input class="login-signup-email-input login-email-exist-input" maxlength="100" 
+          ng-model="vehicle.model"
+          id="test-username-input" type="text"/>
+        </div>
+      </div>
+    </div>
+      <div style="display: flex;flex-direction: row;min-height: 80px;">
+        
+      <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
+        <label class="signup-email-text">
+        Color
+        </label>
+        <div class="mobile-number-container">
+          <input class="login-signup-email-input login-email-exist-input" maxlength="100" 
+          ng-model="vehicle.color"
+          id="test-username-input" type="text"/>
+        </div>
+      </div>
+      <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
+        <label class="signup-email-text">
+        Last Oil Change (kms)
+        </label>
+        <div class="mobile-number-container">
+          <input class="login-signup-email-input login-email-exist-input" maxlength="100" 
+          ng-model="vehicle.oil_change_kms"
+          id="test-username-input" type="number"/>
+        </div>
+      </div>
+      </div>
+      <div style="display: flex;flex-direction: row;min-height: 80px;">
+      <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
+        <label class="signup-email-text">
+        Last Service (kms)
+        </label>
+        <div class="mobile-number-container">
+          <input class="login-signup-email-input login-email-exist-input" maxlength="100" 
+          ng-model="vehicle.last_service_kms"
+          id="test-username-input" type="number"/>
+        </div>
+      </div>
+      <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
+        <label class="signup-email-text">
+        Last Service (date)
+        </label>
+        <div class="mobile-number-container">
+          <input class="login-signup-email-input login-email-exist-input"
+              maxlength="11" ng-click="showDatePicker('service_date')"
+              ng-model="vehicle.last_service_date"
+              id="test-username-input" type="text">
+        </div>
+      </div>
+    </div>
+      <div class="signup-email-input-container material-input-wrapper" ng-if="!showOTP">
+        <label class="signup-email-text">
+        Reporting Location
+        </label>
+        <div class="mobile-number-container">
+          <select ng-model="vehicle.branch_id">
+            <option ng-value="null" selected="">Select Reporting Location</option>
+            <option ng-repeat="l in all_branches" ng-value="{{l.id}}">{{l.name}}</option>
+          </select>
+        </div>
+      </div>
+        <div class="part3 btn-container" style="margin-top: 30px;margin-bottom: 30px;">
+        <div class="continue-btn" ng-click="addVehicle()">
+          <div class="loader inside-btn" ng-if="showBtnLoader"></div>
+          <span ng-if="!showBtnLoader">ADD VEHICLE</span>
         </div>
       </div>
       <!-- <div class="signup-email-input-container material-input-wrapper create-account"> -->
@@ -848,6 +1054,49 @@
       </div>
     </div>
   </div>
+  <div class="modal fade" id="lab-slide-bottom-popup-upload-salary" data-keyboard="false" data-backdrop="false">
+    <div class="lab-modal">
+      <div class="lab-modal-head">
+        <div class="modal-title-container">
+          <span class="modal-title">ESSARR AUTOMOTIVES</span>
+        </div>
+        <div class="modal-desc-container">
+          <div class="modal-desc">Upload the Monthly payroll salary data & enable Employees to download their payslips</div>
+          <img class="logo-ticket-half" src="assets/img/transfer.svg"/>
+        </div>
+      </div>
+      <div class="lab-modal-body register">
+        <div class="signup-email-input-container material-input-wrapper">
+          <label class="signup-email-text">
+          Upload Payroll Month
+          </label>
+          <div class="mobile-number-container">
+            <select ng-model="selected_upload_payroll_month">
+              <option ng-repeat="l in upload_payroll_months track by $index" ng-value="l">{{l}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="upload-container">
+          <div class="title">Drag and drop your files</div>
+          <div class="area"><i class="fa fa-upload"></i></div>
+          <input type="file" name="file_upload" onchange="angular.element(this).scope().uploadFileMS(this)"
+                        style="margin: 25px auto;min-width: 160px;width:50%;border: 1px solid rgba(0,0,0,0.3);padding: 2px 2px 2px 2px;width: 100%;"/>
+          <div class="subtitle">or click on the area</div>
+        </div>
+        <div class="error-message" ng-if="Dashboard.FileMessage">{{Dashboard.FileMessage}}</div>
+      <div class="part3 btn-container" style="margin-top: 30px;margin-bottom: 30px;">
+        <div class="continue-btn" ng-click="uploadPayroll()">
+          <div class="loader inside-btn" ng-if="showBtnLoader"></div>
+          <span ng-if="!showBtnLoader">UPLOAD PAYROLL</span>
+        </div>
+      </div>
+      <!-- <div class="signup-email-input-container material-input-wrapper create-account"> -->
+        <!-- <span class="sign-up-txt">Not an Admin?&nbsp;</span> -->
+        <!-- <span class="sign-up-btn" ng-click="openPlaystore()">User Connect</span> -->
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>
 <div class="modal fade" id="lab-slide-bottom-popup-announcements" data-keyboard="false" data-backdrop="false">
     <div class="lab-modal">
       <div class="lab-modal-head">
@@ -878,7 +1127,7 @@
         </label>
         <div class="mobile-number-container">
           <select ng-model="announcement.category">
-            <option ng-value="ALL" selected="true">ALL</option>
+            <option value="ALL" selected="true">ALL</option>
             <option ng-repeat="l in all_categories track by $index" ng-value="all_categories[$index].designation">{{l.designation}}</option>
           </select>
         </div>

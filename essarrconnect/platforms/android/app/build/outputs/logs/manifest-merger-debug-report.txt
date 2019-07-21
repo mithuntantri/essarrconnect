@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:2:1-107:12
 MERGED from [com.google.android.gms:play-services-location:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-location-15.0.1.aar/6be65767af4ad51f14db2ac03b843b79/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-messaging:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-messaging-15.0.2.aar/e4487477806cc06e340a5114495c6630/AndroidManifest.xml:17:1-37:12
@@ -22,7 +22,7 @@ MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] /home/m
 MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-15.0.1.aar/58a47c6766af421e7ece06a7754f8f97/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/41bdad97a0bc4ea0c07c0017ff919de1/AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/5a3d668dc01d26b791033171498f49e2/AndroidManifest.xml:17:1-22:12
-MERGED from [:CordovaLib] /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:20:1-27:12
+MERGED from [:CordovaLib] /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:20:1-27:12
 MERGED from [com.android.support:customtabs:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/customtabs-27.1.1.aar/5817fd52c5e0e2445a427bd0a12af89d/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-media-compat:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/a7130e053c9ade964f8b6ad89f989c5d/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-fragment:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/f891eae5b5e35466a45c5ff680b5325c/AndroidManifest.xml:17:1-22:12
@@ -34,41 +34,41 @@ MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/mithuntantri/.gra
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/9b9471a95dba1589b8a8790ad570ce85/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/e150e7b989f548be8325a1b324705abf/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-15.0.2.aar/bb264edd385e3e9dafd45baf850a80e6/AndroidManifest.xml:17:1-24:12
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
-INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:1-60:12
 	package
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:102-146
-		INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:102-146
+		INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml
 	android:versionName
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:74-101
-		INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:74-101
+		INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml
 	android:hardwareAccelerated
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:11-45
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:11-45
 	xmlns:android
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:147-205
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:147-205
 	android:versionCode
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:46-73
-		INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:2:46-73
+		INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml
 supports-screens
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:3:5-191
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:3:5-191
 	android:largeScreens
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:3:49-76
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:3:49-76
 	android:smallScreens
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:3:132-159
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:3:132-159
 	android:normalScreens
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:3:77-105
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:3:77-105
 	android:xlargeScreens
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:3:160-188
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:3:160-188
 	android:resizeable
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:3:106-131
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:3:106-131
 	android:anyDensity
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:3:23-48
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:3:23-48
 uses-permission#android.permission.INTERNET
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:4:5-67
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:4:5-67
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:17:5-67
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:17:5-67
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/301501545a85f523a38a972f0f51eb9d/AndroidManifest.xml:22:5-67
@@ -80,9 +80,9 @@ MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntan
 MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:4:22-64
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:4:22-64
 application
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:5:5-41:19
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:5:5-41:19
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:49:5-105:19
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:49:5-105:19
 MERGED from [com.google.android.gms:play-services-location:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-location-15.0.1.aar/6be65767af4ad51f14db2ac03b843b79/AndroidManifest.xml:7:5-20
@@ -120,151 +120,151 @@ MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/mithunt
 MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-15.0.2.aar/bb264edd385e3e9dafd45baf850a80e6/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-15.0.2.aar/bb264edd385e3e9dafd45baf850a80e6/AndroidManifest.xml:22:5-20
 	android:supportsRtl
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:5:114-140
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:5:114-140
 	android:label
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:5:81-113
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:5:81-113
 	android:hardwareAccelerated
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:5:18-52
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:5:18-52
 	android:icon
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:5:53-80
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:5:53-80
 activity#com.essarrautomotives.adminconnect.MainActivity
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:6:9-11:20
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:6:9-11:20
 	android:label
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:6:97-134
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:6:97-134
 	android:launchMode
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:6:135-165
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:6:135-165
 	android:windowSoftInputMode
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:6:257-299
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:6:257-299
 	android:configChanges
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:6:19-96
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:6:19-96
 	android:theme
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:6:194-256
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:6:194-256
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:6:166-193
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:6:166-193
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:7:13-10:29
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:7:13-10:29
 	android:label
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:7:28-65
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:7:28-65
 action#android.intent.action.MAIN
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:8:17-69
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:8:17-69
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:8:25-66
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:8:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:9:17-77
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:9:17-77
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:9:27-74
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:9:27-74
 amazon:enable-feature
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:12:9-159
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:12:9-159
 	xmlns:amazon
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:12:100-156
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:12:100-156
 	android:required
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:12:75-99
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:12:75-99
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:12:32-74
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:12:32-74
 service#com.onesignal.ADMMessageHandler
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:13:9-92
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:13:9-92
 	android:exported
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:13:18-42
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:13:18-42
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:13:43-89
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:13:43-89
 receiver#com.onesignal.ADMMessageHandler$Receiver
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:14:9-20:20
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:14:9-20:20
 	android:permission
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:14:75-139
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:14:75-139
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:14:19-74
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:14:19-74
 intent-filter#com.amazon.device.messaging.intent.RECEIVE+com.amazon.device.messaging.intent.REGISTRATION+com.essarrautomotives.adminconnect
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:15:13-19:29
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:15:13-19:29
 action#com.amazon.device.messaging.intent.REGISTRATION
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:16:17-90
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:16:17-90
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:16:25-87
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:16:25-87
 action#com.amazon.device.messaging.intent.RECEIVE
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:17:17-85
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:17:17-85
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:17:25-82
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:17:25-82
 category#com.essarrautomotives.adminconnect
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:18:17-79
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:18:17-79
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:18:27-76
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:18:27-76
 meta-data#com.google.android.gms.version
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:21:9-122
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:21:9-122
 MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/41bdad97a0bc4ea0c07c0017ff919de1/AndroidManifest.xml:23:9-25:69
 MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/41bdad97a0bc4ea0c07c0017ff919de1/AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:21:66-119
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:21:66-119
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:21:20-65
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:21:20-65
 service#com.marianhello.bgloc.sync.SyncService
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:22:9-27:19
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:22:9-27:19
 	android:process
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:22:96-119
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:22:96-119
 	android:exported
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:22:18-41
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:22:18-41
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:22:42-95
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:22:42-95
 intent-filter#android.content.SyncAdapter
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:23:13-25:29
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:23:13-25:29
 action#android.content.SyncAdapter
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:24:17-70
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:24:17-70
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:24:25-67
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:24:25-67
 meta-data#android.content.SyncAdapter
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:26:13-105
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:26:13-105
 	android:resource
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:26:67-102
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:26:67-102
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:26:24-66
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:26:24-66
 service#com.marianhello.bgloc.sync.AuthenticatorService
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:28:9-33:19
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:28:9-33:19
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:28:18-80
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:28:18-80
 intent-filter#android.accounts.AccountAuthenticator
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:29:13-31:29
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:29:13-31:29
 action#android.accounts.AccountAuthenticator
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:30:17-80
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:30:17-80
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:30:25-77
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:30:25-77
 meta-data#android.accounts.AccountAuthenticator
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:32:13-117
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:32:13-117
 	android:resource
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:32:77-114
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:32:77-114
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:32:24-76
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:32:24-76
 provider#com.marianhello.bgloc.sync.DummyContentProvider
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:34:9-181
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:34:9-181
 	android:authorities
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:34:19-66
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:34:19-66
 	android:syncable
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:34:155-178
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:34:155-178
 	android:exported
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:34:67-91
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:34:67-91
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:34:92-154
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:34:92-154
 service#com.marianhello.bgloc.LocationService
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:35:9-121
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:35:9-121
 	android:enabled
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:35:18-40
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:35:18-40
 	android:exported
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:35:41-65
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:35:41-65
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:35:66-118
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:35:66-118
 receiver#com.marianhello.bgloc.BootCompletedReceiver
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:36:9-40:20
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:36:9-40:20
 	android:enabled
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:36:19-41
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:36:19-41
 	android:exported
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:36:42-65
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:36:42-65
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:36:66-124
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:36:66-124
 intent-filter#android.intent.action.BOOT_COMPLETED
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:37:13-39:29
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:37:13-39:29
 action#android.intent.action.BOOT_COMPLETED
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:38:17-79
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:38:17-79
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:38:25-76
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:38:25-76
 uses-sdk
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:42:5-74
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:42:5-74
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:5:5-44
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-location:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-location-15.0.1.aar/6be65767af4ad51f14db2ac03b843b79/AndroidManifest.xml:5:5-44
@@ -301,8 +301,8 @@ MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/mithunt
 MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/41bdad97a0bc4ea0c07c0017ff919de1/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/5a3d668dc01d26b791033171498f49e2/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/5a3d668dc01d26b791033171498f49e2/AndroidManifest.xml:20:5-44
-MERGED from [:CordovaLib] /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:25:5-44
-MERGED from [:CordovaLib] /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:25:5-44
+MERGED from [:CordovaLib] /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:25:5-44
+MERGED from [:CordovaLib] /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:25:5-44
 MERGED from [com.android.support:customtabs:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/customtabs-27.1.1.aar/5817fd52c5e0e2445a427bd0a12af89d/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:customtabs:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/customtabs-27.1.1.aar/5817fd52c5e0e2445a427bd0a12af89d/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-media-compat:27.1.1] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/a7130e053c9ade964f8b6ad89f989c5d/AndroidManifest.xml:20:5-44
@@ -326,59 +326,59 @@ MERGED from [android.arch.core:runtime:1.1.0] /home/mithuntantri/.gradle/caches/
 MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-15.0.2.aar/bb264edd385e3e9dafd45baf850a80e6/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-15.0.2.aar/bb264edd385e3e9dafd45baf850a80e6/AndroidManifest.xml:20:5-44
 	android:targetSdkVersion
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:42:42-71
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:42:42-71
 	android:minSdkVersion
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:42:15-41
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:42:15-41
 uses-permission#android.permission.RECEIVE_SMS
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:43:5-70
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:43:5-70
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:43:22-67
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:43:22-67
 uses-permission#com.amazon.device.messaging.permission.RECEIVE
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:44:5-86
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:44:5-86
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:44:22-83
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:44:22-83
 permission#com.essarrautomotives.adminconnect.permission.RECEIVE_ADM_MESSAGE
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:45:5-136
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:45:5-136
 	android:protectionLevel
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:45:98-133
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:45:98-133
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:45:17-97
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:45:17-97
 uses-permission#com.essarrautomotives.adminconnect.permission.RECEIVE_ADM_MESSAGE
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:46:5-105
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:46:5-105
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:46:22-102
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:46:22-102
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:47:5-81
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:47:5-81
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:47:22-78
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:47:22-78
 uses-permission#android.permission.AUTHENTICATE_ACCOUNTS
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:48:5-80
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:48:5-80
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:48:22-77
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:48:22-77
 uses-permission#android.permission.GET_ACCOUNTS
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:49:5-71
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:49:5-71
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:49:22-68
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:49:22-68
 uses-permission#android.permission.READ_SYNC_SETTINGS
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:50:5-77
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:50:5-77
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:50:22-74
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:50:22-74
 uses-permission#android.permission.WRITE_SYNC_SETTINGS
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:51:5-78
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:51:5-78
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:51:22-75
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:51:22-75
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:52:5-81
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:52:5-81
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:30:5-81
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:30:5-81
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:52:22-78
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:52:22-78
 uses-permission#com.google.android.gms.permission.ACTIVITY_RECOGNITION
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:53:5-94
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:53:5-94
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:53:22-91
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:53:22-91
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:54:5-79
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:54:5-79
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:25:5-79
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:25:5-79
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/301501545a85f523a38a972f0f51eb9d/AndroidManifest.xml:23:5-79
@@ -390,21 +390,21 @@ MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntan
 MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:22:5-79
 MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:22:5-79
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:54:22-76
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:54:22-76
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:55:5-81
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:55:5-81
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:55:22-78
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:55:22-78
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:56:5-79
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:56:5-79
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:56:22-76
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:56:22-76
 uses-permission#android.permission.ACCESS_LOCATION_EXTRA_COMMANDS
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:57:5-89
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:57:5-89
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:57:22-86
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:57:22-86
 uses-permission#android.permission.WAKE_LOCK
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:58:5-68
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:58:5-68
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:19:5-68
 MERGED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:19:5-68
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:15.0.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-15.0.0.aar/301501545a85f523a38a972f0f51eb9d/AndroidManifest.xml:24:5-68
@@ -416,11 +416,11 @@ MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] /home/mithuntan
 MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:24:5-68
 MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:24:5-68
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:58:22-65
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:58:22-65
 uses-permission#android.hardware.location
-ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:59:5-65
+ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:59:5-65
 	android:name
-		ADDED from /home/mithuntantri/mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:59:22-62
+		ADDED from /home/mithuntantri/.mithuntantri/essarrconnect/essarrconnect/platforms/android/app/src/main/AndroidManifest.xml:59:22-62
 permission#${applicationId}.permission.C2D_MESSAGE
 ADDED from [com.onesignal:OneSignal:3.10.5] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/OneSignal-3.10.5.aar/754787abc5a2fee68452a123636332e5/AndroidManifest.xml:8:5-10:47
 MERGED from [com.google.firebase:firebase-iid:15.1.0] /home/mithuntantri/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.1.0.aar/7651669b3f4dcd2527f54e55e2be1195/AndroidManifest.xml:28:5-30:47

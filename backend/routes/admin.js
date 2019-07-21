@@ -558,6 +558,22 @@ router.delete("/branches", passport.authenticate('jwt', {session: true}), functi
   })
 })
 
+router.delete("/vehicles", passport.authenticate('jwt', {session: true}), function(req, res, next) {
+  var username =  req.session.passport.user.username;
+  var id = req.query.id
+  new Promise((resolve, reject)=>{
+    user.deleteVehicles(id).then((data)=>{
+      resolve(data)
+    }).catch((err)=>{
+      reject(err)
+    })
+  }).then((data)=>{
+    res.json({'status': true, 'data': data})
+  }).catch((err)=>{
+    res.json({'status': false, 'message': err})
+  })
+})
+
 router.delete("/holidays", passport.authenticate('jwt', {session: true}), function(req, res, next) {
   var username =  req.session.passport.user.username;
   var id = req.query.id

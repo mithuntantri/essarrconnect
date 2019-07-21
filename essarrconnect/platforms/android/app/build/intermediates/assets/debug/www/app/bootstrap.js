@@ -1,7 +1,7 @@
 // (function() {
     'use strict';
 
-    var origin = 'http://essarrautomotives.com'
+    var origin = 'http://9dbb4575.ngrok.io'
     var baseUrl = origin + '/api'
     var addedObservers = false
     
@@ -29,6 +29,20 @@
                     User.getAdminDetails().then((result)=>{
                         if(result.data.status){
                             User.AdminDetails = result.data.data
+                            deferred.resolve()
+                        }else{
+                            deferred.reject()
+                        }
+                    }).catch(()=>{
+                        deferred.reject()
+                    })
+                    return deferred.promise
+                }],
+                getDashboardDetails: ['$q', 'Dashboard', function($q, Dashboard){
+                    let deferred = $q.defer()
+                    Dashboard.getDashboardDetails().then((result)=>{
+                        if(result.data.status){
+                            Dashboard.DashboardDetails = result.data.data
                             deferred.resolve()
                         }else{
                             deferred.reject()

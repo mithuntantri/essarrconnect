@@ -15,8 +15,8 @@
   <div class="target">
     <div class="value">
       <span class="green">
-      {{msga.as_on}}</span> 
-      / {{msga.target}}
+      {{msga.as_on | truncateValue}}</span> 
+      / {{msga.target | truncateValue}}
     </div>
     <div class="title">
       Progress vs Target
@@ -24,7 +24,7 @@
   </div>
   <div class="target">
     <div class="value red">
-      {{msga.per_day}}
+      {{msga.per_day | truncateValue}}
     </div>
      <div class="title">
       Balance/Day
@@ -45,7 +45,7 @@
     <div class="icon"><img src="assets/img/holiday_pin.png"/></div>
     <div class="title">My Leaves</div>
   </div>
-  <div class="feature" ng-click="openAddModal('payslips')">
+  <div class="feature" ng-click="openPayslips()">
     <div class="icon"><img src="assets/img/salary.png"/></div>
     <div class="title">My Payslips</div>
   </div>
@@ -65,7 +65,7 @@
     <div class="icon"><img src="assets/img/badge.png"/></div>
     <div class="title">Rewards & Recognition</div>
   </div>
-  <div class="feature" ng-click="openVehicleMaintenance()">
+  <div class="feature" ng-click="goTo('/vehicles')">
     <div class="icon"><img src="assets/img/maintenance.png"/></div>
     <div class="title">Vehicle Maintenance</div>
   </div>
@@ -106,13 +106,13 @@
           Leave Description
           </label>
           <div class="mobile-number-container">
-            <textarea style="height: 60px;outline: none;" class="login-signup-email-input login-email-exist-input" maxlength="500" 
+            <textarea style="outline: none;" class="login-signup-email-input login-email-exist-input" maxlength="500" 
             ng-model="leave.description"
             id="test-username-input" type="text"></textarea>
           </div>
         </div>
-        <div class="signup-email-input-container material-input-wrapper" style="display: flex;flex-direction: row;margin-left:0;margin-right: 0px;">
-          <div class="signup-email-input-container material-input-wrapper">
+        <div style="display: flex;flex-direction: row;margin-left:0;margin-right: 0px;margin: 0;">
+          <div class="signup-email-input-container material-input-wrapper" style="margin-top: 0px;">
             <label class="signup-email-text">
             Start Date
             </label>
@@ -123,7 +123,7 @@
               id="test-username-input" type="text">
             </div>
           </div>
-          <div class="signup-email-input-container material-input-wrapper">
+          <div class="signup-email-input-container material-input-wrapper" style="margin-top: 0px;">
             <label class="signup-email-text">
             End Date
             </label>
@@ -264,7 +264,7 @@
           </div>
           <div class="signup-email-input-container large material-input-wrapper">
             <label class="signup-email-text">
-            Bank Account Number
+            Acc. Number ()
             </label>
             <div class="mobile-number-container">
               <input class="login-signup-email-input login-email-exist-input"
@@ -337,7 +337,7 @@
             </div>
             <div class="details" style="flex-grow: 2;">
               <div class="title">{{announcement.title}}</div>
-              <div class="address">{{announcement.message}}</div>
+              <div class="address" ng-bind-html="announcement.message"></div>
               <div class="latlon" ng-cloak style="font-size: 13px;font-weight: normal;text-align: right;">
                 <span data-livestamp="{{announcement.timestamp}}"></span>
               </div>

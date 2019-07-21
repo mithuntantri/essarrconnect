@@ -1,0 +1,65 @@
+<div class="dashboard-container">
+  <div id="cont">
+    <div ng-click="drawer.show()" class="fixed" id="topbar">
+      <div class="title">
+        {{ title }}
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-container" ng-if="showLoader">
+    <div class="loader"></div>
+  </div>
+	<div class="dashboard-sub-container" ng-if="!showLoader" style="flex-direction: column;justify-content: flex-start;">
+        <div class="welcome-message" style="margin-top: 60px;margin-top: 60px;padding: 10px 3px;font-style: italic;font-size: 15px;">**All target data as on <b>{{as_on}}</b> for <b>{{location}}</b> Location.</div>
+        <ul class="list-data" ng-if="all_targets.length > 0">
+          <li>
+            <div class="img">
+              <img src="assets/img/no_targets.png"/>
+            </div>
+            <div class="details" style="flex-grow: 2;">
+              <div class="title">MSGP Target</div>
+              <div class="grid-container">
+                <div class="grid">
+                  <div class="value">{{msgp_completed}}</div>
+                  <div class="title">Completed</div>
+                </div>
+                 <div class="grid">
+                  <div class="value">{{msgp_target}}</div>
+                  <div class="title">Target</div>
+                </div>
+                <div class="grid">
+                  <div class="value">{{msgp_balance_per_day}}</div>
+                  <div class="title">Balance/Day</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="img">
+              <img src="assets/img/no_targets.png"/>
+            </div>
+            <div class="details" style="flex-grow: 2;">
+              <div class="title">MSGA Target</div>
+              <div class="grid-container">
+                <div class="grid">
+                  <div class="value">{{msga_completed}}</div>
+                  <div class="title">Completed</div>
+                </div>
+                 <div class="grid">
+                  <div class="value">{{msga_target}}</div>
+                  <div class="title">Target</div>
+                </div>
+                <div class="grid">
+                  <div class="value">{{msga_balance_per_day}}</div>
+                  <div class="title">Balance/Day</div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="nothing-message" ng-if="all_targets.length == 0">
+          <img src="assets/img/no_targets.png" style="width: 120px;margin: 0 auto;" />
+          <div>No Targets added for this month. Please contact the administrator to update the monthly targets</div>          
+        </div>
+    </div>
+</div>
