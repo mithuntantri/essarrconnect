@@ -28,7 +28,7 @@
     "fs": "0.0.1-security",
     "get-video-duration": "^0.2.0",
     "goo.gl": "^0.1.4",
-    "html-pdf": "^2.2.0",
+    "html-pdf": "^3.0.1",
     "jade": "~1.11.0",
     "json2xls": "^0.1.2",
     "jwt-simple": "^0.5.1",
